@@ -301,14 +301,18 @@
         <textarea id="modalEmailBody" rows="8" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-slate-200 leading-relaxed focus:outline-none focus:border-emerald-500 selection:bg-emerald-600"></textarea>
       </div>
 
-      <div class="flex items-center justify-between pt-2">
-        <button onclick="copySingleEmail()" id="modalCopyBtn" class="btn btn-brand text-xs px-4 py-2 flex items-center gap-1.5 font-bold">
+      <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
+        <button onclick="copySingleEmail()" id="modalCopyBtn" class="btn btn-brand text-xs px-3.5 py-2 flex items-center gap-1.5 font-bold">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          <span id="modalCopyText">کپی متن در کلیپ‌بورد</span>
+          <span id="modalCopyText">کپی متن</span>
         </button>
 
-        <a id="modalMailtoLink" href="#" target="_blank" class="btn btn-outline text-xs px-4 py-2 text-slate-300 hover:text-white flex items-center gap-1 font-bold">
-          <span>باز کردن در برنامه ایمیل گوشی</span> &larr;
+        <button onclick="if(singleEmailEntity) openWhatsAppForEntity(singleEmailEntity);" class="btn text-xs px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-md">
+          <span>💬 ارسال مستقیم به واتساپ مخاطب</span>
+        </button>
+
+        <a id="modalMailtoLink" href="#" target="_blank" class="btn btn-outline text-xs px-3 py-2 text-slate-300 hover:text-white flex items-center gap-1 font-bold">
+          <span>برنامه ایمیل</span> &larr;
         </a>
       </div>
     </div>
@@ -481,7 +485,11 @@
               <td class="text-slate-300 text-xs">${displayRole}</td>
               <td class="text-slate-300 text-xs max-w-xs">${displayPitch}</td>
               <td>
-                <button onclick="openSingleEmailModal(${JSON.stringify(c).replace(/"/g, '&quot;')}, 'company')" class="btn btn-outline text-xs px-2.5 py-1 text-emerald-400 hover:bg-emerald-950 font-bold">${dict.btn_draft_email}</button>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <button onclick="openSingleEmailModal(${JSON.stringify(c).replace(/"/g, '&quot;')}, 'company')" class="btn btn-outline text-[11px] px-2 py-1 text-emerald-400 hover:bg-emerald-950 font-bold" title="ارسال یا تنظیم ایمیل">✉️ ${dict.btn_draft_email}</button>
+                  <button onclick="openWhatsAppForEntity(${JSON.stringify(c).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm" title="ارسال پیام مستقیم در واتساپ">💬 واتساپ</button>
+                  <a href="tel:${c.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                </div>
               </td>
             </tr>
           `;
@@ -533,7 +541,11 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayFocus}</td>
               <td>
-                <button onclick="openSingleEmailModal(${JSON.stringify(u).replace(/"/g, '&quot;')}, 'uni')" class="btn btn-outline text-xs px-2.5 py-1 text-cyan-400 hover:bg-cyan-950 font-bold">${dict.btn_draft_email}</button>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <button onclick="openSingleEmailModal(${JSON.stringify(u).replace(/"/g, '&quot;')}, 'uni')" class="btn btn-outline text-[11px] px-2 py-1 text-cyan-400 hover:bg-cyan-950 font-bold">✉️ ${dict.btn_draft_email}</button>
+                  <button onclick="openWhatsAppForEntity(${JSON.stringify(u).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
+                  <a href="tel:${u.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                </div>
               </td>
             </tr>
           `;
@@ -585,7 +597,11 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayAction}</td>
               <td>
-                <button onclick="openSingleEmailModal(${JSON.stringify(n).replace(/"/g, '&quot;')}, 'ngo')" class="btn btn-outline text-xs px-2.5 py-1 text-teal-400 hover:bg-teal-950 font-bold">${dict.btn_draft_email}</button>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <button onclick="openSingleEmailModal(${JSON.stringify(n).replace(/"/g, '&quot;')}, 'ngo')" class="btn btn-outline text-[11px] px-2 py-1 text-teal-400 hover:bg-teal-950 font-bold">✉️ ${dict.btn_draft_email}</button>
+                  <button onclick="openWhatsAppForEntity(${JSON.stringify(n).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
+                  <a href="tel:${n.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                </div>
               </td>
             </tr>
           `;
@@ -637,7 +653,11 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayReachout}</td>
               <td>
-                <button onclick="openSingleEmailModal(${JSON.stringify(p).replace(/"/g, '&quot;')}, 'person')" class="btn btn-outline text-xs px-2.5 py-1 text-purple-400 hover:bg-purple-950 font-bold">${dict.btn_draft_email}</button>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <button onclick="openSingleEmailModal(${JSON.stringify(p).replace(/"/g, '&quot;')}, 'person')" class="btn btn-outline text-[11px] px-2 py-1 text-purple-400 hover:bg-purple-950 font-bold">✉️ ${dict.btn_draft_email}</button>
+                  <button onclick="openWhatsAppForEntity(${JSON.stringify(p).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
+                  <a href="tel:${p.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                </div>
               </td>
             </tr>
           `;
@@ -808,7 +828,8 @@
       return `Zero-Waste Pilot & COP31 Partnership Proposal for ${name}`;
     }
 
-    function getTemplateBody(name, lang, senderName) {
+        function getTemplateBody(name, lang, senderName) {
+      const myPhone = "+12085033653";
       if (lang === 'tr') {
         return `Sayın ${name} Yetkilisi,
 
@@ -818,8 +839,10 @@ XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; ${name
 
 Saygılarımızla,
 ${senderName}
-Atikova Climate Tech
-Web: https://atikova.com`;
+Atikova Climate Tech Hub
+İletişim & WhatsApp: ${myPhone}
+Web: https://atikova.com
+Portal: https://atikova-zero-waste-cop31.pages.dev`;
       }
       if (lang === 'fa') {
         return `مدیریت محترم ${name}،
@@ -831,7 +854,9 @@ Web: https://atikova.com`;
 با احترام،
 ${senderName}
 پروژه Atikova COP31
-وب‌سایت: https://atikova.com`;
+شماره تماس مستقیم و واتساپ: ${myPhone}
+وب‌سایت: https://atikova.com
+پرتال پروژه: https://atikova-zero-waste-cop31.pages.dev`;
       }
       return `Dear Leadership at ${name},
 
@@ -842,7 +867,28 @@ We would welcome a brief 15-minute call to review our 30-day zero-risk pilot.
 Best regards,
 ${senderName}
 Atikova Climate Tech Team
-https://atikova.com`;
+Direct Phone / WhatsApp: ${myPhone}
+Web: https://atikova.com
+Portal: https://atikova-zero-waste-cop31.pages.dev`;
+    }
+
+    function openWhatsAppForEntity(entity) {
+      const rawPhone = entity.phone || "+902120000000";
+      const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
+      const isFa = (currentGlobalLang === 'fa');
+      const name = isFa ? (entity.name_fa || entity.name) : entity.name;
+      const myPhone = "+12085033653";
+      
+      let msg = "";
+      if (currentGlobalLang === 'tr') {
+        msg = `Merhaba ${name} Yetkilisi, XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; tesislerinizde gıda atıklarını %25 azaltacak 30 günlük ücretsiz pilot projemizi sunmak isteriz. Detaylar: https://atikova-zero-waste-cop31.pages.dev - İletişim / WhatsApp: ${myPhone}`;
+      } else if (currentGlobalLang === 'fa') {
+        msg = `سلام و احترام، تیم نوآوری اقلیمی Atikova (پروژه ثبت‌شده XPRIZE Carbon Removal) آماده ارائه پایلوت رایگان ۳۰ روزه پایش و کاهش ضایعات غذا و اخذ اعتبارات کربنی برای ${name} می‌باشد. پرتال: https://atikova-zero-waste-cop31.pages.dev - تماس و واتساپ: ${myPhone}`;
+      } else {
+        msg = `Hello, As an XPRIZE Carbon Removal registered climate venture, Atikova offers a 30-day zero-risk organic waste tracking pilot for ${name}. View portal: https://atikova-zero-waste-cop31.pages.dev - Direct WhatsApp: ${myPhone}`;
+      }
+
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     // Send Test Email directly to user
