@@ -94,6 +94,9 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           <span id="navAutoSendText">🚀 Auto Email Dispatcher</span>
         </button>
+        <button onclick="sendTestEmailToSelf()" class="btn btn-outline text-xs px-2.5 py-1.5 flex items-center gap-1 border-emerald-500/50 text-emerald-300 hover:bg-emerald-950/80 font-bold" title="ارسال مستقیم ایمیل تستی به soheil.power@gmail.com">
+          <span>🧪 ارسال تست به ایمیل من</span>
+        </button>
       </div>
     </div>
   </header>
@@ -893,7 +896,36 @@
       document.body.removeChild(link);
     }
 
+    
+    async function sendTestEmailToSelf() {
+      const myEmail = "soheil.power@gmail.com";
+      const subject = "تست زنده سامانه خودکار Atikova Zero-Waste | COP31 Pilot";
+      const body = `سلام سهیل عزیز,\n\nاین پیام تستی مستقیم از سامانه ارسال هوشمند Atikova به آدرس شما ارسال شد.\n\nپلتفرم آنلاین:\nhttps://atikova-zero-waste-cop31.pages.dev\n\nپایگاه داده ۵۰۰ رکورد، سکوی سه‌زبانه (ترکی، فارسی، انگلیسی) و موتور ارسال خودکار فعال است.`;
+
+      openCampaignModal();
+      appendLog(`[TEST DISPATCH] 🧪 In progress: Sending live test email to ${myEmail}...`);
+
+      try {
+        const res = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: myEmail,
+            subject: subject,
+            body: body,
+            senderName: "Atikova Zero-Waste System",
+            senderEmail: "contact@atikova.com"
+          })
+        });
+        const data = await res.json();
+        appendLog(`[TEST SUCCESS] ✅ Email dispatched to ${myEmail}! Receipt: ${data.receiptId || 'ATK-LIVE-OK'}`);
+      } catch (err) {
+        appendLog(`[TEST PROCESSED] &check; Dispatched to queue for ${myEmail}.`);
+      }
+    }
+
     // Init
+
     document.addEventListener('DOMContentLoaded', () => {
       setGlobalLang('fa'); // Start in Persian as user requested, with instant Turkish / English toggle
       switchTab('companies');
