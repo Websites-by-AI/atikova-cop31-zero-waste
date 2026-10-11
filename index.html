@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atikova | سامانه هوشمند زباله صفر، COP31 و ارتباطات خودکار</title>
-  <meta name="description" content="Atikova Climate Tech Hub - پلتفرم جامع ۱۰۰ شرکت، ۱۰۰ دانشگاه، ۱۰۰ سمن و ۱۰۰ مدیر تصمیم‌گیرنده با قابلیت سه‌زبانه و سامانه ارسال خودکار ایمیل.">
+  <title>Atikova | سامانه ارتباطات مستقیم واتساپ، تلگرام و ایمیل پسماند صفر و COP31</title>
+  <meta name="description" content="Atikova Climate Tech Hub - پلتفرم جامع ارتباط مستقیم در واتساپ، تلگرام و ایمیل با ۱۰۰ شرکت، ۱۰۰ دانشگاه و ۱۰۰ سمن در ترکیه و مسیر COP31.">
   
-  <!-- Standalone Fallback & Base CSS -->
   <style>
     :root {
       --bg-primary: #020617;
@@ -16,6 +15,10 @@
       --text-muted: #94a3b8;
       --brand: #10b981;
       --brand-hover: #059669;
+      --whatsapp: #25D366;
+      --whatsapp-hover: #1eb956;
+      --telegram: #229ED9;
+      --telegram-hover: #1b87ba;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Vazirmatn", "IRANSans", "Tahoma", sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
@@ -25,6 +28,10 @@
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 1.1rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.15s ease; border: none; }
     .btn-brand { background-color: var(--brand); color: #020617; }
     .btn-brand:hover { background-color: var(--brand-hover); color: #fff; }
+    .btn-whatsapp { background-color: var(--whatsapp); color: #ffffff; }
+    .btn-whatsapp:hover { background-color: var(--whatsapp-hover); }
+    .btn-telegram { background-color: var(--telegram); color: #ffffff; }
+    .btn-telegram:hover { background-color: var(--telegram-hover); }
     .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
     .btn-outline:hover { border-color: var(--brand); color: var(--brand); }
     .card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.25rem; transition: transform 0.15s ease, border-color 0.15s ease; }
@@ -107,12 +114,12 @@
       <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 leading-tight">
         <span id="heroTitle1">جامع‌ترین سامانه مدیریت پسماند صفر و COP31</span> <br/>
         <span id="heroTitle2" class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-          موتور ارتباطات و ارسال خودکار پروپوزال‌های سازمانی
+          ارتباط مستقیم واتساپ، تلگرام و ایمیل با تصمیم‌گیرندگان
         </span>
       </h1>
 
       <p id="heroDesc" class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto mb-8 leading-relaxed">
-        مجهز به اطلاعات تماس تأییدشده ۱۰۰ شرکت پیشرو در ترکیه، ۱۰۰ دانشگاه، ۱۰۰ سمن و ۱۰۰ تصمیم‌گیرنده ارشد اقلیمی. راه‌اندازی کمپین‌های ارسال خودکار ایمیل با کد رهگیری زنده برای اجرای پروژه‌های پایلوت.
+        دسترسی فوری به ۱۰۰ شرکت، ۱۰۰ دانشگاه، ۱۰۰ سمن و ۱۰۰ مدیر تصمیم‌گیرنده در ترکیه. ارسال تک‌کلیک پیام در <strong>واتساپ</strong> و <strong>تلگرام</strong> و راه‌اندازی کمپین‌های خودکار ایمیل با درج شماره تماس شما <strong>(+12085033653)</strong>.
       </p>
 
       <!-- Key Metrics Counter -->
@@ -269,51 +276,67 @@
     </div>
   </div>
 
-  <!-- Single Outreach Email Modal -->
-  <div id="singleEmailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
+  <!-- Smart Multi-Channel Outreach Modal (WhatsApp + Telegram + Email) -->
+  <div id="smartOutreachModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative">
-      <button onclick="closeSingleEmailModal()" class="absolute left-4 top-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+      <button onclick="closeSmartModal()" class="absolute left-4 top-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
       
       <div class="flex items-center gap-2 mb-3">
         <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
-        <h3 class="text-base font-bold text-white">تنظیم پروپوزال و ایمیل رسمی</h3>
+        <h3 class="text-base font-bold text-white">مرکز ارتباط مستقیم چندکاناله (WhatsApp & Telegram & Email)</h3>
       </div>
 
-      <div class="mb-3">
-        <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
-          <label>سازمان هدف:</label>
-          <div class="flex gap-2">
-            <button onclick="setSingleEmailLang('fa')" id="singleEmailLangFa" class="font-bold text-emerald-400 underline">فارسی</button>
-            <button onclick="setSingleEmailLang('tr')" id="singleEmailLangTr" class="font-bold text-slate-400 hover:text-white">Türkçe</button>
-            <button onclick="setSingleEmailLang('en')" id="singleEmailLangEn" class="font-bold text-slate-400 hover:text-white">English</button>
-          </div>
+      <!-- Target Info Card -->
+      <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 mb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div>
+          <span class="text-slate-400 block text-[11px]">مخاطب انتخابی:</span>
+          <strong id="smartModalTargetName" class="text-sm font-bold text-white"></strong>
         </div>
-        <input type="text" id="modalTargetName" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs font-semibold text-white focus:outline-none focus:border-emerald-500" value="">
+        <div class="flex items-center gap-3 font-mono" dir="ltr">
+          <div class="text-emerald-400">📞 <span id="smartModalPhone"></span></div>
+          <div class="text-cyan-400">✉️ <span id="smartModalEmail"></span></div>
+        </div>
       </div>
 
+      <!-- Language selector for message -->
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+        <span class="font-semibold">زبان پیام آماده:</span>
+        <div class="flex gap-2 font-bold">
+          <button onclick="setModalMessageLang('fa')" id="modalMsgLangFa" class="text-emerald-400 underline">فارسی</button>
+          <button onclick="setModalMessageLang('tr')" id="modalMsgLangTr" class="text-slate-400 hover:text-white">Türkçe</button>
+          <button onclick="setModalMessageLang('en')" id="modalMsgLangEn" class="text-slate-400 hover:text-white">English</button>
+        </div>
+      </div>
+
+      <!-- Message Text Area -->
       <div class="mb-3">
-        <label class="block text-xs text-slate-400 mb-1">ایمیل گیرنده رسمی:</label>
-        <input type="text" id="modalTargetEmail" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs font-mono text-emerald-400 focus:outline-none focus:border-emerald-500" value="">
+        <textarea id="smartModalBody" rows="7" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-slate-200 leading-relaxed focus:outline-none focus:border-emerald-500 selection:bg-emerald-600"></textarea>
       </div>
 
-      <div class="mb-3">
-        <label class="block text-xs text-slate-400 mb-1">موضوع و متن آماده ارسال:</label>
-        <textarea id="modalEmailBody" rows="8" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-slate-200 leading-relaxed focus:outline-none focus:border-emerald-500 selection:bg-emerald-600"></textarea>
-      </div>
-
-      <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
-        <button onclick="copySingleEmail()" id="modalCopyBtn" class="btn btn-brand text-xs px-3.5 py-2 flex items-center gap-1.5 font-bold">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          <span id="modalCopyText">کپی متن</span>
+      <!-- Fast Action Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-slate-800">
+        <!-- WhatsApp Action Button -->
+        <button onclick="executeWhatsAppChat()" class="btn btn-whatsapp text-xs py-2.5 font-bold flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-700/30">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.812 2.791.812 3.179 0 5.765-2.587 5.766-5.766 0-3.181-2.587-5.768-5.766-5.768zm9.969 5.768c0 5.519-4.481 10-10 10-1.741 0-3.376-.45-4.808-1.239l-7.192 1.889 1.921-7.021c-.84-1.472-1.321-3.179-1.321-4.999 0-5.519 4.481-10 10-10 5.519 0 10 4.481 10 10z"/></svg>
+          <span>ارسال در واتساپ</span>
         </button>
 
-        <button onclick="if(singleEmailEntity) openWhatsAppForEntity(singleEmailEntity);" class="btn text-xs px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-md">
-          <span>💬 ارسال مستقیم به واتساپ مخاطب</span>
+        <!-- Telegram Action Button -->
+        <button onclick="executeTelegramChat()" class="btn btn-telegram text-xs py-2.5 font-bold flex items-center justify-center gap-1.5 shadow-lg shadow-sky-700/30">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.197 1.006.128.828.942z"/></svg>
+          <span>ارسال در تلگرام</span>
         </button>
 
-        <a id="modalMailtoLink" href="#" target="_blank" class="btn btn-outline text-xs px-3 py-2 text-slate-300 hover:text-white flex items-center gap-1 font-bold">
-          <span>برنامه ایمیل</span> &larr;
+        <!-- Email Client Button -->
+        <a id="smartModalMailtoLink" href="#" target="_blank" class="btn btn-outline text-xs py-2.5 text-slate-300 hover:text-white flex items-center justify-center gap-1 font-bold">
+          <span>✉️ برنامه ایمیل</span>
         </a>
+      </div>
+
+      <div class="mt-3 text-center">
+        <button onclick="copyModalMessage()" class="text-xs text-slate-400 hover:text-emerald-400 font-semibold underline">
+          <span id="copyModalMsgText">📋 کپی متن پیام برای چت دستی</span>
+        </button>
       </div>
     </div>
   </div>
@@ -348,8 +371,8 @@
     let currentGlobalLang = 'fa';
     let currentTab = 'companies';
     let searchQuery = '';
-    let singleEmailEntity = null;
-    let singleEmailLang = 'fa';
+    let smartEntity = null;
+    let smartMessageLang = 'fa';
 
     // Campaign State
     let isCampaignRunning = false;
@@ -460,7 +483,7 @@
                   <th>${dict.col_contact}</th>
                   <th>${dict.col_role}</th>
                   <th>${dict.col_pitch}</th>
-                  <th>${dict.col_action}</th>
+                  <th style="min-width: 170px;">ارتباط فوری (واتساپ / تماس / ایمیل)</th>
                 </tr>
               </thead>
               <tbody>
@@ -471,6 +494,7 @@
           const displayHq = isFa ? (c.city_fa || c.hq) : c.hq;
           const displayRole = isFa ? (c.role_fa || c.target_role) : c.target_role;
           const displayPitch = isFa ? (c.pitch_fa || c.pitch) : c.pitch;
+          const cleanPhone = (c.phone || '').replace(/[^0-9]/g, '');
 
           html += `
             <tr>
@@ -485,10 +509,14 @@
               <td class="text-slate-300 text-xs">${displayRole}</td>
               <td class="text-slate-300 text-xs max-w-xs">${displayPitch}</td>
               <td>
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <button onclick="openSingleEmailModal(${JSON.stringify(c).replace(/"/g, '&quot;')}, 'company')" class="btn btn-outline text-[11px] px-2 py-1 text-emerald-400 hover:bg-emerald-950 font-bold" title="ارسال یا تنظیم ایمیل">✉️ ${dict.btn_draft_email}</button>
-                  <button onclick="openWhatsAppForEntity(${JSON.stringify(c).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm" title="ارسال پیام مستقیم در واتساپ">💬 واتساپ</button>
-                  <a href="tel:${c.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="directLaunchWhatsApp('${cleanPhone}', '${displayName.replace(/'/g, "\'")}')" class="btn btn-whatsapp text-[11px] px-2.5 py-1 font-bold flex items-center gap-1 shadow-sm" title="ارسال پیام مستقیم در واتساپ">
+                    <span>💬 واتساپ</span>
+                  </button>
+                  <button onclick="openSmartModal(${JSON.stringify(c).replace(/"/g, '&quot;')})" class="btn btn-outline text-[11px] px-2 py-1 text-slate-300 hover:text-white font-bold" title="مشاهده گزینه‌های کامل پیام و تلگرام">
+                    <span>⚙️ پیام</span>
+                  </button>
+                  <a href="tel:${cleanPhone}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس مستقیم">📞</a>
                 </div>
               </td>
             </tr>
@@ -518,7 +546,7 @@
                   <th>${dict.col_city}</th>
                   <th>${dict.col_contact}</th>
                   <th>${dict.col_pitch}</th>
-                  <th>${dict.col_action}</th>
+                  <th style="min-width: 170px;">ارتباط فوری (واتساپ / تماس / ایمیل)</th>
                 </tr>
               </thead>
               <tbody>
@@ -528,6 +556,7 @@
           const displayDept = isFa ? (u.dept_fa || u.dept) : u.dept;
           const displayCity = isFa ? (u.city_fa || u.city) : u.city;
           const displayFocus = isFa ? (u.focus_fa || u.focus) : u.focus;
+          const cleanPhone = (u.phone || '').replace(/[^0-9]/g, '');
 
           html += `
             <tr>
@@ -541,10 +570,14 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayFocus}</td>
               <td>
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <button onclick="openSingleEmailModal(${JSON.stringify(u).replace(/"/g, '&quot;')}, 'uni')" class="btn btn-outline text-[11px] px-2 py-1 text-cyan-400 hover:bg-cyan-950 font-bold">✉️ ${dict.btn_draft_email}</button>
-                  <button onclick="openWhatsAppForEntity(${JSON.stringify(u).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
-                  <a href="tel:${u.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="directLaunchWhatsApp('${cleanPhone}', '${displayName.replace(/'/g, "\'")}')" class="btn btn-whatsapp text-[11px] px-2.5 py-1 font-bold flex items-center gap-1 shadow-sm">
+                    <span>💬 واتساپ</span>
+                  </button>
+                  <button onclick="openSmartModal(${JSON.stringify(u).replace(/"/g, '&quot;')})" class="btn btn-outline text-[11px] px-2 py-1 text-slate-300 hover:text-white font-bold">
+                    <span>⚙️ پیام</span>
+                  </button>
+                  <a href="tel:${cleanPhone}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white">📞</a>
                 </div>
               </td>
             </tr>
@@ -574,7 +607,7 @@
                   <th>${dict.col_city}</th>
                   <th>${dict.col_contact}</th>
                   <th>${dict.col_pitch}</th>
-                  <th>${dict.col_action}</th>
+                  <th style="min-width: 170px;">ارتباط فوری (واتساپ / تماس / ایمیل)</th>
                 </tr>
               </thead>
               <tbody>
@@ -584,6 +617,7 @@
           const displayFocus = isFa ? (n.focus_fa || n.focus) : n.focus;
           const displayCity = isFa ? (n.city_fa || n.city) : n.city;
           const displayAction = isFa ? (n.action_fa || n.action) : n.action;
+          const cleanPhone = (n.phone || '').replace(/[^0-9]/g, '');
 
           html += `
             <tr>
@@ -597,10 +631,14 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayAction}</td>
               <td>
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <button onclick="openSingleEmailModal(${JSON.stringify(n).replace(/"/g, '&quot;')}, 'ngo')" class="btn btn-outline text-[11px] px-2 py-1 text-teal-400 hover:bg-teal-950 font-bold">✉️ ${dict.btn_draft_email}</button>
-                  <button onclick="openWhatsAppForEntity(${JSON.stringify(n).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
-                  <a href="tel:${n.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="directLaunchWhatsApp('${cleanPhone}', '${displayName.replace(/'/g, "\'")}')" class="btn btn-whatsapp text-[11px] px-2.5 py-1 font-bold flex items-center gap-1 shadow-sm">
+                    <span>💬 واتساپ</span>
+                  </button>
+                  <button onclick="openSmartModal(${JSON.stringify(n).replace(/"/g, '&quot;')})" class="btn btn-outline text-[11px] px-2 py-1 text-slate-300 hover:text-white font-bold">
+                    <span>⚙️ پیام</span>
+                  </button>
+                  <a href="tel:${cleanPhone}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white">📞</a>
                 </div>
               </td>
             </tr>
@@ -630,7 +668,7 @@
                   <th>${dict.col_sector}</th>
                   <th>${dict.col_contact}</th>
                   <th>${dict.col_pitch}</th>
-                  <th>${dict.col_action}</th>
+                  <th style="min-width: 170px;">ارتباط فوری (واتساپ / تماس / ایمیل)</th>
                 </tr>
               </thead>
               <tbody>
@@ -640,6 +678,7 @@
           const displayTitle = isFa ? (p.title_fa || p.title) : p.title;
           const displayOrg = isFa ? (p.org_fa || p.org) : p.org;
           const displayReachout = isFa ? (p.reachout_fa || p.reachout) : p.reachout;
+          const cleanPhone = (p.phone || '').replace(/[^0-9]/g, '');
 
           html += `
             <tr>
@@ -653,10 +692,14 @@
               </td>
               <td class="text-slate-300 text-xs max-w-xs">${displayReachout}</td>
               <td>
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <button onclick="openSingleEmailModal(${JSON.stringify(p).replace(/"/g, '&quot;')}, 'person')" class="btn btn-outline text-[11px] px-2 py-1 text-purple-400 hover:bg-purple-950 font-bold">✉️ ${dict.btn_draft_email}</button>
-                  <button onclick="openWhatsAppForEntity(${JSON.stringify(p).replace(/"/g, '&quot;')})" class="btn text-[11px] px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1 shadow-sm">💬 واتساپ</button>
-                  <a href="tel:${p.phone.replace(/[^0-9+]/g, '')}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white" title="تماس تلفنی">📞</a>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="directLaunchWhatsApp('${cleanPhone}', '${displayName.replace(/'/g, "\'")}')" class="btn btn-whatsapp text-[11px] px-2.5 py-1 font-bold flex items-center gap-1 shadow-sm">
+                    <span>💬 واتساپ</span>
+                  </button>
+                  <button onclick="openSmartModal(${JSON.stringify(p).replace(/"/g, '&quot;')})" class="btn btn-outline text-[11px] px-2 py-1 text-slate-300 hover:text-white font-bold">
+                    <span>⚙️ پیام</span>
+                  </button>
+                  <a href="tel:${cleanPhone}" class="btn btn-outline text-[11px] px-1.5 py-1 text-slate-400 hover:text-white">📞</a>
                 </div>
               </td>
             </tr>
@@ -696,7 +739,7 @@
                     <span class="w-5 h-5 rounded-full bg-emerald-950 text-emerald-400 text-[11px] font-mono font-bold flex items-center justify-center shrink-0">#${s.id}</span>
                     <strong class="text-xs text-white">${s.name}</strong>
                   </div>
-                  <p class="text-[11px] text-slate-400 pr-7 leading-relaxed">${s.desc}</p>
+                  <p class="text-[11px] text-slate-400 pl-7 leading-relaxed">${s.desc}</p>
                 </div>
               `;
             });
@@ -707,6 +750,145 @@
         counter.textContent = `${totalSkills} / 100`;
         container.innerHTML = html;
       }
+    }
+
+    // Direct WhatsApp 1-click launch from table
+    function directLaunchWhatsApp(cleanPhone, name) {
+      const myPhone = "+12085033653";
+      let msg = "";
+      if (currentGlobalLang === 'tr') {
+        msg = `Merhaba ${name} Yetkilisi, XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; tesislerinizde gıda atıklarını %25 azaltacak 30 günlük ücretsiz pilot projemizi sunmak isteriz. Detaylar: https://atikova-zero-waste-cop31.pages.dev - Doğrudan İletişim / WhatsApp: ${myPhone}`;
+      } else if (currentGlobalLang === 'fa') {
+        msg = `سلام و احترام، تیم نوآوری اقلیمی Atikova (پروژه ثبت‌شده در XPRIZE Carbon Removal) آماده ارائه پایلوت رایگان ۳۰ روزه پایش و کاهش ضایعات ارگانیک و اخذ اعتبارات کربنی برای ${name} می‌باشد. پرتال آنلاین: https://atikova-zero-waste-cop31.pages.dev - شماره تماس مستقیم و واتساپ: ${myPhone}`;
+      } else {
+        msg = `Hello, As an XPRIZE Carbon Removal registered climate venture, Atikova offers a 30-day zero-risk organic waste tracking pilot for ${name}. View portal: https://atikova-zero-waste-cop31.pages.dev - Direct WhatsApp: ${myPhone}`;
+      }
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Smart Multi-Channel Modal Logic
+    function openSmartModal(entity) {
+      smartEntity = entity;
+      const modal = document.getElementById('smartOutreachModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      const isFa = (smartMessageLang === 'fa');
+      const name = isFa ? (entity.name_fa || entity.name || entity.org) : (entity.name || entity.org || "Partner");
+      document.getElementById('smartModalTargetName').textContent = name;
+      document.getElementById('smartModalPhone').textContent = entity.phone || "---";
+      document.getElementById('smartModalEmail').textContent = entity.email || "---";
+
+      updateSmartModalText();
+    }
+
+    function closeSmartModal() {
+      const modal = document.getElementById('smartOutreachModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function setModalMessageLang(lang) {
+      smartMessageLang = lang;
+      ['fa', 'tr', 'en'].forEach(l => {
+        const btn = document.getElementById('modalMsgLang' + l.charAt(0).toUpperCase() + l.slice(1));
+        if (btn) {
+          if (l === lang) {
+            btn.className = 'text-emerald-400 underline font-bold';
+          } else {
+            btn.className = 'text-slate-400 hover:text-white font-bold';
+          }
+        }
+      });
+      updateSmartModalText();
+    }
+
+    function updateSmartModalText() {
+      if (!smartEntity) return;
+      const isFa = (smartMessageLang === 'fa');
+      const name = isFa ? (smartEntity.name_fa || smartEntity.name || smartEntity.org) : (smartEntity.name || smartEntity.org || "Partner");
+      const email = smartEntity.email || "contact@atikova.com";
+      const myPhone = "+12085033653";
+
+      let subject = getTemplateSubject(name, smartMessageLang);
+      let body = getTemplateBody(name, smartMessageLang, "Atikova Climate Tech Team");
+
+      document.getElementById('smartModalBody').value = body;
+      document.getElementById('smartModalMailtoLink').href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    function executeWhatsAppChat() {
+      if (!smartEntity) return;
+      const cleanPhone = (smartEntity.phone || '').replace(/[^0-9]/g, '');
+      const text = document.getElementById('smartModalBody').value;
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function executeTelegramChat() {
+      if (!smartEntity) return;
+      const cleanPhone = (smartEntity.phone || '').replace(/[^0-9]/g, '');
+      const text = document.getElementById('smartModalBody').value;
+      // Direct Telegram share link
+      window.open(`https://t.me/share/url?url=${encodeURIComponent('https://atikova-zero-waste-cop31.pages.dev')}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function copyModalMessage() {
+      const text = document.getElementById('smartModalBody').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const span = document.getElementById('copyModalMsgText');
+        span.textContent = "✅ متن پیام کپی شد!";
+        setTimeout(() => { span.textContent = "📋 کپی متن پیام برای چت دستی"; }, 2000);
+      });
+    }
+
+    function getTemplateSubject(name, lang) {
+      if (lang === 'tr') return `Sıfır Atık & COP31 Pilot İş Birliği Önerisi: ${name}`;
+      if (lang === 'fa') return `پیشنهاد پایلوت مدیریت پسماند صفر و اجلاس COP31 برای ${name}`;
+      return `Zero-Waste Pilot & COP31 Partnership Proposal for ${name}`;
+    }
+
+    function getTemplateBody(name, lang, senderName) {
+      const myPhone = "+12085033653";
+      if (lang === 'tr') {
+        return `Sayın ${name} Yetkilisi,
+
+XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; ${name} bünyesinde oluşan organik atıkları dijital altyapımızla ekonomiye kazandırmayı ve bertaraf maliyetlerinizi %25 oranında düşürmeyi teklif ediyoruz.
+
+30 günlük sıfır maliyetli pilot uygulamamızı görüşmek adına 15 dakikalık çevrim içi toplantı rica ederiz.
+
+Saygılarımızla,
+${senderName}
+Atikova Climate Tech Hub
+İletişim & WhatsApp: ${myPhone}
+Web: https://atikova.com
+Portal: https://atikova-zero-waste-cop31.pages.dev`;
+      }
+      if (lang === 'fa') {
+        return `مدیریت محترم ${name}،
+
+تیم نوآوری اقلیمی Atikova (ثبت‌شده در چالش جهانی XPRIZE Carbon Removal) مفتخر است طرح پایلوت ۳۰ روزه کاهش ضایعات ارگانیک و اخذ اعتبارات کربنی را برای تسهیلات شما ارائه نماید.
+
+جهت دریافت فایل فنی و هماهنگی جلسه کوتاه آنلاین اعلام آمادگی بفرمایید.
+
+با احترام،
+${senderName}
+پروژه Atikova COP31
+شماره تماس مستقیم و واتساپ: ${myPhone}
+وب‌سایت: https://atikova.com
+پرتال پروژه: https://atikova-zero-waste-cop31.pages.dev`;
+      }
+      return `Dear Leadership at ${name},
+
+As an XPRIZE Carbon Removal registered climate venture, Atikova provides digital organic waste tracking to divert perishable loss, cut landfill hauling fees by 25%, and certify Scope 3 methane reductions for COP31.
+
+We would welcome a brief 15-minute call to review our 30-day zero-risk pilot.
+
+Best regards,
+${senderName}
+Atikova Climate Tech Team
+Direct Phone / WhatsApp: ${myPhone}
+Web: https://atikova.com
+Portal: https://atikova-zero-waste-cop31.pages.dev`;
     }
 
     // Automated Email Campaign Hub
@@ -822,75 +1004,6 @@
       });
     }
 
-    function getTemplateSubject(name, lang) {
-      if (lang === 'tr') return `Sıfır Atık & COP31 Pilot İş Birliği Önerisi: ${name}`;
-      if (lang === 'fa') return `پیشنهاد پایلوت مدیریت پسماند صفر و اجلاس COP31 برای ${name}`;
-      return `Zero-Waste Pilot & COP31 Partnership Proposal for ${name}`;
-    }
-
-        function getTemplateBody(name, lang, senderName) {
-      const myPhone = "+12085033653";
-      if (lang === 'tr') {
-        return `Sayın ${name} Yetkilisi,
-
-XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; ${name} bünyesinde oluşan organik atıkları dijital altyapımızla ekonomiye kazandırmayı ve bertaraf maliyetlerinizi %25 oranında düşürmeyi teklif ediyoruz.
-
-30 günlük sıfır maliyetli pilot uygulamamızı görüşmek adına 15 dakikalık çevrim içi toplantı rica ederiz.
-
-Saygılarımızla,
-${senderName}
-Atikova Climate Tech Hub
-İletişim & WhatsApp: ${myPhone}
-Web: https://atikova.com
-Portal: https://atikova-zero-waste-cop31.pages.dev`;
-      }
-      if (lang === 'fa') {
-        return `مدیریت محترم ${name}،
-
-تیم نوآوری اقلیمی Atikova (ثبت‌شده در چالش جهانی XPRIZE Carbon Removal) مفتخر است طرح پایلوت ۳۰ روزه کاهش ضایعات ارگانیک و اخذ اعتبارات کربنی را برای تسهیلات شما ارائه نماید.
-
-جهت دریافت فایل فنی و هماهنگی جلسه کوتاه آنلاین اعلام آمادگی بفرمایید.
-
-با احترام،
-${senderName}
-پروژه Atikova COP31
-شماره تماس مستقیم و واتساپ: ${myPhone}
-وب‌سایت: https://atikova.com
-پرتال پروژه: https://atikova-zero-waste-cop31.pages.dev`;
-      }
-      return `Dear Leadership at ${name},
-
-As an XPRIZE Carbon Removal registered climate venture, Atikova provides digital organic waste tracking to divert perishable loss, cut landfill hauling fees by 25%, and certify Scope 3 methane reductions for COP31.
-
-We would welcome a brief 15-minute call to review our 30-day zero-risk pilot.
-
-Best regards,
-${senderName}
-Atikova Climate Tech Team
-Direct Phone / WhatsApp: ${myPhone}
-Web: https://atikova.com
-Portal: https://atikova-zero-waste-cop31.pages.dev`;
-    }
-
-    function openWhatsAppForEntity(entity) {
-      const rawPhone = entity.phone || "+902120000000";
-      const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
-      const isFa = (currentGlobalLang === 'fa');
-      const name = isFa ? (entity.name_fa || entity.name) : entity.name;
-      const myPhone = "+12085033653";
-      
-      let msg = "";
-      if (currentGlobalLang === 'tr') {
-        msg = `Merhaba ${name} Yetkilisi, XPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; tesislerinizde gıda atıklarını %25 azaltacak 30 günlük ücretsiz pilot projemizi sunmak isteriz. Detaylar: https://atikova-zero-waste-cop31.pages.dev - İletişim / WhatsApp: ${myPhone}`;
-      } else if (currentGlobalLang === 'fa') {
-        msg = `سلام و احترام، تیم نوآوری اقلیمی Atikova (پروژه ثبت‌شده XPRIZE Carbon Removal) آماده ارائه پایلوت رایگان ۳۰ روزه پایش و کاهش ضایعات غذا و اخذ اعتبارات کربنی برای ${name} می‌باشد. پرتال: https://atikova-zero-waste-cop31.pages.dev - تماس و واتساپ: ${myPhone}`;
-      } else {
-        msg = `Hello, As an XPRIZE Carbon Removal registered climate venture, Atikova offers a 30-day zero-risk organic waste tracking pilot for ${name}. View portal: https://atikova-zero-waste-cop31.pages.dev - Direct WhatsApp: ${myPhone}`;
-      }
-
-      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
     // Send Test Email directly to user
     async function sendTestEmailToSelf() {
       const myEmail = "soheil.power@gmail.com";
@@ -902,7 +1015,9 @@ Portal: https://atikova-zero-waste-cop31.pages.dev`;
 پلتفرم آنلاین:
 https://atikova-zero-waste-cop31.pages.dev
 
-پایگاه داده ۵۰۰ رکورد، سکوی سه‌زبانه (ترکی، فارسی، انگلیسی) و موتور ارسال خودکار فعال است.`;
+پایگاه داده ۵۰۰ رکورد، سکوی سه‌زبانه (ترکی، فارسی، انگلیسی)، دکمه‌های مستقیم واتساپ و تلگرام و موتور ارسال خودکار فعال است.
+
+شماره تماس شما: +12085033653`;
 
       openCampaignModal();
       appendLog(`[TEST DISPATCH] 🧪 In progress: Sending live test email to ${myEmail}...`);
@@ -924,69 +1039,6 @@ https://atikova-zero-waste-cop31.pages.dev
       } catch (err) {
         appendLog(`[TEST PROCESSED] &check; Dispatched to queue for ${myEmail}.`);
       }
-    }
-
-    // Single Email Modal
-    function openSingleEmailModal(entity, type) {
-      singleEmailEntity = entity;
-      const modal = document.getElementById('singleEmailModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-
-      const isFa = (singleEmailLang === 'fa');
-      document.getElementById('modalTargetName').value = isFa ? (entity.name_fa || entity.name || entity.org) : (entity.name || entity.org || "Partner");
-      document.getElementById('modalTargetEmail').value = entity.email || "";
-      updateSingleModalText();
-    }
-
-    function closeSingleEmailModal() {
-      const modal = document.getElementById('singleEmailModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function setSingleEmailLang(lang) {
-      singleEmailLang = lang;
-      ['fa', 'tr', 'en'].forEach(l => {
-        const btn = document.getElementById('singleEmailLang' + l.charAt(0).toUpperCase() + l.slice(1));
-        if (btn) {
-          if (l === lang) {
-            btn.className = 'font-bold text-emerald-400 underline';
-          } else {
-            btn.className = 'font-bold text-slate-400 hover:text-white';
-          }
-        }
-      });
-      if (singleEmailEntity) {
-        const isFa = (lang === 'fa');
-        document.getElementById('modalTargetName').value = isFa ? (singleEmailEntity.name_fa || singleEmailEntity.name || singleEmailEntity.org) : (singleEmailEntity.name || singleEmailEntity.org || "Partner");
-      }
-      updateSingleModalText();
-    }
-
-    function updateSingleModalText() {
-      if (!singleEmailEntity) return;
-      const name = document.getElementById('modalTargetName').value;
-      const email = document.getElementById('modalTargetEmail').value;
-      const bodyEl = document.getElementById('modalEmailBody');
-      const mailtoLink = document.getElementById('modalMailtoLink');
-
-      const subject = getTemplateSubject(name, singleEmailLang);
-      const body = getTemplateBody(name, singleEmailLang, "Atikova Climate Tech Team");
-
-      bodyEl.value = `Subject: ${subject}
-
-${body}`;
-      mailtoLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
-
-    function copySingleEmail() {
-      const text = document.getElementById('modalEmailBody').value;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('modalCopyText');
-        btn.textContent = "✅ در کلیپ‌بورد کپی شد!";
-        setTimeout(() => { btn.textContent = "کپی متن در کلیپ‌بورد"; }, 2000);
-      });
     }
 
     // CSV Export
