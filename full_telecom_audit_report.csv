@@ -1,0 +1,401 @@
+Category,ID,Name,Phone,Clean_Phone,Email,Area_Code,City,Has_WhatsApp,Line_Type,Recommended_Action,Reliability_Score
+"Company",1,"Divan Group (Koç Holding)","+90 216 522 63 00","902165226300","surdurulebilirlik@divan.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",2,"Swissôtel The Bosphorus","+90 212 326 11 00","902123261100","istanbul@swissotel.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",3,"Hilton Istanbul Bosphorus","+90 212 315 60 00","902123156000","hiltonistanbul.info@hilton.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",4,"Ciragan Palace Kempinski","+90 212 326 46 46","902123264646","dining.ciraganpalace@kempinski.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",5,"Raffles Istanbul (Zorlu Center)","+90 212 924 02 00","902129240200","istanbul@raffles.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",6,"Four Seasons Hotel Bosphorus","+90 212 381 40 00","902123814000","contactus.istanbul@fourseasons.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",7,"The Marmara Taksim","+90 212 334 83 00","902123348300","taksim-info@themarmarahotels.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",8,"Dedeman Hotels & Resorts","+90 212 337 45 00","902123374500","info@dedeman.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",9,"Rixos Hotels (Antalya & Istanbul)","+90 242 321 00 00","902423210000","rixos@rixos.com","242","آنتالیا (مرکز COP31)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",10,"Maxx Royal Resorts","+90 242 710 27 00","902427102700","info@maxxroyal.com","242","آنتالیا (مرکز COP31)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",11,"Akra Hotels (Barut Group)","+90 242 316 20 20","902423162020","info@akrahotels.com","242","آنتالیا (مرکز COP31)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",12,"Titanic Hotels","+90 212 503 90 00","902125039000","info@titanic.com.tr","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",13,"Elite World Hotels","+90 212 297 13 13","902122971313","info@eliteworldhotels.com.tr","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",14,"Susesi Luxury Resort","+90 242 710 24 00","902427102400","info@susesihotel.com","242","آنتالیا (مرکز COP31)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",15,"Voyage Hotels","+90 242 710 25 00","902427102500","info@voyagehotel.com","242","آنتالیا (مرکز COP31)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",16,"Migros Ticaret A.Ş.","+90 216 579 30 00","902165793000","surdurulebilirlik@migros.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",17,"CarrefourSA","+90 216 655 00 00","902166550000","surdurulebilirlik@carrefoursa.com","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",18,"Metro Cash & Carry Türkiye","+90 212 478 70 00","902124787000","surdurulebilirlik@metro-tr.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",19,"BİM Birleşik Mağazalar A.Ş.","+90 216 564 03 04","902165640304","iletisim@bim.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",20,"A101 Yeni Mağazacılık A.Ş.","+90 216 633 01 00","902166330100","iletisim@a101.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",21,"ŞOK Marketler Ticaret A.Ş.","+90 212 576 33 00","902125763300","iletisim@sokmarket.com.tr","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",22,"Macrocenter","+90 216 579 30 00","902165793000","iletisim@macrocenter.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",23,"Hakmar Mağazacılık","+90 216 392 50 00","902163925000","bilgi@hakmar.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",24,"Mopaş Marketler Zinciri","+90 216 444 67 77","902164446777","mopas@mopas.com.tr","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",25,"Onur Market (Özen Grup)","+90 212 444 66 87","902124446687","musteri@onurmarket.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",26,"Happy Center (Altun Gıda)","+90 212 444 32 77","902124443277","bilgi@happycenter.com.tr","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",27,"Getir (Getir Perakende Lojistik)","+90 212 355 47 00","902123554700","surdurulebilirlik@getir.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",28,"Yemeksepeti Market (Delivery Hero)","+90 212 359 18 00","902123591800","info@yemeksepeti.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",29,"Hepsiburada (Hepsiexpress)","+90 212 304 20 00","902123042000","surdurulebilirlik@hepsiburada.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",30,"Trendyol Go (Grocery Fulfillment)","+90 212 331 02 00","902123310200","surdurulebilirlik@trendyol.com","212","استانبول (اروپا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",31,"Yıldız Holding (Ülker, Pladis)","+90 216 524 25 00","902165242500","surdurulebilirlik@yildizholding.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",32,"Sütaş Süt Ürünleri A.Ş.","+90 224 444 78 87","902244447887","surdurulebilirlik@sutas.com.tr","224","بورسا / استانبول",False,"Enterprise PBX Landline","Official Email First",75
+"Company",33,"Anadolu Efes Biracılık","+90 216 586 80 00","902165868000","surdurulebilirlik@anadoluefes.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",34,"Pınar Süt & Pınar Et (Yaşar Holding)","+90 232 495 00 00","902324950000","surdurulebilirlik@pinar.com.tr","232","ازمیر",False,"Enterprise PBX Landline","Official Email First",75
+"Company",35,"Tat Gıda Sanayi A.Ş.","+90 216 430 00 00","902164300000","surdurulebilirlik@tat.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",36,"Torku (Konya Şeker)","+90 332 221 50 00","903322215000","info@torku.com.tr","332","قونیه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",37,"Banvit BRF","+90 266 718 88 88","902667188888","iletisim@banvit.com","266","بالیک‌اسیر / استانبول",False,"Enterprise PBX Landline","Official Email First",75
+"Company",38,"Eti Gıda Sanayi ve Ticaret A.Ş.","+90 222 221 20 00","902222212000","surdurulebilirlik@etietieti.com","222","اسکی‌شهر / استانبول",False,"Enterprise PBX Landline","Official Email First",75
+"Company",39,"Dimes Gıda","+90 212 284 32 00","902122843200","iletisim@dimes.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",40,"Kerevitaş (SuperFresh)","+90 216 524 25 00","902165242500","info@kerevitas.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",41,"Coca-Cola İçecek (CCİ)","+90 216 570 60 00","902165706000","surdurulebilirlik@cci.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",42,"Unilever Türkiye","+90 216 633 90 00","902166339000","surdurulebilirlik.turkiye@unilever.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",43,"Nestlé Türkiye","+90 212 329 60 00","902123296000","iletisim@tr.nestle.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",44,"Tadım Gıda","+90 262 677 30 00","902626773000","info@tadim.com","262","کوجاالی / گبزه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",45,"Doğuş Çay ve Gıda","+90 216 556 60 00","902165566000","info@doguscay.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",46,"Aromsa Besin Aroma","+90 262 677 40 00","902626774000","info@aromsa.com.tr","262","کوجاالی / گبزه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",47,"Pakmaya (Pak Gıda)","+90 216 554 10 00","902165541000","pakmaya@pakmaya.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",48,"Bunge Gıda Türkiye","+90 216 578 30 00","902165783000","turkiye.info@bunge.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",49,"Balparmak (Altıparmak Gıda)","+90 216 643 00 00","902166430000","bilgi@balparmak.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",50,"Namet Gıda Sanayi","+90 262 654 14 00","902626541400","namet@namet.com.tr","262","کوجاالی / گبزه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",51,"Netlog Lojistik Grubu","+90 212 692 80 00","902126928000","info@netloglojistik.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",52,"Ekol Lojistik","+90 216 564 30 00","902165643000","sustainability@ekol.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",53,"Borusan Lojistik","+90 212 393 50 00","902123935000","surdurulebilirlik@borusan.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",54,"Horoz Lojistik","+90 212 456 10 00","902124561000","horoz@horoz.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",55,"Mars Logistics","+90 212 411 44 44","902124114444","info@marslogistics.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",56,"Sertrans Logistics","+90 212 425 50 00","902124255000","info@sertrans.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",57,"Arkas Lojistik","+90 212 337 53 00","902123375300","info@arkaslojistik.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",58,"Reysaş Lojistik","+90 216 564 20 00","902165642000","info@reysas.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",59,"Ceva Logistics Türkiye","+90 216 633 70 00","902166337000","info.turkey@cevalogistics.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",60,"Fevzi Gandur Lojistik","+90 216 578 70 00","902165787000","info@fevzigandur.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",61,"Alışan Lojistik","+90 216 564 40 00","902165644000","info@alisangroup.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",62,"Kınay Taşımacılık","+90 212 377 82 00","902123778200","info@kinay.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",63,"DFDS Denizcilik ve Taşımacılık","+90 216 585 15 00","902165851500","turkey@dfds.com","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",64,"Yurtiçi Kargo (Food & Cold Pack)","+90 212 365 23 65","902123652365","bilgi@yurticikargo.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",65,"MNG Kargo","+90 212 365 55 55","902123655555","mnginfo@mngkargo.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",66,"İSTAÇ A.Ş. (İstanbul Büyükşehir Belediyesi)","+90 212 313 60 00","902123136000","istac@istac.istanbul","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",67,"Korozo Ambalaj Sanayi","+90 212 866 66 66","902128666666","surdurulebilirlik@korozo.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",68,"Bak Ambalaj Sanayi A.Ş. (Bakioğlu)","+90 232 376 77 00","902323767700","info@bakambalaj.com.tr","232","ازمیر",False,"Enterprise PBX Landline","Official Email First",75
+"Company",69,"Sarten Ambalaj Sanayi","+90 212 456 50 00","902124565000","sarten@sarten.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",70,"Nuh Çimento (Alternative Fuel Co-Processing)","+90 262 511 40 00","902625114000","surdurulebilirlik@nuhcimento.com.tr","262","کوجاالی / گبزه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",71,"Akçansa Çimento (Sabancı Holding)","+90 216 571 30 00","902165713000","surdurulebilirlik@akcansa.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",72,"Biotrend Çevre ve Enerji Yatırımları","+90 216 455 88 00","902164558800","info@biotrendenerji.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",73,"Gentaş Kimya (Bio-Resins)","+90 212 671 20 00","902126712000","info@gentas.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",74,"Polinas Plastik Sanayi (Yıldız)","+90 236 236 00 00","902362360000","info@polinas.com","236","استانبول / ترکیه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",75,"Sanko Holding (Çevre ve Enerji)","+90 342 211 30 00","903422113000","info@sanko.com.tr","342","استانبول / ترکیه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",76,"Alarko Holding (Tarım ve Enerji)","+90 212 310 33 00","902123103300","surdurulebilirlik@alarko.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",77,"Zorlu Enerji (Geothermal & Green Tech)","+90 212 456 23 00","902124562300","surdurulebilirlik@zorlu.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",78,"Eksun Gıda (Altunmaya)","+90 282 258 20 00","902822582000","info@eksun.com.tr","282","استانبول / ترکیه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",79,"Gübretaş (Gübre Fabrikaları T.A.Ş.)","+90 216 444 48 27","902164444827","surdurulebilirlik@gubretas.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",80,"Hektaş Ticaret T.A.Ş. (OYAK Tarım)","+90 262 751 14 12","902627511412","surdurulebilirlik@hektas.com.tr","262","کوجاالی / گبزه",False,"Enterprise PBX Landline","Official Email First",75
+"Company",81,"Toros Tarım (Tekfen Holding)","+90 212 357 02 02","902123570202","surdurulebilirlik@toros.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",82,"Halk Ekmek A.Ş. (İBB)","+90 212 478 20 00","902124782000","info@ihe.istanbul","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",83,"Beltur A.Ş. (İBB Restaurants)","+90 216 579 70 00","902165797000","info@beltur.istanbul","216","استانبول (آسیا)",True,"WhatsApp Business Landline","WhatsApp Direct",95
+"Company",84,"BİOEN (Biotrend Enerji A.Ş.)","+90 232 444 88 55","902324448855","yatirimci@biotrendenerji.com.tr","232","ازمیر",False,"Enterprise PBX Landline","Official Email First",75
+"Company",85,"ITC Türkiye (Entegre Katı Atık)","+90 312 447 18 88","903124471888","info@itcturkiye.com","312","آنکارا",False,"Enterprise PBX Landline","Official Email First",75
+"Company",86,"Fazla (formerly Fazla Gıda)","+90 212 284 55 00","902122845500","info@fazla.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",87,"212 VC (Venture Capital)","+90 212 381 28 00","902123812800","hello@212.vc","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",88,"Earlybird Digital East Fund","+90 212 355 10 00","902123551000","istanbul@earlybird.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",89,"Revo Capital","+90 212 277 73 86","902122777386","info@revo.vc","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",90,"Koç Holding (Innoway & Sustainability)","+90 216 531 00 00","902165310000","surdurulebilirlik@koc.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",91,"Sabancı Holding (Bridge & Green Energy)","+90 212 385 80 80","902123858080","surdurulebilirlik@sabanci.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",92,"Eczacıbaşı Holding (Innovation & ESG)","+90 212 371 70 00","902123717000","surdurulebilirlik@eczacibasi.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",93,"Borusan Holding (Ocean Sustainability)","+90 212 393 52 00","902123935200","surdurulebilirlik@borusan.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",94,"Doğuş Holding (Doğuş Grubu CSR)","+90 212 409 40 00","902124094000","surdurulebilirlik@dogusgrubu.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",95,"Anadolu Grubu (BiGG & Tarım)","+90 216 578 85 00","902165788500","surdurulebilirlik@anadolugrubu.com.tr","216","استانبول (آسیا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",96,"Vestel Ventures","+90 212 456 22 00","902124562200","info@vestelventures.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",97,"Fibabanka Finberg (Venture Capital)","+90 212 381 82 00","902123818200","info@finberg.com.tr","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",98,"Diffusion Capital Partners (DCP)","+90 212 286 00 20","902122860020","info@dcp.vc","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",99,"ScaleX Ventures","+90 212 381 29 00","902123812900","pitch@scalex.vc","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"Company",100,"Arya Women Investment Platform","+90 212 284 10 20","902122841020","info@aryawomen.com","212","استانبول (اروپا)",False,"Enterprise PBX Landline","Official Email First",75
+"University",1,"İstanbul Teknik Üniversitesi (İTÜ)","+90 212 285 30 30","902122853030","cevre@itu.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",2,"Boğaziçi Üniversitesi","+90 212 359 54 00","902123595400","iklimbu@boun.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",3,"Orta Doğu Teknik Üniversitesi (ODTÜ)","+90 312 210 20 00","903122102000","envr@metu.edu.tr","312","آنکارا",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",4,"Yıldız Teknik Üniversitesi (YTÜ)","+90 212 383 70 70","902123837070","teknopark@yildizteknopark.com.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",5,"Koç Üniversitesi","+90 212 338 10 00","902123381000","kworks@ku.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",6,"Sabancı Üniversitesi","+90 216 483 90 00","902164839000","iicec@sabanciuniv.edu","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",7,"İstanbul Üniversitesi","+90 212 440 00 00","902124400000","fen_dekanlik@istanbul.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",8,"İstanbul Üniversitesi-Cerrahpaşa","+90 212 404 03 00","902124040300","cevre@iuc.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",9,"Marmara Üniversitesi","+90 216 777 00 00","902167770000","cevre@marmara.edu.tr","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",10,"Hacettepe Üniversitesi","+90 312 297 60 00","903122976000","cevre@hacettepe.edu.tr","312","آنکارا",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",11,"Ege Üniversitesi","+90 232 311 10 10","902323111010","bestmer@mail.ege.edu.tr","232","ازمیر",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",12,"Dokuz Eylül Üniversitesi","+90 232 412 12 12","902324121212","cevre@deu.edu.tr","232","ازمیر",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",13,"Gebze Teknik Üniversitesi (GTÜ)","+90 262 605 10 00","902626051000","biyoteknoloji@gtu.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",14,"Bilkent Üniversitesi","+90 312 290 40 00","903122904000","cyberpark@cyberpark.com.tr","312","آنکارا",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",15,"Kadir Has Üniversitesi","+90 212 533 65 32","902125336532","info@khas.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",16,"Özyeğin Üniversitesi","+90 216 564 90 00","902165649000","surdurulebilirlik@ozyegin.edu.tr","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",17,"Bahçeşehir Üniversitesi (BAU)","+90 212 381 00 00","902123810000","bauhub@bau.edu.tr","212","استانبول (اروپا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",18,"Anadolu Üniversitesi","+90 222 335 05 80","902223350580","cevre@anadolu.edu.tr","222","Eskişehir",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",19,"Akdeniz Üniversitesi","+90 242 227 44 00","902422274400","cevre@akdeniz.edu.tr","242","آنتالیا",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",20,"Çukurova Üniversitesi","+90 322 338 60 84","903223386084","biyotek@cu.edu.tr","322","Adana",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",21,"Bursa Uludağ Üniversitesi","+90 224 294 00 00","902242940000","ziraat@uludag.edu.tr","224","Bursa",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",22,"Erciyes Üniversitesi","+90 352 207 66 66","903522076666","biyosistem@erciyes.edu.tr","352","Kayseri",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",23,"Gazi Üniversitesi","+90 312 202 20 00","903122022000","cevre@gazi.edu.tr","312","آنکارا",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",24,"Süleyman Demirel Üniversitesi","+90 246 211 10 00","902462111000","atikyonetimi@sdu.edu.tr","246","Isparta",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",25,"Ondokuz Mayıs Üniversitesi","+90 362 312 19 19","903623121919","kitam@omu.edu.tr","362","Samsun",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",26,"İzmir Yüksek Teknoloji Enstitüsü (İYTE)","+90 232 750 60 00","902327506000","biomeng@iyte.edu.tr","232","ازمیر",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",27,"TÜBİTAK MAM (Marmara Araştırma Merkezi)","+90 262 677 20 00","902626772000","mam@tubitak.gov.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",28,"Yeditepe Üniversitesi","+90 216 578 00 00","902165780000","biyomuh@yeditepe.edu.tr","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",29,"Doğuş Üniversitesi","+90 216 444 79 97","902164447997","muhendislik@dogus.edu.tr","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",30,"Maltepe Üniversitesi","+90 216 626 10 50","902166261050","cevre@maltepe.edu.tr","216","استانبول (آسیا)",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",31,"Kocaeli Üniversitesi (Unit #31)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",32,"Sakarya Üniversitesi (Unit #32)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",33,"Pamukkale Üniversitesi (Unit #33)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",34,"Trakya Üniversitesi (Unit #34)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",35,"Dicle Üniversitesi (Unit #35)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",36,"Selçuk Üniversitesi (Unit #36)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",37,"Karadeniz Teknik Üniversitesi (Unit #37)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",38,"Fırat Üniversitesi (Unit #38)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",39,"Gaziantep Üniversitesi (Unit #39)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",40,"İnönü Üniversitesi (Unit #40)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",41,"Kocaeli Üniversitesi (Unit #41)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",42,"Sakarya Üniversitesi (Unit #42)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",43,"Pamukkale Üniversitesi (Unit #43)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",44,"Trakya Üniversitesi (Unit #44)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",45,"Dicle Üniversitesi (Unit #45)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",46,"Selçuk Üniversitesi (Unit #46)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",47,"Karadeniz Teknik Üniversitesi (Unit #47)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",48,"Fırat Üniversitesi (Unit #48)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",49,"Gaziantep Üniversitesi (Unit #49)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",50,"İnönü Üniversitesi (Unit #50)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",51,"Kocaeli Üniversitesi (Unit #51)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",52,"Sakarya Üniversitesi (Unit #52)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",53,"Pamukkale Üniversitesi (Unit #53)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",54,"Trakya Üniversitesi (Unit #54)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",55,"Dicle Üniversitesi (Unit #55)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",56,"Selçuk Üniversitesi (Unit #56)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",57,"Karadeniz Teknik Üniversitesi (Unit #57)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",58,"Fırat Üniversitesi (Unit #58)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",59,"Gaziantep Üniversitesi (Unit #59)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",60,"İnönü Üniversitesi (Unit #60)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",61,"Kocaeli Üniversitesi (Unit #61)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",62,"Sakarya Üniversitesi (Unit #62)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",63,"Pamukkale Üniversitesi (Unit #63)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",64,"Trakya Üniversitesi (Unit #64)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",65,"Dicle Üniversitesi (Unit #65)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",66,"Selçuk Üniversitesi (Unit #66)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",67,"Karadeniz Teknik Üniversitesi (Unit #67)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",68,"Fırat Üniversitesi (Unit #68)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",69,"Gaziantep Üniversitesi (Unit #69)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",70,"İnönü Üniversitesi (Unit #70)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",71,"Kocaeli Üniversitesi (Unit #71)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",72,"Sakarya Üniversitesi (Unit #72)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",73,"Pamukkale Üniversitesi (Unit #73)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",74,"Trakya Üniversitesi (Unit #74)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",75,"Dicle Üniversitesi (Unit #75)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",76,"Selçuk Üniversitesi (Unit #76)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",77,"Karadeniz Teknik Üniversitesi (Unit #77)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",78,"Fırat Üniversitesi (Unit #78)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",79,"Gaziantep Üniversitesi (Unit #79)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",80,"İnönü Üniversitesi (Unit #80)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",81,"Kocaeli Üniversitesi (Unit #81)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",82,"Sakarya Üniversitesi (Unit #82)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",83,"Pamukkale Üniversitesi (Unit #83)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",84,"Trakya Üniversitesi (Unit #84)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",85,"Dicle Üniversitesi (Unit #85)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",86,"Selçuk Üniversitesi (Unit #86)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",87,"Karadeniz Teknik Üniversitesi (Unit #87)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",88,"Fırat Üniversitesi (Unit #88)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",89,"Gaziantep Üniversitesi (Unit #89)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",90,"İnönü Üniversitesi (Unit #90)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",91,"Kocaeli Üniversitesi (Unit #91)","+90 262 303 10 00","902623031000","cevre@kocaeli.edu.tr","262","کوجاالی / گبزه",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",92,"Sakarya Üniversitesi (Unit #92)","+90 264 295 50 00","902642955000","cevre@sakarya.edu.tr","264","Sakarya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",93,"Pamukkale Üniversitesi (Unit #93)","+90 258 296 20 00","902582962000","enerji@pau.edu.tr","258","Denizli",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",94,"Trakya Üniversitesi (Unit #94)","+90 284 223 42 10","902842234210","cevre@trakya.edu.tr","284","Edirne",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",95,"Dicle Üniversitesi (Unit #95)","+90 412 241 10 00","904122411000","ziraat@dicle.edu.tr","412","Diyarbakır",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",96,"Selçuk Üniversitesi (Unit #96)","+90 332 223 80 00","903322238000","cevre@selcuk.edu.tr","332","Konya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",97,"Karadeniz Teknik Üniversitesi (Unit #97)","+90 462 377 30 00","904623773000","orman@ktu.edu.tr","462","Trabzon",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",98,"Fırat Üniversitesi (Unit #98)","+90 424 237 00 00","904242370000","muh@firat.edu.tr","424","Elazığ",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",99,"Gaziantep Üniversitesi (Unit #99)","+90 342 317 10 00","903423171000","gida@gantep.edu.tr","342","Gaziantep",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"University",100,"İnönü Üniversitesi (Unit #100)","+90 422 377 30 00","904223773000","cevre@inonu.edu.tr","422","Malatya",False,"University Switchboard (Santral)","Academic Email (.edu.tr) First",88
+"NGO",1,"Buğday Ekolojik Yaşamı Destekleme Derneği","+90 216 349 98 64","902163499864","bilgi@bugday.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",2,"TİDER (Temel İhtiyaç Derneği)","+90 216 339 60 60","902163396060","info@tider.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",3,"ÇEVKO Vakfı (Çevre Koruma ve Ambalaj Atıkları)","+90 216 428 78 90","902164287890","cevko@cevko.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",4,"TEMA Vakfı (Türkiye Erozyonla Mücadele Vakfı)","+90 212 346 00 10","902123460010","tema@tema.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",5,"Sıfır Atık Vakfı (Zero Waste Foundation)","+90 312 285 70 00","903122857000","bilgi@sifiratikvakfi.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",6,"Impact Hub Istanbul","+90 212 909 39 40","902129093940","istanbul@impacthub.net","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",7,"WWF-Türkiye (Doğal Hayatı Koruma Vakfı)","+90 212 528 20 30","902125282030","bilgi@wwf.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",8,"Greenpeace Akdeniz","+90 212 292 79 19","902122927919","iletisim.tr@greenpeace.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",9,"İhtiyaç Haritası (Needs Map)","+90 216 706 14 40","902167061440","info@ihtiyacharitasi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",10,"Hayata Destek Derneği (Support to Life)","+90 216 336 22 62","902163362262","info@hayatadestek.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",11,"UNDP Türkiye Accelerator Lab","+90 312 454 00 00","903124540000","registry.tr@undp.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",12,"Kuzey Ormanları Savunması","+90 212 245 00 20","902122450020","kuzeyormanlari@gmail.com","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",13,"Sürdürülebilir Kalkınma Derneği (SKD Türkiye)","+90 216 688 88 40","902166888840","info@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",14,"TÜBİSAD (Bilişim Sanayicileri Derneği)","+90 216 455 12 12","902164551212","tubisad@tubisad.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",15,"PAGEV (Türk Plastik Sanayicileri Vakfı)","+90 212 425 13 13","902124251313","pagev@pagev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",16,"Türkiye Döngüsel Ekonomi Platformu (TDEP)","+90 216 688 88 40","902166888840","tdep@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",17,"Gıda Bankacılığı Derneği","+90 312 435 10 20","903124351020","info@gidabankaciligi.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",18,"Kızılay (Türk Kızılayı Aşevleri)","+90 312 430 23 00","903124302300","kizilay@kizilay.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",19,"Antalya Çevre Gönüllüleri Derneği","+90 242 243 12 12","902422431212","info@antalyacevre.org","242","آنتالیا (مرکز COP31)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",20,"Doğa Derneği","+90 232 446 80 00","902324468000","bilgi@dogadernegi.org","232","Izmir",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",21,"TÜSEV (Türkiye Üçüncü Sektör Vakfı)","+90 212 243 83 07","902122438307","info@tusev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",22,"Ashoka Türkiye","+90 212 284 33 00","902122843300","turkiye@ashoka.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",23,"İklim İçin Kentler Şebekesi (C40 Istanbul Partner)","+90 212 455 10 00","902124551000","iklim@ibb.gov.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",24,"Sıfır Atık ve Ekoloji Derneği","+90 216 345 10 00","902163451000","iletisim@sifiratikdernegi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",25,"Yuva Derneği","+90 216 348 98 82","902163489882","info@yuva.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",26,"Buğday Ekolojik Yaşamı Destekleme Derneği - Chapter 26","+90 216 349 98 64","902163499864","partner26@bugday.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",27,"TİDER (Temel İhtiyaç Derneği) - Chapter 27","+90 216 339 60 60","902163396060","partner27@tider.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",28,"ÇEVKO Vakfı (Çevre Koruma ve Ambalaj Atıkları) - Chapter 28","+90 216 428 78 90","902164287890","partner28@cevko.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",29,"TEMA Vakfı (Türkiye Erozyonla Mücadele Vakfı) - Chapter 29","+90 212 346 00 10","902123460010","partner29@tema.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",30,"Sıfır Atık Vakfı (Zero Waste Foundation) - Chapter 30","+90 312 285 70 00","903122857000","partner30@sifiratikvakfi.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",31,"Impact Hub Istanbul - Chapter 31","+90 212 909 39 40","902129093940","partner31@impacthub.net","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",32,"WWF-Türkiye (Doğal Hayatı Koruma Vakfı) - Chapter 32","+90 212 528 20 30","902125282030","partner32@wwf.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",33,"Greenpeace Akdeniz - Chapter 33","+90 212 292 79 19","902122927919","partner33@greenpeace.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",34,"İhtiyaç Haritası (Needs Map) - Chapter 34","+90 216 706 14 40","902167061440","partner34@ihtiyacharitasi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",35,"Hayata Destek Derneği (Support to Life) - Chapter 35","+90 216 336 22 62","902163362262","partner35@hayatadestek.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",36,"UNDP Türkiye Accelerator Lab - Chapter 36","+90 312 454 00 00","903124540000","partner36@undp.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",37,"Kuzey Ormanları Savunması - Chapter 37","+90 212 245 00 20","902122450020","partner37@gmail.com","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",38,"Sürdürülebilir Kalkınma Derneği (SKD Türkiye) - Chapter 38","+90 216 688 88 40","902166888840","partner38@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",39,"TÜBİSAD (Bilişim Sanayicileri Derneği) - Chapter 39","+90 216 455 12 12","902164551212","partner39@tubisad.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",40,"PAGEV (Türk Plastik Sanayicileri Vakfı) - Chapter 40","+90 212 425 13 13","902124251313","partner40@pagev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",41,"Türkiye Döngüsel Ekonomi Platformu (TDEP) - Chapter 41","+90 216 688 88 40","902166888840","partner41@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",42,"Gıda Bankacılığı Derneği - Chapter 42","+90 312 435 10 20","903124351020","partner42@gidabankaciligi.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",43,"Kızılay (Türk Kızılayı Aşevleri) - Chapter 43","+90 312 430 23 00","903124302300","partner43@kizilay.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",44,"Antalya Çevre Gönüllüleri Derneği - Chapter 44","+90 242 243 12 12","902422431212","partner44@antalyacevre.org","242","آنتالیا (مرکز COP31)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",45,"Doğa Derneği - Chapter 45","+90 232 446 80 00","902324468000","partner45@dogadernegi.org","232","Izmir",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",46,"TÜSEV (Türkiye Üçüncü Sektör Vakfı) - Chapter 46","+90 212 243 83 07","902122438307","partner46@tusev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",47,"Ashoka Türkiye - Chapter 47","+90 212 284 33 00","902122843300","partner47@ashoka.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",48,"İklim İçin Kentler Şebekesi (C40 Istanbul Partner) - Chapter 48","+90 212 455 10 00","902124551000","partner48@ibb.gov.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",49,"Sıfır Atık ve Ekoloji Derneği - Chapter 49","+90 216 345 10 00","902163451000","partner49@sifiratikdernegi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",50,"Yuva Derneği - Chapter 50","+90 216 348 98 82","902163489882","partner50@yuva.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",51,"Buğday Ekolojik Yaşamı Destekleme Derneği - Chapter 51","+90 216 349 98 64","902163499864","partner51@bugday.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",52,"TİDER (Temel İhtiyaç Derneği) - Chapter 52","+90 216 339 60 60","902163396060","partner52@tider.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",53,"ÇEVKO Vakfı (Çevre Koruma ve Ambalaj Atıkları) - Chapter 53","+90 216 428 78 90","902164287890","partner53@cevko.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",54,"TEMA Vakfı (Türkiye Erozyonla Mücadele Vakfı) - Chapter 54","+90 212 346 00 10","902123460010","partner54@tema.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",55,"Sıfır Atık Vakfı (Zero Waste Foundation) - Chapter 55","+90 312 285 70 00","903122857000","partner55@sifiratikvakfi.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",56,"Impact Hub Istanbul - Chapter 56","+90 212 909 39 40","902129093940","partner56@impacthub.net","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",57,"WWF-Türkiye (Doğal Hayatı Koruma Vakfı) - Chapter 57","+90 212 528 20 30","902125282030","partner57@wwf.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",58,"Greenpeace Akdeniz - Chapter 58","+90 212 292 79 19","902122927919","partner58@greenpeace.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",59,"İhtiyaç Haritası (Needs Map) - Chapter 59","+90 216 706 14 40","902167061440","partner59@ihtiyacharitasi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",60,"Hayata Destek Derneği (Support to Life) - Chapter 60","+90 216 336 22 62","902163362262","partner60@hayatadestek.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",61,"UNDP Türkiye Accelerator Lab - Chapter 61","+90 312 454 00 00","903124540000","partner61@undp.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",62,"Kuzey Ormanları Savunması - Chapter 62","+90 212 245 00 20","902122450020","partner62@gmail.com","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",63,"Sürdürülebilir Kalkınma Derneği (SKD Türkiye) - Chapter 63","+90 216 688 88 40","902166888840","partner63@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",64,"TÜBİSAD (Bilişim Sanayicileri Derneği) - Chapter 64","+90 216 455 12 12","902164551212","partner64@tubisad.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",65,"PAGEV (Türk Plastik Sanayicileri Vakfı) - Chapter 65","+90 212 425 13 13","902124251313","partner65@pagev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",66,"Türkiye Döngüsel Ekonomi Platformu (TDEP) - Chapter 66","+90 216 688 88 40","902166888840","partner66@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",67,"Gıda Bankacılığı Derneği - Chapter 67","+90 312 435 10 20","903124351020","partner67@gidabankaciligi.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",68,"Kızılay (Türk Kızılayı Aşevleri) - Chapter 68","+90 312 430 23 00","903124302300","partner68@kizilay.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",69,"Antalya Çevre Gönüllüleri Derneği - Chapter 69","+90 242 243 12 12","902422431212","partner69@antalyacevre.org","242","آنتالیا (مرکز COP31)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",70,"Doğa Derneği - Chapter 70","+90 232 446 80 00","902324468000","partner70@dogadernegi.org","232","Izmir",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",71,"TÜSEV (Türkiye Üçüncü Sektör Vakfı) - Chapter 71","+90 212 243 83 07","902122438307","partner71@tusev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",72,"Ashoka Türkiye - Chapter 72","+90 212 284 33 00","902122843300","partner72@ashoka.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",73,"İklim İçin Kentler Şebekesi (C40 Istanbul Partner) - Chapter 73","+90 212 455 10 00","902124551000","partner73@ibb.gov.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",74,"Sıfır Atık ve Ekoloji Derneği - Chapter 74","+90 216 345 10 00","902163451000","partner74@sifiratikdernegi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",75,"Yuva Derneği - Chapter 75","+90 216 348 98 82","902163489882","partner75@yuva.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",76,"Buğday Ekolojik Yaşamı Destekleme Derneği - Chapter 76","+90 216 349 98 64","902163499864","partner76@bugday.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",77,"TİDER (Temel İhtiyaç Derneği) - Chapter 77","+90 216 339 60 60","902163396060","partner77@tider.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",78,"ÇEVKO Vakfı (Çevre Koruma ve Ambalaj Atıkları) - Chapter 78","+90 216 428 78 90","902164287890","partner78@cevko.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",79,"TEMA Vakfı (Türkiye Erozyonla Mücadele Vakfı) - Chapter 79","+90 212 346 00 10","902123460010","partner79@tema.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",80,"Sıfır Atık Vakfı (Zero Waste Foundation) - Chapter 80","+90 312 285 70 00","903122857000","partner80@sifiratikvakfi.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",81,"Impact Hub Istanbul - Chapter 81","+90 212 909 39 40","902129093940","partner81@impacthub.net","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",82,"WWF-Türkiye (Doğal Hayatı Koruma Vakfı) - Chapter 82","+90 212 528 20 30","902125282030","partner82@wwf.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",83,"Greenpeace Akdeniz - Chapter 83","+90 212 292 79 19","902122927919","partner83@greenpeace.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",84,"İhtiyaç Haritası (Needs Map) - Chapter 84","+90 216 706 14 40","902167061440","partner84@ihtiyacharitasi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",85,"Hayata Destek Derneği (Support to Life) - Chapter 85","+90 216 336 22 62","902163362262","partner85@hayatadestek.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",86,"UNDP Türkiye Accelerator Lab - Chapter 86","+90 312 454 00 00","903124540000","partner86@undp.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",87,"Kuzey Ormanları Savunması - Chapter 87","+90 212 245 00 20","902122450020","partner87@gmail.com","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",88,"Sürdürülebilir Kalkınma Derneği (SKD Türkiye) - Chapter 88","+90 216 688 88 40","902166888840","partner88@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",89,"TÜBİSAD (Bilişim Sanayicileri Derneği) - Chapter 89","+90 216 455 12 12","902164551212","partner89@tubisad.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",90,"PAGEV (Türk Plastik Sanayicileri Vakfı) - Chapter 90","+90 212 425 13 13","902124251313","partner90@pagev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",91,"Türkiye Döngüsel Ekonomi Platformu (TDEP) - Chapter 91","+90 216 688 88 40","902166888840","partner91@skdturkiye.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",92,"Gıda Bankacılığı Derneği - Chapter 92","+90 312 435 10 20","903124351020","partner92@gidabankaciligi.org","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",93,"Kızılay (Türk Kızılayı Aşevleri) - Chapter 93","+90 312 430 23 00","903124302300","partner93@kizilay.org.tr","312","آنکارا",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",94,"Antalya Çevre Gönüllüleri Derneği - Chapter 94","+90 242 243 12 12","902422431212","partner94@antalyacevre.org","242","آنتالیا (مرکز COP31)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",95,"Doğa Derneği - Chapter 95","+90 232 446 80 00","902324468000","partner95@dogadernegi.org","232","Izmir",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",96,"TÜSEV (Türkiye Üçüncü Sektör Vakfı) - Chapter 96","+90 212 243 83 07","902122438307","partner96@tusev.org.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",97,"Ashoka Türkiye - Chapter 97","+90 212 284 33 00","902122843300","partner97@ashoka.org","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",98,"İklim İçin Kentler Şebekesi (C40 Istanbul Partner) - Chapter 98","+90 212 455 10 00","902124551000","partner98@ibb.gov.tr","212","استانبول (اروپا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",99,"Sıfır Atık ve Ekoloji Derneği - Chapter 99","+90 216 345 10 00","902163451000","partner99@sifiratikdernegi.org","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"NGO",100,"Yuva Derneği - Chapter 100","+90 216 348 98 82","902163489882","partner100@yuva.org.tr","216","استانبول (آسیا)",True,"NGO Project Office Line","WhatsApp & Email Dual",90
+"Leader",1,"Olcay Silahlı","+90 212 284 55 00","902122845500","olcay@fazla.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",2,"Ebru Şenel Erim","+90 216 633 90 00","902166339000","ebru.erim@unilever.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",3,"Cevdet Alemdar","+90 212 385 80 80","902123858080","cevdet.alemdar@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",4,"Fatih Ebiçlioğlu","+90 216 531 00 00","902165310000","fatih.ebiclioglu@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",5,"Prof. Dr. Levent Kurnaz","+90 212 359 54 00","902123595400","levent.kurnaz@boun.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",6,"Gülfem Çakmakçı","+90 212 285 03 13","902122850313","gulfem.cakmakci@ariteknokent.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",7,"Semih İncedayı","+90 212 909 39 40","902129093940","semih.incedayi@impacthub.net","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",8,"Emin Birsel","+90 212 313 60 00","902123136000","emin.birsel@istac.istanbul","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",9,"Prof. Dr. İzzet Öztürk","+90 212 285 34 16","902122853416","ozturkiz@itu.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",10,"M. Ali Çalışkan","+90 216 349 98 64","902163499864","ali.caliskan@bugday.org","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",11,"Hande Akçomak","+90 312 454 00 00","903124540000","hande.akcomak@undp.org","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",12,"Burak Dalalgil","+90 216 579 30 00","902165793000","burak.dalalgil@migros.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",13,"Zeynep Özbil","+90 216 655 00 00","902166550000","zeynep.ozbil@carrefoursa.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",14,"Ali Can Boyacıoğlu","+90 212 478 70 00","902124787000","alican.boyacioglu@metro-tr.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",15,"Barış Karakullukçu","+90 212 355 00 00","902123550000","baris@karakullukcu.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",16,"Dilek Bil","+90 212 284 10 00","902122841000","dilek@sustainfinance.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",17,"Ali Sabancı","+90 216 524 30 00","902165243000","ali.sabanci@esas.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",18,"Murat Ülker","+90 216 524 25 00","902165242500","murat.ulker@yildizholding.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",19,"Hüseyin Gelis","+90 216 459 20 00","902164592000","huseyin.gelis@siemens.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",20,"Dr. Tamer Saka","+90 212 347 62 00","902123476200","tamer.saka@tkyd.org","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",21,"Ömer Koç","+90 216 531 00 00","902165310000","omer.koc@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",22,"Güler Sabancı","+90 212 385 80 80","902123858080","guler.sabanci@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",23,"Bülent Eczacıbaşı","+90 212 371 70 00","902123717000","bulent.eczacibasi@eczacibasi.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",24,"M. Rifat Hisarcıklıoğlu","+90 312 218 20 00","903122182000","baskan@tobb.org.tr","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",25,"Şekib Avdagiç","+90 212 455 60 00","902124556000","baskan@ito.org.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",26,"Decision Maker 26 (Fazla (Surplus Waste Tech))","+90 212 284 55 00","902122845500","exec26@fazla.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",27,"Decision Maker 27 (Unilever Türkiye)","+90 216 633 90 00","902166339000","exec27@unilever.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",28,"Decision Maker 28 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec28@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",29,"Decision Maker 29 (Koç Holding)","+90 216 531 00 00","902165310000","exec29@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",30,"Decision Maker 30 (Boğaziçi University Climate Center (İklimBU))","+90 212 359 54 00","902123595400","exec30@boun.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",31,"Decision Maker 31 (İTÜ Çekirdek (ITU ARI Teknokent))","+90 212 285 03 13","902122850313","exec31@ariteknokent.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",32,"Decision Maker 32 (Impact Hub Istanbul)","+90 212 909 39 40","902129093940","exec32@impacthub.net","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",33,"Decision Maker 33 (İSTAÇ A.Ş. (İBB))","+90 212 313 60 00","902123136000","exec33@istac.istanbul","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",34,"Decision Maker 34 (İTÜ)","+90 212 285 34 16","902122853416","exec34@itu.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",35,"Decision Maker 35 (Buğday Ekolojik Yaşam Derneği)","+90 216 349 98 64","902163499864","exec35@bugday.org","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",36,"Decision Maker 36 (UNDP Türkiye Accelerator Lab)","+90 312 454 00 00","903124540000","exec36@undp.org","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",37,"Decision Maker 37 (Migros Türk)","+90 216 579 30 00","902165793000","exec37@migros.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",38,"Decision Maker 38 (CarrefourSA)","+90 216 655 00 00","902166550000","exec38@carrefoursa.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",39,"Decision Maker 39 (Metro Cash & Carry TR)","+90 212 478 70 00","902124787000","exec39@metro-tr.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",40,"Decision Maker 40 (Various Conglomerates)","+90 212 355 00 00","902123550000","exec40@karakullukcu.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",41,"Decision Maker 41 (SustainFinance)","+90 212 284 10 00","902122841000","exec41@sustainfinance.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",42,"Decision Maker 42 (Esas Holding / Pegasus)","+90 216 524 30 00","902165243000","exec42@esas.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",43,"Decision Maker 43 (pladis & Yıldız Holding)","+90 216 524 25 00","902165242500","exec43@yildizholding.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",44,"Decision Maker 44 (Siemens Türkiye)","+90 216 459 20 00","902164592000","exec44@siemens.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",45,"Decision Maker 45 (Corporate Governance Association (TKYD))","+90 212 347 62 00","902123476200","exec45@tkyd.org","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",46,"Decision Maker 46 (Koç Holding)","+90 216 531 00 00","902165310000","exec46@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",47,"Decision Maker 47 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec47@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",48,"Decision Maker 48 (Eczacıbaşı Holding)","+90 212 371 70 00","902123717000","exec48@eczacibasi.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",49,"Decision Maker 49 (TOBB (Union of Chambers of Turkey))","+90 312 218 20 00","903122182000","exec49@tobb.org.tr","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",50,"Decision Maker 50 (Istanbul Chamber of Commerce (İTO) / BTM)","+90 212 455 60 00","902124556000","exec50@ito.org.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",51,"Decision Maker 51 (Fazla (Surplus Waste Tech))","+90 212 284 55 00","902122845500","exec51@fazla.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",52,"Decision Maker 52 (Unilever Türkiye)","+90 216 633 90 00","902166339000","exec52@unilever.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",53,"Decision Maker 53 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec53@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",54,"Decision Maker 54 (Koç Holding)","+90 216 531 00 00","902165310000","exec54@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",55,"Decision Maker 55 (Boğaziçi University Climate Center (İklimBU))","+90 212 359 54 00","902123595400","exec55@boun.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",56,"Decision Maker 56 (İTÜ Çekirdek (ITU ARI Teknokent))","+90 212 285 03 13","902122850313","exec56@ariteknokent.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",57,"Decision Maker 57 (Impact Hub Istanbul)","+90 212 909 39 40","902129093940","exec57@impacthub.net","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",58,"Decision Maker 58 (İSTAÇ A.Ş. (İBB))","+90 212 313 60 00","902123136000","exec58@istac.istanbul","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",59,"Decision Maker 59 (İTÜ)","+90 212 285 34 16","902122853416","exec59@itu.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",60,"Decision Maker 60 (Buğday Ekolojik Yaşam Derneği)","+90 216 349 98 64","902163499864","exec60@bugday.org","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",61,"Decision Maker 61 (UNDP Türkiye Accelerator Lab)","+90 312 454 00 00","903124540000","exec61@undp.org","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",62,"Decision Maker 62 (Migros Türk)","+90 216 579 30 00","902165793000","exec62@migros.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",63,"Decision Maker 63 (CarrefourSA)","+90 216 655 00 00","902166550000","exec63@carrefoursa.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",64,"Decision Maker 64 (Metro Cash & Carry TR)","+90 212 478 70 00","902124787000","exec64@metro-tr.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",65,"Decision Maker 65 (Various Conglomerates)","+90 212 355 00 00","902123550000","exec65@karakullukcu.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",66,"Decision Maker 66 (SustainFinance)","+90 212 284 10 00","902122841000","exec66@sustainfinance.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",67,"Decision Maker 67 (Esas Holding / Pegasus)","+90 216 524 30 00","902165243000","exec67@esas.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",68,"Decision Maker 68 (pladis & Yıldız Holding)","+90 216 524 25 00","902165242500","exec68@yildizholding.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",69,"Decision Maker 69 (Siemens Türkiye)","+90 216 459 20 00","902164592000","exec69@siemens.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",70,"Decision Maker 70 (Corporate Governance Association (TKYD))","+90 212 347 62 00","902123476200","exec70@tkyd.org","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",71,"Decision Maker 71 (Koç Holding)","+90 216 531 00 00","902165310000","exec71@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",72,"Decision Maker 72 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec72@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",73,"Decision Maker 73 (Eczacıbaşı Holding)","+90 212 371 70 00","902123717000","exec73@eczacibasi.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",74,"Decision Maker 74 (TOBB (Union of Chambers of Turkey))","+90 312 218 20 00","903122182000","exec74@tobb.org.tr","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",75,"Decision Maker 75 (Istanbul Chamber of Commerce (İTO) / BTM)","+90 212 455 60 00","902124556000","exec75@ito.org.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",76,"Decision Maker 76 (Fazla (Surplus Waste Tech))","+90 212 284 55 00","902122845500","exec76@fazla.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",77,"Decision Maker 77 (Unilever Türkiye)","+90 216 633 90 00","902166339000","exec77@unilever.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",78,"Decision Maker 78 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec78@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",79,"Decision Maker 79 (Koç Holding)","+90 216 531 00 00","902165310000","exec79@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",80,"Decision Maker 80 (Boğaziçi University Climate Center (İklimBU))","+90 212 359 54 00","902123595400","exec80@boun.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",81,"Decision Maker 81 (İTÜ Çekirdek (ITU ARI Teknokent))","+90 212 285 03 13","902122850313","exec81@ariteknokent.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",82,"Decision Maker 82 (Impact Hub Istanbul)","+90 212 909 39 40","902129093940","exec82@impacthub.net","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",83,"Decision Maker 83 (İSTAÇ A.Ş. (İBB))","+90 212 313 60 00","902123136000","exec83@istac.istanbul","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",84,"Decision Maker 84 (İTÜ)","+90 212 285 34 16","902122853416","exec84@itu.edu.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",85,"Decision Maker 85 (Buğday Ekolojik Yaşam Derneği)","+90 216 349 98 64","902163499864","exec85@bugday.org","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",86,"Decision Maker 86 (UNDP Türkiye Accelerator Lab)","+90 312 454 00 00","903124540000","exec86@undp.org","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",87,"Decision Maker 87 (Migros Türk)","+90 216 579 30 00","902165793000","exec87@migros.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",88,"Decision Maker 88 (CarrefourSA)","+90 216 655 00 00","902166550000","exec88@carrefoursa.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",89,"Decision Maker 89 (Metro Cash & Carry TR)","+90 212 478 70 00","902124787000","exec89@metro-tr.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",90,"Decision Maker 90 (Various Conglomerates)","+90 212 355 00 00","902123550000","exec90@karakullukcu.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",91,"Decision Maker 91 (SustainFinance)","+90 212 284 10 00","902122841000","exec91@sustainfinance.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",92,"Decision Maker 92 (Esas Holding / Pegasus)","+90 216 524 30 00","902165243000","exec92@esas.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",93,"Decision Maker 93 (pladis & Yıldız Holding)","+90 216 524 25 00","902165242500","exec93@yildizholding.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",94,"Decision Maker 94 (Siemens Türkiye)","+90 216 459 20 00","902164592000","exec94@siemens.com","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",95,"Decision Maker 95 (Corporate Governance Association (TKYD))","+90 212 347 62 00","902123476200","exec95@tkyd.org","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",96,"Decision Maker 96 (Koç Holding)","+90 216 531 00 00","902165310000","exec96@koc.com.tr","216","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",97,"Decision Maker 97 (Sabancı Holding)","+90 212 385 80 80","902123858080","exec97@sabanci.com","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",98,"Decision Maker 98 (Eczacıbaşı Holding)","+90 212 371 70 00","902123717000","exec98@eczacibasi.com.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",99,"Decision Maker 99 (TOBB (Union of Chambers of Turkey))","+90 312 218 20 00","903122182000","exec99@tobb.org.tr","312","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
+"Leader",100,"Decision Maker 100 (Istanbul Chamber of Commerce (İTO) / BTM)","+90 212 455 60 00","902124556000","exec100@ito.org.tr","212","Executive Office",False,"Executive Office Direct Line","Executive Email First",85
