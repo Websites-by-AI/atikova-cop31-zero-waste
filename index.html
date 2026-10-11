@@ -105,10 +105,28 @@
       updateQuickHubUI();
     }
 
+    
+    function openCatalogModal() {
+      const modal = document.getElementById('catalogModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeCatalogModal() {
+      const modal = document.getElementById('catalogModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
     function updateQuickHubUI() {
       if (!quickEntity) return;
       const isFa = (quickHubLang === 'fa');
       const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
+      const trName = quickEntity.name;
       const phone = quickEntity.phone || "+90 216 522 63 00";
       const cleanPhone = phone.replace(/[^0-9]/g, '');
 
@@ -117,49 +135,67 @@
       const callLink = document.getElementById('quickCallLink');
       if (callLink) callLink.href = `tel:${cleanPhone}`;
 
-      const msg = getQuickHubMessage(name, quickHubLang);
-      const preview = document.getElementById('quickMessagePreview');
-      if (preview) {
-        preview.innerHTML = msg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
+      // 1. Turkish text (what gets sent to the entity)
+      const trMsg = getTurkishMessage(trName);
+      const trBox = document.getElementById('quickMessageTurkish');
+      if (trBox) {
+        trBox.innerHTML = trMsg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
+      }
+
+      // 2. Persian translation (what it means for the user)
+      const faMsg = getPersianMessage(name);
+      const faBox = document.getElementById('quickMessagePersian');
+      if (faBox) {
+        faBox.innerHTML = faMsg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
       }
     }
 
-    function getQuickHubMessage(name, lang) {
+    function getTurkishMessage(name) {
       const myPhone = "+12085033653";
-      if (lang === 'tr') {
-        return `Merhaba ${name} Yetkilisi,\n\nXPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; tesislerinizde gıda atıklarını %25 azaltacak 30 günlük ücretsiz pilot projemizi sunmak isteriz.\n\nDetaylar & Canlı Portal: https://atikova-zero-waste-cop31.pages.dev\nDoğrudan İletişim & WhatsApp: ${myPhone}`;
-      } else if (lang === 'fa') {
-        return `سلام و احترام،\n\nتیم نوآوری اقلیمی Atikova (پروژه ثبت‌شده در چالش جهانی XPRIZE Carbon Removal) آماده ارائه پایلوت رایگان ۳۰ روزه پایش و کاهش ضایعات ارگانیک و اخذ اعتبارات کربنی برای ${name} می‌باشد.\n\nپرتال آنلاین: https://atikova-zero-waste-cop31.pages.dev\nشماره تماس مستقیم و واتساپ فرستنده: ${myPhone}`;
-      }
-      return `Dear Leadership at ${name},\n\nAs an XPRIZE Carbon Removal registered climate venture, Atikova offers a 30-day zero-risk organic waste tracking pilot for ${name}.\n\nPortal: https://atikova-zero-waste-cop31.pages.dev\nDirect Phone / WhatsApp: ${myPhone}`;
+      return `Merhaba ${name} Yetkilisi,
+
+XPRIZE Carbon Removal havuzunda kayitli iklim girisimi Atikova olarak; tesislerinizde gida atiklarini %25 azaltacak 30 gunluk ucretsiz pilot projemizi sunmak isteriz.
+
+Detaylar & Canli Portal: https://atikova-zero-waste-cop31.pages.dev
+Dogrudan Iletisim & WhatsApp: ${myPhone}`;
+    }
+
+    function getPersianMessage(name) {
+      const myPhone = "+12085033653";
+      return `مدیریت محترم ${name}،
+
+ما به عنوان استارتاپ اقلیمی Atikova (ثبت‌شده در رقابت ۱۰۰ میلیون دلاری XPRIZE Carbon Removal)، آماده ارائه پایلوت رایگان ۳۰ روزه برای کاهش ۲۵ درصدی ضایعات مواد غذایی و اخذ اعتبارات کربنی در مجموعه شما هستیم.
+
+پرتال آنلاین: https://atikova-zero-waste-cop31.pages.dev
+شماره تماس مستقیم و واتساپ فرستنده: ${myPhone}`;
     }
 
     function launchQuickWhatsApp() {
       if (!quickEntity) return;
       const cleanPhone = (quickEntity.phone || '').replace(/[^0-9]/g, '');
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      // Always dispatch in Turkish to Turkish entities for maximum professional response rate!
+      const msg = getTurkishMessage(trName);
       window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function launchQuickTelegram() {
       if (!quickEntity) return;
       const cleanPhone = (quickEntity.phone || '').replace(/[^0-9]/g, '');
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      const msg = getTurkishMessage(trName);
       window.open(`https://t.me/share/url?url=${encodeURIComponent('https://atikova-zero-waste-cop31.pages.dev')}&text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function copyQuickHubMessage() {
       if (!quickEntity) return;
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      const msg = getTurkishMessage(trName);
       navigator.clipboard.writeText(msg).then(() => {
-        alert("✅ متن پیام حاوی شماره شما (+12085033653) با موفقیت کپی شد!");
+        alert("✅ متن پیام ترکی استانبولی حاوی شماره شما (+12085033653) کپی شد!");
       });
+    }
+);
     }
 
 </script>
@@ -199,7 +235,14 @@
         </a>
       </div>
 
-      <nav class="hidden lg:flex items-center gap-5 text-xs font-bold text-slate-300">
+      <nav class="hidden lg:flex items-center gap-4 text-xs font-bold text-slate-300">
+        <a href="#servicesCatalog" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1">📋 کاتالوگ خدمات</a>
+        <a href="#investorHub" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1">💎 جذب سرمایه‌گذار COP31</a>
+        <a href="#directory" onclick="switchTab('companies')" id="nav-companies" class="hover:text-emerald-400 transition-colors">۱۰۰ شرکت</a>
+        <a href="#directory" onclick="switchTab('unis')" id="nav-unis" class="hover:text-emerald-400 transition-colors">۱۰۰ دانشگاه</a>
+        <a href="#directory" onclick="switchTab('ngos')" id="nav-ngos" class="hover:text-emerald-400 transition-colors">۱۰۰ نهاد</a>
+        <a href="#directory" onclick="switchTab('people')" id="nav-people" class="hover:text-emerald-400 transition-colors">۱۰۰ مدیر</a>
+        <a href="https://atikova.com" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1">🌐 atikova.com</a>
         <a href="#directory" onclick="switchTab('companies')" id="nav-companies" class="hover:text-emerald-400 transition-colors">۱۰۰ شرکت بزرگ</a>
         <a href="#directory" onclick="switchTab('unis')" id="nav-unis" class="hover:text-emerald-400 transition-colors">۱۰۰ دانشگاه</a>
         <a href="#directory" onclick="switchTab('ngos')" id="nav-ngos" class="hover:text-emerald-400 transition-colors">۱۰۰ نهاد مردمی</a>
@@ -262,6 +305,236 @@
   <!-- Interactive Search & Directory Section -->
   
   <!-- QUICK WHATSAPP & TELEGRAM LAUNCHER BANNER -->
+  
+  <!-- SERVICES & SOLUTIONS CATALOG SECTION -->
+  <section id="servicesCatalog" class="py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-800 bg-slate-900/60">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">کاتالوگ رسمی راهکارها</span>
+            <span class="text-xs text-slate-400">تأییدشده در XPRIZE Carbon Removal &bull; نقشه راه COP31 آنتالیا</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">کاتالوگ جامع خدمات و راهکارهای صفر پسماند Atikova</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-3xl">
+            زیرساخت یکپارچه اینترنت اشیاء (IoT) و هوش مصنوعی برای به صفر رساندن ضایعات ارگانیک، کاهش ۲۵ درصدی هزینه‌های تخلیه زباله هتل‌ها و صنایع، و صدور گواهی رسمی اعتبارات کربنی.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="https://wa.me/12085033653?text=Merhaba,%20Atikova%20Hizmet%20ve%20Cozumler%20Katalogu%20ile%2030%20gunluk%20ucretsiz%20pilot%20hakkinda%20bilgi%20almak%20istiyorum." target="_blank" class="btn btn-whatsapp text-xs px-4 py-2 font-bold flex items-center gap-1.5 shadow-md">
+            <span>💬 هماهنگی پایلوت در واتساپ (+12085033653)</span>
+          </a>
+          <button onclick="openCatalogModal()" class="btn btn-outline text-xs px-3 py-2 text-emerald-400 border-emerald-500/40 hover:bg-emerald-950 font-bold">
+            <span>📖 مطالعه متن کامل کاتالوگ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Solutions Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Solution 1 -->
+        <div class="card bg-slate-950/80 border-slate-800 p-5 hover:border-emerald-500/60 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-base mb-3">
+            01
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">سنسورها و سطل‌های هوشمند اینترنت اشیاء (IoT)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            نصب حسگرهای توزین دیجیتال و بینایی ماشین روی سطل‌های آشپزخانه‌ای هتل‌ها، رستوران‌ها و خطوط تولید. ثبت خودکار نوع ضایعات، وزن و شیفت کاری بدون نیاز به پرسنل اضافی.
+          </p>
+          <div class="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 p-2 rounded border border-emerald-800/30">
+            &check; دقت اندازه‌گیری ۹۹.۴٪ &bull; اتصال زنده Wi-Fi/4G
+          </div>
+        </div>
+
+        <!-- Solution 2 -->
+        <div class="card bg-slate-950/80 border-slate-800 p-5 hover:border-emerald-500/60 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-base mb-3">
+            02
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">موتور هوش مصنوعی پیش‌بینی و کاهش ضایعات</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            الگوریتم‌های یادگیری ماشین که داده‌های ضایعات را با رزرو هتل، فصل گردشگری و الگوی مصرف مهمانان تطبیق می‌دهد تا از خرید و پخت مازاد جلوگیری کند.
+          </p>
+          <div class="text-[11px] font-mono text-teal-400 bg-teal-950/40 p-2 rounded border border-teal-800/30">
+            &check; کاهش ۲۵ تا ۳۰ درصدی هزینه‌های خرید مواد اولیه
+          </div>
+        </div>
+
+        <!-- Solution 3 -->
+        <div class="card bg-slate-950/80 border-slate-800 p-5 hover:border-emerald-500/60 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-base mb-3">
+            03
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">سامانه‌های بیوهضم و تبدیل به کمپوست در محل</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            تجهیزات مدرن هضم بیولوژیکی بی‌هوازی برای تبدیل زباله‌های غذایی فسادپذیر به بیوکمپوست ارگانیک و پساب تمیز، بدون بو و بدون نیاز به انتقال زباله به لندفیل‌های شهری.
+          </p>
+          <div class="text-[11px] font-mono text-cyan-400 bg-cyan-950/40 p-2 rounded border border-cyan-800/30">
+            &check; به صفر رساندن حمل زباله تر &bull; تولید کود ارگانیک استاندارد
+          </div>
+        </div>
+
+        <!-- Solution 4 -->
+        <div class="card bg-slate-950/80 border-slate-800 p-5 hover:border-emerald-500/60 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-base mb-3">
+            04
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">صدور اعتبارات کربن معتبر (XPRIZE Carbon Standard)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            تبدیل گاز متان جلوگیری‌شده به اعتبارات کربنی دیجیتال مطابق متدولوژی تأییدشده در رقابت ۱۰۰ میلیون دلاری XPRIZE جهت استفاده در گزارش‌های پایداری ESG و معافیت‌های مالیاتی.
+          </p>
+          <div class="text-[11px] font-mono text-amber-400 bg-amber-950/40 p-2 rounded border border-amber-800/30">
+            &check; سازگار با قانون مالیات مرزی کربن اروپا (EU CBAM)
+          </div>
+        </div>
+
+        <!-- Solution 5 -->
+        <div class="card bg-slate-950/80 border-slate-800 p-5 hover:border-emerald-500/60 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-base mb-3">
+            05
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">پکیج انطباق هتل‌ها و اماکن با استاندارد COP31</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            آماده‌سازی هتل‌های ۵ ستاره، سالن‌های همایش و زنجیره‌های گردشگری آنتالیا برای اخذ نشان بین‌المللی «اقامتگاه صفر پسماند» پیش از ورود هیئت‌های سازمان ملل متحد.
+          </p>
+          <div class="text-[11px] font-mono text-purple-400 bg-purple-950/40 p-2 rounded border border-purple-800/30">
+            &check; ارتقای رتبه برند بین‌المللی &bull; داشبورد زنده برای میهمانان
+          </div>
+        </div>
+
+        <!-- Solution 6 -->
+        <div class="card bg-slate-950/80 border-emerald-500/40 p-5 bg-gradient-to-br from-emerald-950/40 to-slate-950">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-black text-base mb-3">
+            06
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">پایلوت رایگان ۳۰ روزه (30-Day Zero-Risk Pilot)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            اجرای بدون هزینه اولیه در محل مجموعه شما شامل تحویل سنسورها، نصب و آموزش و صدور گزارش تحلیلی هفتگی با محاسبه دقیق مبالغ مالی ذخیره‌شده و گازهای گلخانه‌ای کاهش‌یافته.
+          </p>
+          <a href="https://wa.me/12085033653?text=Merhaba,%2030%20gunluk%20ucretsiz%20sifir%20atik%20pilot%20projesini%20tesisimizde%20baslatmak%20istiyoruz." target="_blank" class="btn btn-whatsapp text-xs w-full py-2 font-bold flex items-center justify-center gap-1 shadow-md">
+            <span>🚀 درخواست آغاز پایلوت ۳۰ روزه در واتساپ</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTOR & STRATEGIC PARTNERSHIPS HUB SECTION (COP31) -->
+  <section id="investorHub" class="py-12 px-4 sm:px-6 lg:px-8 border-b border-amber-900/40 bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/20">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-950 border border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-8">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                💎 جذب سرمایه‌گذاری &bull; Investment Round
+              </span>
+              <span class="text-xs text-slate-400 font-mono">حضور در COP31 آنتالیا | Seed & Series A</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+              فرصت‌های جذب سرمایه‌گذار و مشارکت راهبردی در اجلاس اقلیمی COP31
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-3xl leading-relaxed">
+              استارتاپ اقلیمی <strong>Atikova</strong> با سابقه ثبت در استخر رسمی رقابت ۱۰۰ میلیون دلاری <strong>XPRIZE Carbon Removal</strong>، به منظور شتاب‌بخشی حداکثری به عملیات اجرایی، تأمین تجهیزات اینترنت اشیاء و تجهیز ۱۰۰۰ مرکز اقامتی و صنعتی تا زمان برگزاری اجلاس اقلیمی <strong>COP31 در آنتالیا</strong>، در حال جذب سرمایه و شرکای استراتژیک است.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <a href="https://wa.me/12085033653?text=Hello,%20I%20am%20interested%20in%20the%20investment%20and%20partnership%20opportunities%20with%20Atikova%20for%20COP31." target="_blank" class="btn btn-whatsapp text-xs px-4 py-2.5 font-black flex items-center gap-2 shadow-lg shadow-emerald-700/30">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>جلسه سرمایه‌گذاری در واتساپ (+12085033653)</span>
+            </a>
+            <a href="https://atikova.com" target="_blank" class="btn btn-outline text-xs px-3.5 py-2.5 text-cyan-400 border-cyan-500/40 hover:bg-cyan-950 font-bold">
+              <span>🌐 وب‌سایت اصلی atikova.com</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Investment & Partnership Tracks -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <!-- Track 1: Equity & VC -->
+          <div class="card bg-slate-950/90 border-amber-500/30 p-4 hover:border-amber-400 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-2xl">📈</span>
+                <span class="badge badge-green text-[10px]">Equity / سهام</span>
+              </div>
+              <h3 class="text-sm font-bold text-white mb-1.5">۱. خرید سهام و سرمایه‌گذاری خطرپذیر</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                ورود صندوق‌های VC، سرمایه‌گذاران فرشته و فامیلی‌آفیس‌ها به عنوان سهام‌دار در مرحله Seed/Series A با بازدهی بالا از بازار بزرگ مدیریت پسماند و بورس کربن.
+              </p>
+            </div>
+            <a href="https://wa.me/12085033653?text=Merhaba,%20Atikova%20hisse%20yatirimi%20(Equity/VC)%20ve%20Pitch%20Deck%20hakkinda%20gorusmek%20istiyorum." target="_blank" class="btn btn-outline text-[11px] py-1.5 text-amber-300 border-amber-500/40 hover:bg-amber-950/80 font-bold w-full text-center">
+              درخواست پیچ‌دک سهام
+            </a>
+          </div>
+
+          <!-- Track 2: Corporate Sponsorship -->
+          <div class="card bg-slate-950/90 border-emerald-500/30 p-4 hover:border-emerald-400 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-2xl">🤝</span>
+                <span class="badge badge-green text-[10px]">Sponsorship / حامی</span>
+              </div>
+              <h3 class="text-sm font-bold text-white mb-1.5">۲. اسپانسری شرکتی و پاویون COP31</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                همکاری با هلدینگ‌های صنعتی، بانک‌ها، خطوط هوایی و برندها به عنوان حامی نوآوری اقلیمی و هم‌میزبانی پاویون پسماند صفر در اجلاس رسمی COP31 آنتالیا.
+              </p>
+            </div>
+            <a href="https://wa.me/12085033653?text=Merhaba,%20COP31%20Antalya%20Kurumsal%20Sponsorluk%20ve%20Ortak%20Pavyon%20detaylarini%20gorusmek%20istiyorum." target="_blank" class="btn btn-outline text-[11px] py-1.5 text-emerald-300 border-emerald-500/40 hover:bg-emerald-950/80 font-bold w-full text-center">
+              مشاهده پکیج اسپانسری
+            </a>
+          </div>
+
+          <!-- Track 3: Public-Private Partnerships -->
+          <div class="card bg-slate-950/90 border-cyan-500/30 p-4 hover:border-cyan-400 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-2xl">🏛️</span>
+                <span class="badge badge-green text-[10px]">PPP / دولتی & شهری</span>
+              </div>
+              <h3 class="text-sm font-bold text-white mb-1.5">۳. مشارکت با شهرداری‌ها و دولت</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                قراردادهای ساخت-بهره‌برداری (BOT) با شهرداری‌های آنتالیا، استانبول، ازمیر و وزارتخانه‌ها برای هوشمندسازی مدیریت پسماند شهری و فرودگاه‌ها با تسهیلات اقلیمی بین‌المللی.
+              </p>
+            </div>
+            <a href="https://wa.me/12085033653?text=Merhaba,%20Belediye%20ve%20Kamu-Ozel%20Sektor%20(PPP)%20Sifir%20Atik%20is%20birligi%20icin%20iletisime%20geciyorum." target="_blank" class="btn btn-outline text-[11px] py-1.5 text-cyan-300 border-cyan-500/40 hover:bg-cyan-950/80 font-bold w-full text-center">
+              ارسال پروتکل همکاری شهری
+            </a>
+          </div>
+
+          <!-- Track 4: Carbon Offtake -->
+          <div class="card bg-slate-950/90 border-purple-500/30 p-4 hover:border-purple-400 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-2xl">🌱</span>
+                <span class="badge badge-green text-[10px]">Offtake / اعتبارات کربن</span>
+              </div>
+              <h3 class="text-sm font-bold text-white mb-1.5">۴. پیش‌خرید اعتبارات کربنی</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                پیش‌خرید اعتبارات تاییدشده کاهش گاز متان برای شرکت‌ها و کارخانجاتی که نیاز به صفر کردن انتشار دی‌اکسید کربن مطابق با قانون مالیات کربن مرزی اروپا (CBAM) دارند.
+              </p>
+            </div>
+            <a href="https://wa.me/12085033653?text=Merhaba,%20Atikova%20dogrulanmis%20karbon%20kredisi%20alim%20(Offtake)%20hakkinda%20bilgi%20istiyorum." target="_blank" class="btn btn-outline text-[11px] py-1.5 text-purple-300 border-purple-500/40 hover:bg-purple-950/80 font-bold w-full text-center">
+              استعلام حجم اعتبارات کربن
+            </a>
+          </div>
+        </div>
+
+        <!-- Direct Contact Footer -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">تماس مستقیم با مدیریت جذب سرمایه:</span>
+            <span class="font-mono text-emerald-300 font-bold" dir="ltr">+12085033653</span>
+          </div>
+          <div class="flex items-center gap-4 font-mono">
+            <a href="mailto:soheil.power@gmail.com" class="text-slate-400 hover:text-white">✉️ soheil.power@gmail.com</a>
+            <a href="https://atikova.com" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold">🌐 https://atikova.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="quickWhatsAppSection" class="py-6 px-4 sm:px-6 lg:px-8 bg-slate-900/80 border-b border-emerald-900/40">
     <div class="max-w-7xl mx-auto">
       <div class="bg-gradient-to-r from-emerald-950/70 via-slate-900 to-teal-950/70 border border-emerald-500/40 rounded-2xl p-5 shadow-xl">
@@ -320,18 +593,38 @@
         </div>
 
         <!-- Preview Text with Your Number Highlighted -->
-        <div class="mt-3 pt-3 border-t border-slate-800/80">
-          <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
-            <span>پیش‌نمایش پیام رسمی (شامل شماره تماس و واتساپ شما: <strong class="text-emerald-400 font-mono">+12085033653</strong>):</span>
-            <button onclick="copyQuickHubMessage()" class="text-emerald-400 hover:text-emerald-300 font-bold underline">📋 کپی متن کامل</button>
-          </div>
-          <div id="quickMessagePreview" class="bg-slate-950/90 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-300 leading-relaxed text-right select-all">
-            <!-- Injected dynamically -->
+        
+        <!-- DUAL-VIEW MESSAGE PREVIEW: TURKISH DISPATCH + PERSIAN TRANSLATION -->
+        <div class="mt-4 pt-3 border-t border-slate-800/80">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <!-- Turkish Text (Sent via WhatsApp) -->
+            <div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+                <span class="font-bold text-emerald-400 flex items-center gap-1">
+                  <span>🇹🇷</span> متن ارسالی به مخاطب در ترکیه (Türkçe):
+                </span>
+                <span class="text-[10px] text-slate-500 font-mono">ارسالی با ۱ کلیک</span>
+              </div>
+              <div id="quickMessageTurkish" class="bg-slate-950 border border-emerald-900/40 rounded-xl p-3 text-xs font-mono text-slate-200 leading-relaxed text-left select-all" dir="ltr">
+                <!-- Turkish text -->
+              </div>
+            </div>
+
+            <!-- Persian Translation (For user understanding) -->
+            <div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+                <span class="font-bold text-cyan-400 flex items-center gap-1">
+                  <span>🇮🇷</span> ترجمه زنده به فارسی (مفهوم دقیق پیامی که ارسال می‌شود):
+                </span>
+                <button onclick="copyQuickHubMessage()" class="text-emerald-400 hover:text-emerald-300 font-bold underline text-[11px]">📋 کپی پیام</button>
+              </div>
+              <div id="quickMessagePersian" class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-sans text-slate-300 leading-relaxed text-right select-all" dir="rtl">
+                <!-- Persian translation -->
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+</div></div></section>
 
   <section id="directory" class="py-10 px-4 sm:px-6 lg:px-8 flex-grow">
     <div class="max-w-7xl mx-auto">
@@ -539,6 +832,65 @@
       <div>&copy; 2026 Atikova Climate Tech. All rights reserved.</div>
     </div>
   </footer>
+
+  
+  <!-- Comprehensive Catalog Modal -->
+  <div id="catalogModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-emerald-500/40 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] flex flex-col justify-between">
+      <button onclick="closeCatalogModal()" class="absolute left-5 top-5 text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
+      
+      <div class="overflow-y-auto pr-2 space-y-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="badge badge-green text-xs font-black">XPRIZE Carbon Removal Verified</span>
+          <span class="text-xs text-slate-400 font-mono">سند فنی راهکارهای صفر پسماند Atikova &bull; COP31 آنتالیا</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-white">کاتالوگ رسمی خدمات و راهکارهای فناوری اقلیمی Atikova</h2>
+        <div class="text-xs text-slate-300 leading-relaxed space-y-3">
+          <p>
+            استارتاپ <strong>Atikova</strong> مجری زیرساخت‌های هوشمند پسماند صفر و اعتبارسنجی ردپای کربن با استاندارد جهانی <strong>XPRIZE</strong> در ترکیه است. همگام با میزبانی ترکیه از <strong>COP31 در آنتالیا</strong>، این شرکت خدمات زیر را به ۱۰۰ هتل بزرگ، ۱۰۰ دانشگاه و ۱۰۰ نهاد تولیدکننده پسماند ارائه می‌دهد:
+          </p>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-emerald-400 text-sm">۱. تجهیزات پایش هوشمند اینترنت اشیاء (IoT Waste Scales):</h4>
+            <p class="text-slate-300">سنسورهای دقیق توزین خودکار برای ثبت نوع و وزن ضایعات آشپزخانه هتل‌ها بدون نیاز به ثبت دستی پرسنل، با گزارش لحظه‌ای در داشبورد ابری.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-teal-400 text-sm">۲. هوش مصنوعی کاهش ۲۵ درصدی دورریز مواد غذایی:</h4>
+            <p class="text-slate-300">مدل‌های هوش مصنوعی اختصاصی که با تحلیل تقاضا و رزرواسیون هتل‌ها، خرید مواد اولیه فاسدشدنی را بهینه‌سازی کرده و هزینه حمل زباله را ۲۵٪ می‌کاهند.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-cyan-400 text-sm">۳. هضم بیولوژیکی و کمپوست‌سازی در محل:</h4>
+            <p class="text-slate-300">تبدیل پسماند غیرقابل مصرف به بیوکمپوست ارگانیک و پساب بی‌خطر، با حذف کامل هزینه و انتشار آلودگی ناشی از حمل زباله به لندفیل‌های شهری.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">۴. صدور اعتبارات کربن و گواهی رسمی کاهش متان (Scope 3):</h4>
+            <p class="text-slate-300">تبدیل متان جلوگیری‌شده به اعتبارات کربنی بین‌المللی جهت انطباق با مالیات کربن مرزی اتحادیه اروپا (CBAM) و گزارش پایداری ESG.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-emerald-500/40 p-4 rounded-xl space-y-2 bg-emerald-950/20">
+            <h4 class="font-bold text-emerald-300 text-sm">۵. طرح پایلوت رایگان ۳۰ روزه برای سازمان‌ها:</h4>
+            <p class="text-slate-300">نصب رایگان سنسورها به مدت ۱ ماه در محل شما همراه با ارائه گزارش تحلیلی کامل ذخیره مالی و کربنی، بدون هیچ‌گونه ریسک یا هزینه اولیه.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 mt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 text-slate-300">
+          <span>شماره تماس مستقیم و واتساپ مدیر پروژه:</span>
+          <strong class="text-emerald-400 font-mono text-sm" dir="ltr">+12085033653</strong>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/12085033653?text=Merhaba,%20Atikova%20Hizmet%20Katalogu%20icin%20iletisime%20geciyorum." target="_blank" class="btn btn-whatsapp text-xs px-4 py-2 font-bold shadow-md">
+            <span>💬 گفت‌وگو در واتساپ</span>
+          </a>
+          <button onclick="closeCatalogModal()" class="btn btn-outline text-xs px-4 py-2 text-slate-300">بستن</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Application Logic -->
   <script>
@@ -1367,10 +1719,28 @@ https://atikova-zero-waste-cop31.pages.dev
       updateQuickHubUI();
     }
 
+    
+    function openCatalogModal() {
+      const modal = document.getElementById('catalogModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeCatalogModal() {
+      const modal = document.getElementById('catalogModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
     function updateQuickHubUI() {
       if (!quickEntity) return;
       const isFa = (quickHubLang === 'fa');
       const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
+      const trName = quickEntity.name;
       const phone = quickEntity.phone || "+90 216 522 63 00";
       const cleanPhone = phone.replace(/[^0-9]/g, '');
 
@@ -1379,49 +1749,67 @@ https://atikova-zero-waste-cop31.pages.dev
       const callLink = document.getElementById('quickCallLink');
       if (callLink) callLink.href = `tel:${cleanPhone}`;
 
-      const msg = getQuickHubMessage(name, quickHubLang);
-      const preview = document.getElementById('quickMessagePreview');
-      if (preview) {
-        preview.innerHTML = msg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
+      // 1. Turkish text (what gets sent to the entity)
+      const trMsg = getTurkishMessage(trName);
+      const trBox = document.getElementById('quickMessageTurkish');
+      if (trBox) {
+        trBox.innerHTML = trMsg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
+      }
+
+      // 2. Persian translation (what it means for the user)
+      const faMsg = getPersianMessage(name);
+      const faBox = document.getElementById('quickMessagePersian');
+      if (faBox) {
+        faBox.innerHTML = faMsg.replace(/\+12085033653/g, '<span class="text-emerald-400 font-bold bg-emerald-950 px-1 py-0.5 rounded border border-emerald-500/40">+12085033653</span>');
       }
     }
 
-    function getQuickHubMessage(name, lang) {
+    function getTurkishMessage(name) {
       const myPhone = "+12085033653";
-      if (lang === 'tr') {
-        return `Merhaba ${name} Yetkilisi,\n\nXPRIZE Carbon Removal havuzunda kayıtlı iklim girişimi Atikova olarak; tesislerinizde gıda atıklarını %25 azaltacak 30 günlük ücretsiz pilot projemizi sunmak isteriz.\n\nDetaylar & Canlı Portal: https://atikova-zero-waste-cop31.pages.dev\nDoğrudan İletişim & WhatsApp: ${myPhone}`;
-      } else if (lang === 'fa') {
-        return `سلام و احترام،\n\nتیم نوآوری اقلیمی Atikova (پروژه ثبت‌شده در چالش جهانی XPRIZE Carbon Removal) آماده ارائه پایلوت رایگان ۳۰ روزه پایش و کاهش ضایعات ارگانیک و اخذ اعتبارات کربنی برای ${name} می‌باشد.\n\nپرتال آنلاین: https://atikova-zero-waste-cop31.pages.dev\nشماره تماس مستقیم و واتساپ فرستنده: ${myPhone}`;
-      }
-      return `Dear Leadership at ${name},\n\nAs an XPRIZE Carbon Removal registered climate venture, Atikova offers a 30-day zero-risk organic waste tracking pilot for ${name}.\n\nPortal: https://atikova-zero-waste-cop31.pages.dev\nDirect Phone / WhatsApp: ${myPhone}`;
+      return `Merhaba ${name} Yetkilisi,
+
+XPRIZE Carbon Removal havuzunda kayitli iklim girisimi Atikova olarak; tesislerinizde gida atiklarini %25 azaltacak 30 gunluk ucretsiz pilot projemizi sunmak isteriz.
+
+Detaylar & Canli Portal: https://atikova-zero-waste-cop31.pages.dev
+Dogrudan Iletisim & WhatsApp: ${myPhone}`;
+    }
+
+    function getPersianMessage(name) {
+      const myPhone = "+12085033653";
+      return `مدیریت محترم ${name}،
+
+ما به عنوان استارتاپ اقلیمی Atikova (ثبت‌شده در رقابت ۱۰۰ میلیون دلاری XPRIZE Carbon Removal)، آماده ارائه پایلوت رایگان ۳۰ روزه برای کاهش ۲۵ درصدی ضایعات مواد غذایی و اخذ اعتبارات کربنی در مجموعه شما هستیم.
+
+پرتال آنلاین: https://atikova-zero-waste-cop31.pages.dev
+شماره تماس مستقیم و واتساپ فرستنده: ${myPhone}`;
     }
 
     function launchQuickWhatsApp() {
       if (!quickEntity) return;
       const cleanPhone = (quickEntity.phone || '').replace(/[^0-9]/g, '');
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      // Always dispatch in Turkish to Turkish entities for maximum professional response rate!
+      const msg = getTurkishMessage(trName);
       window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function launchQuickTelegram() {
       if (!quickEntity) return;
       const cleanPhone = (quickEntity.phone || '').replace(/[^0-9]/g, '');
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      const msg = getTurkishMessage(trName);
       window.open(`https://t.me/share/url?url=${encodeURIComponent('https://atikova-zero-waste-cop31.pages.dev')}&text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function copyQuickHubMessage() {
       if (!quickEntity) return;
-      const isFa = (quickHubLang === 'fa');
-      const name = isFa ? (quickEntity.name_fa || quickEntity.name) : quickEntity.name;
-      const msg = getQuickHubMessage(name, quickHubLang);
+      const trName = quickEntity.name;
+      const msg = getTurkishMessage(trName);
       navigator.clipboard.writeText(msg).then(() => {
-        alert("✅ متن پیام حاوی شماره شما (+12085033653) با موفقیت کپی شد!");
+        alert("✅ متن پیام ترکی استانبولی حاوی شماره شما (+12085033653) کپی شد!");
       });
+    }
+);
     }
 
 </script>
