@@ -5876,6 +5876,102 @@ button { font-family: inherit; cursor: pointer; }
 </div>
 
 
+<!-- ==================== ADMIN EMAIL DISPATCH & PREVIEW MODAL ==================== -->
+<div id="adminEmailDispatchModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="bg-slate-900 border border-cyan-500/40 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-4 text-right" dir="rtl">
+    
+    <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-base border border-cyan-500/30">📧</span>
+        <div>
+          <h3 class="text-sm font-black text-white">پیش‌نمایش و تایید ایمیل رسمی سازمانی COP31</h3>
+          <p class="text-xs text-slate-400">بررسی و نظارت بر متن قبل از ارسال با فرستنده رسمی دبیرخانه</p>
+        </div>
+      </div>
+      <button onclick="adminCloseEmailDispatchModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center font-bold transition">✕</button>
+    </div>
+
+    <!-- Security & Anti-Spam Notice -->
+    <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-300 flex items-center gap-2">
+      <span>🛡️</span>
+      <span>نظارت مدیریتی: کاربران عادی دسترسی به ارسال آزاد ایمیل ندارند. تمامی پیام‌ها ابتدا باید در این کارتابل تایید و با شناسه رسمی ارسال شوند.</span>
+    </div>
+
+    <!-- Official Metadata Strip -->
+    <div class="space-y-2.5 text-xs">
+      <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-slate-400">فرستنده رسمی:</span>
+          <span class="font-bold text-white mr-1">دبیرخانه پذیرش استارتاپ‌های COP31 ترکیه</span>
+        </div>
+        <div class="font-mono text-amber-300 font-bold" dir="ltr">startup@cop31.tr</div>
+      </div>
+
+      <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-slate-400">گیرنده سازمانی:</span>
+          <span id="adminEmailLeadName" class="font-bold text-emerald-400 mr-1">--</span>
+          <span id="adminEmailLeadSector" class="text-[10px] text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800 mr-1 font-mono">--</span>
+        </div>
+        <div id="adminEmailLeadEmail" class="font-mono text-slate-300" dir="ltr">--</div>
+      </div>
+
+      <div>
+        <label class="block font-bold text-slate-300 mb-1">موضوع ایمیل رسمی (Subject):</label>
+        <input type="text" id="adminEmailSubjectInput" class="search-input text-xs py-2 px-3 font-bold" dir="rtl">
+      </div>
+    </div>
+
+    <!-- Body Section with KAG Enhancement Button -->
+    <div class="space-y-2">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <label class="block text-xs font-bold text-slate-300">متن نهایی ایمیل سازمانی (قابل ویرایش):</label>
+        <button type="button" onclick="adminEnhanceCurrentEmailWithKag()" class="btn bg-gradient-to-r from-purple-600 to-emerald-600 hover:from-purple-500 hover:to-emerald-500 text-white text-[11px] py-1.5 px-3 rounded-lg font-bold flex items-center gap-1.5 shadow-md">
+          <span>🧠 بهبود و ارتقای متن با مدل KAG هوش مصنوعی</span>
+        </button>
+      </div>
+      <textarea id="adminEmailBodyTextarea" rows="8" class="search-input text-xs p-3 leading-relaxed font-sans w-full" dir="rtl"></textarea>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="pt-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+      <div class="text-[11px] text-slate-400">
+        <span>خط هماهنگی رسمی:</span> <strong class="text-emerald-400 font-mono">+12085033653</strong>
+      </div>
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <button onclick="adminCopyFullEmailText()" class="btn btn-outline text-xs py-2 px-3 text-slate-300 hover:text-white">کپی متن 📋</button>
+        <button onclick="adminSendEmailDirectWhatsApp()" class="btn btn-whatsapp text-xs py-2 px-3 font-bold">ارسال واتساپ 📱</button>
+        <button onclick="adminConfirmAndSendEmail()" class="btn bg-cyan-600 hover:bg-cyan-500 text-white font-black text-xs py-2 px-4 rounded-xl shadow-lg flex items-center gap-1.5">
+          <span>🚀 تایید و ارسال رسمی ایمیل (mailto)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== USER PROPOSALS & OUTBOX MODAL ==================== -->
+<div id="userProposalsModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-4 text-right" dir="rtl">
+    
+    <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-base border border-purple-500/30">📬</span>
+        <div>
+          <h3 class="text-sm font-black text-white">کارتابل پیام‌های ارسالی من (پیگیری وضعیت نظارت)</h3>
+          <p class="text-xs text-slate-400">مشاهده وضعیت پیش‌نویس‌ها و پیام‌های تاییدشده توسط مدیریت</p>
+        </div>
+      </div>
+      <button onclick="closeUserProposalsModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center font-bold transition">✕</button>
+    </div>
+
+    <div id="userProposalsListContainer" class="space-y-3">
+      <!-- Populated dynamically by renderUserProposals() -->
+    </div>
+
+  </div>
+</div>
+
+
 <!-- Footer -->
 <footer class="bg-slate-950 border-t border-slate-800 text-xs py-8 px-4 sm:px-6 lg:px-8 text-slate-400 mt-12">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -6824,8 +6920,8 @@ ${msg.body}
                 <button onclick="adminApproveAndSendWhatsApp('${msg.id}')" class="btn btn-whatsapp text-xs py-1.5 px-3 rounded-lg font-bold flex items-center gap-1">
                   <span>✅ تایید و ارسال واتساپ</span>
                 </button>
-                <button onclick="adminApproveAndSendEmail('${msg.id}')" class="btn bg-cyan-600 hover:bg-cyan-500 text-white text-xs py-1.5 px-3 rounded-lg font-bold flex items-center gap-1">
-                  <span>📧 ارسال ایمیل</span>
+                <button onclick="adminOpenEmailModal('${msg.id}')" class="btn bg-cyan-600 hover:bg-cyan-500 text-white text-xs py-1.5 px-3 rounded-lg font-bold flex items-center gap-1">
+                  <span>📧 بررسی و ارسال ایمیل</span>
                 </button>
                 <button onclick="adminOpenEditMessage('${msg.id}')" class="btn btn-outline text-xs py-1.5 px-2.5 rounded-lg text-amber-300 border-amber-500/40 hover:bg-amber-500/10">
                   ✏️ ویرایش
@@ -9091,6 +9187,254 @@ ${body}
       navigator.clipboard.writeText(text).then(() => {
         showAppToast('متن پست کانال تلگرام در کلیپ‌بورد کپی شد!');
       });
+    }
+
+    // ==========================================
+    // KAG AI TEXT ENHANCER & OFFICIAL EMAIL DISPATCH
+    // ==========================================
+    let currentEmailDispatchMsg = null;
+
+    // Master KAG AI Text Enhancer Engine
+    function enhanceTextWithKagAi(textareaId, targetSector, targetName) {
+      const textarea = document.getElementById(textareaId);
+      if (!textarea) return;
+
+      const currentText = textarea.value.trim();
+      const sec = (targetSector || '').toLowerCase();
+      const name = targetName || 'مجموعه محترم';
+      const email = 'startup@cop31.tr';
+      const phone = '+12085033653';
+      const portal = 'https://cop31.atovika.com';
+
+      let enhanced = '';
+
+      if (sec.includes('univ') || sec.includes('دانشگاه') || sec.includes('education') || sec.includes('öğretim') || sec.includes('teknik')) {
+        // UNIVERSITY MODEL
+        enhanced = `موضوع: پروپوزال دانشگاهی اعطای بورسیه پژوهشی و تعریف رساله‌های کاربردی پسماند صفر COP31
+مخاطب: ریاست و معاونت محترم پژوهش و فناوری ${name}
+
+با احترام،
+پیرو برنامه‌ریزی ملی ترکیه جهت میزبانی اجلاس جهانی تغییرات اقلیمی (COP31) و دستورالعمل پردیس‌های سبز پسماند صفر ۲۰۲۶:
+پروژه نوآوری‌های اقلیمی Atikova با تکیه بر مدل‌های هوش مصنوعی بینایی ماشین و تفکیک در مبدا، پیشنهاد همکاری علمی با آن دانشگاه محترم را به شرح زیر تقدیم می‌نماید:
+
+۱. اعطای ۳ فقره بورسیه پژوهشی و گرنت مالی به دانشجویان مستعد مقاطع کارشناسی ارشد و دکتری مهندسی محیط‌زیست و هوش مصنوعی
+۲. تامین تجهیزات پیشرفته آزمایشگاهی سورتینگ و پایش برای پردیس دانشگاه جهت تست میدانی و ارزیابی راندمان
+۳. تعریف رساله‌های کاربردی و انتشار مقالات مشترک با نام ${name} در پاویون دانشگاهی اجلاس COP31
+۴. فراهم‌سازی فرصت کارآموزی صنعتی و استخدام نخبگان دانشگاه در پروژه‌های تحول سبز
+
+خواهشمند است دستور فرمایید جهت بررسی تفاهم‌نامه همکاری، جلسه هماهنگی با هیئت علمی تعیین فرمایند.
+
+📧 ایمیل دبیرخانه پذیرش: ${email}
+📞 خط مستقیم هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else if (sec.includes('bank') || sec.includes('بانک') || sec.includes('finance') || sec.includes('invest') || sec.includes('holding') || sec.includes('سرمایه')) {
+        // BANK & FINANCIAL MODEL
+        enhanced = `موضوع: پیشنهاد پکیج اسپانسری انحصاری، صندوق تحول سبز $5M و اعتبارات پایداری رویداد COP31
+مخاطب: مدیریت عامل و کمیته عالی سرمایه‌گذاری پایدار (ESG) ${name}
+
+با احترام،
+پیرو جایگاه شاخص ${name} در شبکه مالی و بانکی منطقه و تعهدات افشای ریسک‌های اقلیمی TCFD:
+پلتفرم Atikova آمادگی دارد بسته اسپانسری انحصاری و مشارکت در صندوق تحول سبز پسماند صفر اجلاس جهانی COP31 ترکیه را به آن بانک معظم واگذار نماید.
+
+مزایای کلیدی برای ${name}:
+۱. درج نشان تجاری بانک به عنوان «حامی ارشد تحول اقلیمی ترکیه در COP31» بر روی کلیه سطل‌های هوشمند IoT، دستگاه‌های بیوکمپوست و نرم‌افزارهای پایش
+۲. تقویت رتبه اعتباری سبز و کربن‌زدایی از سبد دارایی‌های Scope 3 بانک منطبق با استانداردهای بین‌المللی
+۳. تخصیص خط اعتباری و تسهیلات سبز به هتل‌ها و هلدینگ‌های متقاضی تجهیزات با تضمین بازگشت سرمایه ۱۲ ماهه
+
+جهت دریافت جزئیات پکیج‌های حامی مالی و هماهنگی جلسه در دفتر مرکزی، با ما در تماس باشید:
+
+📧 ایمیل دبیرخانه پذیرش: ${email}
+📞 خط مستقیم هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else if (sec.includes('hotel') || sec.includes('هتل') || sec.includes('hospitality') || sec.includes('resort') || sec.includes('turizm')) {
+        // HOTEL / HOSPITALITY MODEL
+        enhanced = `موضوع: انطباق الزامی با ماده ۱۵ آیین‌نامه پسماند صفر ترکیه، استقرار کمپوست در محل و اخذ گواهینامه پلاتینیوم COP31
+مخاطب: مدیریت محترم عامل و بهره‌برداری مجموعه معظم ${name}
+
+با احترام،
+پیرو مفاد الزامی ماده ۱۵ آیین‌نامه رسمی مدیریت پسماند صفر ترکیه (Sıfır Atık Yönetmeliği 2019/30829) و پیشگیری قطعی از جرایم سنگین ماده ۲۰ قانون محیط‌زیست ترکیه ۲۸۷۲:
+کلیه مراکز اقامتی و هتل‌های ۵ ستاره موظف به تفکیک در مبدا و استقرار سیستم کمپوست در محل برای پسماندهای غذایی می‌باشند.
+
+راه‌حل تخصصی و عملیاتی Atikova COP31:
+• استقرار دستگاه‌های بیوکمپوست هوازی ۲۴ ساعته بدون بو با قابلیت تبدیل پسماند تر به کود آلی
+• کاهش فوری ۸۰٪ در هزینه‌های تخلیه، لجستیک و انعام حمل زباله به محل‌های دفن
+• صدور مستقیم گواهینامه رسمی هتل‌های سبز و پلاتینیوم برای پذیرش هیئت‌های عالی‌رتبه اجلاس COP31
+• معرفی هتل در کاتالوگ مقاصد اقامتی پایدار و حامیان محیط‌زیست
+
+جهت ارسال کارشناس فنی جهت بازدید و برآورد ظرفیت، با شماره هماهنگی رسمی تماس حاصل فرمایید:
+
+📧 ایمیل دبیرخانه پذیرش: ${email}
+📞 خط مستقیم هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else {
+        // GENERAL / INDUSTRIAL MODEL
+        enhanced = `موضوع: برنامه جامع تحول پسماند صفر، پایش کربن Scope 1-3 و انطباق با الزامات COP31
+مخاطب: مدیریت محترم پایداری و ESG ${name}
+
+با احترام،
+عطف به میزبانی ترکیه در بیست‌ویکمین کنفرانس تغییرات اقلیمی سازمان ملل (COP31) و مقررات مکانیزم تعدیل مرزی کربن اروپا (EU-CBAM):
+پلتفرم Atikova آمادگی دارد با استقرار فناوری‌های هوشمند تفکیک زباله، پلتفرم ابری حسابداری کربن و ممیزی زنجیره تامین، فرآیند ارتقای رتبه زیست‌محیطی مجموعه ${name} را محقق سازد.
+
+دستاوردهای ملموس طرح:
+۱. کاهش چشمگیر ردپای کربن سازمانی و پایش برخط شاخص‌های پایدار
+۲. آمادگی ۱۰۰٪ جهت اخذ تاییدیه‌های بین‌المللی اجلاس COP31
+۳. بهینه‌سازی هزینه‌های مدیریت پسماند و بازیابی ارزش اقتصادی از ضایعات
+
+📧 ایمیل دبیرخانه پذیرش: ${email}
+📞 خط مستقیم هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+      }
+
+      textarea.value = enhanced;
+      showAppToast('متن با مدل KAG و استانداردهای رسمی COP31 ارتقا یافت! ✨');
+    }
+
+    // Open Admin Official Email Modal
+    function adminOpenEmailModal(msgId) {
+      const msg = outreachMessages.find(m => m.id === msgId);
+      if (!msg) return;
+
+      currentEmailDispatchMsg = msg;
+
+      document.getElementById('adminEmailLeadName').innerText = msg.leadName || 'سازمان منتخب';
+      document.getElementById('adminEmailLeadSector').innerText = msg.leadSector || 'سکتور سازمانی';
+      document.getElementById('adminEmailLeadEmail').innerText = msg.leadEmail || 'sustainability@organization.tr';
+
+      const subject = `پیشنهاد رسمی همکاری پسماند صفر و مشارکت در اجلاس COP31 ترکیه - ${msg.leadName}`;
+      document.getElementById('adminEmailSubjectInput').value = subject;
+      document.getElementById('adminEmailBodyTextarea').value = msg.body || msg.text || '';
+
+      const modal = document.getElementById('adminEmailDispatchModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function adminCloseEmailDispatchModal() {
+      const modal = document.getElementById('adminEmailDispatchModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      currentEmailDispatchMsg = null;
+    }
+
+    function adminEnhanceCurrentEmailWithKag() {
+      if (!currentEmailDispatchMsg) return;
+      enhanceTextWithKagAi('adminEmailBodyTextarea', currentEmailDispatchMsg.leadSector, currentEmailDispatchMsg.leadName);
+    }
+
+    function adminConfirmAndSendEmail() {
+      if (!currentEmailDispatchMsg) return;
+
+      const finalBody = document.getElementById('adminEmailBodyTextarea')?.value || currentEmailDispatchMsg.body;
+      const finalSubject = document.getElementById('adminEmailSubjectInput')?.value || `پیشنهاد رسمی COP31`;
+
+      currentEmailDispatchMsg.body = finalBody;
+      currentEmailDispatchMsg.text = finalBody;
+      currentEmailDispatchMsg.status = 'approved';
+
+      saveOutreachMessages();
+      updateModerationCounters();
+      renderAdminModerationQueue();
+
+      const url = `mailto:${currentEmailDispatchMsg.leadEmail}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(finalBody)}`;
+      window.location.href = url;
+
+      const targetLeadName = currentEmailDispatchMsg.leadName || 'سازمان';
+      adminCloseEmailDispatchModal();
+      showAppToast(`ایمیل برای «${targetLeadName}» با فرستنده رسمی startup@cop31.tr ارسال گردید 🚀`);
+    }
+
+    function adminCopyFullEmailText() {
+      const body = document.getElementById('adminEmailBodyTextarea')?.value || '';
+      const subject = document.getElementById('adminEmailSubjectInput')?.value || '';
+      const full = `موضوع: ${subject}
+
+فرستنده رسمی: دبیرخانه استارتاپ‌های COP31 ترکیه <startup@cop31.tr>
+
+${body}`;
+
+      navigator.clipboard.writeText(full).then(() => {
+        showAppToast('متن کامل ایمیل در کلیپ‌بورد کپی شد!');
+      });
+    }
+
+    function adminSendEmailDirectWhatsApp() {
+      if (!currentEmailDispatchMsg) return;
+      const body = document.getElementById('adminEmailBodyTextarea')?.value || currentEmailDispatchMsg.body;
+      let cleanPhone = (currentEmailDispatchMsg.leadPhone || '+12085033653').replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) cleanPhone = '90' + cleanPhone.substring(1);
+
+      const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(body)}`;
+      window.open(url, '_blank');
+      showAppToast('در حال هدایت به پیام‌رسان واتساپ...');
+    }
+
+    // ==========================================
+    // USER PROPOSALS & OUTBOX LOGIC
+    // ==========================================
+    function openUserProposalsModal() {
+      renderUserProposals();
+      const modal = document.getElementById('userProposalsModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeUserProposalsModal() {
+      const modal = document.getElementById('userProposalsModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function renderUserProposals() {
+      const container = document.getElementById('userProposalsListContainer');
+      const badge = document.getElementById('userSentCountBadge');
+      if (!container) return;
+
+      const userEmail = currentUser ? currentUser.email : 'demo.startup@atikova.com';
+      const myMsgs = outreachMessages.filter(m => (m.userEmail === userEmail) || (m.senderStartup && m.senderStartup.includes('Demo')));
+
+      if (badge) badge.innerText = String(myMsgs.length);
+
+      if (myMsgs.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-500 bg-slate-950 p-6 rounded-2xl border border-slate-800 text-xs">
+            هنوز پیشنهادی ارسال نکرده‌اید. از طریق دایرکتوری ۵۰۰ لید یا استودیوی ایده اقدام نمایید.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = myMsgs.map(m => {
+        let badge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">🟡 در انتظار تایید مدیریت</span>';
+        if (m.status === 'approved') badge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">🟢 تایید و ارسال رسمی</span>';
+        else if (m.status === 'rejected') badge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">🔴 رد شده</span>';
+
+        return `
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-xs">${m.leadName || 'سازمان مخاطب'}</span>
+              ${badge}
+            </div>
+            <div class="text-[11px] text-slate-300 bg-slate-900 p-3 rounded-xl border border-slate-800/80 leading-relaxed whitespace-pre-wrap font-sans max-h-32 overflow-y-auto" dir="rtl">
+              ${m.body || m.text || ''}
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-slate-500 font-mono pt-1">
+              <span>ایمیل فرستنده: startup@cop31.tr</span>
+              <span>${m.createdAt || 'امروز'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
 </script>
