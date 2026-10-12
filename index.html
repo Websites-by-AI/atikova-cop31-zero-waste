@@ -140,7 +140,7 @@ button { font-family: inherit; cursor: pointer; }
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-2">
       <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-        🌱 COP31 TURKEY &bull; ANKARA / ANTALYA
+        🌱 ATOKIVA &bull; DUBAI (UAE) &bull; COP31 TURKEY (ANKARA / ISTANBUL)
       </span>
       <span class="text-slate-400 hidden sm:inline text-[11px]" data-i18n="top_banner_desc">سامانه تبلیغات، استارتاپ‌ها، ۵۰۰ لید سازمانی و دستیار هوشمند پسماند صفر</span>
     </div>
@@ -210,7 +210,7 @@ button { font-family: inherit; cursor: pointer; }
         </div>
         <div>
           <span class="text-lg font-black tracking-wider text-white">ATIKOVA</span>
-          <span class="text-[10px] block text-emerald-400 -mt-1 font-mono">ZERO WASTE &bull; COP31 TURKEY</span>
+          <span class="text-[10px] block text-emerald-400 -mt-1 font-mono">ATOKIVA &bull; DUBAI (UAE) &bull; COP31 TURKEY</span>
         </div>
       </a>
     </div>
@@ -3820,7 +3820,18 @@ button { font-family: inherit; cursor: pointer; }
         <!-- Mode C: Presets Chips -->
         <div id="ideaInputContainer-presets" class="hidden space-y-3">
           <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_select_preset">یکی از سناریوهای کلیدی زیر را انتخاب فرمایید:</label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          <p class="text-[11px] text-slate-300 mb-2 flex items-center justify-between">
+            <span>💡 <b>راهبرد هوشمند جذب:</b> نمونه ملاقات صمیمی در کافه تکسیم به صورت آزاد برای عموم فعال است؛ نمونه‌های سنگین نهادی نیازمند تایید ادمین هستند.</span>
+            <span class="text-emerald-400 font-mono font-bold text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">بالاترین نرخ پاسخ</span>
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
+            <button type="button" onclick="loadIdeaPreset(0)" class="p-3 rounded-xl bg-slate-950 border border-emerald-500/70 hover:border-emerald-400 text-right space-y-1 transition group shadow-lg shadow-emerald-500/10">
+              <div class="text-xs font-black text-emerald-300 group-hover:text-white flex items-center justify-between">
+                <span>☕ کافه تکسیم (گپ دوستانه)</span>
+                <span class="text-[9px] bg-emerald-500/30 text-emerald-200 px-1 rounded">آزاد / پربازده</span>
+              </div>
+              <div class="text-[11px] text-slate-300 leading-relaxed">دعوت به یک قهوه کوتاه در میدان تکسیم استانبول، اتصال مستقیم واتساپ و ثبت در ربات تلگرام</div>
+            </button>
             <button type="button" onclick="loadIdeaPreset(1)" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 text-right space-y-1 transition group">
               <div class="text-xs font-bold text-emerald-400 group-hover:text-amber-300">🎓 دانشگاه İTÜ (بورسیه و گرنت)</div>
               <div class="text-[11px] text-slate-400 leading-relaxed">تفکیک هوشمند پلاستیک با بینایی ماشین و اعطای ۳ فقره بورسیه پژوهشی به دانشجویان ارشد/دکتری</div>
@@ -3896,6 +3907,9 @@ button { font-family: inherit; cursor: pointer; }
           <div class="md:col-span-5 space-y-1.5">
             <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_select_scenario">انتخاب گروه مخاطب و سناریوی پیشنهادی:</label>
             <select id="ideaScenarioSelect" class="search-input text-xs py-2.5 px-3 font-bold" onchange="handleScenarioChange()">
+              <optgroup label="☕ قرار ملاقات دوستانه و سریع (بالاترین بازدهی)">
+                <option value="taksim_cafe_meetup" selected>☕ قرار ملاقات کافه در تکسیم استانبول + واتساپ و ربات تلگرام (نمونه آزاد و پربازده)</option>
+              </optgroup>
               <optgroup label="🎓 دانشگاه‌ها و موسسات آموزش عالی">
                 <option value="uni_scholarship">دانشگاه: اعطای بورسیه تحصیلی، گرنت و رساله‌های دانشجویی پسماند صفر</option>
                 <option value="uni_meeting">دانشگاه: درخواست جلسه رسمی، تست آزمایشگاهی و پایلوت در پردیس</option>
@@ -6077,7 +6091,7 @@ button { font-family: inherit; cursor: pointer; }
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2">
       <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black">A</div>
-      <span class="text-slate-200 font-bold">Atikova Zero-Waste Climate Initiative &bull; COP31 Turkey</span>
+      <span class="text-slate-200 font-bold">Atokiva Global Climate Tech Hub &bull; Dubai (UAE) &bull; COP31 Turkey (Ankara / Istanbul)</span>
     </div>
     <div class="flex items-center gap-4 text-[11px] flex-wrap">
       <a href="#directory" onclick="switchMasterView('directory'); return false;" class="hover:text-emerald-400">دایرکتوری ۵۰۰ لید</a>
@@ -6086,7 +6100,11 @@ button { font-family: inherit; cursor: pointer; }
       <a href="#cadence" onclick="switchMasterView('cadence'); return false;" class="hover:text-emerald-400">تکنوپارک</a>
       <a href="#audit" onclick="switchMasterView('audit'); return false;" class="hover:text-emerald-400">آدیت مخابراتی</a>
       <a href="#admin" onclick="switchMasterView('admin'); return false;" class="hover:text-amber-400">پنل مدیریت</a>
+      <a href="https://atokiva.com" target="_blank" class="hover:text-emerald-400 font-mono font-bold">atokiva.com</a>
       <a href="https://cop31.atovika.com" target="_blank" class="hover:text-cyan-400 font-mono">cop31.atovika.com</a>
+      <a href="https://huggingface.co/spaces/Sosa654321/atikova-cop31-zero-waste" target="_blank" class="hover:text-amber-400 font-mono">🤗 HF Space</a>
+      <a href="https://t.me/COP31ZeroWaste" target="_blank" class="hover:text-sky-400 font-mono">📱 @COP31ZeroWaste</a>
+      <a href="https://t.me/COP31ZeroWasteBot" target="_blank" class="hover:text-cyan-300 font-mono">🤖 @COP31ZeroWasteBot</a>
     </div>
     <p class="text-[10px] text-slate-500 font-mono">پشتیبانی و پذیرش استارتاپ‌ها: <a href="mailto:startup@cop31.tr" class="text-amber-400 font-bold">startup@cop31.tr</a> &bull; شماره رسمی: +12085033653 &bull; کانال تلگرام: <a href="https://t.me/COP31ZeroWaste" target="_blank" class="text-sky-400">@COP31ZeroWaste</a></p>
   </div>
@@ -6099,6 +6117,7 @@ button { font-family: inherit; cursor: pointer; }
 
     // Load or initialize DB from localStorage
     let DATA = INITIAL_SEED_DATA;
+    window.DATA = DATA;
     try {
       const storedDb = localStorage.getItem('atikova_custom_db');
       if (storedDb) {
@@ -8657,7 +8676,15 @@ ${msg.body}
       const textEl = document.getElementById('ideaTextInput');
       if (!textEl) return;
 
-      if (presetNum === 1) {
+      if (presetNum === 0) {
+        textEl.value = (currentGlobalLang === 'tr')
+          ? 'İstanbul Taksim meydanında COP31 Sıfır Atık Zirvesi teknoloji ortaklığı için kısa bir kahve molası ve tanışma buluşması teklifi. WhatsApp üzerinden doğrudan iletişim ve @COP31ZeroWasteBot Telegram botu ile hızlı zirve kaydı imkanı.'
+          : (currentGlobalLang === 'en')
+            ? 'Friendly invitation for a quick coffee meetup in Taksim (Istanbul) to explore COP31 zero-waste partnerships. Direct WhatsApp connection available and fast project registration via @COP31ZeroWasteBot.'
+            : 'سلام وقت بخیر! ما در حال هماهنگی تیم‌های فناور و استارتاپ‌های پسماند صفر برای رویداد COP31 در استانبول هستیم. خوشحال می‌شوم یک دیدار کوتاه و گپ دوستانه سر قهوه در یکی از کافه‌های میدان تکسیم (Taksim) داشته باشیم تا هم‌افزایی‌ها را بررسی کنیم. واتساپ من برای هماهنگی و ارتباط مستقیم کاملاً در دسترس است: (+12085033653) و ربات رسمی تلگرام ما (@COP31ZeroWasteBot) نیز جهت ثبت سریع مشخصات و دریافت گرنت‌های رویداد آماده است.';
+        const scenarioEl = document.getElementById('ideaScenarioSelect');
+        if (scenarioEl) scenarioEl.value = 'taksim_cafe_meetup';
+      } else if (presetNum === 1) {
         textEl.value = 'استارتاپ ما سیستم تفکیک خودکار پسماند با بینایی ماشین (AI Vision) را توسعه داده است. ما مایل به اعطای ۳ فقره بورسیه پژوهشی و گرنت پایان‌نامه به دانشجویان ارشد و دکتری دانشکده محیط‌زیست دانشگاه فنی استانبول (İTÜ) جهت تست آزمایشگاهی و ارائه مشترک در پاویون دانشگاهی COP31 هستیم.';
       } else if (presetNum === 2) {
         textEl.value = 'شبکه سطل‌های زباله هوشمند شهری مجهز به حسگرهای اولتراسونیک IoT و الگوریتم‌های مسیریابی بهینه ناوگان حمل. ما به دنبال جذب اسپانسری انحصاری و فایننس سبز از بانک‌های پیشرو مانند Türkiye İş Bankası جهت تامین مالی استقرار مخازن هوشمند و درج لوگوی بانک به عنوان حامی ارشد تحول اقلیمی ترکیه در اجلاس COP31 هستیم.';
@@ -8794,7 +8821,47 @@ ${msg.body}
       const phone = '+12085033653';
       const portal = 'https://cop31.atovika.com';
 
-      if (scenario === 'uni_scholarship') {
+      if (scenario === 'taksim_cafe_meetup') {
+        text = (currentGlobalLang === 'tr')
+          ? `Konu: COP31 İşbirliği İçin Taksim'de Kısa Bir Kahve ve Tanışma Daveti
+Muhatap: Sayın ${contactPerson} - ${targetOrg} Yönetimi
+
+Merhaba, iyi çalışmalar,
+Türkiye'nin ev sahipliğinde gerçekleşecek COP31 Sıfır Atık Zirvesi için teknoloji ekipleri ve yenilikçi projeleri koordine ediyoruz. ${targetOrg} bünyesindeki değerli çalışmalarınızı yakından takip ediyoruz. Müsait olduğunuz bir vakitte, Taksim meydanında bir kafede kısa bir kahve molası eşliğinde tanışmak ve ortak işbirliği fırsatlarını samimi bir ortamda değerlendirmekten büyük onur duyarız.
+
+📲 WhatsApp profilim doğrudan iletişime ve koordinasyona açıktır: ${phone}
+🤖 Hızlı proje kaydı ve zirve hibeleri için resmi Telegram botumuz: @COP31ZeroWasteBot
+🌐 Resmi Atokiva İnovasyon Portalı: ${portal} (Dubai & Turkey Hub)
+
+Görüşmek dileğiyle,
+COP31 Türkiye Girişim Koordinasyon Masası`
+          : (currentGlobalLang === 'en')
+            ? `Subject: Quick Coffee Chat in Taksim & Synergy Meetup for COP31 Turkey
+Recipient: Dear ${contactPerson} - Management of ${targetOrg}
+
+Hello and best regards,
+We are actively coordinating climate technology startups and zero-waste solutions for the upcoming COP31 Summit hosted in Turkey. Given ${targetOrg}'s prominent industry standing, I would love to meet up for a brief, informal coffee chat at a cafe in Taksim (or any convenient location of your choice) to explore synergies.
+
+📲 My WhatsApp is open and available anytime for direct connection: ${phone}
+🤖 Official Telegram bot for fast project registration and grant updates: @COP31ZeroWasteBot
+🌐 Official Climate Portal: ${portal} (Atokiva Dubai & Turkey)
+
+Looking forward to connecting with you,
+COP31 Turkey Startup Secretariat`
+            : `موضوع: دعوت به یک قهوه کوتاه و گپ دوستانه جهت هم‌افزایی در رویداد COP31 در تکسیم
+مخاطب: جناب آقای / سرکار خانم ${contactPerson} - مدیریت محترم ${targetOrg}
+
+سلام و وقت بخیر،
+ما در حال هماهنگی تیم‌های فناور، استارتاپ‌ها و پروژه‌های پسماند صفر برای اجلاس بین‌المللی COP31 در ترکیه هستیم. با توجه به جایگاه و نقش پیشروی ${targetOrg}، بسیار خوشحال می‌شوم در صورت امکان یک دیدار کوتاه، خودمانی و غیررسمی سر یک فنجان قهوه در یکی از کافه‌های میدان تکسیم (یا هر مکان مناسب دیگری به انتخاب شما) داشته باشیم تا فرصت‌های هم‌افزایی دوجانبه را بررسی کنیم.
+
+📲 واتساپ من برای هماهنگی و گفتگوی مستقیم کاملاً در دسترس است: ${phone}
+🤖 ربات تلگرام دبیرخانه جهت ثبت سریع مشخصات طرح و دریافت گرنت‌ها: @COP31ZeroWasteBot
+🌐 پرتال رسمی نوآوری اقلیمی آتیکووا: ${portal} (دبی و ترکیه)
+
+مشتاق دیدار و تبادل نظر با شما،
+تیم هماهنگی استارتاپ‌های COP31 ترکیه`;
+
+      } else if (scenario === 'uni_scholarship') {
         text = `موضوع: پروپوزال رسمی اعطای بورسیه پژوهشی و تعریف پایان‌نامه‌های پسماند صفر برای اجلاس COP31
 مخاطب: جناب آقای / سرکار خانم ${contactPerson} - ریاست و معاونت محترم پژوهش و فناوری ${targetOrg}
 
