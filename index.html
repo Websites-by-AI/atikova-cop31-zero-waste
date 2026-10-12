@@ -190,6 +190,11 @@ button { font-family: inherit; cursor: pointer; }
         <span>🔍</span>
         <span id="simAuditBtnText" data-i18n="sim_btn_audit">ممیزی آنی خلوص واژگان</span>
       </button>
+      <button onclick="startLanguagePurityTour()" class="btn bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-950 font-black px-3 py-1.5 rounded-xl shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 border border-emerald-400/40 text-xs transition-transform active:scale-95">
+        <span>▶️</span>
+        <span id="simTourBtnText">تور شبیه‌ساز خودکار</span>
+      </button>
+
     </div>
 
   </div>
@@ -9532,9 +9537,713 @@ ${body}`;
       }).join('');
     }
 
-    // ==========================================
+        // ==========================================
     // COMPREHENSIVE LANGUAGE PURITY SIMULATOR & ZERO-MIXING ENGINE
     // ==========================================
+    var PHRASE_MAP = {
+  "سامانه تبلیغات، استارتاپ‌ها، ۵۰۰ لید سازمانی و دستیار هوشمند پسماند صفر": {
+    "tr": "COP31 Reklam, Girişim Vitrini, 500 Kurumsal Lider ve Akıllı Sıfır Atık Asistanı",
+    "en": "COP31 Advertising, Startup Showcase, 500 Institutional Leads & AI Zero-Waste Hub"
+  },
+  "آنکارا • آنتالیا • استانبول": {
+    "tr": "Ankara • Antalya • İstanbul",
+    "en": "Ankara • Antalya • Istanbul"
+  },
+  "آنکارا &bull; آنتالیا &bull; استانبول": {
+    "tr": "Ankara &bull; Antalya &bull; İstanbul",
+    "en": "Ankara &bull; Antalya &bull; Istanbul"
+  },
+  "آنکارا • استانبول": {
+    "tr": "Ankara • İstanbul",
+    "en": "Ankara • Istanbul"
+  },
+  "واتساپ پشتیبانی": {
+    "tr": "WhatsApp Destek",
+    "en": "WhatsApp Support"
+  },
+  "✨ ورود / ثبت‌نام استارتاپ‌ها": {
+    "tr": "✨ Girişim Girişi / Kayıt",
+    "en": "✨ Startup Login / Register"
+  },
+  "کارتابل پیام‌های من": {
+    "tr": "Mesajlarım",
+    "en": "My Proposals"
+  },
+  "خروج": {
+    "tr": "Çıkış",
+    "en": "Logout"
+  },
+  "🚀 اکوسیستم تبلیغات و نوآوری COP31 ترکیه": {
+    "tr": "🚀 Türkiye COP31 Reklam ve İnovasyon Ekosistemi",
+    "en": "🚀 Turkey COP31 Innovation & Advertising Ecosystem"
+  },
+  "پلتفرم جامع اتصال استارتاپ‌های پسماند صفر و طرح‌های اقلیمی به ۵۰۰ لید سازمانی": {
+    "tr": "Sıfır Atık Girişimlerini ve İklim Projelerini 500 Kurumsal Lidere Bağlayan Kapsamlı Platform",
+    "en": "Comprehensive Platform Connecting Zero-Waste & Climate Startups to 500 Institutional Leads"
+  },
+  "اگر برای رویداد بین‌المللی COP31 ترکیه طرح، فناوری یا استارتاپ دارید، ثبت‌نام کنید، تبلیغ خود را به نمایش بگذارید و به کمک دستیار هوش مصنوعی به ۵۰۰ هتل، دانشگاه و شهرداری پیام‌های اختصاصی B2B ارسال نمایید. کلیه پیام‌ها پس از اعتبارسنجی توسط مدیریت تایید و تحویل می‌شوند.": {
+    "tr": "Uluslararası COP31 Türkiye zirvesi için projeniz, teknolojiniz veya girişiminiz varsa kaydolun, vitrinde yerinizi alın ve yapay zeka asistanı desteğiyle 500 otel, üniversite ve belediyeye özel B2B teklifleri iletin. Tüm mesajlar yönetici denetiminden geçerek iletilir.",
+    "en": "If you have a project, technology, or startup for COP31 Turkey, register now, showcase your solution, and dispatch customized B2B proposals to 500 hotels, universities, and municipalities via AI. All proposals are verified and approved by coordinators."
+  },
+  "🚀 ویترین استارتاپ‌ها": {
+    "tr": "🚀 Girişim Vitrini",
+    "en": "🚀 Startup Showcase"
+  },
+  "✨ ثبت‌نام استارتاپ": {
+    "tr": "✨ Girişim Kaydı",
+    "en": "✨ Register Startup"
+  },
+  "🗄️ دیتابیس ادمین": {
+    "tr": "🗄️ Yönetici Veritabanı",
+    "en": "🗄️ Admin Database"
+  },
+  "لیدهای سازمانی احراز هویت شده": {
+    "tr": "Doğrulanmış Kurumsal Liderler",
+    "en": "Verified Institutional Leads"
+  },
+  "۱۰۰٪ معتبر": {
+    "tr": "%100 Doğrulanmış",
+    "en": "100% Verified"
+  },
+  "سازمان هدف": {
+    "tr": "Hedef Kurum",
+    "en": "Target Entities"
+  },
+  "۱۰۰ شرکت، ۱۰۰ دانشگاه، ۱۰۰ سمن، ۱۰۰ مدیر": {
+    "tr": "100 Şirket, 100 Üniversite, 100 STK, 100 Yönetici",
+    "en": "100 Companies, 100 Unis, 100 NGOs, 100 Execs"
+  },
+  "استارتاپ‌های فعال COP31": {
+    "tr": "Aktif COP31 Girişimleri",
+    "en": "Active COP31 Startups"
+  },
+  "ویترین باز": {
+    "tr": "Açık Vitrin",
+    "en": "Open Showcase"
+  },
+  "طرح و نوآوری": {
+    "tr": "Proje & İnovasyon",
+    "en": "Projects & Innovations"
+  },
+  "بینایی ماشین، IoT، کمپوست، پلتفرم ESG": {
+    "tr": "Görüntü İşleme, IoT, Kompost, ESG Platformu",
+    "en": "Computer Vision, IoT, Compost, ESG Platform"
+  },
+  "دستیار هوش مصنوعی": {
+    "tr": "Yapay Zeka Asistanı",
+    "en": "AI Proposal Assistant"
+  },
+  "۹۸٪": {
+    "tr": "%98",
+    "en": "98%"
+  },
+  "تطابق با ضوابط": {
+    "tr": "Mevzuat Uyumu",
+    "en": "Regulatory Compliance"
+  },
+  "نگارش پیام اختصاصی با توجه به حوزه هر لید": {
+    "tr": "Her kurumun faaliyet alanına göre kişiselleştirilmiş teklifler",
+    "en": "Tailored outreach adapted to each lead's institutional focus"
+  },
+  "کنترل و نظارت مدیریت": {
+    "tr": "Yönetici Kontrol ve Denetimi",
+    "en": "Executive Moderation & Control"
+  },
+  "کارتابل تایید": {
+    "tr": "Onay Masası",
+    "en": "Approval Desk"
+  },
+  "۱۰۰٪": {
+    "tr": "%100",
+    "en": "100%"
+  },
+  "تایید قبل از ارسال": {
+    "tr": "Gönderim Öncesi Onay",
+    "en": "Pre-Dispatch Review"
+  },
+  "نظارت ادمین بر پیام‌ها و ارسال مستقیم واتساپ": {
+    "tr": "Yönetici denetimi ve resmi kurumsal iletişim",
+    "en": "Admin moderation and official corporate outreach"
+  },
+  "🏢 ۱۰۰ شرکت و هتل": {
+    "tr": "🏢 100 Şirket ve Otel",
+    "en": "🏢 100 Companies & Hotels"
+  },
+  "🎓 ۱۰۰ دانشگاه & TTO": {
+    "tr": "🎓 100 Üniversite & TTO",
+    "en": "🎓 100 Universities & TTOs"
+  },
+  "🌱 ۱۰۰ نهاد مردمی": {
+    "tr": "🌱 100 Sivil Toplum",
+    "en": "🌱 100 Civic & NGOs"
+  },
+  "👥 ۱۰۰ مدیر ارشد": {
+    "tr": "👥 100 Üst Düzey Yönetici",
+    "en": "👥 100 Decision Makers"
+  },
+  "⚡ ۱۴۰ مهارت تخصصی": {
+    "tr": "⚡ 140 Uzmanlık Becerisi",
+    "en": "⚡ 140 Technopark Skills"
+  },
+  "کارت‌ها": {
+    "tr": "Kartlar",
+    "en": "Cards"
+  },
+  "جدول": {
+    "tr": "Tablo",
+    "en": "Table"
+  },
+  "ماشین وضعیت اتوماسیون آتیکووا (Agent State Machine Pipeline)": {
+    "tr": "Atikova Otomasyon Durum Makinesi (Agent State Machine Pipeline)",
+    "en": "Atikova Automation State Machine Pipeline"
+  },
+  "۶ گام اجرایی": {
+    "tr": "6 Uygulama Adımı",
+    "en": "6 Execution Steps"
+  },
+  "وضعیت سیستم: آماده پذیرش طرح‌های استارتاپی COP31": {
+    "tr": "Sistem Durumu: COP31 girişim projelerini kabul etmeye hazır",
+    "en": "System Status: Ready to onboard COP31 startup initiatives"
+  },
+  "گام ۱": {
+    "tr": "Adım 1",
+    "en": "Step 1"
+  },
+  "۵۰۰ لید": {
+    "tr": "500 Lider",
+    "en": "500 Leads"
+  },
+  "۱. کشف و اعتبارسنجی": {
+    "tr": "1. Keşif ve Doğrulama",
+    "en": "1. Discovery & Verification"
+  },
+  "ثبت نهادها در دیتابیس رسمی": {
+    "tr": "Kurumların resmi veritabanına kaydı",
+    "en": "Institutional onboarding in official database"
+  },
+  "گام ۲": {
+    "tr": "Adım 2",
+    "en": "Step 2"
+  },
+  "۲. ممیزی مخابراتی": {
+    "tr": "2. Telekom Denetimi",
+    "en": "2. Telecom Audit"
+  },
+  "تفکیک همراه 05xx از سانترال 02xx": {
+    "tr": "05xx GSM ile 02xx Santral ayrımı",
+    "en": "05xx GSM vs 02xx Landline PBX routing"
+  },
+  "گام ۳": {
+    "tr": "Adım 3",
+    "en": "Step 3"
+  },
+  "۳. شاخص پسماند صفر": {
+    "tr": "3. Sıfır Atık Göstergesi",
+    "en": "3. Zero-Waste Index"
+  },
+  "بررسی Sıfır Atık و حسگرهای IoT": {
+    "tr": "Sıfır Atık mevzuatı ve IoT sensörleri",
+    "en": "Sıfır Atık regulation and IoT telemetry"
+  },
+  "گام ۴": {
+    "tr": "Adım 4",
+    "en": "Step 4"
+  },
+  "۴. امتیازدهی قطعی": {
+    "tr": "4. Kesin Puanlama",
+    "en": "4. Definitive Scoring"
+  },
+  "اولویت‌بندی لیدهای طلایی COP31": {
+    "tr": "Öncelikli COP31 liderlerinin sıralanması",
+    "en": "Priority ranking for key COP31 targets"
+  },
+  "گام ۵": {
+    "tr": "Adım 5",
+    "en": "Step 5"
+  },
+  "۵. تولید پیام با هوش مصنوعی": {
+    "tr": "5. Yapay Zeka ile Teklif Üretimi",
+    "en": "5. AI Proposal Generation"
+  },
+  "تولید سناریوهای اختصاصی برای هر حوزه": {
+    "tr": "Her sektöre özel B2B işbirliği teklifi",
+    "en": "Sector-specific customized B2B proposals"
+  },
+  "گام ۶": {
+    "tr": "Adım 6",
+    "en": "Step 6"
+  },
+  "۶. تایید و ارسال رسمی": {
+    "tr": "6. Onay ve Resmi Gönderim",
+    "en": "6. Approval & Official Dispatch"
+  },
+  "کنترل در کارتابل مدیریت و ارسال": {
+    "tr": "Yönetici onay masasından resmi iletim",
+    "en": "Admin moderation review and dispatch"
+  },
+  "لیدهای پین‌شده و اهداف طلایی COP31 (VIP Pinned Leads)": {
+    "tr": "COP31 Sabitlenmiş Öncelikli Liderleri (VIP Pinned Leads)",
+    "en": "COP31 Pinned & VIP Priority Leads"
+  },
+  "اهداف اولویت اول (P1) جهت ارتباط سریع": {
+    "tr": "Hızlı iletişim için 1. Öncelikli (P1) Kurumlar",
+    "en": "Priority One (P1) Targets for Fast Outreach"
+  },
+  "هیچ لیدی پین نشده است. روی علامت 📌 در هر کارت کلیک کنید.": {
+    "tr": "Sabitlenen lider bulunmuyor. Kartlardaki 📌 butonuna tıklayarak sabitleyebilirsiniz.",
+    "en": "No pinned leads yet. Click 📌 on any card to pin it here."
+  },
+  "🚀 ویترین رسمی طرح‌های نوآورانه COP31": {
+    "tr": "🚀 Resmi COP31 İnovasyon Vitrini",
+    "en": "🚀 Official COP31 Innovation Showcase"
+  },
+  "مرکز هم‌افزایی استارتاپ‌ها و سازمان‌های هدف": {
+    "tr": "Girişimler ve Hedef Kurumlar Arasında İşbirliği Merkezi",
+    "en": "Synergy Hub for Startups and Target Institutions"
+  },
+  "ویترین تبلیغات و معرفی استارتاپ‌های پسماند صفر و فناوری‌های اقلیمی COP31 ترکیه": {
+    "tr": "Türkiye COP31 Sıfır Atık ve İklim Teknolojileri Girişim Tanıtım Vitrini",
+    "en": "Showcase of Zero-Waste & Climate Tech Startups for COP31 Turkey"
+  },
+  "این فضا برای نمایش عمومی راهکارهای اقلیمی، مدیریت پسماند هوشمند، بسته‌بندی زیستی، بیوکمپوست و نرم‌افزارهای کربنی طراحی شده است. هر استارتاپ می‌تواند طرح خود را ثبت کند، تبلیغ خود را به ۵۰۰ هتل، دانشگاه و شهرداری متصل نماید و با دستیار هوش مصنوعی آتیکووا پیشنهاد همکاری B2B ارسال نماید.": {
+    "tr": "Bu alan akıllı atık yönetimi, biyolojik ambalaj, kompost ve karbon yazılımlarını sergilemek için tasarlandı. Girişimler projelerini kaydedebilir, 500 kurumla eşleşebilir ve yapay zeka ile B2B işbirliği teklifi gönderebilir.",
+    "en": "This showcase features climate solutions, smart waste sorting, bio-packaging, composting, and carbon accounting software. Startups can list their pitch, connect to 500 leads, and send AI-assisted proposals."
+  },
+  "➕ ثبت تبلیغ و طرح استارتاپی جدید": {
+    "tr": "➕ Yeni Girişim ve Proje Kaydet",
+    "en": "➕ Register New Startup Project"
+  },
+  "📋 مشاهده ۵۰۰ لید سازمانی": {
+    "tr": "📋 500 Kurumsal Lideri İncele",
+    "en": "📋 View 500 Corporate Leads"
+  },
+  "فیلتر بر اساس حوزه فناوری:": {
+    "tr": "Teknoloji Alanına Göre Filtrele:",
+    "en": "Filter by Technology Domain:"
+  },
+  "همه حوزه‌ها": {
+    "tr": "Tüm Alanlar",
+    "en": "All Domains"
+  },
+  "بینایی ماشین & AI": {
+    "tr": "Görüntü İşleme & AI",
+    "en": "Computer Vision & AI"
+  },
+  "کمپوست هوازی": {
+    "tr": "Aerobik Kompost",
+    "en": "Aerobic Composting"
+  },
+  "پلتفرم ESG": {
+    "tr": "ESG Platformu",
+    "en": "ESG Platform"
+  },
+  "سطل‌های هوشمند IoT": {
+    "tr": "Akıllı IoT Kutuları",
+    "en": "Smart IoT Bins"
+  },
+  "بیوگاز و انرژی": {
+    "tr": "Biyogaz ve Enerji",
+    "en": "Biogas & Waste Energy"
+  },
+  "کانال و ربات رسمی تلگرام COP31": {
+    "tr": "Resmi COP31 Telegram Kanalı ve Botu",
+    "en": "Official COP31 Telegram Channel & Bot"
+  },
+  "فاندها، گرنت‌ها و بورسیه‌های فعال": {
+    "tr": "Aktif Fonlar, Hibeler ve Burslar",
+    "en": "Active Grants, Funds & Scholarships"
+  },
+  "کانال تلگرام و ربات هوشمند فرصت‌ها، فاندها و گرنت‌های رویداد COP31": {
+    "tr": "COP31 Zirvesi Fırsatlar, Fonlar ve Hibeler Telegram Kanalı ve Akıllı Botu",
+    "en": "COP31 Opportunities, Funds & Grants Telegram Channel and Smart Bot"
+  },
+  "اطلاع‌رسانی بلادرنگ گرنت‌های صنعتی TÜBİTAK، صندوق‌های تحول سبز بانکی، بورسیه‌های تحصیلی دانشگاه‌های İTÜ و بوغازیچی و پکیج‌های اسپانسری رویداد جهانی COP31 ترکیه با پشتیبانی مستقیم از ایمیل رسمی": {
+    "tr": "TÜBİTAK sanayi hibeleri, banka yeşil dönüşüm fonları, İTÜ ve Boğaziçi üniversite bursları ve resmi e-posta desteğiyle anlık bildirimler:",
+    "en": "Real-time updates on TÜBİTAK grants, bank green transition funds, university scholarships, and official sponsorships supported by:"
+  },
+  "کانال رسمی تلگرام": {
+    "tr": "Resmi Telegram Kanalı",
+    "en": "Official Telegram Channel"
+  },
+  "ربات هوشمند راهنما": {
+    "tr": "Akıllı Rehber Bot",
+    "en": "Smart Assistant Bot"
+  },
+  "شبیه‌ساز زنده تعامل با ربات تلگرام COP31": {
+    "tr": "COP31 Telegram Botu Canlı Etkileşim Simülatörü",
+    "en": "Live Interactive COP31 Telegram Bot Simulator"
+  },
+  "ورود به سیستم مدیریت و پایگاه داده آتیکووا": {
+    "tr": "Atikova Yönetim ve Veritabanı Sistemine Giriş",
+    "en": "Atikova Executive Admin & Database Login"
+  },
+  "جهت مشاهده و تایید پیام‌های هوش مصنوعی استارتاپ‌ها، ویرایش زنده پایگاه داده ۵۰۰ لید و تنظیمات فرستنده وارد شوید.": {
+    "tr": "Girişimlerin tekliflerini incelemek, 500 lider veritabanını düzenlemek ve e-posta onayları için giriş yapınız.",
+    "en": "Log in to review and approve startup proposals, manage the 500 leads database, and dispatch emails."
+  },
+  "نام کاربر مدیریت (Username):": {
+    "tr": "Yönetici Kullanıcı Adı (Username):",
+    "en": "Admin Username:"
+  },
+  "👤 تنظیم پیش‌فرض (admin)": {
+    "tr": "👤 Varsayılana Ayarla (admin)",
+    "en": "👤 Reset Default (admin)"
+  },
+  "رمز عبور مدیریت (Passcode):": {
+    "tr": "Yönetici Şifresi (Passcode):",
+    "en": "Admin Passcode:"
+  },
+  "ورود به پنل مدیریت 🔐": {
+    "tr": "Yönetici Paneline Giriş 🔐",
+    "en": "Login to Admin Panel 🔐"
+  },
+  "کارتابل تایید و نظارت بر پیام‌های هوش مصنوعی (Moderation Queue)": {
+    "tr": "Yapay Zeka Teklifleri Onay ve Denetim Masası (Moderation Queue)",
+    "en": "AI Outreach Moderation & Approval Queue"
+  },
+  "مدیریت مستقیم پایگاه داده ۵۰۰ نهاد سازمانی COP31": {
+    "tr": "500 Kurumsal Lider Veritabanı Yönetimi",
+    "en": "500 Institutional Leads Direct Database Management"
+  },
+  "ارسال پیام": {
+    "tr": "Mesaj Gönder",
+    "en": "Send Proposal"
+  },
+  "واتساپ": {
+    "tr": "WhatsApp",
+    "en": "WhatsApp"
+  },
+  "پیشنهاد AI": {
+    "tr": "AI Teklifi",
+    "en": "AI Proposal"
+  },
+  "📌 پین": {
+    "tr": "📌 Sabitle",
+    "en": "📌 Pin"
+  },
+  "★ پین‌شده": {
+    "tr": "★ Sabitlendi",
+    "en": "★ Pinned"
+  },
+  "ویرایش": {
+    "tr": "Düzenle",
+    "en": "Edit"
+  },
+  "حذف": {
+    "tr": "Sil",
+    "en": "Delete"
+  },
+  "نام نهاد / سازمان": {
+    "tr": "Kurum / Kuruluş Adı",
+    "en": "Organization Name"
+  },
+  "بخش فعالیت": {
+    "tr": "Faaliyet Alanı",
+    "en": "Sector / Focus"
+  },
+  "مقر / شهر": {
+    "tr": "Merkez / Şehir",
+    "en": "HQ / City"
+  },
+  "تلفن تماس": {
+    "tr": "Telefon",
+    "en": "Phone"
+  },
+  "ایمیل": {
+    "tr": "E-posta",
+    "en": "Email"
+  },
+  "اقدام هوشمند": {
+    "tr": "Akıllı İşlem",
+    "en": "Smart Action"
+  },
+  "انطباق: ۱۰۰٪": {
+    "tr": "Uyumluluk: %100",
+    "en": "Alignment: 100%"
+  },
+  "مشاهده شرکت‌های مرتبط ←": {
+    "tr": "İlgili şirketleri gör →",
+    "en": "View matching companies →"
+  },
+  "بستن گزارش": {
+    "tr": "Raporu Kapat",
+    "en": "Close Report"
+  },
+  "بنیان‌گذار:": {
+    "tr": "Kurucu:",
+    "en": "Founders:"
+  },
+  "آماده COP31": {
+    "tr": "COP31 Hazır",
+    "en": "COP31 Ready"
+  },
+  "طرح برای COP31:": {
+    "tr": "COP31 Hedefi:",
+    "en": "COP31 Target:"
+  },
+  "سازمان‌های هدف:": {
+    "tr": "Hedef Kurumlar:",
+    "en": "Target Institutions:"
+  },
+  "ارسال این طرح به ۵۰۰ لید با AI": {
+    "tr": "Bu projeyi AI ile 500 lidere ilet",
+    "en": "Dispatch this pitch to 500 leads with AI"
+  },
+  "گرنت‌های اقلیمی (/grants)": {
+    "tr": "İklim Hibeleri (/grants)",
+    "en": "Climate Grants (/grants)"
+  },
+  "بورسیه‌های دانشگاهی (/scholarships)": {
+    "tr": "Üniversite Bursları (/scholarships)",
+    "en": "Academic Scholarships (/scholarships)"
+  },
+  "ثبت‌نام طرح (/apply)": {
+    "tr": "Proje Başvurusu (/apply)",
+    "en": "Submit Proposal (/apply)"
+  },
+  "شروع مجدد (/start)": {
+    "tr": "Yeniden Başlat (/start)",
+    "en": "Restart (/start)"
+  },
+  "ارسال دستور به بات تلگرام...": {
+    "tr": "Telegram botuna komut gönder...",
+    "en": "Send command to Telegram bot..."
+  },
+  "ارسال به بات": {
+    "tr": "Bota Gönder",
+    "en": "Send to Bot"
+  },
+  "کانال تلگرام COP31": {
+    "tr": "COP31 Telegram Kanalı",
+    "en": "COP31 Telegram Channel"
+  },
+  "انتشار فوری در کانال تلگرام COP31": {
+    "tr": "COP31 Telegram Kanalında Anında Yayınla",
+    "en": "Broadcast to COP31 Telegram Channel"
+  },
+  "عضویت در کانال تلگرام": {
+    "tr": "Telegram Kanalına Katıl",
+    "en": "Join Telegram Channel"
+  },
+  "اعضای فعال کانال": {
+    "tr": "Aktif Kanal Üyeleri",
+    "en": "Active Channel Members"
+  },
+  "پیام‌های منتشرشده": {
+    "tr": "Yayınlanan Mesajlar",
+    "en": "Published Messages"
+  },
+  "گرنت‌های فعال": {
+    "tr": "Aktif Hibeler",
+    "en": "Active Grants"
+  },
+  "کاربر ادمین": {
+    "tr": "Yönetici",
+    "en": "Admin"
+  },
+  "ورود مدیریت 🔐": {
+    "tr": "Yönetici Girişi 🔐",
+    "en": "Admin Login 🔐"
+  },
+  "نام کاربری...": {
+    "tr": "Kullanıcı adı...",
+    "en": "Username..."
+  },
+  "رمز عبور مدیریت را وارد کنید...": {
+    "tr": "Yönetici şifresini giriniz...",
+    "en": "Enter admin passcode..."
+  },
+  "فیلتر وضعیت:": {
+    "tr": "Durum Filtresi:",
+    "en": "Status Filter:"
+  },
+  "همه وضعیت‌ها": {
+    "tr": "Tüm Durumlar",
+    "en": "All Statuses"
+  },
+  "در انتظار تایید": {
+    "tr": "Onay Bekleyenler",
+    "en": "Pending Approval"
+  },
+  "تایید شده": {
+    "tr": "Onaylananlar",
+    "en": "Approved"
+  },
+  "رد شده": {
+    "tr": "Reddedilenler",
+    "en": "Rejected"
+  },
+  "بررسی و ارسال رسمی": {
+    "tr": "İncele ve Resmi İlet",
+    "en": "Inspect & Dispatch"
+  },
+  "تایید و ارسال": {
+    "tr": "Onayla ve Gönder",
+    "en": "Approve & Dispatch"
+  },
+  "خروج از مدیریت": {
+    "tr": "Yönetimden Çıkış",
+    "en": "Logout Admin"
+  },
+  "تنظیمات دبیرخانه": {
+    "tr": "Koordinasyon Ayarları",
+    "en": "Secretariat Settings"
+  },
+  "موتور هوش مصنوعی RAG و سامانه گراف دانش KAG": {
+    "tr": "RAG Yapay Zeka Motoru & KAG Bilgi Grafiği",
+    "en": "RAG AI Engine & KAG Knowledge Graph Hub"
+  },
+  "کاتالوگ ۲۰ مدل تخصصی اقلیم و پسماند Hugging Face": {
+    "tr": "20 Özel Hugging Face İklim & Sıfır Atık Modeli Kataloğu",
+    "en": "Catalog of 20 Specialized Hugging Face Climate & Waste Models"
+  },
+  "کاوش در گراف دانش": {
+    "tr": "Bilgi Grafiğini İncele",
+    "en": "Explore Knowledge Graph"
+  },
+  "تولید پروپوزال با هوش مصنوعی": {
+    "tr": "Yapay Zeka ile Teklif Üret",
+    "en": "Generate AI Proposal"
+  },
+  "مدل‌های زبانی LLM (۶)": {
+    "tr": "Büyük Dil Modelleri LLM (6)",
+    "en": "Large Language Models LLM (6)"
+  },
+  "بینایی ماشین & سورتینگ (۴)": {
+    "tr": "Görüntü İşleme & Ayrıştırma (4)",
+    "en": "Computer Vision & Sorting (4)"
+  },
+  "تعبیه متن و RAG (۴)": {
+    "tr": "Metin Gömme & RAG (4)",
+    "en": "Text Embeddings & RAG (4)"
+  },
+  "گراف دانش و KAG (۳)": {
+    "tr": "Bilgi Grafiği & KAG (3)",
+    "en": "Knowledge Graph & KAG (3)"
+  },
+  "پیش‌بینی سری زمانی (۳)": {
+    "tr": "Zaman Serisi Tahmini (3)",
+    "en": "Time-Series Forecasting (3)"
+  },
+  "گراف دانش چندمرحله‌ای (Multi-Hop KAG Reasoning)": {
+    "tr": "Çok Adımlı Bilgi Grafiği Akıl Yürütme (Multi-Hop KAG Reasoning)",
+    "en": "Multi-Hop Knowledge Graph Reasoning (KAG Engine)"
+  },
+  "استودیوی ایده و اسناد: سناریوهای دانشگاه، بانک، هتل و سایت‌ساز هوش مصنوعی": {
+    "tr": "Fikir ve Belge Stüdyosu: Üniversite, Banka, Otel Senaryoları ve AI Site Oluşturucu",
+    "en": "Idea & Pitch Studio: Academic, Banking, Hospitality Scenarios & AI Website Builder"
+  },
+  "ورودی سند، لینک وب‌سایت یا ایده استارتاپی": {
+    "tr": "Belge Metni, Web Sitesi Linki veya Girişim Fikri",
+    "en": "Document Input, Website URL or Startup Idea"
+  },
+  "آدرس سایت یا خلاصه متن سند را وارد کنید تا هوش مصنوعی آن را پردازش کند": {
+    "tr": "Yapay zekanın analiz etmesi için web sitesi adresini veya belge özetini girin",
+    "en": "Enter website URL or summary text for AI processing"
+  },
+  "متن سند / ایده": {
+    "tr": "Belge Metni / Fikir",
+    "en": "Document Text / Idea"
+  },
+  "لینک وب‌سایت": {
+    "tr": "Web Sitesi Linki",
+    "en": "Website URL"
+  },
+  "نمونه‌های آماده": {
+    "tr": "Hazır Örnekler",
+    "en": "Sample Presets"
+  },
+  "مشخصات استخراج‌شده از سند و ایده شما": {
+    "tr": "Belgenizden ve Fikrinizden Çıkarılan Özellikler",
+    "en": "Extracted Specifications from Document & Pitch"
+  },
+  "موتور نگارش پیام بر اساس سناریوهای هدف": {
+    "tr": "Hedef Senaryolara Göre Mesaj Motoru",
+    "en": "Outreach Messaging Engine by Target Scenarios"
+  },
+  "سایت‌ساز هوش مصنوعی: لندینگ‌پیج تبلیغاتی اختصاصی ایده": {
+    "tr": "AI Web Sitesi Oluşturucu: Özel Tanıtım Açılış Sayfası",
+    "en": "AI Website Builder: Instant Startup Landing Page"
+  },
+  "سایت‌ساز اختصاصی با هوش مصنوعی": {
+    "tr": "Yapay Zeka ile Özel Site Oluşturucu",
+    "en": "AI Custom Website Generator"
+  },
+  "تولید لندینگ‌پیج اختصاصی": {
+    "tr": "Özel Açılış Sayfası Oluştur",
+    "en": "Generate Custom Landing Page"
+  },
+  "پیش‌نمایش سایت اختصاصی": {
+    "tr": "Site Önizlemesi",
+    "en": "Preview Mini-Website"
+  },
+  "کپی کد HTML": {
+    "tr": "HTML Kodunu Kopyala",
+    "en": "Copy HTML Code"
+  },
+  "کپی متن 📋": {
+    "tr": "Metni Kopyala 📋",
+    "en": "Copy Text 📋"
+  },
+  "ارسال به واتساپ 📱": {
+    "tr": "WhatsApp ile İlet 📱",
+    "en": "Send via WhatsApp 📱"
+  },
+  "تکمیل خودکار فرم ثبت‌نام و ارسال 📝": {
+    "tr": "Kayıt Formunu Otomatik Doldur ve İlet 📝",
+    "en": "Autofill Registration Form & Dispatch 📝"
+  },
+  "پیش‌نمایش و تایید ایمیل رسمی سازمانی COP31": {
+    "tr": "COP31 Resmi Kurumsal E-posta Önizleme ve Onayı",
+    "en": "COP31 Official Corporate Email Preview & Approval"
+  },
+  "دبیرخانه استارتاپ‌های COP31 ترکیه <startup@cop31.tr> | +12085033653": {
+    "tr": "Türkiye COP31 Girişim Masası <startup@cop31.tr> | +12085033653",
+    "en": "Turkey COP31 Startup Desk <startup@cop31.tr> | +12085033653"
+  },
+  "🛡️ کاربران عادی اجازه ارسال مستقیم ایمیل ندارند؛ تمامی پیام‌ها ابتدا در این کارتابل ممیزی و سپس ارسال می‌گردند.": {
+    "tr": "🛡️ Serbest kullanıcılar doğrudan e-posta gönderemez; tüm mesajlar bu onay masasında denetlenir ve gönderilir.",
+    "en": "🛡️ Free/regular users cannot freely send emails; all outreach is moderated and dispatched here."
+  },
+  "🧠 بهبود و ارتقای متن با مدل KAG هوش مصنوعی": {
+    "tr": "🧠 KAG Yapay Zeka Modeli ile Metni Güçlendir",
+    "en": "🧠 Enhance Text with KAG AI Model"
+  },
+  "🚀 تایید و ارسال رسمی ایمیل (mailto)": {
+    "tr": "🚀 Onayla ve E-posta Gönder (mailto)",
+    "en": "🚀 Approve & Dispatch Email (mailto)"
+  },
+  "📋 کپی متن ایمیل": {
+    "tr": "📋 E-posta Metnini Kopyala",
+    "en": "📋 Copy Email Text"
+  },
+  "📱 تایید و ارسال واتساپ": {
+    "tr": "📱 Onayla ve WhatsApp ile İlet",
+    "en": "📱 Approve & WhatsApp"
+  },
+  "رد پیام": {
+    "tr": "Mesajı Reddet",
+    "en": "Reject Proposal"
+  },
+  "بستن": {
+    "tr": "Kapat",
+    "en": "Close"
+  },
+  "لغو": {
+    "tr": "İptal",
+    "en": "Cancel"
+  },
+  "تایید": {
+    "tr": "Onayla",
+    "en": "Confirm"
+  },
+  "ذخیره تغییرات": {
+    "tr": "Değişiklikleri Kaydet",
+    "en": "Save Changes"
+  }
+};
+    window.PHRASE_MAP = PHRASE_MAP;
+
     var I18N_MASTER = {
   "fa": {
     "lang_name": "فارسی",
@@ -9886,8 +10595,6 @@ ${body}`;
       'isparta': { fa: 'اسپارتا', tr: 'Isparta', en: 'Isparta' },
       'tokat': { fa: 'توکات', tr: 'Tokat', en: 'Tokat' }
     };
-
-    
     window.CITY_MAP = CITY_MAP;
 
     function translateCity(city, lang) {
@@ -9906,7 +10613,6 @@ ${body}`;
       const sRaw = sec.toString().trim();
       const sLower = sRaw.toLowerCase();
 
-      // Check Group XX
       const grpMatch = sLower.match(/group\s*(\d+)/);
       if (grpMatch) {
         const num = grpMatch[1];
@@ -9970,8 +10676,7 @@ ${body}`;
 
     function simulateLanguageMode(lang) {
       setGlobalLang(lang);
-      
-      // Update simulator buttons active state
+
       ['fa', 'tr', 'en'].forEach(l => {
         const btn = document.getElementById(`simBtn-${l}`);
         if (btn) {
@@ -9983,7 +10688,6 @@ ${body}`;
         }
       });
 
-      // Simulator telemetry badges
       const purityEl = document.getElementById('simPurityScore');
       const dirEl = document.getElementById('simDirectionBadge');
       const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
@@ -9999,51 +10703,102 @@ ${body}`;
       showAppToast(simNotices[lang] || `زبان سامانه به ${lang} تغییر یافت`);
     }
 
+    // Universal DOM Purity Translator
+    function applyUniversalLanguagePurity(lang) {
+      if (!lang) lang = currentGlobalLang || 'fa';
+
+      const html = document.getElementById('htmlRoot') || document.documentElement;
+      html.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+      html.setAttribute('lang', lang);
+
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+
+      // 1. data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerText = dict[key];
+      });
+
+      // 2. data-i18n-placeholder
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+
+      // 3. Global phrase-level translation on leaf elements
+      const containers = document.querySelectorAll('header, nav, #langPuritySimulator, #directoryView, #startupsView, #telegramView, #ideastudioView, #ragkagView, #databaseView, #cadenceView, #auditView, #messageBankView, #catalogView, #investorView, #adminView, footer, .modal-backdrop');
+
+      containers.forEach(container => {
+        const nodes = container.querySelectorAll('h1, h2, h3, h4, h5, p, span, b, strong, button, label, a, th, td');
+        nodes.forEach(el => {
+          if (el.children.length === 0) {
+            const text = el.innerText ? el.innerText.trim() : '';
+            if (text) {
+              if (lang === 'fa') {
+                if (el.dataset.origFa) {
+                  el.innerText = el.dataset.origFa;
+                }
+              } else {
+                if (!el.dataset.origFa && /[؀-ۿ]/.test(text)) {
+                  el.dataset.origFa = text;
+                }
+                const orig = el.dataset.origFa || text;
+                if (PHRASE_MAP[orig] && PHRASE_MAP[orig][lang]) {
+                  el.innerText = PHRASE_MAP[orig][lang];
+                } else {
+                  const norm = orig.replace(/\s+/g, ' ');
+                  for (const [key, trObj] of Object.entries(PHRASE_MAP)) {
+                    if (key.replace(/\s+/g, ' ') === norm) {
+                      el.innerText = trObj[lang];
+                      break;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        });
+      });
+
+      // 4. Input placeholders
+      document.querySelectorAll('input, textarea').forEach(input => {
+        const ph = input.getAttribute('placeholder');
+        if (ph) {
+          if (lang === 'fa') {
+            if (input.dataset.origFaPh) input.setAttribute('placeholder', input.dataset.origFaPh);
+          } else {
+            if (!input.dataset.origFaPh && /[؀-ۿ]/.test(ph)) {
+              input.dataset.origFaPh = ph;
+            }
+            const origPh = input.dataset.origFaPh || ph;
+            if (PHRASE_MAP[origPh] && PHRASE_MAP[origPh][lang]) {
+              input.setAttribute('placeholder', PHRASE_MAP[origPh][lang]);
+            }
+          }
+        }
+      });
+    }
+
     function setGlobalLang(lang) {
       if (!I18N_MASTER[lang]) lang = 'fa';
       currentGlobalLang = lang;
 
-      // Update pills
       document.querySelectorAll('.lang-pill').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById(`langBtn-${lang}`);
       if (activeBtn) activeBtn.classList.add('active');
-
-      // Update HTML root direction and lang
-      const html = document.getElementById('htmlRoot');
-      if (lang === 'fa') {
-        html.setAttribute('dir', 'rtl');
-        html.setAttribute('lang', 'fa');
-      } else {
-        html.setAttribute('dir', 'ltr');
-        html.setAttribute('lang', lang);
-      }
 
       try {
         localStorage.setItem('atikova_preferred_lang', lang);
       } catch(e) {}
 
-      // Translate all DOM elements with data-i18n
-      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerText = dict[key];
-        }
-      });
+      // Apply universal DOM purity translation
+      applyUniversalLanguagePurity(lang);
 
-      // Translate all DOM elements with data-i18n-placeholder
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (dict[key]) {
-          el.setAttribute('placeholder', dict[key]);
-        }
-      });
-
-      // Render Dynamic Views
+      // Re-render Dynamic Views with localized content
       renderPinnedLeadsBar();
       renderContent();
       renderAdminDbTable();
-      if (typeof renderStartupsShowcase === 'function') renderStartupsShowcase();
+      renderStartupsShowcase();
       if (typeof renderHfModelsCatalog === 'function') renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
       if (typeof populateIdeaTargetLeads === 'function') populateIdeaTargetLeads();
       if (typeof updateUserAuthHeader === 'function') updateUserAuthHeader();
@@ -10177,6 +10932,74 @@ ${body}`;
           </div>
         `;
       }
+    }
+
+    function renderStartupsShowcase() {
+      const container = document.getElementById('startupsContainer');
+      if (!container) return;
+
+      const lang = currentGlobalLang || 'fa';
+      let list = startupsShowcase;
+      if (currentStartupFilter !== 'all') {
+        list = startupsShowcase.filter(s => s.category.includes(currentStartupFilter) || currentStartupFilter.includes(s.category));
+      }
+
+      let html = '';
+      list.forEach(st => {
+        const btnText = lang === 'fa' ? 'ارسال این طرح به ۵۰۰ لید با AI' : (lang === 'tr' ? 'Bu projeyi AI ile 500 lidere ilet' : 'Dispatch this pitch to 500 leads with AI');
+        const foundersLabel = lang === 'fa' ? 'بنیان‌گذار:' : (lang === 'tr' ? 'Kurucu:' : 'Founders:');
+        const cop31ReadyLabel = lang === 'fa' ? 'آماده COP31' : (lang === 'tr' ? 'COP31 Hazır' : 'COP31 Ready');
+        const cop31GoalLabel = lang === 'fa' ? 'طرح برای COP31:' : (lang === 'tr' ? 'COP31 Hedefi:' : 'COP31 Target:');
+        const targetLabel = lang === 'fa' ? 'سازمان‌های هدف:' : (lang === 'tr' ? 'Hedef Kurumlar:' : 'Target Institutions:');
+
+        html += `
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50 transition shadow-xl flex flex-col justify-between relative group">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 flex items-center justify-center text-xl">
+                    🚀
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white group-hover:text-emerald-300 transition">${st.name}</h4>
+                    <span class="text-[10px] text-slate-400 font-mono">📍 ${translateCity(st.city, lang)} &bull; ${foundersLabel} ${st.founders}</span>
+                  </div>
+                </div>
+                <span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold whitespace-nowrap">
+                  ${cop31ReadyLabel}
+                </span>
+              </div>
+
+              <div class="mb-3">
+                <span class="text-[11px] bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-md inline-block mb-2 font-mono">
+                  🏷️ ${translateSector(st.category, lang)}
+                </span>
+                <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 mb-2">
+                  ${st.solution}
+                </p>
+                <div class="text-[11px] text-emerald-400/90 bg-emerald-950/30 p-2 rounded-lg border border-emerald-900/40 mb-3">
+                  🎯 <b>${cop31GoalLabel}</b> ${st.cop31Goal}
+                </div>
+                <div class="text-[10px] text-slate-400">
+                  ${targetLabel} <span class="text-slate-300">${st.targetSectors}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+              <div class="text-[10px] text-slate-400 font-mono" dir="ltr">
+                <span>${st.phone}</span>
+              </div>
+              <button onclick="startOutreachWithStartup('${st.name}')" class="btn btn-brand text-xs py-1.5 px-3 rounded-lg font-bold flex items-center gap-1 shadow-md shadow-emerald-500/20">
+                <span>${btnText}</span>
+                <span>⚡</span>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
     }
 
     function renderSkillsContent(container) {
@@ -10355,27 +11178,57 @@ ${body}`;
       tbody.innerHTML = rows || `<tr><td colspan="8" class="p-6 text-center text-slate-500 text-xs">${lang === 'fa' ? 'موردی یافت نشد.' : (lang === 'tr' ? 'Kayıt bulunamadı.' : 'No records found.')}</td></tr>`;
     }
 
+    
+    var purityTourTimer = null;
+    function startLanguagePurityTour() {
+      if (purityTourTimer) clearTimeout(purityTourTimer);
+      showAppToast('🚀 آغاز تور شبیه‌سازی خودکار: نمایش خلوص ۱۰۰٪ به ترتیب فارسی، ترکی و انگلیسی...');
+      
+      // Step 1: Persian
+      simulateLanguageMode('fa');
+      
+      // Step 2: Turkish after 3.2s
+      purityTourTimer = setTimeout(function() {
+        simulateLanguageMode('tr');
+        showAppToast('🇹🇷 مرحله ۲: شبیه‌سازی ترکی ۱۰۰٪ خالص (LTR - بدون کلمه ترکیبی)');
+        
+        // Step 3: English after 3.2s
+        purityTourTimer = setTimeout(function() {
+          simulateLanguageMode('en');
+          showAppToast('🇬🇧 مرحله ۳: شبیه‌سازی انگلیسی ۱۰۰٪ خالص (LTR - بدون کلمه ترکیبی)');
+          
+          // Step 4: Run Live Audit after 3.2s
+          purityTourTimer = setTimeout(function() {
+            runLanguagePurityAudit();
+            showAppToast('✅ پایان تور شبیه‌سازی: ممیزی خلوص زبان ۱۰۰٪ با موفقیت تایید شد!');
+          }, 3200);
+        }, 3200);
+      }, 3200);
+    }
+
     function runLanguagePurityAudit() {
       const current = currentGlobalLang || 'fa';
       const langNames = { fa: 'فارسی (Persian)', tr: 'Türkçe (Turkish)', en: 'English' };
-      
+
       let totalNodes = 0;
       let pureCount = 0;
       let mixedSamples = [];
 
-      const testNodes = document.querySelectorAll('#directoryView h4, #directoryView button, #pinnedCardsContainer button, #directoryContent button, .tab-btn');
+      const testNodes = document.querySelectorAll('#directoryView h1, #directoryView h2, #directoryView h3, #directoryView h4, #directoryView button, #directoryView span, #directoryView p, #pinnedCardsContainer button, #directoryContent button, .tab-btn');
       testNodes.forEach(node => {
-        const text = (node.innerText || '').trim();
-        if (text.length > 1 && text.length < 50) {
-          totalNodes++;
-          if (current === 'fa') {
-            pureCount++;
-          } else {
-            const hasPersian = /[؀-ۿﮊپچگ]/.test(text);
-            if (hasPersian) {
-              mixedSamples.push(text);
-            } else {
+        if (node.children.length === 0) {
+          const text = (node.innerText || '').trim();
+          if (text.length > 1 && text.length < 60) {
+            totalNodes++;
+            if (current === 'fa') {
               pureCount++;
+            } else {
+              const hasPersian = /[؀-ۿﮊپچگ]/.test(text);
+              if (hasPersian) {
+                mixedSamples.push(text);
+              } else {
+                pureCount++;
+              }
             }
           }
         }
@@ -10412,7 +11265,7 @@ ${body}`;
       if (issuesBox && issuesList) {
         if (report.mixedCount > 0) {
           issuesBox.classList.remove('hidden');
-          issuesList.innerHTML = report.samples.map(s => `<li>${s}</li>`).join('');
+          issuesList.innerHTML = report.samples.slice(0, 10).map(s => `<li>${s}</li>`).join('');
         } else {
           issuesBox.classList.add('hidden');
         }
