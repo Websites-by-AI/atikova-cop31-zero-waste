@@ -3952,7 +3952,7 @@ button { font-family: inherit; cursor: pointer; }
           </div>
         </div>
 
-        <!-- Quick Stats -->
+        <!-- Quick Stats & Limits -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
           <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
             <span class="text-slate-400 text-[11px] block">کل رکوردهای دیتابیس</span>
@@ -3963,13 +3963,27 @@ button { font-family: inherit; cursor: pointer; }
             <b id="adminStatPinned" class="text-amber-400 font-mono text-base mt-1 block">5 لید</b>
           </div>
           <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400 text-[11px] block">شماره اختصاصی فرستنده</span>
-            <b id="adminStatSender" class="text-cyan-400 font-mono text-base mt-1 block">+12085033653</b>
+            <span class="text-slate-400 text-[11px] block">سقف روزانه پیام‌ها (Limit)</span>
+            <b class="text-amber-400 font-mono text-base mt-1 block">۵۰ پیام / روز</b>
           </div>
           <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400 text-[11px] block">مسیر فعال URL</span>
-            <b class="text-purple-400 font-mono text-base mt-1 block">#database / #admin</b>
+            <span class="text-slate-400 text-[11px] block">ساب‌دامین متصل (Subdomain)</span>
+            <b class="text-cyan-400 font-mono text-base mt-1 block truncate" title="cop31.atovika.com">cop31.atovika.com</b>
           </div>
+        </div>
+
+        <!-- Subdomain Cloudflare Notice -->
+        <div class="bg-cyan-950/40 border border-cyan-500/30 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-cyan-400 text-lg">🌐</span>
+            <div>
+              <span class="text-white font-bold block">ساب‌دامین رسمی سامانه: <code class="text-cyan-300 font-mono">cop31.atovika.com</code> (یا <code class="text-cyan-300 font-mono">cop31.atikova.org</code>)</span>
+              <span class="text-slate-400 text-[11px] block mt-0.5">ثبت‌شده روی CNAME پایدار Cloudflare Pages: <code class="text-slate-300 font-mono">atikova-zero-waste-cop31.pages.dev</code></span>
+            </div>
+          </div>
+          <a href="https://atikova-zero-waste-cop31.pages.dev" target="_blank" class="btn btn-brand text-xs py-1.5 px-3 shrink-0 font-bold">
+            مشاهده سایت اصلی ↗
+          </a>
         </div>
 
         <!-- Notification Toast -->
@@ -4015,11 +4029,31 @@ button { font-family: inherit; cursor: pointer; }
               <button onclick="switchAdminDbTab('skills')" id="adminDbTab-skills" class="admin-db-tab-btn px-2.5 py-1 rounded text-slate-400 border border-slate-800 font-bold transition">⚡ مهارت‌های فنی (۱۴۰)</button>
             </div>
 
-            <div class="flex items-center gap-2">
-              <div class="relative w-full sm:w-60">
+            <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+              <!-- Limit Selector -->
+              <div class="flex items-center gap-1 text-[11px] text-slate-400 bg-slate-950 px-2 py-1 rounded-lg border border-slate-800">
+                <span>محدودیت:</span>
+                <select onchange="setAdminDbPageSize(this.value)" class="bg-transparent text-emerald-400 font-bold font-mono outline-none cursor-pointer">
+                  <option value="10" class="bg-slate-900 text-white">۱۰ رکورد</option>
+                  <option value="25" selected class="bg-slate-900 text-white">۲۵ رکورد</option>
+                  <option value="50" class="bg-slate-900 text-white">۵۰ رکورد</option>
+                  <option value="100" class="bg-slate-900 text-white">۱۰۰ رکورد (همه)</option>
+                </select>
+              </div>
+
+              <!-- Search -->
+              <div class="relative w-full sm:w-52">
                 <input type="text" placeholder="فیلتر در پایگاه داده..." oninput="handleAdminDbSearch(this.value)" class="search-input text-xs py-1.5 px-3">
               </div>
-              <span id="adminDbCount" class="font-mono text-emerald-400 text-xs shrink-0 font-bold">100 / 100 رکورد</span>
+
+              <!-- Pagination Controls -->
+              <div class="flex items-center gap-1 shrink-0">
+                <button id="adminDbPrevBtn" onclick="changeAdminDbPage(-1)" class="btn btn-outline text-xs py-1 px-2 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed" title="صفحه قبلی">◀</button>
+                <span id="adminDbPageInfo" class="font-mono text-[11px] text-amber-400 px-1 font-bold">صفحه ۱ از ۴</span>
+                <button id="adminDbNextBtn" onclick="changeAdminDbPage(1)" class="btn btn-outline text-xs py-1 px-2 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed" title="صفحه بعدی">▶</button>
+              </div>
+
+              <span id="adminDbCount" class="font-mono text-emerald-400 text-xs shrink-0 font-bold hidden md:inline">100 / 100 رکورد</span>
             </div>
           </div>
 
@@ -4434,7 +4468,55 @@ button { font-family: inherit; cursor: pointer; }
       }
     }
 
+    // ============================================
+    // ADMIN PANEL LIMITING & SECURITY CONTROLS
+    // ============================================
+    let adminFailedAttempts = 0;
+    let adminLockoutUntil = 0;
+    try {
+      adminFailedAttempts = parseInt(sessionStorage.getItem('admin_failed_attempts') || '0');
+      adminLockoutUntil = parseInt(sessionStorage.getItem('admin_lockout_until') || '0');
+    } catch(e) {}
+
+    let adminDbPageSize = 25; // Limit: 10, 25, 50, 100
+    let adminDbCurrentPage = 1;
+
+    function checkAdminLockout() {
+      try {
+        adminLockoutUntil = parseInt(sessionStorage.getItem('admin_lockout_until') || '0');
+      } catch(e) {}
+      const now = Date.now();
+      const errBox = document.getElementById('adminPassError');
+      const passInput = document.getElementById('adminPassInput');
+      
+      if (adminLockoutUntil > now) {
+        const remainingSec = Math.ceil((adminLockoutUntil - now) / 1000);
+        if (passInput) passInput.disabled = true;
+        if (errBox) {
+          errBox.innerHTML = `⛔ <b>محدودیت امنیتی فعال شد!</b><br>به دلیل ۵ بار تلاش ناموفق، دسترسی برای <b>${remainingSec} ثانیه</b> دیگر قفل است.`;
+          errBox.classList.remove('hidden');
+        }
+        return true;
+      }
+      if (passInput) passInput.disabled = false;
+      return false;
+    }
+
+    function setAdminDbPageSize(size) {
+      adminDbPageSize = parseInt(size) || 25;
+      adminDbCurrentPage = 1;
+      renderAdminDbTable();
+    }
+
+    function changeAdminDbPage(delta) {
+      adminDbCurrentPage += delta;
+      if (adminDbCurrentPage < 1) adminDbCurrentPage = 1;
+      renderAdminDbTable();
+    }
+
     function submitAdminPass() {
+      if (checkAdminLockout()) return;
+
       const userInput = document.getElementById('adminUserInput');
       const passInput = document.getElementById('adminPassInput');
       const userVal = (userInput ? userInput.value : '').trim();
@@ -4451,14 +4533,32 @@ button { font-family: inherit; cursor: pointer; }
 
       if (passVal === ADMIN_PASS) {
         isAdminLoggedIn = true;
+        adminFailedAttempts = 0;
+        adminLockoutUntil = 0;
         try {
           sessionStorage.setItem('atikova_admin_auth', ADMIN_PASS);
+          sessionStorage.removeItem('admin_failed_attempts');
+          sessionStorage.removeItem('admin_lockout_until');
         } catch(e) {}
         refreshAdminUI();
       } else {
-        if (errBox) {
-          errBox.textContent = '❌ رمز عبور نامعتبر است! لطفاً رمز صحیح را وارد کنید (رمز ادمین: 5269)';
-          errBox.classList.remove('hidden');
+        adminFailedAttempts++;
+        try {
+          sessionStorage.setItem('admin_failed_attempts', String(adminFailedAttempts));
+        } catch(e) {}
+
+        if (adminFailedAttempts >= 5) {
+          adminLockoutUntil = Date.now() + (180 * 1000); // 3 minutes lockout
+          try {
+            sessionStorage.setItem('admin_lockout_until', String(adminLockoutUntil));
+          } catch(e) {}
+          checkAdminLockout();
+        } else {
+          const remaining = 5 - adminFailedAttempts;
+          if (errBox) {
+            errBox.textContent = `❌ رمز عبور نامعتبر است! (${remaining} تلاش باقی‌مانده - رمز ادمین: 5269)`;
+            errBox.classList.remove('hidden');
+          }
         }
       }
     }
@@ -4576,6 +4676,9 @@ button { font-family: inherit; cursor: pointer; }
     function renderAdminDbTable() {
       const tbody = document.getElementById('adminDbTableBody');
       const countEl = document.getElementById('adminDbCount');
+      const pageInfoEl = document.getElementById('adminDbPageInfo');
+      const prevBtn = document.getElementById('adminDbPrevBtn');
+      const nextBtn = document.getElementById('adminDbNextBtn');
       if (!tbody) return;
 
       if (adminDbActiveTab === 'skills') {
@@ -4614,10 +4717,20 @@ button { font-family: inherit; cursor: pointer; }
         return name.includes(adminDbSearchQuery) || sec.includes(adminDbSearchQuery) || phone.includes(adminDbSearchQuery) || email.includes(adminDbSearchQuery);
       });
 
-      if (countEl) countEl.textContent = `${filtered.length} / ${list.length} رکورد`;
+      const totalFiltered = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(totalFiltered / adminDbPageSize));
+      if (adminDbCurrentPage > totalPages) adminDbCurrentPage = totalPages;
+
+      if (countEl) countEl.textContent = `${totalFiltered} / ${list.length} رکورد`;
+      if (pageInfoEl) pageInfoEl.textContent = `صفحه ${adminDbCurrentPage} از ${totalPages}`;
+      if (prevBtn) prevBtn.disabled = (adminDbCurrentPage <= 1);
+      if (nextBtn) nextBtn.disabled = (adminDbCurrentPage >= totalPages);
+
+      const startIndex = (adminDbCurrentPage - 1) * adminDbPageSize;
+      const paginatedItems = filtered.slice(startIndex, startIndex + adminDbPageSize);
 
       let rows = '';
-      filtered.forEach((item, idx) => {
+      paginatedItems.forEach((item, idx) => {
         const isPinned = pinnedLeads.includes(item.name);
         const nameEscaped = item.name.replace(/'/g, "\'");
         const cleanPhone = (item.phone || '').replace(/[^0-9]/g, '');
