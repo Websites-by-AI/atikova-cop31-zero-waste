@@ -176,6 +176,10 @@ button { font-family: inherit; cursor: pointer; }
         <span>دایرکتوری لیدها (۵۰۰)</span>
       </a>
       <a href="#startups" onclick="switchMasterView('startups'); return false;" id="masterTab-startups" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5 font-bold">
+      <a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="masterTab-ideastudio" class="px-3 py-1.5 rounded-lg text-amber-300 bg-amber-500/10 border border-amber-500/30 transition-all flex items-center gap-1.5 hover:bg-amber-500/20 font-bold" title="تحلیل اسناد و ایده، پیام‌های دانشگاه/بانک و سایت‌ساز AI">
+        <span>💡</span>
+        <span data-i18n="nav_ideastudio">ایده و اسناد (دانشگاه/بانک/سایت‌ساز)</span>
+      </a>
       <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="masterTab-ragkag" class="px-3 py-1.5 rounded-lg text-purple-300 bg-purple-500/10 border border-purple-500/30 transition-all flex items-center gap-1.5 hover:bg-purple-500/20 font-bold" title="موتور هوش مصنوعی RAG و سامانه گراف دانش KAG">
         <span>🧠</span>
         <span>هوش مصنوعی RAG و KAG (۲۰ مدل HF)</span>
@@ -232,6 +236,7 @@ button { font-family: inherit; cursor: pointer; }
   <div class="md:hidden flex items-center overflow-x-auto gap-1 px-4 py-2 bg-slate-900 border-t border-slate-800 text-xs">
     <a href="#directory" onclick="switchMasterView('directory'); return false;" id="mobileTab-directory" class="px-3 py-1 rounded text-emerald-400 font-bold whitespace-nowrap bg-emerald-500/20">📋 لیدها</a>
     <a href="#startups" onclick="switchMasterView('startups'); return false;" id="mobileTab-startups" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">🚀 استارتاپ‌ها</a>
+    <a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="mobileTab-ideastudio" class="px-3 py-1 rounded text-amber-300 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30" data-i18n="mobile_ideastudio">💡 ایده و سایت‌ساز</a>
     <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="mobileTab-ragkag" class="px-3 py-1 rounded text-purple-300 font-bold whitespace-nowrap bg-purple-500/10 border border-purple-500/30">🧠 RAG & KAG</a>
     <a href="#database" onclick="switchMasterView('database'); return false;" id="mobileTab-database" class="px-3 py-1 rounded text-amber-400 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30">🗄️ دیتابیس</a>
     <a href="#cadence" onclick="switchMasterView('cadence'); return false;" id="mobileTab-cadence" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📅 تکنوپارک</a>
@@ -3677,6 +3682,317 @@ button { font-family: inherit; cursor: pointer; }
   </section>
 
   
+  <!-- ==================== MASTER VIEW: IDEA & DOCUMENT STUDIO ==================== -->
+  <section id="ideastudioView" class="master-view-section hidden py-6 px-4 sm:px-6 lg:px-8 flex-grow">
+    <div class="max-w-7xl mx-auto space-y-8">
+
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden bg-gradient-to-r from-amber-950 via-slate-900 to-emerald-950 border border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="space-y-3 max-w-3xl">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                <span>💡</span>
+                <span data-i18n="idea_hero_tag">تحلیل‌گر هوشمند اسناد، لینک‌ها و استودیوی ایده</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                <span>🌐</span>
+                <span data-i18n="idea_site_tag">سایت‌ساز اختصاصی با هوش مصنوعی</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+                <span>🎓</span>
+                <span data-i18n="idea_academic_tag">بورسیه دانشگاه و اسپانسری بانک</span>
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight" data-i18n="idea_hero_title">
+              استودیوی ایده و اسناد: سناریوهای دانشگاه، بانک، هتل و سایت‌ساز هوش مصنوعی
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="idea_hero_desc">
+              سند پروژه، فایل PDF یا ایده استارتاپی خود را درج کنید تا هوش مصنوعی آن را تحلیل کرده، پیام‌های اختصاصی برای سناریوهای مختلف (اعطای بورسیه و فرصت مطالعاتی به دانشگاه‌ها، جذب اسپانسری از بانک‌ها، همکاری عملیاتی با هتل‌ها) تولید کند و یک وب‌سایت تبلیغاتی لندینگ‌پیج اختصاصی بسازد.
+            </p>
+          </div>
+
+          <!-- Feature Metrics -->
+          <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full lg:w-auto shrink-0 text-center">
+            <div class="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-3">
+              <div class="text-xl sm:text-2xl font-black text-amber-400">۴</div>
+              <div class="text-[11px] text-slate-400 font-bold" data-i18n="idea_scenarios_count">سناریوی تخصصی B2B</div>
+            </div>
+            <div class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-3">
+              <div class="text-xl sm:text-2xl font-black text-emerald-400">۱-Click</div>
+              <div class="text-[11px] text-slate-400 font-bold" data-i18n="idea_site_speed">تولید سایت تبلیغاتی</div>
+            </div>
+            <div class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-3">
+              <div class="text-xl sm:text-2xl font-black text-purple-400">Auto</div>
+              <div class="text-[11px] text-slate-400 font-bold" data-i18n="idea_autofill_tag">تکمیل خودکار فرم ثبت‌نام</div>
+            </div>
+            <div class="bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-3">
+              <div class="text-xl sm:text-2xl font-black text-cyan-400">+1208</div>
+              <div class="text-[11px] text-slate-400 font-bold" data-i18n="idea_sender_tag">خط رسمی هماهنگی</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1: INPUT IDEA OR DOCUMENT / LINK -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-5">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-base border border-amber-500/30">۱</span>
+            <div>
+              <h3 class="text-sm font-black text-white" data-i18n="step1_title">ورودی سند، لینک وب‌سایت یا ایده استارتاپی</h3>
+              <p class="text-xs text-slate-400" data-i18n="step1_sub">آدرس سایت یا خلاصه متن سند را وارد کنید تا هوش مصنوعی آن را پردازش کند</p>
+            </div>
+          </div>
+
+          <!-- Input Mode Switcher -->
+          <div class="flex items-center gap-1.5 text-xs font-bold bg-slate-950 p-1 rounded-xl border border-slate-800">
+            <button onclick="switchIdeaInputMode('text')" id="ideaInputBtn-text" class="px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40" data-i18n="btn_mode_text">متن سند / ایده</button>
+            <button onclick="switchIdeaInputMode('url')" id="ideaInputBtn-url" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-i18n="btn_mode_url">لینک وب‌سایت</button>
+            <button onclick="switchIdeaInputMode('presets')" id="ideaInputBtn-presets" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-i18n="btn_mode_presets">نمونه‌های آماده</button>
+          </div>
+        </div>
+
+        <!-- Mode A: Text Input -->
+        <div id="ideaInputContainer-text" class="space-y-3">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_idea_text">متن پروپوزال، فایل PDF، خلاصه طرح یا ایده کسب‌وکار:</label>
+            <span class="text-[11px] text-slate-400 font-mono">Plain Text / Summary</span>
+          </div>
+          <textarea id="ideaTextInput" rows="4" class="search-input text-xs p-3 leading-relaxed w-full font-sans" placeholder="مثال: استارتاپ ما سیستم تفکیک خودکار پسماند با بینایی ماشین را توسعه داده که بر روی مخازن زباله نصب شده و پلاستیک، فلزات و کاغذ را با دقت ۹۸٪ تفکیک می‌کند. ما به دنبال بورسیه دانشجویی از دانشگاه‌ها، اسپانسری سبز از بانک‌ها و نصب پایلوت در هتل‌های استانبول هستیم..."></textarea>
+        </div>
+
+        <!-- Mode B: URL Input -->
+        <div id="ideaInputContainer-url" class="hidden space-y-3">
+          <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_idea_url">آدرس وب‌سایت استارتاپ یا لینک سند / PDF:</label>
+          <div class="flex items-center gap-2">
+            <input type="url" id="ideaUrlInput" placeholder="https://example-clean-tech.com/pitch-deck" class="search-input text-xs py-2.5 px-3 font-mono" dir="ltr">
+            <button onclick="loadSampleUrl()" class="btn btn-outline text-xs py-2 px-3 shrink-0" data-i18n="btn_sample_url">درج لینک نمونه</button>
+          </div>
+        </div>
+
+        <!-- Mode C: Presets Chips -->
+        <div id="ideaInputContainer-presets" class="hidden space-y-3">
+          <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_select_preset">یکی از سناریوهای کلیدی زیر را انتخاب فرمایید:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <button type="button" onclick="loadIdeaPreset(1)" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 text-right space-y-1 transition group">
+              <div class="text-xs font-bold text-emerald-400 group-hover:text-amber-300">🎓 دانشگاه İTÜ (بورسیه و گرنت)</div>
+              <div class="text-[11px] text-slate-400 leading-relaxed">تفکیک هوشمند پلاستیک با بینایی ماشین و اعطای ۳ فقره بورسیه پژوهشی به دانشجویان ارشد/دکتری</div>
+            </button>
+            <button type="button" onclick="loadIdeaPreset(2)" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 text-right space-y-1 transition group">
+              <div class="text-xs font-bold text-cyan-400 group-hover:text-amber-300">🏦 بانک İş Bankası (اسپانسری سبز)</div>
+              <div class="text-[11px] text-slate-400 leading-relaxed">شبکه سطل‌های IoT شهری با تامین مالی سبز بانک و درج لوگو به عنوان حامی ارشد COP31</div>
+            </button>
+            <button type="button" onclick="loadIdeaPreset(3)" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 text-right space-y-1 transition group">
+              <div class="text-xs font-bold text-amber-400 group-hover:text-amber-300">🏨 هتل Swissôtel (کمپوست الزامی)</div>
+              <div class="text-[11px] text-slate-400 leading-relaxed">دستگاه بیوکمپوست هوازی ۲۴ ساعته در محل هتل جهت رعایت ماده ۱۵ قانون مدیریت پسماند ترکیه</div>
+            </button>
+            <button type="button" onclick="loadIdeaPreset(4)" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/50 text-right space-y-1 transition group">
+              <div class="text-xs font-bold text-purple-400 group-hover:text-amber-300">🏢 هلدینگ Koç (کربن و ESG)</div>
+              <div class="text-[11px] text-slate-400 leading-relaxed">پلتفرم ابری حسابداری پسماند و پایش انتشار گازهای گلخانه‌ای زنجیره تامین EU-CBAM</div>
+            </button>
+          </div>
+        </div>
+
+        <button onclick="analyzeIdeaDocument()" class="btn bg-gradient-to-r from-amber-500 via-amber-600 to-emerald-600 hover:from-amber-400 hover:to-emerald-500 text-slate-950 font-black w-full py-3.5 text-xs rounded-xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+          <span>⚡ تحلیل سند و استخراج ویژگی‌های ایده با هوش مصنوعی</span>
+          <span id="ideaAnalyzeSpinner" class="hidden animate-spin">🔄</span>
+        </button>
+      </div>
+
+      <!-- STEP 2: ANALYZED IDEA DASHBOARD -->
+      <div id="ideaAnalyzedDashboard" class="hidden bg-slate-900 border border-amber-500/40 rounded-3xl p-6 space-y-5 shadow-xl">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base border border-emerald-500/30">۲</span>
+            <div>
+              <h3 class="text-sm font-black text-white" data-i18n="step2_title">مشخصات استخراج‌شده از سند و ایده شما</h3>
+              <p class="text-xs text-slate-400" data-i18n="step2_sub">آماده‌سازی خودکار برای سناریوهای دانشگاه، بانک، هتل و ساخت وب‌سایت</p>
+            </div>
+          </div>
+          <span class="text-[11px] text-emerald-400 font-mono font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">AI Extracted ✓</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] text-slate-400 font-bold" data-i18n="card_project_title">عنوان پروژه استارتاپ:</div>
+            <div id="extProjectTitle" class="font-bold text-white text-xs truncate">--</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] text-slate-400 font-bold" data-i18n="card_waste_stream">جریان پسماند هدف:</div>
+            <div id="extWasteStream" class="font-bold text-amber-300 text-xs truncate">--</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] text-slate-400 font-bold" data-i18n="card_core_tech">فناوری کلیدی:</div>
+            <div id="extCoreTech" class="font-bold text-purple-300 text-xs truncate">--</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] text-slate-400 font-bold" data-i18n="card_cop31_status">انطباق با COP31:</div>
+            <div id="extCop31Status" class="font-bold text-emerald-400 text-xs truncate">گواهی پلاتینیوم Sıfır Atık</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: MULTI-SITUATION OUTREACH GENERATOR -->
+      <div id="ideaOutreachGeneratorSection" class="hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-base border border-purple-500/30">۳</span>
+            <div>
+              <h3 class="text-sm font-black text-white" data-i18n="step3_title">موتور نگارش پیام بر اساس سناریوهای هدف</h3>
+              <p class="text-xs text-slate-400" data-i18n="step3_sub">انتخاب سناریوی بورسیه دانشگاه، اسپانسری بانک، یا همکاری تجاری با هتل‌ها</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
+          <!-- Situation Selector -->
+          <div class="md:col-span-5 space-y-1.5">
+            <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_select_scenario">انتخاب گروه مخاطب و سناریوی پیشنهادی:</label>
+            <select id="ideaScenarioSelect" class="search-input text-xs py-2.5 px-3 font-bold" onchange="handleScenarioChange()">
+              <optgroup label="🎓 دانشگاه‌ها و موسسات آموزش عالی">
+                <option value="uni_scholarship">دانشگاه: اعطای بورسیه تحصیلی، گرنت و رساله‌های دانشجویی پسماند صفر</option>
+                <option value="uni_meeting">دانشگاه: درخواست جلسه رسمی، تست آزمایشگاهی و پایلوت در پردیس</option>
+              </optgroup>
+              <optgroup label="🏦 بانک‌ها و موسسات مالی">
+                <option value="bank_sponsorship">بانک: جذب اسپانسری مالی، صندوق سرمایه‌گذاری سبز و درج نشان در COP31</option>
+              </optgroup>
+              <optgroup label="🏨 هتل‌ها، هلدینگ‌ها و کسب‌وکارها">
+                <option value="hotel_composting">هتل و هلدینگ: اسپانسری متقابل و کمپوست در محل جهت رعایت ماده ۱۵ قانون ترکیه</option>
+              </optgroup>
+              <optgroup label="🏛️ شهرداری‌ها و خدمات شهری">
+                <option value="municipality_pilot">شهرداری: پایلوت هوشمند تفکیک زباله شهری و سطل‌های IoT</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- Target Lead Selector from Database -->
+          <div class="md:col-span-4 space-y-1.5">
+            <label class="block text-xs font-bold text-slate-300" data-i18n="lbl_target_lead">سازمان مخاطب (از ۵۰۰ لید پایگاه داده):</label>
+            <select id="ideaTargetLeadSelect" class="search-input text-xs py-2.5 px-3 font-mono">
+              <!-- Dynamically populated based on scenario -->
+            </select>
+          </div>
+
+          <!-- Generate Button -->
+          <div class="md:col-span-3">
+            <button onclick="generateMultiSituationMessage()" class="btn bg-purple-600 hover:bg-purple-500 text-white font-bold w-full py-2.5 text-xs rounded-xl shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2">
+              <span data-i18n="btn_gen_message">✍️ نگارش پیام سفارشی</span>
+              <span>⚡</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Generated Message Output Box -->
+        <div id="ideaGeneratedMessageBox" class="hidden bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">📨</span>
+              <span class="text-xs font-black text-emerald-400" data-i18n="lbl_gen_message_title">متن پیام شخصی‌سازی‌شده برای این سناریو:</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="copyGeneratedIdeaMessage()" class="btn btn-outline text-[10px] py-1 px-2.5 text-slate-300 hover:text-white" data-i18n="btn_copy">کپی متن 📋</button>
+              <button onclick="openSmartContactModalWithCurrentIdea()" class="btn btn-brand text-[10px] py-1 px-2.5 font-bold" data-i18n="btn_autofill_contact">
+                تکمیل خودکار فرم ثبت‌نام و ارسال 📝
+              </button>
+              <button onclick="sendGeneratedIdeaToWhatsApp()" class="btn btn-whatsapp text-[10px] py-1 px-2.5 font-bold" data-i18n="btn_send_wa">
+                ارسال به واتساپ 📱
+              </button>
+            </div>
+          </div>
+
+          <div id="ideaGeneratedMessageText" class="text-xs text-slate-200 bg-slate-900/80 p-4 rounded-xl border border-slate-800 whitespace-pre-wrap leading-relaxed font-sans" dir="rtl"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4: AI MINI-WEBSITE & LANDING PAGE GENERATOR -->
+      <div id="ideaWebsiteGeneratorSection" class="hidden bg-slate-900 border border-emerald-500/40 rounded-3xl p-6 space-y-5 shadow-2xl">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base border border-emerald-500/30">۴</span>
+            <div>
+              <h3 class="text-sm font-black text-white" data-i18n="step4_title">سایت‌ساز هوش مصنوعی: لندینگ‌پیج تبلیغاتی اختصاصی ایده</h3>
+              <p class="text-xs text-slate-400" data-i18n="step4_sub">تولید خودکار وب‌سایت تک‌صفحه‌ای اختصاصی برای معرفی به دانشگاه‌ها، بانک‌ها و اسپانسرها</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <button onclick="generateIdeaMiniWebsite()" class="btn bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs py-2 px-4 rounded-xl shadow-lg shadow-emerald-500/20 flex items-center gap-2 w-full sm:w-auto justify-center">
+              <span>🌐 ساخت و به‌روزرسانی لندینگ‌پیج</span>
+              <span id="siteGenSpinner" class="hidden animate-spin">🔄</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Generated Mini-Site Card Preview -->
+        <div id="miniSitePreviewCard" class="hidden bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-bold text-white" data-i18n="lbl_site_ready">وب‌سایت تبلیغاتی آماده است:</span>
+              <span id="previewSiteTitle" class="text-xs text-amber-300 font-bold font-mono">--</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="previewMiniWebsite()" class="btn bg-purple-600 hover:bg-purple-500 text-white text-xs py-1.5 px-3 rounded-lg font-bold" data-i18n="btn_live_preview">
+                نمایش زنده در صفحه کامل 👁️
+              </button>
+              <button onclick="copyMiniWebsiteHtml()" class="btn btn-outline text-xs py-1.5 px-3 text-slate-300 hover:text-white" data-i18n="btn_copy_html">
+                کپی کد HTML 📋
+              </button>
+              <button onclick="downloadMiniWebsiteHtml()" class="btn btn-brand text-xs py-1.5 px-3 rounded-lg font-bold" data-i18n="btn_download_html">
+                دانلود فایل HTML ⬇️
+              </button>
+            </div>
+          </div>
+
+          <!-- Mini Browser Mockup -->
+          <div class="rounded-xl border border-slate-800 overflow-hidden bg-slate-900 shadow-xl">
+            <div class="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700 text-[11px] font-mono text-slate-400">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+              </div>
+              <span class="text-slate-300" id="previewBrowserUrl">https://cop31.atovika.com/showcase/my-idea</span>
+              <span class="text-[10px] text-emerald-400 font-bold">LIVE COP31 READY</span>
+            </div>
+            <div class="p-6 text-center space-y-4 max-w-xl mx-auto">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                🌿 COP31 Zero Waste Turkey Initiative
+              </div>
+              <h2 id="miniPreviewHeroTitle" class="text-lg font-black text-white">--</h2>
+              <p id="miniPreviewHeroSub" class="text-xs text-slate-300 leading-relaxed">--</p>
+              
+              <div class="grid grid-cols-3 gap-2 text-center pt-2">
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <div class="text-[10px] text-emerald-400 font-bold">دانشگاه‌ها</div>
+                  <div class="text-[9px] text-slate-400">بورسیه و گرنت</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <div class="text-[10px] text-amber-400 font-bold">بانک‌ها</div>
+                  <div class="text-[9px] text-slate-400">اسپانسری سبز</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <div class="text-[10px] text-purple-400 font-bold">هتل‌ها</div>
+                  <div class="text-[9px] text-slate-400">کمپوست در محل</div>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <button onclick="openSmartContactModalWithCurrentIdea()" class="btn bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-xs py-2.5 px-6 rounded-xl shadow-lg">
+                  همکاری و درخواست اسپانسری / بورسیه ✍️
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
   <!-- ==================== MASTER VIEW: RAG & KAG AI HUB (20 HF MODELS) ==================== -->
   <section id="ragKagView" class="master-view-section hidden py-6 px-4 sm:px-6 lg:px-8 flex-grow">
     <div class="max-w-7xl mx-auto space-y-8">
@@ -5109,6 +5425,112 @@ button { font-family: inherit; cursor: pointer; }
 </div>
 
 
+<!-- ==================== SMART PRE-FILLED CONTACT / REGISTRATION MODAL ==================== -->
+<div id="smartContactRegistrationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="bg-slate-900 border border-amber-500/40 rounded-3xl max-w-xl w-full p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-4 text-right" dir="rtl">
+    
+    <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-base border border-amber-500/30">📝</span>
+        <div>
+          <h3 class="text-sm font-black text-white" data-i18n="smart_modal_title">فرم ثبت‌نام و برقراری تماس (تکمیل خودکار بر اساس ایده)</h3>
+          <p class="text-xs text-slate-400" data-i18n="smart_modal_sub">اطلاعات بر اساس تحلیل اسناد شما پر شده‌اند؛ در صورت تمایل ویرایش نمایید</p>
+        </div>
+      </div>
+      <button onclick="closeSmartContactModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center font-bold transition">✕</button>
+    </div>
+
+    <form onsubmit="submitSmartContactForm(event)" class="space-y-3.5 text-xs">
+      
+      <!-- Project / Startup Name -->
+      <div>
+        <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_startup_name">نام طرح / استارتاپ:</label>
+        <input type="text" id="smartContactProjectName" class="search-input text-xs py-2 px-3 font-bold" required>
+      </div>
+
+      <!-- Representative Name & Email -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_rep_name">نام نماینده / مدیر پروژه:</label>
+          <input type="text" id="smartContactRepName" class="search-input text-xs py-2 px-3" required>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_email">ایمیل رسمی جهت مکاتبات:</label>
+          <input type="email" id="smartContactEmail" class="search-input text-xs py-2 px-3 font-mono" dir="ltr" required>
+        </div>
+      </div>
+
+      <!-- Phone & Coordinator -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_phone">شماره تماس / واتساپ:</label>
+          <input type="text" id="smartContactPhone" class="search-input text-xs py-2 px-3 font-mono" dir="ltr" value="+12085033653">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_target_entity">سازمان یا نهاد مخاطب:</label>
+          <input type="text" id="smartContactTargetOrg" class="search-input text-xs py-2 px-3 font-bold" readonly>
+        </div>
+      </div>
+
+      <!-- Scenario Type -->
+      <div>
+        <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_scenario_type">موضوع و نوع درخواست:</label>
+        <select id="smartContactScenarioType" class="search-input text-xs py-2 px-3 font-bold">
+          <option value="scholarship">اعطای بورسیه و گرنت پژوهشی دانشگاهی</option>
+          <option value="sponsorship">جذب اسپانسری و تامین مالی سبز بانکی</option>
+          <option value="meeting">درخواست جلسه رسمی و تست میدانی</option>
+          <option value="commercial">همکاری تجاری و استقرار تجهیزات کمپوست/سورتینگ</option>
+        </select>
+      </div>
+
+      <!-- Custom Tailored Message -->
+      <div>
+        <label class="block font-bold text-slate-300 mb-1" data-i18n="lbl_proposal_body">متن پیش‌نویس پیام رسمی:</label>
+        <textarea id="smartContactProposalText" rows="5" class="search-input text-xs p-3 leading-relaxed font-sans" dir="rtl" required></textarea>
+      </div>
+
+      <!-- Submit Actions -->
+      <div class="pt-2 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div class="text-[11px] text-slate-400">
+          <span>ارسال به کارتابل مدیریت با شناسه فرستنده:</span>
+          <span class="font-mono text-emerald-400 font-bold">+12085033653</span>
+        </div>
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button type="button" onclick="closeSmartContactModal()" class="btn btn-outline text-xs py-2 px-4 w-full sm:w-auto" data-i18n="btn_cancel">انصراف</button>
+          <button type="submit" class="btn bg-gradient-to-r from-amber-500 to-emerald-600 hover:from-amber-400 hover:to-emerald-500 text-slate-950 font-black text-xs py-2 px-5 rounded-xl shadow-lg w-full sm:w-auto" data-i18n="btn_submit_to_moderation">
+            ثبت و ارسال به کارتابل مدیریت 🛡️
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- ==================== MINI WEBSITE FULL SCREEN PREVIEW MODAL ==================== -->
+<div id="miniWebsitePreviewModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-2 sm:p-6">
+  <div class="bg-slate-950 border border-slate-800 rounded-3xl w-full max-w-5xl h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+    
+    <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-bold text-white">پیش‌نمایش وب‌سایت تبلیغاتی لندینگ‌پیج</span>
+        <span class="text-[10px] text-slate-400 font-mono">(Generated Standalone HTML)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="downloadMiniWebsiteHtml()" class="btn btn-brand text-xs py-1 px-3 rounded-lg font-bold">دانلود فایل HTML ⬇️</button>
+        <button onclick="closeMiniWebsiteModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center font-bold transition">✕</button>
+      </div>
+    </div>
+
+    <iframe id="miniWebsiteIframe" class="w-full flex-grow border-0 bg-white" sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
+
+  </div>
+</div>
+
+
 <!-- Footer -->
 <footer class="bg-slate-950 border-t border-slate-800 text-xs py-8 px-4 sm:px-6 lg:px-8 text-slate-400 mt-12">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -5417,7 +5839,7 @@ button { font-family: inherit; cursor: pointer; }
       }
 
       // Master tab styling
-      const tabIds = ['directory', 'startups', 'ragkag', 'database', 'cadence', 'audit', 'messageBank', 'catalog', 'investor', 'admin'];
+      const tabIds = ['directory', 'startups', 'ideastudio', 'ragkag', 'database', 'cadence', 'audit', 'messageBank', 'catalog', 'investor', 'admin'];
       tabIds.forEach(id => {
         const tabEl = document.getElementById(`masterTab-${id}`);
         const mobileEl = document.getElementById(`mobileTab-${id}`);
@@ -6839,6 +7261,8 @@ ${msg.body}
         switchMasterView('admin', false);
       } else if (hash === 'startups') {
         switchMasterView('startups', false);
+      } else if (hash === 'ideastudio' || hash === 'idea' || hash === 'website' || hash === 'pitch') {
+        switchMasterView('ideastudio', false);
       } else if (hash === 'ragkag' || hash === 'rag' || hash === 'kag' || hash === 'ai') {
         switchMasterView('ragkag', false); } else if (hash === 'ragkag' || hash === 'rag' || hash === 'kag' || hash === 'ai') {
         switchMasterView('ragkag', false);
@@ -7586,6 +8010,574 @@ ${msg.body}
       const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
       showAppToast('در حال هدایت به پیام‌رسان واتساپ...');
+    }
+
+    // ==========================================
+    // PURE MULTI-LANGUAGE ENGINE (I18N)
+    // ==========================================
+    const I18N_TRANSLATIONS = {"fa": {"nav_directory": "دایرکتوری لیدها (۵۰۰)", "nav_startups": "ویترین استارتاپ‌ها (COP31)", "nav_ideastudio": "ایده و اسناد (دانشگاه/بانک/سایت‌ساز)", "nav_ragkag": "هوش مصنوعی RAG و KAG (۲۰ مدل HF)", "nav_database": "پایگاه داده (۵۰۰)", "nav_cadence": "تکنوپارک توبیتاک", "nav_audit": "آدیت مخابراتی", "nav_messages": "بانک پیام", "nav_catalog": "کاتالوگ خدمات", "nav_investor": "پیچ سرمایه‌گذار", "nav_admin": "پنل مدیریت", "mobile_ideastudio": "💡 ایده و سایت‌ساز", "idea_hero_tag": "تحلیل‌گر هوشمند اسناد، لینک‌ها و استودیوی ایده", "idea_site_tag": "سایت‌ساز اختصاصی با هوش مصنوعی", "idea_academic_tag": "بورسیه دانشگاه و اسپانسری بانک", "idea_hero_title": "استودیوی ایده و اسناد: سناریوهای دانشگاه، بانک، هتل و سایت‌ساز هوش مصنوعی", "idea_hero_desc": "سند پروژه، فایل PDF یا ایده استارتاپی خود را درج کنید تا هوش مصنوعی آن را تحلیل کرده، پیام‌های اختصاصی برای سناریوهای مختلف تولید کند و یک وب‌سایت تبلیغاتی بسازد.", "idea_scenarios_count": "سناریوی تخصصی B2B", "idea_site_speed": "تولید سایت تبلیغاتی", "idea_autofill_tag": "تکمیل خودکار فرم ثبت‌نام", "idea_sender_tag": "خط رسمی هماهنگی", "step1_title": "ورودی سند، لینک وب‌سایت یا ایده استارتاپی", "step1_sub": "آدرس سایت یا خلاصه متن سند را وارد کنید تا هوش مصنوعی آن را پردازش کند", "btn_mode_text": "متن سند / ایده", "btn_mode_url": "لینک وب‌سایت", "btn_mode_presets": "نمونه‌های آماده", "lbl_idea_text": "متن پروپوزال، فایل PDF، خلاصه طرح یا ایده کسب‌وکار:", "lbl_idea_url": "آدرس وب‌سایت استارتاپ یا لینک سند / PDF:", "btn_sample_url": "درج لینک نمونه", "lbl_select_preset": "یکی از سناریوهای کلیدی زیر را انتخاب فرمایید:", "step2_title": "مشخصات استخراج‌شده از سند و ایده شما", "step2_sub": "آماده‌سازی خودکار برای سناریوهای دانشگاه، بانک، هتل و ساخت وب‌سایت", "card_project_title": "عنوان پروژه استارتاپ:", "card_waste_stream": "جریان پسماند هدف:", "card_core_tech": "فناوری کلیدی:", "card_cop31_status": "انطباق با COP31:", "step3_title": "موتور نگارش پیام بر اساس سناریوهای هدف", "step3_sub": "انتخاب سناریوی بورسیه دانشگاه، اسپانسری بانک، یا همکاری تجاری با هتل‌ها", "lbl_select_scenario": "انتخاب گروه مخاطب و سناریوی پیشنهادی:", "lbl_target_lead": "سازمان مخاطب (از ۵۰۰ لید پایگاه داده):", "btn_gen_message": "✍️ نگارش پیام سفارشی", "lbl_gen_message_title": "متن پیام شخصی‌سازی‌شده برای این سناریو:", "btn_copy": "کپی متن 📋", "btn_autofill_contact": "تکمیل خودکار فرم ثبت‌نام و ارسال 📝", "btn_send_wa": "ارسال به واتساپ 📱", "step4_title": "سایت‌ساز هوش مصنوعی: لندینگ‌پیج تبلیغاتی اختصاصی ایده", "step4_sub": "تولید خودکار وب‌سایت تک‌صفحه‌ای اختصاصی برای معرفی به دانشگاه‌ها، بانک‌ها و اسپانسرها", "lbl_site_ready": "وب‌سایت تبلیغاتی آماده است:", "btn_live_preview": "نمایش زنده در صفحه کامل 👁️", "btn_copy_html": "کپی کد HTML 📋", "btn_download_html": "دانلود فایل HTML ⬇️", "smart_modal_title": "فرم ثبت‌نام و برقراری تماس (تکمیل خودکار بر اساس ایده)", "smart_modal_sub": "اطلاعات بر اساس تحلیل اسناد شما پر شده‌اند؛ در صورت تمایل ویرایش نمایید", "lbl_startup_name": "نام طرح / استارتاپ:", "lbl_rep_name": "نام نماینده / مدیر پروژه:", "lbl_email": "ایمیل رسمی جهت مکاتبات:", "lbl_phone": "شماره تماس / واتساپ:", "lbl_target_entity": "سازمان یا نهاد مخاطب:", "lbl_scenario_type": "موضوع و نوع درخواست:", "lbl_proposal_body": "متن پیش‌نویس پیام رسمی:", "btn_cancel": "انصراف", "btn_submit_to_moderation": "ثبت و ارسال به کارتابل مدیریت 🛡️"}, "tr": {"nav_directory": "Liderler Dizini (500)", "nav_startups": "Girişim Vitrini (COP31)", "nav_ideastudio": "Fikir & Belge Stüdyosu (Üniversite/Banka/Site)", "nav_ragkag": "RAG & KAG Yapay Zeka (20 HF Modeli)", "nav_database": "Veritabanı (500)", "nav_cadence": "TÜBİTAK Teknopark", "nav_audit": "Telekom Denetimi", "nav_messages": "Mesaj Bankası", "nav_catalog": "Hizmet Kataloğu", "nav_investor": "Yatırımcı Sunumu", "nav_admin": "Yönetici Paneli", "mobile_ideastudio": "💡 Fikir & Site", "idea_hero_tag": "Akıllı Belge, Bağlantı ve Fikir Analiz Stüdyosu", "idea_site_tag": "Yapay Zeka Destekli Özel Web Sitesi Üretici", "idea_academic_tag": "Üniversite Bursu & Banka Sponsorluğu", "idea_hero_title": "Fikir ve Belge Stüdyosu: Üniversite, Banka, Otel Senaryoları ve Yapay Zeka Site Üretici", "idea_hero_desc": "Proje belgenizi, PDF veya girişim fikrinizi girin; yapay zeka üniversiteler için burs/tez, bankalar için yeşil sponsorluk ve oteller için sıfır atık senaryoları üretsin ve tanıtım sitesi kursun.", "idea_scenarios_count": "Özel B2B Senaryosu", "idea_site_speed": "Tanıtım Sitesi Üretimi", "idea_autofill_tag": "Otomatik Form Doldurma", "idea_sender_tag": "Resmi Koordinasyon Hattı", "step1_title": "1. Belge, Web Sitesi Bağlantısı veya Fikir Girişi", "step1_sub": "Yapay zekanın analiz etmesi için web sitesi linki veya belge özetini giriniz", "btn_mode_text": "Belge Metni / Fikir", "btn_mode_url": "Web Sitesi Linki", "btn_mode_presets": "Hazır Örnekler", "lbl_idea_text": "Proje teklifi, PDF metni, sunum veya iş fikri özeti:", "lbl_idea_url": "Girişim web sitesi adresi veya PDF bağlantısı:", "btn_sample_url": "Örnek Bağlantı Ekle", "lbl_select_preset": "Aşağıdaki ana senaryolardan birini seçebilirsiniz:", "step2_title": "2. Belgenizden Çıkarılan Analiz ve Proje Özellikleri", "step2_sub": "Üniversite, banka, otel ve site üretici senaryoları için otomatik hazırlandı", "card_project_title": "Girişim Proje Başlığı:", "card_waste_stream": "Hedef Atık Akışı:", "card_core_tech": "Temel Teknoloji:", "card_cop31_status": "COP31 Uyumluluğu:", "step3_title": "3. Hedef Senaryolara Göre Mesaj Üretim Motoru", "step3_sub": "Üniversite bursu, banka sponsorluğu veya otel iş birliği senaryoları seçimi", "lbl_select_scenario": "Hedef Kitle ve Öneri Senaryosu Seçimi:", "lbl_target_lead": "Muhatap Kurum (500 Veritabanı Lideri Arasından):", "btn_gen_message": "✍️ Özel Mesajı Yaz", "lbl_gen_message_title": "Bu Senaryo İçin Özelleştirilmiş Mesaj Metni:", "btn_copy": "Metni Kopyala 📋", "btn_autofill_contact": "Formu Otomatik Doldur ve Gönder 📝", "btn_send_wa": "WhatsApp'a Gönder 📱", "step4_title": "4. Yapay Zeka Site Üretici: Fikre Özel Tanıtım Açılış Sayfası", "step4_sub": "Üniversitelere, bankalara ve sponsorlara sunum için tek sayfalık web sitesi üretimi", "lbl_site_ready": "Tanıtım Sitesi Hazır:", "btn_live_preview": "Tam Ekranda Canlı İzle 👁️", "btn_copy_html": "HTML Kodunu Kopyala 📋", "btn_download_html": "HTML Dosyasını İndir ⬇️", "smart_modal_title": "İletişim ve Kayıt Formu (Fikrinize Göre Otomatik Dolduruldu)", "smart_modal_sub": "Bilgiler analiz edilen belgenizden çekilmiştir; dilerseniz düzenleyebilirsiniz", "lbl_startup_name": "Proje / Girişim Adı:", "lbl_rep_name": "Temsilci / Proje Yöneticisi:", "lbl_email": "Resmi Yazışma E-postası:", "lbl_phone": "İletişim / WhatsApp Numarası:", "lbl_target_entity": "Muhatap Kurum veya Kuruluş:", "lbl_scenario_type": "Talep ve Konu Türü:", "lbl_proposal_body": "Resmi Mesaj Taslağı Metni:", "btn_cancel": "Vazgeç", "btn_submit_to_moderation": "Yönetici Paneline Gönder 🛡️"}, "en": {"nav_directory": "Leads Directory (500)", "nav_startups": "Startup Showcase (COP31)", "nav_ideastudio": "Idea & Pitch Studio (Academia/Bank/Site)", "nav_ragkag": "RAG & KAG AI Engine (20 HF Models)", "nav_database": "Database (500)", "nav_cadence": "TÜBİTAK Technopark", "nav_audit": "Telecom Audit", "nav_messages": "Message Bank", "nav_catalog": "Services Catalog", "nav_investor": "Investor Pitch", "nav_admin": "Admin Panel", "mobile_ideastudio": "💡 Idea & Site", "idea_hero_tag": "AI Document, Link & Startup Idea Analyzer", "idea_site_tag": "Instant AI Showcase Website Generator", "idea_academic_tag": "Academic Scholarships & Bank Sponsorships", "idea_hero_title": "Idea & Pitch Studio: Academic, Banking & Commercial Scenarios with AI Site Generator", "idea_hero_desc": "Upload your document, PDF or startup idea. The AI extracts key value propositions, drafts targeted proposals for universities, banks and hotels, and builds a dedicated promotional landing page.", "idea_scenarios_count": "Tailored B2B Scenarios", "idea_site_speed": "Instant Showcase Site", "idea_autofill_tag": "Smart Pre-Filled Registration", "idea_sender_tag": "Official Coordinator Line", "step1_title": "1. Input Document, Website URL or Startup Idea", "step1_sub": "Enter your pitch deck text, URL or select from curated zero-waste presets", "btn_mode_text": "Document / Idea Text", "btn_mode_url": "Website URL", "btn_mode_presets": "Ready Presets", "lbl_idea_text": "Proposal, PDF text, pitch deck summary or business concept:", "lbl_idea_url": "Startup website URL or PDF link:", "btn_sample_url": "Insert Sample Link", "lbl_select_preset": "Select one of the key zero-waste scenarios below:", "step2_title": "2. AI Extracted Document & Pitch Specifications", "step2_sub": "Automatically prepared for universities, banks, hotels and website generation", "card_project_title": "Startup Project Title:", "card_waste_stream": "Target Waste Stream:", "card_core_tech": "Core Innovation:", "card_cop31_status": "COP31 Compliance:", "step3_title": "3. Multi-Situation Outreach Proposal Engine", "step3_sub": "Generate proposals for academic grants, bank sponsorships or corporate compliance", "lbl_select_scenario": "Select Target Audience & Scenario:", "lbl_target_lead": "Recipient Organization (from 500 Leads Database):", "btn_gen_message": "✍️ Generate Custom Proposal", "lbl_gen_message_title": "Tailored Proposal for this Scenario:", "btn_copy": "Copy Text 📋", "btn_autofill_contact": "Pre-Fill Registration Form & Submit 📝", "btn_send_wa": "Send via WhatsApp 📱", "step4_title": "4. AI Website Generator: Dedicated Promotional Landing Page", "step4_sub": "Auto-generate a responsive single-page website to advertise your solution to partners", "lbl_site_ready": "Promotional Website Ready:", "btn_live_preview": "Full Screen Live Preview 👁️", "btn_copy_html": "Copy HTML Code 📋", "btn_download_html": "Download HTML File ⬇️", "smart_modal_title": "Contact & Registration Form (Pre-Filled from Your Idea)", "smart_modal_sub": "Information auto-populated based on your analyzed document; feel free to edit", "lbl_startup_name": "Project / Startup Name:", "lbl_rep_name": "Representative / Lead Name:", "lbl_email": "Official Contact Email:", "lbl_phone": "Contact / WhatsApp Phone:", "lbl_target_entity": "Target Recipient Organization:", "lbl_scenario_type": "Request Category:", "lbl_proposal_body": "Official Proposal Draft Body:", "btn_cancel": "Cancel", "btn_submit_to_moderation": "Submit to Admin Moderation Queue 🛡️"}};
+
+    function setGlobalLang(lang) {
+      if (!I18N_TRANSLATIONS[lang]) lang = 'fa';
+      currentGlobalLang = lang;
+
+      // Update pills
+      document.querySelectorAll('.lang-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`langBtn-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update HTML root direction and lang
+      const html = document.getElementById('htmlRoot');
+      if (lang === 'fa') {
+        html.setAttribute('dir', 'rtl');
+        html.setAttribute('lang', 'fa');
+      } else {
+        html.setAttribute('dir', 'ltr');
+        html.setAttribute('lang', lang);
+      }
+
+      // Save preference to localStorage
+      try {
+        localStorage.setItem('atikova_preferred_lang', lang);
+      } catch(e) {}
+
+      // Translate all DOM elements with data-i18n
+      const dict = I18N_TRANSLATIONS[lang] || I18N_TRANSLATIONS['fa'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+
+      // Translate all DOM elements with data-i18n-placeholder
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+          el.setAttribute('placeholder', dict[key]);
+        }
+      });
+
+      // Update dynamic parts
+      renderPinnedLeadsBar();
+      renderContent();
+      if (typeof renderStartupsShowcase === 'function') renderStartupsShowcase();
+      if (typeof renderHfModelsCatalog === 'function') renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
+      if (typeof populateIdeaTargetLeads === 'function') populateIdeaTargetLeads();
+      
+      const langNames = { fa: 'فارسی', tr: 'Türkçe', en: 'English' };
+      showAppToast(`زبان سامانه به ${langNames[lang] || lang} تغییر یافت`);
+    }
+
+    // ==========================================
+    // IDEA & DOCUMENT STUDIO LOGIC
+    // ==========================================
+    let currentIdeaAnalysis = {
+      title: 'سامانه تفکیک هوشمند پسماند با بینایی ماشین',
+      domain: 'هوش مصنوعی و بازیافت پلاستیک (Computer Vision AI)',
+      tech: 'مدل‌های یادگیری عمیق Edge-AI و بینایی ماشین',
+      cop31: 'انطباق ۱۰۰٪ با استاندارد Sıfır Atık و معیارهای COP31',
+      waste: 'پلاستیک، فلزات و کاغذ بازیافتی',
+      summary: 'سیستم سورتینگ هوشمند در مبدا جهت افزایش خلوص بازیافت به ۹۸٪ و کاهش هزینه‌های لندفیل.'
+    };
+
+    let generatedMiniSiteHtml = '';
+
+    function switchIdeaInputMode(mode) {
+      ['text', 'url', 'presets'].forEach(m => {
+        const c = document.getElementById(`ideaInputContainer-${m}`);
+        const b = document.getElementById(`ideaInputBtn-${m}`);
+        if (c) {
+          if (m === mode) c.classList.remove('hidden');
+          else c.classList.add('hidden');
+        }
+        if (b) {
+          if (m === mode) {
+            b.classList.add('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+            b.classList.remove('text-slate-400', 'hover:text-white');
+          } else {
+            b.classList.remove('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+            b.classList.add('text-slate-400', 'hover:text-white');
+          }
+        }
+      });
+    }
+
+    function loadSampleUrl() {
+      const el = document.getElementById('ideaUrlInput');
+      if (el) el.value = 'https://climate-tech-turkey.org/pitch-cop31-ai-sorting.pdf';
+      showAppToast('لینک نمونه درج شد');
+    }
+
+    function loadIdeaPreset(presetNum) {
+      switchIdeaInputMode('text');
+      const textEl = document.getElementById('ideaTextInput');
+      if (!textEl) return;
+
+      if (presetNum === 1) {
+        textEl.value = 'استارتاپ ما سیستم تفکیک خودکار پسماند با بینایی ماشین (AI Vision) را توسعه داده است. ما مایل به اعطای ۳ فقره بورسیه پژوهشی و گرنت پایان‌نامه به دانشجویان ارشد و دکتری دانشکده محیط‌زیست دانشگاه فنی استانبول (İTÜ) جهت تست آزمایشگاهی و ارائه مشترک در پاویون دانشگاهی COP31 هستیم.';
+      } else if (presetNum === 2) {
+        textEl.value = 'شبکه سطل‌های زباله هوشمند شهری مجهز به حسگرهای اولتراسونیک IoT و الگوریتم‌های مسیریابی بهینه ناوگان حمل. ما به دنبال جذب اسپانسری انحصاری و فایننس سبز از بانک‌های پیشرو مانند Türkiye İş Bankası جهت تامین مالی استقرار مخازن هوشمند و درج لوگوی بانک به عنوان حامی ارشد تحول اقلیمی ترکیه در اجلاس COP31 هستیم.';
+      } else if (presetNum === 3) {
+        textEl.value = 'دستگاه‌های بیوکمپوست هوازی ۲۴ ساعته در محل ویژه هتل‌های لوکس ۵ ستاره مانند Swissôtel The Bosphorus جهت تبدیل پسماند غذایی به کمپوست بدون بو و انطباق قطعی با ماده ۱۵ آیین‌نامه پسماند صفر ترکیه و کاهش ۸۰٪ هزینه‌های دفع زباله.';
+      } else if (presetNum === 4) {
+        textEl.value = 'پلتفرم نرم‌افزاری ابری پایش کربن، حسابداری پسماند و تحلیل انتشار گازهای گلخانه‌ای Scope 1/2/3 منطبق با سازوکار مرزی کربن اروپا (EU-CBAM) ویژه هلدینگ‌های صنعتی مانند Koç Holding و Sabancı Holding.';
+      }
+      showAppToast('نمونه با موفقیت درج شد. دکمه تحلیل با هوش مصنوعی را بزنید.');
+    }
+
+    function analyzeIdeaDocument() {
+      const spinner = document.getElementById('ideaAnalyzeSpinner');
+      const textInput = document.getElementById('ideaTextInput')?.value.trim();
+      const urlInput = document.getElementById('ideaUrlInput')?.value.trim();
+
+      const raw = textInput || urlInput;
+      if (!raw) {
+        showAppToast('لطفاً متن سند، ایده یا لینک وب‌سایت را وارد فرمایید');
+        return;
+      }
+
+      if (spinner) spinner.classList.remove('hidden');
+
+      setTimeout(() => {
+        if (spinner) spinner.classList.add('hidden');
+
+        // Extract key entities
+        if (raw.includes('دانشگاه') || raw.includes('İTÜ') || raw.includes('بورسیه') || raw.includes('دانشجو')) {
+          currentIdeaAnalysis = {
+            title: 'سامانه تفکیک هوشمند پسماند با بینایی ماشین (دانشگاه İTÜ)',
+            domain: 'هوش مصنوعی و بینایی ماشین (Computer Vision AI)',
+            tech: 'مدل‌های کانولوشنی سبک Edge-AI و بازوهای رباتیک پنوپتیک',
+            cop31: 'اخذ گواهی پلاتینیوم پردیس سبز Sıfır Atık برای COP31',
+            waste: 'پلاستیک، فلزات و کاغذ بازیافتی',
+            summary: raw.substring(0, 150) + '...'
+          };
+          document.getElementById('ideaScenarioSelect').value = 'uni_scholarship';
+        } else if (raw.includes('بانک') || raw.includes('اسپانسر') || raw.includes('مالی') || raw.includes('IoT') || raw.includes('سطل')) {
+          currentIdeaAnalysis = {
+            title: 'شبکه سطل‌های زباله هوشمند IoT شهری (حامی: بانک)',
+            domain: 'اینترنت اشیاء و شهر هوشمند (IoT & Smart Cities)',
+            tech: 'حسگرهای LoRaWAN با باتری خورشیدی ۵ ساله و الگوریتم‌های ناوبری',
+            cop31: 'شاخص تحول اقلیمی و پایداری شهری COP31',
+            waste: 'پسماند جامد شهری (MSW)',
+            summary: raw.substring(0, 150) + '...'
+          };
+          document.getElementById('ideaScenarioSelect').value = 'bank_sponsorship';
+        } else if (raw.includes('هتل') || raw.includes('کمپوست') || raw.includes('غذا') || raw.includes('ارگانیک')) {
+          currentIdeaAnalysis = {
+            title: 'دستگاه بیوکمپوست هوازی ۲۴ ساعته هتل‌های ۵ ستاره',
+            domain: 'بیوتکنولوژی و بازیافت آلی (Biocomposting Waste-to-Resource)',
+            tech: 'مخمرهای حرارت‌دوست آنزیمی با کاهش حجم ۹۰ درصدی بدون بو',
+            cop31: 'انطباق قطعی با ماده ۱۵ آیین‌نامه پسماند صفر هتل‌های COP31',
+            waste: 'پسماند غذایی و ارگانیک هتل‌ها',
+            summary: raw.substring(0, 150) + '...'
+          };
+          document.getElementById('ideaScenarioSelect').value = 'hotel_composting';
+        } else {
+          currentIdeaAnalysis = {
+            title: 'پلتفرم نرم‌افزاری حسابداری کربن و پسماند ESG',
+            domain: 'مدیریت داده‌های اقلیمی و زنجیره تامین (ESG Software)',
+            tech: 'محاسبه‌گر انتشار Scope 1/2/3 و گزارش‌دهی خودکار TCFD',
+            cop31: 'استاندارد بین‌المللی سازوکار مرزی کربن EU-CBAM',
+            waste: 'ردپای کربن و ضایعات زنجیره تامین',
+            summary: raw.substring(0, 150) + '...'
+          };
+          document.getElementById('ideaScenarioSelect').value = 'hotel_composting';
+        }
+
+        // Populate Dashboard
+        document.getElementById('extProjectTitle').innerText = currentIdeaAnalysis.title;
+        document.getElementById('extWasteStream').innerText = currentIdeaAnalysis.waste;
+        document.getElementById('extCoreTech').innerText = currentIdeaAnalysis.tech;
+        document.getElementById('extCop31Status').innerText = currentIdeaAnalysis.cop31;
+
+        // Reveal sections
+        document.getElementById('ideaAnalyzedDashboard').classList.remove('hidden');
+        document.getElementById('ideaOutreachGeneratorSection').classList.remove('hidden');
+        document.getElementById('ideaWebsiteGeneratorSection').classList.remove('hidden');
+
+        populateIdeaTargetLeads();
+        generateMultiSituationMessage();
+        generateIdeaMiniWebsite();
+
+        showAppToast('تحلیل هوشمند سند با موفقیت انجام شد و پیام‌ها تنظیم گردیدند');
+      }, 400);
+    }
+
+    function populateIdeaTargetLeads() {
+      const scenario = document.getElementById('ideaScenarioSelect')?.value || 'uni_scholarship';
+      const select = document.getElementById('ideaTargetLeadSelect');
+      if (!select) return;
+
+      select.innerHTML = '';
+      let candidates = [];
+
+      if (scenario.startsWith('uni_')) {
+        candidates = (DATA.unis || []).slice(0, 8);
+      } else if (scenario.startsWith('bank_')) {
+        candidates = (DATA.companies || []).filter(c => (c.name || '').includes('Bank') || (c.sector || '').includes('Finance') || (c.sector || '').includes('Holding')).slice(0, 8);
+        if (candidates.length === 0) candidates = (DATA.companies || []).slice(0, 8);
+      } else {
+        candidates = (DATA.companies || []).filter(c => (c.sector || '').includes('Hotel') || (c.sector || '').includes('Hospitality') || (c.name || '').includes('Group')).slice(0, 8);
+        if (candidates.length === 0) candidates = (DATA.companies || []).slice(0, 8);
+      }
+
+      candidates.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.name;
+        opt.dataset.id = c.id;
+        opt.dataset.phone = c.phone || '+12085033653';
+        opt.dataset.contact = c.contact || c.person || 'مدیریت ارشد';
+        opt.text = `${c.name} (${c.city || 'ترکیه'}) - ${c.sector || c.dept || 'عمومی'}`;
+        select.add(opt);
+      });
+    }
+
+    function handleScenarioChange() {
+      populateIdeaTargetLeads();
+      generateMultiSituationMessage();
+    }
+
+    // Generate tailored message based on selected scenario
+    function generateMultiSituationMessage() {
+      const scenario = document.getElementById('ideaScenarioSelect')?.value;
+      const leadSelect = document.getElementById('ideaTargetLeadSelect');
+      const targetOrg = leadSelect?.value || 'سازمان منتخب';
+      const contactPerson = leadSelect?.selectedOptions[0]?.dataset?.contact || 'مدیریت محترم';
+      const outBox = document.getElementById('ideaGeneratedMessageBox');
+      const outText = document.getElementById('ideaGeneratedMessageText');
+
+      let text = '';
+      const phone = '+12085033653';
+      const portal = 'https://cop31.atovika.com';
+
+      if (scenario === 'uni_scholarship') {
+        text = `موضوع: پروپوزال رسمی اعطای بورسیه پژوهشی و تعریف پایان‌نامه‌های پسماند صفر برای اجلاس COP31
+مخاطب: جناب آقای / سرکار خانم ${contactPerson} - ریاست و معاونت محترم پژوهش و فناوری ${targetOrg}
+
+با احترام،
+پیرو برنامه‌ریزی ملی ترکیه جهت میزبانی اجلاس جهانی تغییرات اقلیمی (COP31) و نیاز مبرم به توسعه فناوری‌های بومی پسماند صفر (Sıfır Atık):
+پروژه دانش‌بنیان «${currentIdeaAnalysis.title}» با تمرکز بر ${currentIdeaAnalysis.tech}، آمادگی دارد با همکاری دانشکده‌های مهندسی و محیط‌زیست ${targetOrg}:
+
+۱. تعداد ۳ فقره بورسیه پژوهشی و گرنت مالی به دانشجویان مستعد مقاطع کارشناسی ارشد و دکتری اعطا نماید.
+۲. موضوع پایان‌نامه‌های دانشجویی را در راستای چالش‌های پسماند پردیس دانشگاه تعریف و تجهیزات آزمایشگاهی را تامین کند.
+۳. دستاوردهای علمی مشترک را به عنوان مقاله و پروژه الگو در پاویون دانشگاهی COP31 ترکیه با نام ${targetOrg} ارائه دهد.
+
+خواهشمند است دستور فرمایید جهت بررسی فرآیند تخصیص گرنت و امضای تفاهم‌نامه، وقت جلسه تعیین فرمایند.
+
+📞 شماره رسمی هماهنگی آتیکووا: ${phone}
+🌐 پرتال رسمی و اعتبارسنجی: ${portal}
+
+با احترام،
+دبیرخانه توسعه نوآوری‌های اقلیمی Atikova COP31 Hub`;
+
+      } else if (scenario === 'uni_meeting') {
+        text = `موضوع: درخواست جلسه رسمی کاری و تست میدانی فناوری پسماند صفر در پردیس دانشگاه
+مخاطب: مدیریت محترم ارتباط با صنعت و فناوری ${targetOrg}
+
+با احترام،
+تیم توسعه فناوری «${currentIdeaAnalysis.title}» مایلیم آمادگی خود را جهت استقرار پایلوت آزمایشی فناوری در پردیس ${targetOrg} پیش از برگزاری رویداد COP31 اعلام نماییم.
+اهداف جلسه حضوری:
+• تست و صحه‌گذاری آزمایشگاهی راندمان تفکیک ۹۸٪ در محیط دانشگاه
+• تدوین مقاله مشترک و حضور در پنل‌های تخصصی کنفرانس تغییرات اقلیمی
+• بازدید از زیرساخت‌های تفکیک و ارائه کاتالوگ فنی
+
+📞 شماره رسمی هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else if (scenario === 'bank_sponsorship') {
+        text = `موضوع: پیشنهاد اسپانسری انحصاری و فایننس سبز پروژه تحول اقلیمی COP31
+مخاطب: جناب آقای / سرکار خانم ${contactPerson} - مدیریت عامل و کمیته عالی سرمایه‌گذاری پایدار ${targetOrg}
+
+با احترام،
+با توجه به نقش پیشروی ${targetOrg} در تامین مالی سبز و توسعه شاخص‌های پایداری (ESG):
+پروژه ملی «${currentIdeaAnalysis.title}» آمادگی دارد پکیج اسپانسری انحصاری پلتفرم تحول پسماند صفر رویداد جهانی COP31 ترکیه را به آن بانک معظم واگذار نماید.
+
+مزایای کلیدی برای ${targetOrg}:
+۱. درج نشان تجاری بانک به عنوان «حامی ارشد مالی تحول اقلیمی ترکیه در COP31» بر روی تمام تجهیزات و نرم‌افزارها
+۲. تقویت چشمگیر امتیاز شاخص‌های پایداری و افشای ریسک‌های TCFD بانک
+۳. تخصیص خط اعتباری سبز به شرکت‌ها و هتل‌های بهره‌بردار با تضمین بازگشت سرمایه ۱۲ ماهه
+
+جهت دریافت فایل پکیج‌های اسپانسری و هماهنگی جلسه در دفتر مرکزی، با ما تماس حاصل فرمایید:
+📞 خط رسمی هماهنگی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else if (scenario === 'hotel_composting') {
+        text = `موضوع: پیشنهاد همکاری اجرایی، استقرار بیوکمپوست در محل و اخذ گواهینامه پلاتینیوم COP31
+مخاطب: مدیریت محترم عامل و بهره‌برداری ${targetOrg}
+
+با احترام،
+پیرو الزامات قطعی ماده ۱۵ آیین‌نامه رسمی مدیریت پسماند صفر ترکیه (Sıfır Atık Yönetmeliği) و پیشگیری از جرایم سنگین ماده ۲۰ قانون محیط‌زیست ترکیه:
+مجموعه معظم ${targetOrg} با ظرفیت بالای پذیرایی، مشمول الزام تفکیک و کمپوست پسماند ارگانیک در محل می‌باشد.
+
+راه‌حل تخصصی پروژه «${currentIdeaAnalysis.title}»:
+• استقرار دستگاه‌های بیوکمپوست هوازی ۲۴ ساعته بدون بو در هتل
+• کاهش ۸۰٪ در هزینه‌های دفع و انتقال زباله به محل‌های دفن
+• صدور مستقیم گواهینامه رسمی پسماند صفر هتل‌های منتخب COP31
+• معرفی هتل شما به عنوان مقصد اقامتی سبز در کاتالوگ بین‌المللی اجلاس
+
+📞 هماهنگی و مشاوره فنی: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+
+      } else {
+        text = `موضوع: طرح پایلوت مدیریت هوشمند پسماند شهری و اینترنت اشیاء برای اجلاس COP31
+مخاطب: ریاست و معاونت خدمات شهری ${targetOrg}
+
+با احترام، پیرو سند جامع شهر هوشمند و کاهش انتشار کربن در کلان‌شهرهای ترکیه:
+پروژه «${currentIdeaAnalysis.title}» آمادگی دارد با استقرار حسگرهای هوشمند IoT و سیستم بهینه‌سازی مسیر ناوگان در حوزه مدیریت ${targetOrg}، کاهش ۳۸٪ در مصرف گازوئیل ناوگان و تفکیک ۹۹٪ پسماند را محقق نماید.
+
+📞 هماهنگی رسمی آتیکووا: ${phone}
+🌐 پرتال رسمی: ${portal}`;
+      }
+
+      outText.innerText = text;
+      outBox.classList.remove('hidden');
+    }
+
+    function copyGeneratedIdeaMessage() {
+      const text = document.getElementById('ideaGeneratedMessageText')?.innerText || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showAppToast('متن پیام در کلیپ‌بورد کپی شد!');
+      });
+    }
+
+    function sendGeneratedIdeaToWhatsApp() {
+      const text = document.getElementById('ideaGeneratedMessageText')?.innerText || '';
+      const leadSelect = document.getElementById('ideaTargetLeadSelect');
+      const rawPhone = leadSelect?.selectedOptions[0]?.dataset?.phone || '+12085033653';
+      let cleanPhone = rawPhone.replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) cleanPhone = '90' + cleanPhone.substring(1);
+
+      const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+      showAppToast('در حال بازگشایی واتساپ...');
+    }
+
+    // ==========================================
+    // AI MINI-WEBSITE GENERATOR
+    // ==========================================
+    function generateIdeaMiniWebsite() {
+      const spinner = document.getElementById('siteGenSpinner');
+      if (spinner) spinner.classList.remove('hidden');
+
+      setTimeout(() => {
+        if (spinner) spinner.classList.add('hidden');
+
+        const title = currentIdeaAnalysis.title || 'سامانه نوآوری پسماند صفر';
+        const domain = currentIdeaAnalysis.domain || 'فناوری‌های پایدار';
+        const tech = currentIdeaAnalysis.tech || 'هوش مصنوعی و اینترنت اشیاء';
+        const waste = currentIdeaAnalysis.waste || 'پسماند ارگانیک و شهری';
+
+        generatedMiniSiteHtml = `<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} | COP31 Zero Waste Turkey</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { background-color: #020617; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+  <!-- Nav -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center">🌿</div>
+      <span class="font-black text-white text-sm">${title}</span>
+    </div>
+    <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-bold">COP31 Turkey Ready</span>
+  </header>
+
+  <!-- Hero -->
+  <main class="max-w-4xl mx-auto px-6 py-12 space-y-10 text-center">
+    <div class="space-y-4">
+      <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
+        ${domain}
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight">${title}</h1>
+      <p class="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        پلتفرم پیشرو در مدیریت هوشمند و بازیافت ${waste} با تکیه بر ${tech}. آماده استقرار در دانشگاه‌ها، هتل‌های ۵ ستاره و حامیان مالی پیشرو رویداد بین‌المللی COP31.
+      </p>
+    </div>
+
+    <!-- Value Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-right">
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+        <div class="text-xl">🎓</div>
+        <div class="font-bold text-white text-sm">دانشگاه‌ها و نخبگان</div>
+        <p class="text-xs text-slate-400 leading-relaxed">اعطای بورسیه تحصیلی، تامین تجهیزات آزمایشگاهی و تعریف رساله‌های کاربردی پسماند صفر.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+        <div class="text-xl">🏦</div>
+        <div class="font-bold text-white text-sm">بانک‌ها و سرمایه‌گذاران</div>
+        <p class="text-xs text-slate-400 leading-relaxed">پکیج‌های انحصاری اسپانسری سبز، ارتقای رتبه ESG و فایننس پروژه‌های ملی COP31.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+        <div class="text-xl">🏨</div>
+        <div class="font-bold text-white text-sm">هتل‌ها و هلدینگ‌ها</div>
+        <p class="text-xs text-slate-400 leading-relaxed">کاهش ۸۰٪ در هزینه‌های دفع و انطباق تضمینی با ماده ۱۵ قانون پسماند صفر ترکیه.</p>
+      </div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="bg-gradient-to-r from-emerald-950/60 to-slate-900 border border-emerald-500/40 rounded-3xl p-8 space-y-4">
+      <h3 class="text-lg font-black text-white">درخواست همکاری، دریافت کاتالوگ یا جلسه مشاوره</h3>
+      <p class="text-xs text-slate-300">اطلاعات خود را جهت ارتباط مستقیم با دبیرخانه هماهنگی ارسال فرمایید:</p>
+      <div class="flex items-center justify-center gap-4 text-xs font-mono pt-2">
+        <span>📞 هماهنگی رسمی: <strong class="text-emerald-400">+12085033653</strong></span>
+        <span>🌐 پرتال: <strong class="text-cyan-400">cop31.atovika.com</strong></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950 px-6 py-6 text-center text-xs text-slate-500">
+    Atikova Zero-Waste Climate Initiative &bull; Powered by AI Studio &bull; COP31 Turkey
+  </footer>
+</body>
+</html>`;
+
+        // Update UI
+        document.getElementById('previewSiteTitle').innerText = title;
+        document.getElementById('miniPreviewHeroTitle').innerText = title;
+        document.getElementById('miniPreviewHeroSub').innerText = currentIdeaAnalysis.summary || 'پلتفرم نوآوری اقلیمی COP31';
+        document.getElementById('miniSitePreviewCard').classList.remove('hidden');
+
+        showAppToast('وب‌سایت اختصاصی ایده شما با هوش مصنوعی ساخته شد 🌐');
+      }, 350);
+    }
+
+    function previewMiniWebsite() {
+      if (!generatedMiniSiteHtml) generateIdeaMiniWebsite();
+      const modal = document.getElementById('miniWebsitePreviewModal');
+      const iframe = document.getElementById('miniWebsiteIframe');
+      if (!modal || !iframe) return;
+
+      iframe.srcdoc = generatedMiniSiteHtml;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeMiniWebsiteModal() {
+      const modal = document.getElementById('miniWebsitePreviewModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function copyMiniWebsiteHtml() {
+      if (!generatedMiniSiteHtml) return;
+      navigator.clipboard.writeText(generatedMiniSiteHtml).then(() => {
+        showAppToast('کد کامل HTML وب‌سایت در کلیپ‌بورد کپی شد!');
+      });
+    }
+
+    function downloadMiniWebsiteHtml() {
+      if (!generatedMiniSiteHtml) return;
+      const blob = new Blob([generatedMiniSiteHtml], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `cop31-showcase-${Date.now()}.html`;
+      a.click();
+      showAppToast('فایل وب‌سایت با موفقیت دانلود شد ⬇️');
+    }
+
+    // ==========================================
+    // SMART PRE-FILLED CONTACT FORM MODAL
+    // ==========================================
+    function openSmartContactModalWithCurrentIdea() {
+      const leadSelect = document.getElementById('ideaTargetLeadSelect');
+      const targetOrg = leadSelect?.value || 'سازمان منتخب پایگاه داده';
+      const scenario = document.getElementById('ideaScenarioSelect')?.value || 'uni_scholarship';
+      const customMsg = document.getElementById('ideaGeneratedMessageText')?.innerText || '';
+
+      openSmartContactModalForLead(990, targetOrg, 'General', scenario, customMsg);
+    }
+
+    function openSmartContactModalForLead(leadId, leadName, sector, situation = 'commercial', customText = '') {
+      document.getElementById('smartContactProjectName').value = currentIdeaAnalysis.title || 'طرح پسماند صفر Atikova';
+      document.getElementById('smartContactRepName').value = currentUser ? currentUser.name : 'نماینده رسمی پروژه';
+      document.getElementById('smartContactEmail').value = currentUser ? currentUser.email : 'contact@startup.cop31.com';
+      document.getElementById('smartContactPhone').value = '+12085033653';
+      document.getElementById('smartContactTargetOrg').value = leadName || 'مجموعه منتخب';
+
+      const secEl = document.getElementById('smartContactScenarioType');
+      if (secEl) {
+        if (situation.includes('scholarship')) secEl.value = 'scholarship';
+        else if (situation.includes('sponsorship')) secEl.value = 'sponsorship';
+        else if (situation.includes('meeting')) secEl.value = 'meeting';
+        else secEl.value = 'commercial';
+      }
+
+      const propEl = document.getElementById('smartContactProposalText');
+      if (propEl) {
+        if (customText) {
+          propEl.value = customText;
+        } else {
+          propEl.value = `با احترام،
+پیرو استانداردهای پسماند صفر ترکیه و آماده‌سازی جهت اجلاس COP31:
+پروژه «${currentIdeaAnalysis.title}» آمادگی دارد با استقرار تجهیزات در مجموعه ${leadName}، نرخ بازیافت را به ۹۸٪ رسانده و گواهینامه رسمی دریافت نماید.
+
+📞 شماره رسمی هماهنگی: +12085033653
+🌐 پرتال: https://cop31.atovika.com`;
+        }
+      }
+
+      const modal = document.getElementById('smartContactRegistrationModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeSmartContactModal() {
+      const modal = document.getElementById('smartContactRegistrationModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function submitSmartContactForm(e) {
+      e.preventDefault();
+
+      const projName = document.getElementById('smartContactProjectName')?.value;
+      const repName = document.getElementById('smartContactRepName')?.value;
+      const email = document.getElementById('smartContactEmail')?.value;
+      const phone = document.getElementById('smartContactPhone')?.value;
+      const targetOrg = document.getElementById('smartContactTargetOrg')?.value;
+      const scenario = document.getElementById('smartContactScenarioType')?.value;
+      const text = document.getElementById('smartContactProposalText')?.value;
+
+      const newMsg = {
+        id: Date.now(),
+        leadId: 995,
+        leadName: targetOrg,
+        userEmail: email,
+        userOrg: `${projName} (${repName})`,
+        text: text,
+        phone: phone,
+        status: 'pending',
+        scenario: scenario,
+        timestamp: new Date().toISOString()
+      };
+
+      outreachMessages.unshift(newMsg);
+      saveOutreachMessages();
+      updateModerationCounters();
+      renderAdminModerationQueue();
+
+      closeSmartContactModal();
+      showAppToast('درخواست شما با موفقیت ثبت و به کارتابل نظارت مدیریت ارسال گردید 🛡️');
+
+      switchMasterView('admin');
+      setTimeout(() => {
+        document.getElementById('adminModerationBox')?.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
     }
 
 </script>
