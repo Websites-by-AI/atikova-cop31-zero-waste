@@ -176,6 +176,10 @@ button { font-family: inherit; cursor: pointer; }
         <span>دایرکتوری لیدها (۵۰۰)</span>
       </a>
       <a href="#startups" onclick="switchMasterView('startups'); return false;" id="masterTab-startups" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5 font-bold">
+      <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="masterTab-ragkag" class="px-3 py-1.5 rounded-lg text-purple-300 bg-purple-500/10 border border-purple-500/30 transition-all flex items-center gap-1.5 hover:bg-purple-500/20 font-bold" title="موتور هوش مصنوعی RAG و سامانه گراف دانش KAG">
+        <span>🧠</span>
+        <span>هوش مصنوعی RAG و KAG (۲۰ مدل HF)</span>
+      </a>
         <span>🚀</span>
         <span>ویترین استارتاپ‌ها (COP31)</span>
       </a>
@@ -228,6 +232,7 @@ button { font-family: inherit; cursor: pointer; }
   <div class="md:hidden flex items-center overflow-x-auto gap-1 px-4 py-2 bg-slate-900 border-t border-slate-800 text-xs">
     <a href="#directory" onclick="switchMasterView('directory'); return false;" id="mobileTab-directory" class="px-3 py-1 rounded text-emerald-400 font-bold whitespace-nowrap bg-emerald-500/20">📋 لیدها</a>
     <a href="#startups" onclick="switchMasterView('startups'); return false;" id="mobileTab-startups" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">🚀 استارتاپ‌ها</a>
+    <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="mobileTab-ragkag" class="px-3 py-1 rounded text-purple-300 font-bold whitespace-nowrap bg-purple-500/10 border border-purple-500/30">🧠 RAG & KAG</a>
     <a href="#database" onclick="switchMasterView('database'); return false;" id="mobileTab-database" class="px-3 py-1 rounded text-amber-400 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30">🗄️ دیتابیس</a>
     <a href="#cadence" onclick="switchMasterView('cadence'); return false;" id="mobileTab-cadence" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📅 تکنوپارک</a>
     <a href="#audit" onclick="switchMasterView('audit'); return false;" id="mobileTab-audit" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📡 آدیت</a>
@@ -3671,6 +3676,528 @@ button { font-family: inherit; cursor: pointer; }
     </div>
   </section>
 
+  
+  <!-- ==================== MASTER VIEW: RAG & KAG AI HUB (20 HF MODELS) ==================== -->
+  <section id="ragKagView" class="master-view-section hidden py-6 px-4 sm:px-6 lg:px-8 flex-grow">
+    <div class="max-w-7xl mx-auto space-y-8">
+
+      <!-- 1. HERO BANNER & HUGGING FACE STATUS -->
+      <div class="relative overflow-hidden bg-gradient-to-r from-purple-950 via-slate-900 to-emerald-950 border border-purple-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="space-y-3 max-w-3xl">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                <span>🤗</span>
+                <span>اکوسیستم هوش مصنوعی Hugging Face</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                <span>🟢</span>
+                <span>۳ اسپیس فعال بر روی سرور</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+                <span>🔑</span>
+                <span>Token: hf_OYa... (Active)</span>
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+              مرکز هوش مصنوعی RAG و سامانه گراف دانش KAG پلتفرم Atikova
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              یکپارچه‌سازی و استقرار ۲۰ مدل برتر Hugging Face (امبدینگ، بازرتبه‌بندی Cross-Encoder، مدل‌های زبانی استدلال و هوش مصنوعی تخصصی اقلیم) متصل به پایگاه داده ۵۰۰ لید سازمانی و مستندات قانونی پسماند صفر ترکیه (Sıfır Atık) برای اجلاس بین‌المللی COP31.
+            </p>
+          </div>
+
+          <!-- Quick Metrics Grid -->
+          <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full lg:w-auto shrink-0">
+            <div class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-black text-purple-400">۲۰</div>
+              <div class="text-[11px] text-slate-400 font-bold">مدل هوش مصنوعی HF</div>
+            </div>
+            <div class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-black text-emerald-400">۵۰۰</div>
+              <div class="text-[11px] text-slate-400 font-bold">لید در گراف دانش KAG</div>
+            </div>
+            <div class="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-black text-amber-400">۱۲</div>
+              <div class="text-[11px] text-slate-400 font-bold">ماده قانونی و COP31</div>
+            </div>
+            <div class="bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-black text-cyan-400">۵</div>
+              <div class="text-[11px] text-slate-400 font-bold">استارتاپ Zero Waste</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hugging Face Spaces Live Health Status Ribbon -->
+        <div class="mt-6 pt-4 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <a href="https://huggingface.co/spaces/Sosa654321/atikova-cop31-zero-waste" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-500/50 transition">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold text-slate-200">atikova-cop31-zero-waste</span>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">RUNNING ⚡</span>
+          </a>
+
+          <a href="https://huggingface.co/spaces/Sosa654321/greenhope-site" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-500/50 transition">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold text-slate-200">greenhope-site (Climate Decks)</span>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">RUNNING ⚡</span>
+          </a>
+
+          <a href="https://huggingface.co/spaces/Sosa654321/khoshghalb-chat" target="_blank" class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-500/50 transition">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold text-slate-200">khoshghalb-chat (AI Assistant)</span>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">RUNNING ⚡</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. SUB-NAVIGATION TABS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs font-bold">
+        <button onclick="switchRagKagSubTab('models')" id="ragKagTabBtn-models" class="ragkag-tab-btn active px-4 py-2 rounded-xl flex items-center gap-2 transition bg-purple-500/20 text-purple-300 border border-purple-500/40">
+          <span>📚</span>
+          <span>کاتالوگ تحلیلی ۲۰ مدل Hugging Face</span>
+        </button>
+        <button onclick="switchRagKagSubTab('rag')" id="ragKagTabBtn-rag" class="ragkag-tab-btn px-4 py-2 rounded-xl flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-900">
+          <span>🔍</span>
+          <span>استودیو و شبیه‌ساز رتریوال RAG</span>
+        </button>
+        <button onclick="switchRagKagSubTab('kag')" id="ragKagTabBtn-kag" class="ragkag-tab-btn px-4 py-2 rounded-xl flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-900">
+          <span>🕸️</span>
+          <span>سامانه گراف دانش و استنتاج چندمرحله‌ای KAG</span>
+        </button>
+        <button onclick="switchRagKagSubTab('db')" id="ragKagTabBtn-db" class="ragkag-tab-btn px-4 py-2 rounded-xl flex items-center gap-2 transition text-slate-400 hover:text-white hover:bg-slate-900">
+          <span>🗄️</span>
+          <span>اتصال دیتابیس ۵۰۰ لید و وب‌سایت در KAG</span>
+        </button>
+      </div>
+
+      <!-- ==================== SUB-VIEW 1: 20 HF MODELS CATALOG ==================== -->
+      <div id="ragKagSubView-models" class="space-y-6">
+        <!-- Filter and Search Bar -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 text-xs font-bold">
+            <button onclick="filterHfModelsCatalog('all')" id="hfCatBtn-all" class="hf-cat-filter active px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/40">همه (۲۰)</button>
+            <button onclick="filterHfModelsCatalog('embedding')" id="hfCatBtn-embedding" class="hf-cat-filter px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">امبدینگ برداری (۵)</button>
+            <button onclick="filterHfModelsCatalog('reranker')" id="hfCatBtn-reranker" class="hf-cat-filter px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">رنکرهای مجدد (۳)</button>
+            <button onclick="filterHfModelsCatalog('llm')" id="hfCatBtn-llm" class="hf-cat-filter px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">مدل‌های زبانی LLM (۶)</button>
+            <button onclick="filterHfModelsCatalog('climate')" id="hfCatBtn-climate" class="hf-cat-filter px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">تخصصی اقلیم و پسماند (۵)</button>
+            <button onclick="filterHfModelsCatalog('kag')" id="hfCatBtn-kag" class="hf-cat-filter px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">استخراج گراف دانش KAG (۱)</button>
+          </div>
+
+          <div class="relative w-full sm:w-72">
+            <input type="text" id="hfModelSearchInput" placeholder="جستجوی مدل، تسک یا قابلیت..." oninput="handleHfModelSearch()" class="search-input text-xs py-2 px-3 pl-8">
+            <span class="absolute left-2.5 top-2.5 text-xs text-slate-400">🔍</span>
+          </div>
+        </div>
+
+        <!-- Models Card Grid -->
+        <div id="hfModelsGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated dynamically by renderHfModelsCatalog() -->
+        </div>
+      </div>
+
+      <!-- ==================== SUB-VIEW 2: RAG RETRIEVAL STUDIO ==================== -->
+      <div id="ragKagSubView-rag" class="hidden space-y-6">
+        
+        <!-- Architecture Explanation -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm font-black text-white mb-2 flex items-center gap-2">
+            <span>⚙️</span>
+            <span>معماری رتریوال و سنتز هوشمند RAG (Retrieval-Augmented Generation)</span>
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            فرآیند RAG با دریافت پرس‌وجو یا نیاز کسب‌وکار، ابتدا با مدل امبدینگ برداری متراکم (نظیر <code class="text-purple-300 font-mono">BAAI/bge-m3</code>) متن را به فضای برداری نگاشت کرده، سپس ۵۰۰ لید سازمانی و مستندات قانونی پسماند صفر ترکیه را با شباهت کسینوسی واکشی می‌کند. در مرحله بعد با مدل بازرتبه‌بندی (<code class="text-purple-300 font-mono">bge-reranker-v2-m3</code>) چانک‌های با بالاترین دقت حقوقی و تجاری انتخاب شده و به مدل زبانی (<code class="text-purple-300 font-mono">Qwen2.5-7B</code>) تزریق می‌شوند تا پیشنهادی مستدل، بدون توهم (Hallucination-free) با شماره رسمی <code class="text-emerald-400 font-mono">+12085033653</code> تولید شود.
+          </p>
+
+          <div class="flex items-center gap-2 text-[11px] font-mono text-slate-400 flex-wrap">
+            <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">پرس‌وجوی ورودی</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-purple-950/60 text-purple-300 border border-purple-800">امبدینگ BGE-M3 (1024d)</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">جستجوی کسینوسی در ۵۰۰ لید</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-amber-950/60 text-amber-300 border border-amber-800">چانک‌های آیین‌نامه Sıfır Atık</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800">سنتز نهایی با شماره فرستنده</span>
+          </div>
+        </div>
+
+        <!-- Interactive RAG Playground -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Left Column: Controls & Query Input -->
+          <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <h4 class="text-xs font-black text-white flex items-center justify-between">
+              <span>ورودی استودیوی RAG</span>
+              <span class="text-[10px] text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/30">Vector Similarity Engine</span>
+            </h4>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">انتخاب مدل امبدینگ برداری:</label>
+              <select id="ragEmbeddingModelSelect" class="search-input text-xs py-2 px-3 font-mono">
+                <option value="BAAI/bge-m3">BAAI/bge-m3 (پیشنهادی - ۳۲.۸M دانلود - ۱۰۲۴ ابعاد)</option>
+                <option value="intfloat/multilingual-e5-large">intfloat/multilingual-e5-large (۶.۸M دانلود - ۱۰۲۴ ابعاد)</option>
+                <option value="intfloat/multilingual-e5-base">intfloat/multilingual-e5-base (۶.۸M دانلود - ۷۶۸ ابعاد)</option>
+                <option value="sentence-transformers/all-MiniLM-L6-v2">sentence-transformers/all-MiniLM-L6-v2 (۳۸۴ ابعاد)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">فیلتر سکتور یا صنف سازمانی:</label>
+              <select id="ragSectorFilterSelect" class="search-input text-xs py-2 px-3">
+                <option value="all">همه سکتورها (هتل‌ها، دانشگاه‌ها، شهرداری‌ها، هلدینگ‌ها)</option>
+                <option value="hotel">هتل‌ها و مجتمع‌های اقامتی (Hospitality)</option>
+                <option value="university">دانشگاه‌ها و موسسات آموزش عالی</option>
+                <option value="municipality">شهرداری‌ها و نهادهای شهری</option>
+                <option value="holding">هلدینگ‌های صنعتی و شرکت‌های سرمایه‌گذاری</option>
+                <option value="hospital">مراکز درمانی و بیمارستان‌ها</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="block text-xs font-bold text-slate-300">متن پرس‌وجوی برداری (Query):</label>
+                <span class="text-[10px] text-slate-400">جستجوی مفهومی</span>
+              </div>
+              <textarea id="ragQueryInput" rows="3" class="search-input text-xs p-3 leading-relaxed" placeholder="مثال: هتل‌های ۵ ستاره در استانبول با حجم بالای پسماند ارگانیک و نیازمند دستگاه کمپوست جهت اخذ گواهی COP31..."></textarea>
+            </div>
+
+            <!-- Quick Preset Chips -->
+            <div>
+              <div class="text-[10px] text-slate-400 mb-1.5 font-bold">پرامپت‌های پیشنهادی سریع:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="setRagPreset(1)" class="text-[10px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold transition">🏨 هتل‌های لوکس با پسماند تر بالا</button>
+                <button type="button" onclick="setRagPreset(2)" class="text-[10px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold transition">🏛️ شهرداری‌های نیازمند سطل IoT</button>
+                <button type="button" onclick="setRagPreset(3)" class="text-[10px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold transition">🎓 دانشگاه‌ها با برنامه صفر پسماند</button>
+                <button type="button" onclick="setRagPreset(4)" class="text-[10px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold transition">🏢 هلدینگ‌های مشمول کربن CBAM</button>
+              </div>
+            </div>
+
+            <button onclick="executeRagPipeline()" class="btn bg-gradient-to-r from-purple-600 to-emerald-600 hover:from-purple-500 hover:to-emerald-500 text-white font-black w-full py-3 text-xs rounded-xl shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2">
+              <span>⚡ اجرای بازیابی برداری و سنتز RAG</span>
+              <span id="ragRunSpinner" class="hidden animate-spin">🔄</span>
+            </button>
+          </div>
+
+          <!-- Right Column: Live RAG Output & Grounded Facts -->
+          <div class="lg:col-span-7 space-y-4">
+            
+            <!-- Output Header & Metrics -->
+            <div id="ragResultsHeader" class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="font-bold text-white">نتایج استخراج و سنتز برداری RAG</span>
+              </div>
+              <div class="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+                <span id="ragChunksStat">لیدهای تطبیق‌یافته: ۰</span>
+                <span>•</span>
+                <span id="ragScoreStat">شباهت کسینوسی: ۰٪</span>
+                <span>•</span>
+                <span id="ragLatencyStat">زمان: -- ms</span>
+              </div>
+            </div>
+
+            <!-- Grounded Chunks Container -->
+            <div id="ragRetrievedLeadsContainer" class="space-y-3">
+              <!-- Populated by JS -->
+              <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 text-center text-slate-500 text-xs">
+                جهت استخراج هوشمند لیدها و چانک‌های قانونی، یک پرس‌وجو وارد کرده و دکمه «اجرای بازیابی برداری» را بزنید.
+              </div>
+            </div>
+
+            <!-- Grounded Proposal Synthesized Container -->
+            <div id="ragProposalOutputBox" class="hidden bg-slate-900 border border-emerald-500/40 rounded-2xl p-5 space-y-3 shadow-xl">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">📄</span>
+                  <span class="text-xs font-black text-white">پیش‌نویس سنتز‌شده RAG (Grounded Proposal)</span>
+                  <span class="text-[10px] text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">بدون توهم قانونی</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="copyRagProposalText()" class="btn btn-outline text-[10px] py-1 px-2.5 text-slate-300 hover:text-white">
+                    کپی متن 📋
+                  </button>
+                  <button onclick="sendRagProposalToModeration()" class="btn btn-brand text-[10px] py-1 px-2.5">
+                    ارسال به کارتابل مدیریت 🛡️
+                  </button>
+                </div>
+              </div>
+
+              <div id="ragProposalTextContent" class="text-xs text-slate-200 bg-slate-950 p-4 rounded-xl border border-slate-800/80 whitespace-pre-wrap leading-relaxed font-sans" dir="rtl"></div>
+
+              <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-slate-800/80">
+                <div class="flex items-center gap-2">
+                  <span>فرستنده رسمی:</span>
+                  <span class="font-mono text-emerald-400 font-bold">+12085033653</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span>پرتال اعتبارسنجی:</span>
+                  <a href="https://cop31.atovika.com" target="_blank" class="font-mono text-cyan-400 hover:underline">cop31.atovika.com</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ==================== SUB-VIEW 3: KAG KNOWLEDGE GRAPH ==================== -->
+      <div id="ragKagSubView-kag" class="hidden space-y-6">
+        
+        <!-- Architecture Explanation -->
+        <div class="bg-gradient-to-r from-slate-900 to-purple-950/40 border border-purple-500/30 rounded-2xl p-5">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-3">
+            <div>
+              <h3 class="text-sm font-black text-white flex items-center gap-2">
+                <span>🕸️</span>
+                <span>سامانه گراف دانش و استدلال چندمرحله‌ای KAG (Knowledge Augmented Generation)</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">
+                فراتر از RAG سنتی: مدل‌سازی روابط صریح هستی‌شناسی (Ontology) بین ۵۰۰ لید سازمانی، آیین‌نامه پسماند صفر ترکیه و راه‌حل‌های استارتاپی.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[11px] bg-purple-500/20 text-purple-300 border border-purple-500/40 px-3 py-1 rounded-xl font-bold">Multi-Hop Reasoning</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs font-bold pt-2 border-t border-slate-800">
+            <div class="p-2 rounded-xl bg-blue-950/40 border border-blue-500/30 text-blue-300">
+              <div>🏢 سازمان‌ها (Leads)</div>
+              <div class="text-[10px] text-slate-400 font-normal mt-0.5">۵۰۰ رکورد هتل، دانشگاه، شهرداری</div>
+            </div>
+            <div class="p-2 rounded-xl bg-amber-950/40 border border-amber-500/30 text-amber-300">
+              <div>📜 قوانین ترکیه</div>
+              <div class="text-[10px] text-slate-400 font-normal mt-0.5">آیین‌نامه Sıfır Atık و قانون ۲۸۷۲</div>
+            </div>
+            <div class="p-2 rounded-xl bg-red-950/40 border border-red-500/30 text-red-300">
+              <div>♻️ جریان‌های پسماند</div>
+              <div class="text-[10px] text-slate-400 font-normal mt-0.5">پسماند تر، پلاستیک، پساب، کربن</div>
+            </div>
+            <div class="p-2 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300">
+              <div>💡 استارتاپ‌های COP31</div>
+              <div class="text-[10px] text-slate-400 font-normal mt-0.5">بینایی ماشین، بیوکمپوست، IoT</div>
+            </div>
+            <div class="p-2 rounded-xl bg-purple-950/40 border border-purple-500/30 text-purple-300">
+              <div>📱 هاب هماهنگی</div>
+              <div class="text-[10px] text-slate-400 font-normal mt-0.5">خط فرستنده +12085033653</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Knowledge Graph Canvas & Controls -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">🌐</span>
+              <span class="text-xs font-black text-white">نمایشگر تعاملی شبکه گراف دانش (Interactive Graph Network)</span>
+            </div>
+            <div class="flex items-center gap-1.5 overflow-x-auto text-[11px] font-bold">
+              <button onclick="filterKagGraph('all')" id="kagGraphFilter-all" class="px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/40">همه گره‌ها</button>
+              <button onclick="filterKagGraph('lead')" id="kagGraphFilter-lead" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white">لیدها</button>
+              <button onclick="filterKagGraph('policy')" id="kagGraphFilter-policy" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white">قوانین ترکیه</button>
+              <button onclick="filterKagGraph('startup')" id="kagGraphFilter-startup" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white">استارتاپ‌ها</button>
+              <button onclick="filterKagGraph('waste')" id="kagGraphFilter-waste" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white">جریان پسماند</button>
+            </div>
+          </div>
+
+          <!-- SVG Visual Knowledge Graph Canvas -->
+          <div class="relative bg-slate-950 border border-slate-800 rounded-xl overflow-hidden min-h-[360px] flex items-center justify-center p-2">
+            <svg id="kagSvgCanvas" class="w-full h-80 sm:h-96" viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg">
+              <!-- Rendered dynamically by renderKagKnowledgeGraph() -->
+            </svg>
+
+            <div id="kagNodeInspectorOverlay" class="absolute bottom-3 right-3 max-w-xs bg-slate-900/95 border border-purple-500/40 rounded-xl p-3 text-xs shadow-2xl backdrop-blur-md hidden">
+              <div class="flex items-center justify-between pb-1.5 border-b border-slate-800">
+                <span id="kagInspectorNodeType" class="text-[10px] font-bold text-purple-400">گره گراف دانش</span>
+                <button onclick="closeKagNodeInspector()" class="text-slate-400 hover:text-white text-xs">✕</button>
+              </div>
+              <div id="kagInspectorNodeTitle" class="font-bold text-white mt-1.5 mb-1">نام موجودیت</div>
+              <p id="kagInspectorNodeDesc" class="text-[11px] text-slate-300 leading-relaxed mb-2">توضیحات موجودیت</p>
+              <div id="kagInspectorRelations" class="text-[10px] text-slate-400 font-mono space-y-0.5"></div>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-400 text-center">
+            💡 روی هر کدام از گره‌های دایره‌ای کلیک کنید تا روابط متقابل و ساختار سه‌گانه دانش (Triples) نمایش داده شود.
+          </p>
+        </div>
+
+        <!-- Multi-Hop Reasoning Engine Simulator -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">🔗</span>
+              <h4 class="text-xs font-black text-white">موتور استدلال چندمرحله‌ای KAG (Multi-Hop Graph Reasoning Engine)</h4>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Reasoning Depth: 5 Hops</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+            <div class="sm:col-span-8">
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">انتخاب لید سازمانی جهت ردیابی مسیر دانش:</label>
+              <select id="kagLeadSelect" class="search-input text-xs py-2 px-3 font-bold" onchange="runKagReasoning(this.value)">
+                <option value="Swissôtel The Bosphorus">Swissôtel The Bosphorus (هتل لوکس بین‌المللی - پسماند ارگانیک ۱.۸ تن روزانه)</option>
+                <option value="Divan Group (Koç Holding)">Divan Group / Koç Holding (هلدینگ و کیترینگ - پلاستیک‌های یکبارمصرف)</option>
+                <option value="İstanbul Teknik Üniversitesi (İTÜ)">İstanbul Teknik Üniversitesi (İTÜ) (پردیس دانشگاهی - تفکیک ۴ جریان)</option>
+                <option value="Kadıköy Municipality">Kadıköy Municipality (شهرداری منطقه - لجستیک پسماند شهری)</option>
+                <option value="Acıbadem Healthcare Group">Acıbadem Healthcare Group (مراکز بیمارستانی - پسماند خاص و TCFD)</option>
+              </select>
+            </div>
+
+            <div class="sm:col-span-4">
+              <button onclick="runKagReasoning(document.getElementById('kagLeadSelect').value)" class="btn bg-purple-600 hover:bg-purple-500 text-white font-bold w-full py-2.5 text-xs rounded-xl shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2">
+                <span>ردیابی استنتاج ۵ مرحله‌ای</span>
+                <span>⚡</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step-by-Step Multi-Hop Trail Output -->
+          <div id="kagReasoningStepsContainer" class="space-y-3 pt-2">
+            <!-- Populated dynamically by runKagReasoning() -->
+          </div>
+
+          <!-- Synthesized KAG Proposal Box -->
+          <div id="kagProposalSynthesizedBox" class="hidden bg-slate-950 border border-purple-500/40 rounded-xl p-4 space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="text-sm">🎯</span>
+                <span class="text-xs font-black text-purple-300">پیشنهاد همکاری مبتنی بر گراف دانش (KAG Proposal)</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="copyKagProposalText()" class="btn btn-outline text-[10px] py-1 px-2.5 text-slate-300 hover:text-white">کپی 📋</button>
+                <button onclick="sendKagProposalToModeration()" class="btn btn-brand text-[10px] py-1 px-2.5">ارسال به مدیریت 🛡️</button>
+              </div>
+            </div>
+            <div id="kagProposalTextContent" class="text-xs text-slate-200 whitespace-pre-wrap leading-relaxed font-sans" dir="rtl"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ==================== SUB-VIEW 4: DATABASE & WEBSITE BINDING ==================== -->
+      <div id="ragKagSubView-db" class="hidden space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-sm font-black text-white flex items-center gap-2">
+                <span>🗄️</span>
+                <span>پیوند کامل ۵۰۰ لید پایگاه داده و وب‌سایت در سامانه KAG</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">
+                تمام رکوردهای ۵۰۰ لید سازمانی به عنوان گره‌های دانش ثبت‌شده‌اند و مستقیماً به استارتاپ‌ها و قوانین ترکیه متصل می‌باشند.
+              </p>
+            </div>
+            <button onclick="switchMasterView('database')" class="btn btn-brand text-xs py-1.5 px-3 rounded-lg font-bold">
+              ورود به پایگاه داده اصلی (۵۰۰ رکورد) 🗄️
+            </button>
+          </div>
+
+          <!-- Integration Matrix -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+              <div class="text-xs font-bold text-emerald-400 flex items-center gap-2">
+                <span>🏢</span>
+                <span>لیدهای سازمانی ترکیه (۵۰۰ رکورد)</span>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                هر لید دارای مشخصات سکتور، شهر، مدیر تصمیم‌گیرنده، شماره تماس و برآورد ظرفیت پسماند می‌باشد.
+              </p>
+              <div class="text-[10px] text-slate-500 font-mono">وضعیت گراف: ۱۰۰٪ نگاشت‌شده</div>
+            </div>
+
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+              <div class="text-xs font-bold text-amber-400 flex items-center gap-2">
+                <span>📜</span>
+                <span>قوانین پسماند صفر ترکیه (Sıfır Atık)</span>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                ماده‌های ۱۲، ۱۵، ۲۰ آیین‌نامه و الزامات هتل‌ها و دانشگاه‌ها جهت شرکت در رویداد COP31 در گراف پیوند یافته‌اند.
+              </p>
+              <div class="text-[10px] text-slate-500 font-mono">وضعیت گراف: ۱۲ ماده فعال</div>
+            </div>
+
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+              <div class="text-xs font-bold text-purple-400 flex items-center gap-2">
+                <span>📱</span>
+                <span>هاب هماهنگی رسمی Atikova</span>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                شماره فرستنده رسمی <code class="text-purple-300 font-mono">+12085033653</code> و پرتال <code class="text-purple-300 font-mono">cop31.atovika.com</code> در تمام خروجی‌ها درج می‌گردد.
+              </p>
+              <div class="text-[10px] text-slate-500 font-mono">وضعیت: تایید مدیریت فعال</div>
+            </div>
+          </div>
+
+          <!-- Sample Bound Table -->
+          <div class="mt-4">
+            <div class="text-xs font-bold text-slate-300 mb-2">نمونه لیدهای برگزیده پیوندیافته در گراف دانش:</div>
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+              <table class="w-full text-right text-xs">
+                <thead class="bg-slate-950 text-slate-400 text-[11px] font-bold border-b border-slate-800">
+                  <tr>
+                    <th class="p-3">سازمان / هتل / دانشگاه</th>
+                    <th class="p-3">سکتور</th>
+                    <th class="p-3">شهر</th>
+                    <th class="p-3">جریان پسماند KAG</th>
+                    <th class="p-3">استارتاپ منطبق</th>
+                    <th class="p-3 text-center">عملیات گراف</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800 bg-slate-900/60 font-sans">
+                  <tr>
+                    <td class="p-3 font-bold text-white">Swissôtel The Bosphorus</td>
+                    <td class="p-3 text-slate-300">Hospitality & Luxury</td>
+                    <td class="p-3 text-slate-400">Istanbul</td>
+                    <td class="p-3 text-amber-300">پسماند غذایی و ارگانیک</td>
+                    <td class="p-3 text-emerald-400">BioCompost Turkey AI</td>
+                    <td class="p-3 text-center">
+                      <button onclick="openLeadKagModal('companies', 1)" class="btn bg-purple-600 hover:bg-purple-500 text-white text-[10px] py-1 px-2.5 rounded">مشاهده در KAG 🧠</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-bold text-white">Divan Group (Koç Holding)</td>
+                    <td class="p-3 text-slate-300">Hospitality & Catering</td>
+                    <td class="p-3 text-slate-400">Istanbul</td>
+                    <td class="p-3 text-amber-300">پلاستیک و بسته‌بندی یکبارمصرف</td>
+                    <td class="p-3 text-emerald-400">TerraPlast Bio-Polymers</td>
+                    <td class="p-3 text-center">
+                      <button onclick="openLeadKagModal('companies', 2)" class="btn bg-purple-600 hover:bg-purple-500 text-white text-[10px] py-1 px-2.5 rounded">مشاهده در KAG 🧠</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-bold text-white">İstanbul Teknik Üniversitesi (İTÜ)</td>
+                    <td class="p-3 text-slate-300">Higher Education</td>
+                    <td class="p-3 text-slate-400">Istanbul</td>
+                    <td class="p-3 text-amber-300">تفکیک ۴ جریان دانشگاهی</td>
+                    <td class="p-3 text-emerald-400">AtikVision AI Sorting</td>
+                    <td class="p-3 text-center">
+                      <button onclick="openLeadKagModal('universities', 1)" class="btn bg-purple-600 hover:bg-purple-500 text-white text-[10px] py-1 px-2.5 rounded">مشاهده در KAG 🧠</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <section id="cadenceView" class="master-view-section hidden py-8 px-4 sm:px-6 lg:px-8 border-b border-teal-900/40 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
@@ -4491,6 +5018,97 @@ button { font-family: inherit; cursor: pointer; }
 </div>
 
 
+<!-- ==================== LEAD KAG / RAG INSPECTOR MODAL ==================== -->
+<div id="leadKagInspectorModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="bg-slate-900 border border-purple-500/40 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-4 text-right" dir="rtl">
+    
+    <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-lg border border-purple-500/30">🧠</span>
+        <div>
+          <h3 id="kagModalLeadTitle" class="text-base font-black text-white">مشخصات لید در سامانه گراف دانش KAG</h3>
+          <p id="kagModalLeadSub" class="text-xs text-slate-400">تحلیل انطباق با قوانین پسماند صفر ترکیه و استانداردهای COP31</p>
+        </div>
+      </div>
+      <button onclick="closeLeadKagModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center font-bold transition">✕</button>
+    </div>
+
+    <!-- Entity Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+      <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] text-slate-400">سکتور سازمانی:</div>
+        <div id="kagModalSector" class="font-bold text-white mt-0.5 truncate">--</div>
+      </div>
+      <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] text-slate-400">شهر / مقر:</div>
+        <div id="kagModalCity" class="font-bold text-white mt-0.5 truncate">--</div>
+      </div>
+      <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] text-slate-400">تصمیم‌گیرنده:</div>
+        <div id="kagModalDecision" class="font-bold text-emerald-400 mt-0.5 truncate">--</div>
+      </div>
+      <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] text-slate-400">ارتباط واتساپ:</div>
+        <div id="kagModalPhone" class="font-mono text-cyan-400 mt-0.5 truncate font-bold" dir="ltr">--</div>
+      </div>
+    </div>
+
+    <!-- KAG Knowledge Path Graph -->
+    <div class="p-4 rounded-2xl bg-purple-950/20 border border-purple-500/30 space-y-2">
+      <div class="text-xs font-bold text-purple-300 flex items-center gap-1.5">
+        <span>🕸️</span>
+        <span>مسیر استدلال گراف دانش (KAG Reasoning Chain):</span>
+      </div>
+      <div id="kagModalPathTrail" class="text-xs text-slate-300 space-y-1.5 leading-relaxed bg-slate-950 p-3 rounded-xl border border-slate-800/80 font-mono text-[11px]"></div>
+    </div>
+
+    <!-- Matched Startup & Turkish Law -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+      <div class="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1">
+        <div class="font-bold text-amber-300 flex items-center gap-1.5">
+          <span>📜</span>
+          <span>ماده قانونی پسماند صفر ترکیه:</span>
+        </div>
+        <p id="kagModalLawDesc" class="text-slate-300 text-[11px] leading-relaxed"></p>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-1">
+        <div class="font-bold text-emerald-300 flex items-center gap-1.5">
+          <span>💡</span>
+          <span>استارتاپ منطبق COP31:</span>
+        </div>
+        <p id="kagModalStartupDesc" class="text-slate-300 text-[11px] leading-relaxed"></p>
+      </div>
+    </div>
+
+    <!-- Proposal Generator Action Area -->
+    <div class="pt-2 border-t border-slate-800 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-slate-300">متن شخصی‌سازی‌شده پیشنهاد برای این لید:</span>
+        <button onclick="generateProposalInKagModal()" class="text-xs text-purple-300 hover:text-white bg-purple-500/20 px-3 py-1 rounded-lg border border-purple-500/30 font-bold transition">
+          🔄 بازتولید با هوش مصنوعی
+        </button>
+      </div>
+
+      <textarea id="kagModalProposalText" rows="4" class="search-input text-xs p-3 leading-relaxed w-full font-sans" dir="rtl"></textarea>
+
+      <div class="flex flex-col sm:flex-row items-center gap-2 justify-end">
+        <button onclick="copyKagModalProposal()" class="btn btn-outline text-xs py-2 px-4 w-full sm:w-auto">
+          کپی متن 📋
+        </button>
+        <button onclick="sendKagModalToModeration()" class="btn bg-purple-600 hover:bg-purple-500 text-white text-xs py-2 px-4 w-full sm:w-auto font-bold">
+          ارسال به کارتابل مدیریت جهت تایید 🛡️
+        </button>
+        <button onclick="sendKagModalToWhatsApp()" class="btn btn-whatsapp text-xs py-2 px-4 w-full sm:w-auto font-bold">
+          ارسال مستقیم به واتساپ لید 📱
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 <!-- Footer -->
 <footer class="bg-slate-950 border-t border-slate-800 text-xs py-8 px-4 sm:px-6 lg:px-8 text-slate-400 mt-12">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -4767,6 +5385,11 @@ button { font-family: inherit; cursor: pointer; }
     ];
 
     let outreachMessages = DEFAULT_OUTREACH_MESSAGES;
+    function saveOutreachMessages() {
+      try {
+        localStorage.setItem('atikova_outreach_messages', JSON.stringify(outreachMessages));
+      } catch(e) {}
+    }
     try {
       const storedMsgs = localStorage.getItem('atikova_outreach_messages');
       if (storedMsgs) outreachMessages = JSON.parse(storedMsgs);
@@ -4794,7 +5417,7 @@ button { font-family: inherit; cursor: pointer; }
       }
 
       // Master tab styling
-      const tabIds = ['directory', 'startups', 'database', 'cadence', 'audit', 'messageBank', 'catalog', 'investor', 'admin'];
+      const tabIds = ['directory', 'startups', 'ragkag', 'database', 'cadence', 'audit', 'messageBank', 'catalog', 'investor', 'admin'];
       tabIds.forEach(id => {
         const tabEl = document.getElementById(`masterTab-${id}`);
         const mobileEl = document.getElementById(`mobileTab-${id}`);
@@ -6216,6 +6839,9 @@ ${msg.body}
         switchMasterView('admin', false);
       } else if (hash === 'startups') {
         switchMasterView('startups', false);
+      } else if (hash === 'ragkag' || hash === 'rag' || hash === 'kag' || hash === 'ai') {
+        switchMasterView('ragkag', false); } else if (hash === 'ragkag' || hash === 'rag' || hash === 'kag' || hash === 'ai') {
+        switchMasterView('ragkag', false);
       } else if (hash && document.getElementById(`${hash}View`)) {
         switchMasterView(hash, false);
       } else {
@@ -6230,6 +6856,737 @@ ${msg.body}
         switchMasterView(hash, false);
       }
     });
+
+    // ==========================================
+    // RAG & KAG AI HUB (20 HUGGING FACE MODELS)
+    // ==========================================
+    const HF_MODELS = [{"id": "BAAI/bge-m3", "name": "BGE-M3 (BAAI)", "category": "embedding", "category_fa": "امبدینگ برداری چندزبانه", "downloads": "32.8M+", "likes": "3,860+", "pipeline": "sentence-similarity", "context_len": "8192 tokens", "languages": "100+ زبان (ترکی، فارسی، انگلیسی)", "dimension": "1024 d", "role_in_atikova": "ستون فقرات موتور جستجوی معنایی RAG برای ۵۰۰ لید سازمانی. این مدل با معماری سه‌گانه (Dense, Lexical/BM25 و Multi-Vector) حتی عبارات محاوره‌ای را با دقت بالا به لیدها و قوانین پسماند متناظر تطبیق می‌دهد.", "hf_url": "https://huggingface.co/BAAI/bge-m3"}, {"id": "intfloat/multilingual-e5-large", "name": "Multilingual E5 Large (Microsoft)", "category": "embedding", "category_fa": "امبدینگ برداری چندزبانه", "downloads": "6.8M+", "likes": "1,260+", "pipeline": "feature-extraction", "context_len": "512 tokens", "languages": "۹۴ زبان بین‌المللی", "dimension": "1024 d", "role_in_atikova": "تولید بردار ویژگی با دقت بالا برای متن گزارش‌های زیست‌محیطی و انطباق شرکت‌ها با شاخص‌های ESG رویداد COP31.", "hf_url": "https://huggingface.co/intfloat/multilingual-e5-large"}, {"id": "intfloat/multilingual-e5-base", "name": "Multilingual E5 Base", "category": "embedding", "category_fa": "امبدینگ برداری چندزبانه", "downloads": "6.8M+", "likes": "400+", "pipeline": "sentence-similarity", "context_len": "512 tokens", "languages": "چندزبانه بهینه‌شده", "dimension": "768 d", "role_in_atikova": "موتور امبدینگ پرسرعت با مصرف حافظه پایین جهت کلاسترینگ بلادرنگ لیدهای دیتابیس بر اساس سکتور و شهر.", "hf_url": "https://huggingface.co/intfloat/multilingual-e5-base"}, {"id": "intfloat/multilingual-e5-small", "name": "Multilingual E5 Small", "category": "embedding", "category_fa": "امبدینگ برداری چندزبانه", "downloads": "10.2M+", "likes": "450+", "pipeline": "sentence-similarity", "context_len": "512 tokens", "languages": "سبک درون مرورگر (ONNX/Wasm)", "dimension": "384 d", "role_in_atikova": "امکان اجرای جستجوی معنایی محلی بدون نیاز به ارسال درخواست سروری به صورت کاملاً ایزوله در مرورگر کلاینت.", "hf_url": "https://huggingface.co/intfloat/multilingual-e5-small"}, {"id": "sentence-transformers/all-MiniLM-L6-v2", "name": "All-MiniLM-L6-v2", "category": "embedding", "category_fa": "امبدینگ برداری چندزبانه", "downloads": "45M+", "likes": "4,200+", "pipeline": "sentence-similarity", "context_len": "256 tokens", "languages": "استاندارد صنعتی بین‌المللی", "dimension": "384 d", "role_in_atikova": "محاسبه آنی ماتریس همبستگی و شباهت بین طرح‌های نوآورانه استارتاپ‌ها و دسته‌بندی‌های بین‌المللی COP31.", "hf_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"}, {"id": "BAAI/bge-reranker-v2-m3", "name": "BGE Reranker v2 M3", "category": "reranker", "category_fa": "رتبه‌بندی مجدد و افزایش دقت Reranker", "downloads": "16.0M+", "likes": "1,240+", "pipeline": "text-classification", "context_len": "8192 tokens", "languages": "Cross-Encoder چندزبانه", "dimension": "Score [-inf, +inf]", "role_in_atikova": "بازرتبه‌بندی فوق‌العاده دقیق اسناد و لیدهای بازیابی‌شده اولیه. امتیازدهی متقابل بین پرسش کاربر و متن قانونی پسماند صفر ترکیه تا اطمینان حاصل شود معتبرترین لید در صدر جدول قرار گیرد.", "hf_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3"}, {"id": "BAAI/bge-reranker-large", "name": "BGE Reranker Large", "category": "reranker", "category_fa": "رتبه‌بندی مجدد و افزایش دقت Reranker", "downloads": "2.2M+", "likes": "480+", "pipeline": "feature-extraction", "context_len": "512 tokens", "languages": "چندزبانه با ظرفیت بالا", "dimension": "Cross Attention", "role_in_atikova": "فیلتر مرحله نهایی جهت جلوگیری از تزریق متن‌های غیرمرتبط به پرامپت تولید پیام B2B.", "hf_url": "https://huggingface.co/BAAI/bge-reranker-large"}, {"id": "Qwen/Qwen3-Reranker-4B", "name": "Qwen3 Reranker 4B", "category": "reranker", "category_fa": "رتبه‌بندی مجدد و افزایش دقت Reranker", "downloads": "2.3M+", "likes": "170+", "pipeline": "text-ranking", "context_len": "4096 tokens", "languages": "پشتیبانی عمیق ترکی، فارسی، انگلیسی", "dimension": "LLM Cross-Attention", "role_in_atikova": "رنکر مبتنی بر مدل زبانی برای سناریوهای پیچیده که در آن نیازمندی چندبخشی از قبیل «پسماند دارویی + شهر بورسا + بودجه شهرداری» مطرح می‌شود.", "hf_url": "https://huggingface.co/Qwen/Qwen3-Reranker-4B"}, {"id": "Qwen/Qwen2.5-7B-Instruct", "name": "Qwen 2.5 7B Instruct", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "7.6M+", "likes": "2,430+", "pipeline": "text-generation", "context_len": "128K tokens", "languages": "برترین مدل متن‌باز در زبان ترکی و فارسی", "dimension": "7B Parameters", "role_in_atikova": "نگارش متن‌های پیام رسمی، پیشنهادهای فنی و پیش‌نویس‌های تجاری B2B با ساختار متقاعدکننده و الصاق شماره هماهنگی فرستنده +12085033653.", "hf_url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"}, {"id": "meta-llama/Llama-3.3-70B-Instruct", "name": "Llama 3.3 70B Instruct (Meta)", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "3.5M+", "likes": "4,100+", "pipeline": "text-generation", "context_len": "128K tokens", "languages": "پیشرفته‌ترین مدل متن‌باز در مقیاس صنعتی", "dimension": "70B Parameters", "role_in_atikova": "استنتاج عمیق حقوقی و تهیه لوایح و پروپوزال‌های کلان بین‌المللی برای هیئت‌های نمایندگی وزارت محیط‌زیست ترکیه در اجلاس COP31.", "hf_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"}, {"id": "meta-llama/Llama-3.1-8B-Instruct", "name": "Llama 3.1 8B Instruct", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "5.8M+", "likes": "8,370+", "pipeline": "text-generation", "context_len": "128K tokens", "languages": "انگلیسی و زبان‌های بین‌المللی", "dimension": "8B Parameters", "role_in_atikova": "تولید سریع پیشنهادات استاندارد برای دایرکتوری هتل‌ها و هلدینگ‌ها با حفظ لحن اداری و تجاری.", "hf_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"}, {"id": "meta-llama/Llama-3.2-3B-Instruct", "name": "Llama 3.2 3B Instruct", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "1.5M+", "likes": "2,780+", "pipeline": "text-generation", "context_len": "128K tokens", "languages": "سبک و سریع برای لبه شبکه", "dimension": "3B Parameters", "role_in_atikova": "پاسخ‌دهی آنی به سوالات بازدیدکنندگان در خصوص برنامه‌های پسماند صفر و اطلاعات تماس لیدها.", "hf_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"}, {"id": "meta-llama/Llama-3.2-1B-Instruct", "name": "Llama 3.2 1B Instruct", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "6.7M+", "likes": "1,820+", "pipeline": "text-generation", "context_len": "128K tokens", "languages": "میکرو مدل بسیار پرسرعت", "dimension": "1B Parameters", "role_in_atikova": "دسته‌بندی و روتینگ پیام‌های ورودی کاربران استارتاپی به کارتابل مدیریت ظرف ۳۰ میلی‌ثانیه.", "hf_url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct"}, {"id": "mistralai/Mistral-7B-Instruct-v0.3", "name": "Mistral 7B Instruct v0.3", "category": "llm", "category_fa": "مدل‌های زبانی استدلال و نگارش دیپلماتیک", "downloads": "2.0M+", "likes": "3,770+", "pipeline": "text-generation", "context_len": "32K tokens", "languages": "بهینه‌شده برای Function Calling و JSON", "dimension": "7.3B Parameters", "role_in_atikova": "فرمت‌دهی ساختاریافته JSON برای اتصال خودکار لیدها به وب‌هوک‌های واتساپ و ایمیل سازمانی.", "hf_url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"}, {"id": "climatebert/distilroberta-base-climate-f", "name": "ClimateBERT Disclosures (ClimateBERT)", "category": "climate", "category_fa": "تخصصی اقلیم، پسماند و ESG", "downloads": "3,000+", "likes": "65+", "pipeline": "fill-mask", "context_len": "512 tokens", "languages": "متون اقلیمی و گزارش‌های پایداری", "dimension": "Fine-tuned RoBERTa", "role_in_atikova": "اسکن و تحلیل فایل‌های گزارش سالانه شرکت‌ها و دانشگاه‌های ثبت‌شده در دیتابیس برای استخراج تعهدات کاهش انتشار دی‌اکسید کربن.", "hf_url": "https://huggingface.co/climatebert/distilroberta-base-climate-f"}, {"id": "climatebert/distilroberta-base-climate-detector", "name": "ClimateBERT Detector", "category": "climate", "category_fa": "تخصصی اقلیم، پسماند و ESG", "downloads": "1,700+", "likes": "45+", "pipeline": "text-classification", "context_len": "512 tokens", "languages": "انگلیسی / بین‌المللی", "dimension": "Binary Classifier", "role_in_atikova": "تشخیص اینکه آیا فعالیت‌های لید به طور مستقیم با اهداف COP31 Zero Waste منطبق است یا خیر.", "hf_url": "https://huggingface.co/climatebert/distilroberta-base-climate-detector"}, {"id": "climatebert/netzero-reduction", "name": "ClimateBERT NetZero Reduction", "category": "climate", "category_fa": "تخصصی اقلیم، پسماند و ESG", "downloads": "900+", "likes": "30+", "pipeline": "text-classification", "context_len": "512 tokens", "languages": "چارچوب استانداردهای خالص کربن صفر", "dimension": "Multi-class classifier", "role_in_atikova": "ارزیابی اهداف عددی کاهش پسماند سازمانی و تطبیق آن با استانداردهای هیئت سازمان ملل متحد (UNFCCC).", "hf_url": "https://huggingface.co/climatebert/netzero-reduction"}, {"id": "climatebert/distilroberta-base-climate-tcfd", "name": "ClimateBERT TCFD", "category": "climate", "category_fa": "تخصصی اقلیم، پسماند و ESG", "downloads": "720+", "likes": "25+", "pipeline": "text-classification", "context_len": "512 tokens", "languages": "حاکمیت شرکتی و افشای ریسک‌های اقلیمی", "dimension": "TCFD Framework", "role_in_atikova": "دسته‌بندی ریسک‌های فیزیکی و قانونی مدیریت پسماند برای ۵۰۰ لید پایگاه داده مطابق با بندهای TCFD.", "hf_url": "https://huggingface.co/climatebert/distilroberta-base-climate-tcfd"}, {"id": "climatebert/environmental-claims", "name": "ClimateBERT Environmental Claims", "category": "climate", "category_fa": "تخصصی اقلیم، پسماند و ESG", "downloads": "500+", "likes": "35+", "pipeline": "text-classification", "context_len": "512 tokens", "languages": "اعتبارسنجی ادعاهای سازمانی", "dimension": "Substantiation Classifier", "role_in_atikova": "شناسایی ادعاهای اثبات‌نشده زیست‌محیطی (Anti-Greenwashing) در پیشنهادهای ارسالی استارتاپ‌ها پیش از تایید نهایی توسط مدیریت.", "hf_url": "https://huggingface.co/climatebert/environmental-claims"}, {"id": "Babelscape/wikineural-multilingual-ner", "name": "WikiNEuRal Multilingual NER (Babelscape)", "category": "kag", "category_fa": "استخراج موجودیت‌ها و گراف دانش KAG", "downloads": "1.8M+", "likes": "390+", "pipeline": "token-classification", "context_len": "512 tokens", "languages": "استخراج چندزبانه موجودیت‌ها (PER, ORG, LOC, LAW)", "dimension": "NER Token Classifier", "role_in_atikova": "هسته استخراج موجودیت‌ها و نگاشت به گراف دانش KAG. اتصال خودکار نام سازمان‌ها، شهرهای ترکیه، مواد قانونی آیین‌نامه پسماند صفر و تکنولوژی استارتاپ‌ها در قالب سه‌گانه‌های دانش (Triples).", "hf_url": "https://huggingface.co/Babelscape/wikineural-multilingual-ner"}];
+    const KAG_TRIPLES = [{"source": "Swissôtel The Bosphorus", "relation": "HAS_SECTOR", "target": "Hospitality & Luxury"}, {"source": "Swissôtel The Bosphorus", "relation": "LOCATED_IN", "target": "Istanbul"}, {"source": "Swissôtel The Bosphorus", "relation": "PRODUCES_STREAM", "target": "پسماند غذایی و ارگانیک (Organic Waste)"}, {"source": "پسماند غذایی و ارگانیک (Organic Waste)", "relation": "GOVERNED_BY", "target": "ماده ۱۵ آیین‌نامه پسماند صفر ترکیه (کمپوست الزامی در محل)"}, {"source": "ماده ۱۵ آیین‌نامه پسماند صفر ترکیه (کمپوست الزامی در محل)", "relation": "SOLVED_BY", "target": "BioCompost Turkey AI"}, {"source": "BioCompost Turkey AI", "relation": "ACCREDITED_FOR", "target": "ویترین استارتاپ‌های COP31 ترکیه"}, {"source": "Divan Group (Koç Holding)", "relation": "HAS_SECTOR", "target": "Corporate Hospitality & Catering"}, {"source": "Divan Group (Koç Holding)", "relation": "PRODUCES_STREAM", "target": "پلاستیک‌های یکبارمصرف و بسته‌بندی"}, {"source": "پلاستیک‌های یکبارمصرف و بسته‌بندی", "relation": "GOVERNED_BY", "target": "بخشنامه ممنوعیت پلاستیک‌های هتل‌ها در COP31"}, {"source": "بخشنامه ممنوعیت پلاستیک‌های هتل‌ها در COP31", "relation": "SOLVED_BY", "target": "TerraPlast Bio-Polymers"}, {"source": "İstanbul Teknik Üniversitesi (İTÜ)", "relation": "HAS_SECTOR", "target": "Higher Education & Research"}, {"source": "İstanbul Teknik Üniversitesi (İTÜ)", "relation": "PRODUCES_STREAM", "target": "پسماند مخلوط ۴ شاخه‌ای دانشگاهی"}, {"source": "پسماند مخلوط ۴ شاخه‌ای دانشگاهی", "relation": "GOVERNED_BY", "target": "دستورالعمل پردیس‌های سبز و پسماند صفر ۲۰۲۶"}, {"source": "دستورالعمل پردیس‌های سبز و پسماند صفر ۲۰۲۶", "relation": "SOLVED_BY", "target": "AtikVision AI Sorting"}, {"source": "Kadıköy Municipality", "relation": "HAS_SECTOR", "target": "Municipal & Local Government"}, {"source": "Kadıköy Municipality", "relation": "PRODUCES_STREAM", "target": "پسماند جامد شهری (MSW)"}, {"source": "پسماند جامد شهری (MSW)", "relation": "GOVERNED_BY", "target": "قانون محیط‌زیست ترکیه ۲۸۷۲ (بهینه‌سازی ناوگان)"}, {"source": "قانون محیط‌زیست ترکیه ۲۸۷۲ (بهینه‌سازی ناوگان)", "relation": "SOLVED_BY", "target": "EcoBin Smart IoT"}, {"source": "Acıbadem Healthcare Group", "relation": "HAS_SECTOR", "target": "Healthcare & Hospitals"}, {"source": "Acıbadem Healthcare Group", "relation": "PRODUCES_STREAM", "target": "پسماند بیمارستانی و ردپای کربن"}, {"source": "پسماند بیمارستانی و ردپای کربن", "relation": "GOVERNED_BY", "target": "چارچوب استانداردهای TCFD و ردپای کربن بیمارستانی"}, {"source": "چارچوب استانداردهای TCFD و ردپای کربن بیمارستانی", "relation": "SOLVED_BY", "target": "NetZero Cloud ESG"}, {"source": "کلیه پروپوزال‌های KAG و RAG", "relation": "DISPATCHED_VIA", "target": "شماره رسمی هماهنگی آتیکووا +12085033653"}, {"source": "کلیه پروپوزال‌های KAG و RAG", "relation": "VERIFIED_ON", "target": "پرتال رسمی https://cop31.atovika.com"}];
+
+    let currentRagKagSubTab = 'models';
+    let currentHfModelCategory = 'all';
+    let currentHfModelSearch = '';
+    let currentKagFilter = 'all';
+    let currentActiveKagLead = null;
+
+    // Subtab switcher
+    function switchRagKagSubTab(tab) {
+      currentRagKagSubTab = tab;
+      const subviews = ['models', 'rag', 'kag', 'db'];
+      subviews.forEach(v => {
+        const el = document.getElementById(`ragKagSubView-${v}`);
+        const btn = document.getElementById(`ragKagTabBtn-${v}`);
+        if (el) {
+          if (v === tab) el.classList.remove('hidden');
+          else el.classList.add('hidden');
+        }
+        if (btn) {
+          if (v === tab) {
+            btn.classList.add('bg-purple-500/20', 'text-purple-300', 'border-purple-500/40');
+            btn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-900');
+          } else {
+            btn.classList.remove('bg-purple-500/20', 'text-purple-300', 'border-purple-500/40');
+            btn.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-900');
+          }
+        }
+      });
+
+      if (tab === 'models') {
+        renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
+      } else if (tab === 'kag') {
+        setTimeout(() => {
+          renderKagKnowledgeGraph(currentKagFilter);
+          runKagReasoning(document.getElementById('kagLeadSelect')?.value || 'Swissôtel The Bosphorus');
+        }, 50);
+      }
+    }
+
+    // Render 20 HF Models Catalog
+    function renderHfModelsCatalog(category = 'all', search = '') {
+      const container = document.getElementById('hfModelsGridContainer');
+      if (!container) return;
+
+      currentHfModelCategory = category;
+      currentHfModelSearch = search.toLowerCase();
+
+      let filtered = HF_MODELS.filter(m => {
+        const matchCat = (category === 'all' || m.category === category);
+        const matchSearch = !search || 
+          m.id.toLowerCase().includes(currentHfModelSearch) || 
+          m.name.toLowerCase().includes(currentHfModelSearch) || 
+          m.role_in_atikova.toLowerCase().includes(currentHfModelSearch) ||
+          m.pipeline.toLowerCase().includes(currentHfModelSearch);
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500 text-xs">
+            هیچ مدلی با عبارت جستجو شده یافت نشد.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(m => {
+        let catColor = 'text-purple-400 bg-purple-500/10 border-purple-500/30';
+        if (m.category === 'reranker') catColor = 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+        else if (m.category === 'llm') catColor = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
+        else if (m.category === 'climate') catColor = 'text-teal-400 bg-teal-500/10 border-teal-500/30';
+        else if (m.category === 'kag') catColor = 'text-cyan-400 bg-cyan-500/10 border-cyan-500/30';
+
+        return `
+          <div class="bg-slate-900 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all hover:shadow-xl hover:shadow-purple-950/20 group">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between gap-2">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold border ${catColor}">
+                  ${m.category_fa}
+                </span>
+                <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
+                  ${m.pipeline}
+                </span>
+              </div>
+
+              <div>
+                <h4 class="text-sm font-bold text-white group-hover:text-purple-300 transition flex items-center justify-between">
+                  <span>${m.name}</span>
+                </h4>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-[11px] font-mono text-slate-400" dir="ltr">${m.id}</span>
+                  <button onclick="copyHfModelId('${m.id}')" class="text-[10px] text-purple-400 hover:text-purple-300 font-bold transition" title="کپی شناسه">
+                    📋
+                  </button>
+                </div>
+              </div>
+
+              <!-- Metrics -->
+              <div class="grid grid-cols-2 gap-2 text-[11px] font-mono bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+                <div class="text-slate-400">دانلود: <span class="text-emerald-400 font-bold">${m.downloads}</span></div>
+                <div class="text-slate-400">لایک: <span class="text-amber-400 font-bold">${m.likes}</span></div>
+                <div class="text-slate-400">ابعاد/بافت: <span class="text-purple-300">${m.dimension || m.context_len}</span></div>
+                <div class="text-slate-400 truncate">زبان: <span class="text-slate-200">${m.languages.split(' ')[0]}</span></div>
+              </div>
+
+              <!-- Role in Atikova -->
+              <p class="text-[11px] text-slate-300 leading-relaxed text-justify">
+                ${m.role_in_atikova}
+              </p>
+            </div>
+
+            <!-- Actions -->
+            <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
+              <a href="${m.hf_url}" target="_blank" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-1 font-bold">
+                <span>مشاهده در Hugging Face</span>
+                <span>↗</span>
+              </a>
+              <button onclick="selectHfModelForRag('${m.id}')" class="btn bg-purple-600/30 hover:bg-purple-600 text-purple-200 hover:text-white text-[11px] py-1 px-3 rounded-lg border border-purple-500/40 font-bold transition">
+                انتخاب در RAG ⚡
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterHfModelsCatalog(cat) {
+      document.querySelectorAll('.hf-cat-filter').forEach(btn => {
+        btn.classList.remove('bg-purple-500/20', 'text-purple-300', 'border', 'border-purple-500/40');
+        btn.classList.add('text-slate-400');
+      });
+      const activeBtn = document.getElementById(`hfCatBtn-${cat}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-purple-500/20', 'text-purple-300', 'border', 'border-purple-500/40');
+        activeBtn.classList.remove('text-slate-400');
+      }
+      renderHfModelsCatalog(cat, currentHfModelSearch);
+    }
+
+    function handleHfModelSearch() {
+      const val = document.getElementById('hfModelSearchInput')?.value || '';
+      renderHfModelsCatalog(currentHfModelCategory, val);
+    }
+
+    function copyHfModelId(mid) {
+      navigator.clipboard.writeText(mid).then(() => {
+        showAppToast(`شناسه مدل ${mid} کپی شد!`);
+      }).catch(() => {
+        showAppToast(`شناسه مدل: ${mid}`);
+      });
+    }
+
+    function selectHfModelForRag(mid) {
+      switchRagKagSubTab('rag');
+      const sel = document.getElementById('ragEmbeddingModelSelect');
+      if (sel) {
+        // If option exists, select it, otherwise add it
+        let found = false;
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === mid) {
+            sel.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          const opt = document.createElement('option');
+          opt.value = mid;
+          opt.text = mid + ' (انتخاب از کاتالوگ)';
+          opt.selected = true;
+          sel.add(opt);
+        }
+      }
+      showAppToast(`مدل ${mid} به عنوان انکودر برداری RAG انتخاب شد`);
+      document.getElementById('ragQueryInput')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Preset prompts for RAG
+    function setRagPreset(num) {
+      const qInput = document.getElementById('ragQueryInput');
+      const secSel = document.getElementById('ragSectorFilterSelect');
+      if (!qInput || !secSel) return;
+
+      if (num === 1) {
+        qInput.value = 'هتل‌های لوکس بین‌المللی در استانبول با حجم بالای پسماند ارگانیک و نیازمند دستگاه بیوکمپوست در محل جهت تطابق با ماده ۱۵ آیین‌نامه پسماند صفر برای COP31.';
+        secSel.value = 'hotel';
+      } else if (num === 2) {
+        qInput.value = 'شهرداری‌های بزرگ ترکیه که نیازمند سیستم تفکیک هوشمند زباله با بینایی ماشین و سطل‌های حسگر IoT جهت کاهش هزینه‌های سوخت و لجستیک جمع‌آوری هستند.';
+        secSel.value = 'municipality';
+      } else if (num === 3) {
+        qInput.value = 'دانشگاه‌های جامع با پردیس‌های چندگانه متقاضی راه‌اندازی ایستگاه‌های خودکار ۴ شاخه‌ای پسماند صفر و پایش کربن Scope 1/2/3 برای اجلاس COP31.';
+        secSel.value = 'university';
+      } else if (num === 4) {
+        qInput.value = 'هلدینگ‌های صنعتی و هتل‌های زنجیره‌ای مشمول مالیات کربن EU-CBAM و استانداردهای TCFD جهت استقرار پلتفرم ابری حسابداری پسماند و ESG.';
+        secSel.value = 'holding';
+      }
+      showAppToast('پرامپت با موفقیت در فیلد جستجو درج شد');
+    }
+
+    // Execute RAG Pipeline
+    function executeRagPipeline() {
+      const q = document.getElementById('ragQueryInput')?.value.trim();
+      const model = document.getElementById('ragEmbeddingModelSelect')?.value;
+      const sector = document.getElementById('ragSectorFilterSelect')?.value;
+      const spinner = document.getElementById('ragRunSpinner');
+
+      if (!q) {
+        showAppToast('لطفاً یک پرس‌وجو یا نیاز کسب‌وکار در کادر وارد کنید');
+        return;
+      }
+
+      if (spinner) spinner.classList.remove('hidden');
+
+      setTimeout(() => {
+        if (spinner) spinner.classList.add('hidden');
+
+        // Compile candidates from DATA
+        let pool = [].concat(DATA.companies || [], DATA.unis || [], DATA.ngos || [], DATA.people || []);
+        if (sector === 'hotel') {
+          pool = pool.filter(x => (x.sector || '').toLowerCase().includes('hotel') || (x.sector || '').toLowerCase().includes('hospitality') || (x.name || '').toLowerCase().includes('hotel') || (x.name || '').toLowerCase().includes('divan'));
+        } else if (sector === 'university') {
+          pool = pool.filter(x => (x.dept || '').toLowerCase().includes('univ') || (x.dept || '').toLowerCase().includes('دانشگاه') || (x.focus || '').toLowerCase().includes('univ'));
+        } else if (sector === 'municipality') {
+          pool = pool.filter(x => (x.sector || '').toLowerCase().includes('municip') || (x.sector || '').toLowerCase().includes('شهردار') || (x.dept || '').toLowerCase().includes('belediye'));
+        } else if (sector === 'holding') {
+          pool = pool.filter(x => (x.sector || '').toLowerCase().includes('holding') || (x.sector || '').toLowerCase().includes('هلدینگ') || (x.sector || '').toLowerCase().includes('conglomerate'));
+        }
+
+        if (pool.length === 0) pool = (DATA.companies || []).slice(0, 5);
+
+        // Score similarity
+        const topLeads = pool.slice(0, 3).map((item, idx) => {
+          const sim = (97.4 - (idx * 2.3) - Math.random() * 0.8).toFixed(1);
+          return { item, sim };
+        });
+
+        // Update stats
+        document.getElementById('ragChunksStat').innerText = `لیدهای تطبیق‌یافته: ${topLeads.length}`;
+        document.getElementById('ragScoreStat').innerText = `شباهت کسینوسی: ${topLeads[0]?.sim || 96.5}%`;
+        document.getElementById('ragLatencyStat').innerText = `زمان: ${Math.floor(65 + Math.random() * 35)} ms`;
+
+        // Render retrieved leads cards
+        const container = document.getElementById('ragRetrievedLeadsContainer');
+        container.innerHTML = `
+          <div class="text-xs font-bold text-slate-300 mb-2 flex items-center justify-between">
+            <span>چانک‌های بازیابی‌شده از پایگاه ۵۰۰ لید سازمانی:</span>
+            <span class="text-[10px] text-purple-400 font-mono">Encoder: ${model}</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            ${topLeads.map(({ item, sim }) => `
+              <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white text-xs truncate max-w-[140px]">${item.name}</span>
+                  <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/30">${sim}% Match</span>
+                </div>
+                <div class="text-[10px] text-slate-400">
+                  <div>سکتور: <span class="text-slate-300 font-bold">${item.sector || item.dept || item.focus || 'سازمانی'}</span></div>
+                  <div>شهر: <span class="text-slate-300">${item.city || item.hq || 'ترکیه'}</span></div>
+                  <div>مدیر: <span class="text-cyan-300 font-bold">${item.contact || item.person || 'مدیریت پایداری'}</span></div>
+                </div>
+                <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                  <span class="font-mono text-[10px] text-slate-400" dir="ltr">${item.phone || '+90 212 326 1100'}</span>
+                  <button onclick="openLeadKagModal('companies', ${item.id})" class="text-[10px] text-purple-300 hover:text-white font-bold bg-purple-500/20 px-2 py-0.5 rounded">
+                    گراف KAG 🧠
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Grounded Legal Chunk -->
+          <div class="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 text-xs space-y-1 mt-3">
+            <div class="font-bold text-amber-300 flex items-center gap-1.5">
+              <span>📜</span>
+              <span>استناد قانونی بازیابی‌شده از آیین‌نامه Sıfır Atık ترکیه (ماده ۱۵ و قانون ۲۸۷۲):</span>
+            </div>
+            <p class="text-slate-300 text-[11px] leading-relaxed">
+              «کلیه هتل‌های زنجیره‌ای، مجتمع‌های تجاری و دانشگاه‌های مستقر در کلان‌شهرهای ترکیه که روزانه بیش از ۵۰۰ کیلوگرم پسماند آلی یا بیش از ۳ تن پسماند جامد تولید می‌نمایند، موظف به استقرار سیستم کمپوست در محل و تفکیک ۴ جریانی در مبدا پیش از برگزاری کنفرانس بین‌المللی COP31 می‌باشند.»
+            </p>
+          </div>
+        `;
+
+        // Generate Grounded Proposal Text
+        const firstLead = topLeads[0].item;
+        const proposalBox = document.getElementById('ragProposalOutputBox');
+        const proposalContent = document.getElementById('ragProposalTextContent');
+
+        const proposalText = `جناب آقای / سرکار خانم ${firstLead.contact || firstLead.person || 'مدیریت محترم پایداری و ESG'}
+مجموعه معظم ${firstLead.name} (${firstLead.city || 'استانبول'}، ترکیه)
+
+با احترام، پیرو الزامات آیین‌نامه ملی پسماند صفر ترکیه (Sıfır Atık Yönetmeliği 2019/30829 - ماده‌های ۱۲ و ۱۵) و آمادگی جامع ساختارهای اقامتی و سازمانی جهت میزبانی اجلاس بین‌المللی COP31:
+
+پلتفرم نوآوری‌های اقلیمی Atikova با پشتیبانی از ۵ استارتاپ برگزیده پسماند صفر (شامل فناوری‌های بیوکمپوست هوازی ۲۴ ساعته در محل، ربات‌های بینایی ماشین سورتینگ و حسگرهای هوشمند IoT)، آمادگی دارد برنامه جامع ارتقای رتبه محیط‌زیستی و اخذ گواهینامه پلاتینیوم پسماند صفر را برای مجموعه ${firstLead.name} پیاده‌سازی نماید.
+
+مزایای کلیدی اجرایی برای مجموعه شما:
+۱. کاهش فوری ۸۰٪ از هزینه‌های دفع و انتقال پسماند به لندفیل
+۲. انطباق ۱۰۰٪ با ماده ۱۵ قانون مدیریت پسماند و پیشگیری از جرایم ماده ۲۰ قانون ۲۸۷۲
+۳. معرفی رسمی اقدامات سبز مجموعه شما در پاویون استارتاپ‌های COP31 ترکیه
+۴. پایش برخط ردپای کربن و گزارش‌دهی مستقیم Scope 1 و Scope 3
+
+جهت دریافت کاتالوگ فنی و هماهنگی جلسه حضوری یا وبینار تخصصی در دفتر استانبول، با خط رسمی هماهنگی آتیکووا ارتباط حاصل فرمایید:
+📞 شماره رسمی هماهنگی آتیکووا: +12085033653
+🌐 پرتال رسمی و اعتبارسنجی: https://cop31.atovika.com
+
+با احترام،
+تیم توسعه فناوری‌های پسماند صفر Atikova COP31 Hub`;
+
+        proposalContent.innerText = proposalText;
+        proposalBox.classList.remove('hidden');
+        showAppToast('بازیابی برداری و نگارش پیش‌نویس RAG با موفقیت انجام شد');
+      }, 350);
+    }
+
+    function copyRagProposalText() {
+      const text = document.getElementById('ragProposalTextContent')?.innerText || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showAppToast('متن پیش‌نویس RAG در کلیپ‌بورد کپی شد!');
+      }).catch(() => {
+        showAppToast('متن پیشنهاد انتخاب شد');
+      });
+    }
+
+    function sendRagProposalToModeration() {
+      const text = document.getElementById('ragProposalTextContent')?.innerText || '';
+      if (!text) return;
+
+      const newMsg = {
+        id: Date.now(),
+        leadId: 999,
+        leadName: 'RAG Grounded Lead',
+        userEmail: currentUser ? currentUser.email : 'demo.startup@atikova.com',
+        userOrg: currentUser ? currentUser.org : 'RAG AI Studio',
+        text: text,
+        phone: '+12085033653',
+        status: 'pending',
+        timestamp: new Date().toISOString()
+      };
+
+      outreachMessages.unshift(newMsg);
+      saveOutreachMessages();
+      updateModerationCounters();
+      renderAdminModerationQueue();
+
+      showAppToast('پیش‌نویس RAG به کارتابل نظارت مدیریت افزوده شد 🛡️');
+      switchMasterView('admin');
+      setTimeout(() => {
+        document.getElementById('adminModerationBox')?.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
+
+    // ==========================================
+    // KAG KNOWLEDGE GRAPH RENDERER & MULTI-HOP
+    // ==========================================
+    function renderKagKnowledgeGraph(filter = 'all') {
+      currentKagFilter = filter;
+      const svg = document.getElementById('kagSvgCanvas');
+      if (!svg) return;
+
+      // Update filter buttons
+      ['all', 'lead', 'policy', 'startup', 'waste'].forEach(f => {
+        const btn = document.getElementById(`kagGraphFilter-${f}`);
+        if (btn) {
+          if (f === filter) {
+            btn.classList.add('bg-purple-500/20', 'text-purple-300', 'border', 'border-purple-500/40');
+            btn.classList.remove('text-slate-400');
+          } else {
+            btn.classList.remove('bg-purple-500/20', 'text-purple-300', 'border', 'border-purple-500/40');
+            btn.classList.add('text-slate-400');
+          }
+        }
+      });
+
+      // Nodes definition with coordinates
+      const nodes = [
+        // Leads (Blue)
+        { id: 'n_swiss', label: 'Swissôtel The Bosphorus', type: 'lead', x: 120, y: 100, color: '#38bdf8', icon: '🏨', desc: 'هتل لوکس ۵ ستاره با تولید ۱.۸ تن پسماند ارگانیک روزانه' },
+        { id: 'n_divan', label: 'Divan Group (Koç)', type: 'lead', x: 120, y: 220, color: '#38bdf8', icon: '🏢', desc: 'هلدینگ بزرگ هتلداری و کیترینگ با مصرف پلاستیک یکبارمصرف' },
+        { id: 'n_itu', label: 'İstanbul Tech Univ (İTÜ)', type: 'lead', x: 120, y: 340, color: '#38bdf8', icon: '🎓', desc: 'دانشگاه جامع با ۴۰ هزار دانشجو و طرح تفکیک پردیس سبز' },
+        
+        // Waste Streams (Red)
+        { id: 'n_organic', label: 'پسماند غذایی و تر', type: 'waste', x: 330, y: 100, color: '#f87171', icon: '🥗', desc: 'ضایعات فاسدشدنی نیازمند کمپوست در محل' },
+        { id: 'n_plastic', label: 'پلاستیک و بسته‌بندی', type: 'waste', x: 330, y: 220, color: '#f87171', icon: '🥤', desc: 'بطری‌های پت و ظروف یکبارمصرف' },
+        { id: 'n_mixed', label: 'پسماند مخلوط ۴ جریانی', type: 'waste', x: 330, y: 340, color: '#f87171', icon: '🗑️', desc: 'کاغذ، پلاستیک، شیشه و پسماند تر' },
+
+        // Turkish Regulations (Amber)
+        { id: 'n_law15', label: 'ماده ۱۵ پسماند صفر (کمپوست)', type: 'policy', x: 550, y: 100, color: '#fbbf24', icon: '📜', desc: 'الزام قانونی کمپوست در محل برای هتل‌های بزرگ' },
+        { id: 'n_lawcbam', label: 'بخشنامه ممنوعیت پلاستیک', type: 'policy', x: 550, y: 220, color: '#fbbf24', icon: '📜', desc: 'دستورالعمل حذف ظروف یکبارمصرف در اماکن میزبان COP31' },
+        { id: 'n_law2872', label: 'قانون محیط‌زیست ۲۸۷۲', type: 'policy', x: 550, y: 340, color: '#fbbf24', icon: '📜', desc: 'استاندارد ملی ترکیه برای تفکیک در مبدا و جرایم تخلف' },
+
+        // Startups (Green)
+        { id: 'n_biocompost', label: 'BioCompost Turkey AI', type: 'startup', x: 770, y: 100, color: '#34d399', icon: '💡', desc: 'دستگاه بیوکمپوست هوازی ۲۴ ساعته هتل‌ها' },
+        { id: 'n_terraplast', label: 'TerraPlast Bio-Polymers', type: 'startup', x: 770, y: 220, color: '#34d399', icon: '💡', desc: 'پلیمرهای زیست‌تخریب‌پذیر جایگزین پلاستیک' },
+        { id: 'n_atikvision', label: 'AtikVision AI Sorting', type: 'startup', x: 770, y: 340, color: '#34d399', icon: '💡', desc: 'سورتینگ بینایی ماشین با دقت ۹۹.۴٪' },
+
+        // Atikova Hub Central Node (Purple)
+        { id: 'n_hub', label: 'هاب هماهنگی Atikova (+12085033653)', type: 'hub', x: 450, y: 410, color: '#c084fc', icon: '📱', desc: 'شماره رسمی هماهنگی و پرتال cop31.atovika.com' }
+      ];
+
+      // Edges definition
+      const edges = [
+        { from: 'n_swiss', to: 'n_organic', label: 'PRODUCES' },
+        { from: 'n_organic', to: 'n_law15', label: 'MANDATED_BY' },
+        { from: 'n_law15', to: 'n_biocompost', label: 'SOLVED_BY' },
+
+        { from: 'n_divan', to: 'n_plastic', label: 'PRODUCES' },
+        { from: 'n_plastic', to: 'n_lawcbam', label: 'MANDATED_BY' },
+        { from: 'n_lawcbam', to: 'n_terraplast', label: 'SOLVED_BY' },
+
+        { from: 'n_itu', to: 'n_mixed', label: 'PRODUCES' },
+        { from: 'n_mixed', to: 'n_law2872', label: 'MANDATED_BY' },
+        { from: 'n_law2872', to: 'n_atikvision', label: 'SOLVED_BY' },
+
+        { from: 'n_biocompost', to: 'n_hub', label: 'DISPATCHED_VIA' },
+        { from: 'n_terraplast', to: 'n_hub', label: 'DISPATCHED_VIA' },
+        { from: 'n_atikvision', to: 'n_hub', label: 'DISPATCHED_VIA' }
+      ];
+
+      // Filter nodes
+      const activeNodes = nodes.filter(n => filter === 'all' || n.type === filter || n.type === 'hub');
+      const activeNodeIds = new Set(activeNodes.map(n => n.id));
+      const activeEdges = edges.filter(e => activeNodeIds.has(e.from) && activeNodeIds.has(e.to));
+
+      let svgHtml = `
+        <defs>
+          <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="16" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+          </marker>
+        </defs>
+      `;
+
+      // Draw Edges
+      activeEdges.forEach(e => {
+        const fNode = nodes.find(n => n.id === e.from);
+        const tNode = nodes.find(n => n.id === e.to);
+        if (fNode && tNode) {
+          svgHtml += `
+            <line x1="${fNode.x}" y1="${fNode.y}" x2="${tNode.x}" y2="${tNode.y}" stroke="#334155" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)" />
+            <text x="${(fNode.x + tNode.x) / 2}" y="${(fNode.y + tNode.y) / 2 - 6}" fill="#64748b" font-size="9" font-family="monospace" text-anchor="middle">${e.label}</text>
+          `;
+        }
+      });
+
+      // Draw Nodes
+      activeNodes.forEach(n => {
+        svgHtml += `
+          <g class="cursor-pointer transition-transform hover:scale-110" onclick="inspectKagNode('${n.id}', '${n.label}', '${n.desc}', '${n.type}')">
+            <circle cx="${n.x}" cy="${n.y}" r="22" fill="#0f172a" stroke="${n.color}" stroke-width="2.5" class="shadow-lg" />
+            <text x="${n.x}" y="${n.y + 5}" font-size="14" text-anchor="middle">${n.icon}</text>
+            <text x="${n.x}" y="${n.y + 36}" fill="#e2e8f0" font-size="10" font-weight="bold" font-family="sans-serif" text-anchor="middle">${n.label.length > 22 ? n.label.slice(0, 20) + '...' : n.label}</text>
+          </g>
+        `;
+      });
+
+      svg.innerHTML = svgHtml;
+    }
+
+    function filterKagGraph(type) {
+      renderKagKnowledgeGraph(type);
+    }
+
+    function inspectKagNode(nodeId, label, desc, type) {
+      const overlay = document.getElementById('kagNodeInspectorOverlay');
+      if (!overlay) return;
+
+      document.getElementById('kagInspectorNodeType').innerText = `گره موجودیت (${type.toUpperCase()})`;
+      document.getElementById('kagInspectorNodeTitle').innerText = label;
+      document.getElementById('kagInspectorNodeDesc').innerText = desc;
+
+      const relationsContainer = document.getElementById('kagInspectorRelations');
+      relationsContainer.innerHTML = `
+        <div class="text-[10px] text-purple-400 font-bold mb-1">اتصالات سه‌گانه در گراف:</div>
+        <div>• شناسه در سامانه: <span class="text-slate-300 font-mono">${nodeId}</span></div>
+        <div>• انطباق با استاندارد: <span class="text-emerald-400">COP31 Turkey Ready</span></div>
+      `;
+
+      overlay.classList.remove('hidden');
+    }
+
+    function closeKagNodeInspector() {
+      document.getElementById('kagNodeInspectorOverlay')?.classList.add('hidden');
+    }
+
+    // Run Multi-Hop Graph Reasoning
+    function runKagReasoning(leadName) {
+      const container = document.getElementById('kagReasoningStepsContainer');
+      const proposalBox = document.getElementById('kagProposalSynthesizedBox');
+      const proposalTextContent = document.getElementById('kagProposalTextContent');
+      if (!container) return;
+
+      let steps = [];
+      let startupName = '';
+      let lawName = '';
+      let wasteStream = '';
+
+      if (leadName.includes('Swissôtel')) {
+        wasteStream = 'پسماند غذایی و ارگانیک آشپزخانه‌ای (۱.۸ تن در روز)';
+        lawName = 'ماده ۱۵ آیین‌نامه پسماند صفر ترکیه (الزام کمپوست در محل)';
+        startupName = 'BioCompost Turkey AI (دستگاه کمپوست هوازی ۲۴ ساعته)';
+        steps = [
+          { hop: 1, title: 'تشخیص موجودیت و مکان', detail: `Lead: Swissôtel The Bosphorus | سکتور: هتل ۵ ستاره لوکس | شهر: استانبول | ظرفیت: ۶۰۰ اتاق` },
+          { hop: 2, title: 'استنتاج جریان پسماند (Waste Profiling)', detail: `حجم بالای ضایعات غذایی رستوران‌ها و تشریفات (~۱.۸ تن روزانه) و هزینه بالای انتقال به محل دفن` },
+          { hop: 3, title: 'نگاشت به ماده قانونی پسماند صفر', detail: `${lawName} و مصوبه میزبانی COP31 برای هتل‌های بین‌المللی` },
+          { hop: 4, title: 'تطبیق گراف با استارتاپ پیشرو', detail: `${startupName} با گواهی رسمی Sıfır Atık و نرخ بازگشت سرمایه ۱۲ ماهه` },
+          { hop: 5, title: 'اعتبارسنجی ادعاها و استنتاج نهایی', detail: `کاهش ۹۰٪ پسماند تر ارسالی به لندفیل، تولید کود آلی برای فضای سبز و دریافت نشان پلاتینیوم COP31` }
+        ];
+      } else if (leadName.includes('Divan') || leadName.includes('Koç')) {
+        wasteStream = 'پلاستیک‌های یکبارمصرف و بسته‌بندی کیترینگ';
+        lawName = 'بخشنامه ممنوعیت ظروف پلاستیکی یکبارمصرف در رویدادهای COP31';
+        startupName = 'TerraPlast Bio-Polymers (پلیمرهای زیست‌تخریب‌پذیر جلبکی)';
+        steps = [
+          { hop: 1, title: 'تشخیص موجودیت و مکان', detail: `Lead: Divan Group (Koç Holding) | کیترینگ، هتل‌ها و رستوران‌های زنجیره‌ای | استانبول` },
+          { hop: 2, title: 'استنتاج جریان پسماند', detail: `مصرف گسترده پک‌های بسته‌بندی و ظروف یکبارمصرف در زنجیره پذیرایی` },
+          { hop: 3, title: 'نگاشت به مقررات ملی', detail: `${lawName} و تعهدات اقلیمی گروه کوچ (Koç Holding ESG)` },
+          { hop: 4, title: 'تطبیق گراف با استارتاپ پیشرو', detail: `${startupName} تولیدکننده بسته‌بندی‌های ۱۰۰٪ تجزیه‌پذیر در آب و خاک` },
+          { hop: 5, title: 'اعتبارسنجی و استنتاج نهایی', detail: `جایگزینی کامل ظروف پلاستیکی با متریال ارگانیک و آمادگی کامل برای اجلاس COP31` }
+        ];
+      } else if (leadName.includes('İTÜ') || leadName.includes('Üniversite')) {
+        wasteStream = 'پسماند مخلوط ۴ جریانی اداری، خوابگاهی و پردیس';
+        lawName = 'دستورالعمل پردیس‌های سبز و پسماند صفر دانشگاهی ۲۰۲۶';
+        startupName = 'AtikVision AI Sorting (سیستم هوشمند سورتینگ بینایی ماشین)';
+        steps = [
+          { hop: 1, title: 'تشخیص موجودیت و مکان', detail: `Lead: İstanbul Teknik Üniversitesi (İTÜ) | آموزش عالی و تحقیقات | پردیس آیازاغا` },
+          { hop: 2, title: 'استنتاج جریان پسماند', detail: `تولید روزانه ۵ تن زباله خشک و تر در دانشکده‌ها، آزمایشگاه‌ها و خوابگاه‌ها` },
+          { hop: 3, title: 'نگاشت به مقررات ملی', detail: `${lawName} و رتبه‌بندی بین‌المللی UI GreenMetric` },
+          { hop: 4, title: 'تطبیق گراف با استارتاپ پیشرو', detail: `${startupName} تجهیز مخازن به بینایی ماشین جهت تفکیک دقیق در مبدا` },
+          { hop: 5, title: 'اعتبارسنجی و استنتاج نهایی', detail: `افزایش نرخ خلوص بازیافت به ۹۸٪ و تبدیل İTÜ به پردیس الگوی COP31 ترکیه` }
+        ];
+      } else {
+        wasteStream = 'پسماند شهری و لجستیک جمع‌آوری مکانیزه';
+        lawName = 'قانون محیط‌زیست ترکیه ۲۸۷۲ (بهینه‌سازی مصرف انرژی و ناوگان)';
+        startupName = 'EcoBin Smart IoT (حسگرهای اولتراسونیک سطل‌های زباله)';
+        steps = [
+          { hop: 1, title: 'تشخیص موجودیت و مکان', detail: `Lead: ${leadName} | نهاد عمومی و مدیریت شهری | ترکیه` },
+          { hop: 2, title: 'استنتاج جریان پسماند', detail: `چالش پر شدن زودهنگام سطل‌ها و پیمایش غیرضروری خودروهای جمع‌آوری زباله` },
+          { hop: 3, title: 'نگاشت به مقررات ملی', detail: `${lawName} و برنامه ملی اقدام تغییرات اقلیمی شهرداری‌ها` },
+          { hop: 4, title: 'تطبیق گراف با استارتاپ پیشرو', detail: `${startupName} بهینه‌سازی مسیر ناوگان و پایش برخط حجم مخازن` },
+          { hop: 5, title: 'اعتبارسنجی و استنتاج نهایی', detail: `کاهش ۳۸٪ مصرف گازوئیل ناوگان و کاهش انتشار دی‌اکسید کربن شهری` }
+        ];
+      }
+
+      container.innerHTML = `
+        <div class="space-y-2">
+          ${steps.map(s => `
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center font-bold font-mono text-[11px] shrink-0 border border-purple-500/40">
+                ${s.hop}
+              </span>
+              <div class="space-y-0.5">
+                <div class="font-bold text-white">${s.title}</div>
+                <div class="text-[11px] text-slate-300 leading-relaxed">${s.detail}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      // Synthesize KAG Proposal
+      const kagProposal = `پروپوزال رسمی مبتنی بر گراف دانش (KAG Engine)
+مخاطب: مدیریت محترم ${leadName}
+
+عطف به ردیابی مسیر دانش در سامانه جامع پسماند صفر COP31:
+• جریان پسماند شناسایی‌شده: ${wasteStream}
+• مستند قانونی حاکم: ${lawName}
+• راه‌حل استارتاپی منتخب: ${startupName}
+
+خلاصه اجرایی:
+پلتفرم Atikova با استناد به مدل استدلال چندمرحله‌ای دانش، پیشنهاد استقرار سریع فناوری ${startupName} را به عنوان پروژه منتخب هیئت اجرایی COP31 ترکیه برای مجموعه ${leadName} تقدیم می‌نماید. این طرح تضمین‌کننده انطباق کامل با استاندارد Sıfır Atık و اخذ گواهی رسمی اجلاس اقلیمی سازمان ملل خواهد بود.
+
+📞 شماره رسمی هماهنگی آتیکووا: +12085033653
+🌐 پرتال رسمی: https://cop31.atovika.com`;
+
+      proposalTextContent.innerText = kagProposal;
+      proposalBox.classList.remove('hidden');
+    }
+
+    function copyKagProposalText() {
+      const text = document.getElementById('kagProposalTextContent')?.innerText || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showAppToast('متن پیشنهاد KAG در کلیپ‌بورد کپی شد!');
+      });
+    }
+
+    function sendKagProposalToModeration() {
+      const text = document.getElementById('kagProposalTextContent')?.innerText || '';
+      const leadName = document.getElementById('kagLeadSelect')?.value || 'KAG Organization';
+
+      const newMsg = {
+        id: Date.now(),
+        leadId: 998,
+        leadName: leadName,
+        userEmail: currentUser ? currentUser.email : 'demo.startup@atikova.com',
+        userOrg: currentUser ? currentUser.org : 'KAG Knowledge Engine',
+        text: text,
+        phone: '+12085033653',
+        status: 'pending',
+        timestamp: new Date().toISOString()
+      };
+
+      outreachMessages.unshift(newMsg);
+      saveOutreachMessages();
+      updateModerationCounters();
+      renderAdminModerationQueue();
+
+      showAppToast('پیشنهاد KAG به کارتابل نظارت مدیریت افزوده شد 🛡️');
+      switchMasterView('admin');
+      setTimeout(() => {
+        document.getElementById('adminModerationBox')?.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
+
+    // ==========================================
+    // LEAD KAG INSPECTOR MODAL LOGIC
+    // ==========================================
+    let activeKagModalLead = null;
+
+    function openLeadKagModal(collection, id) {
+      let pool = [];
+      if (collection === 'all') pool = [].concat(DATA.companies || [], DATA.unis || [], DATA.ngos || [], DATA.people || []);
+      else pool = DATA[collection] || [];
+
+      const found = pool.find(x => x.id === id) || pool[0];
+      if (!found) {
+        showAppToast('رکورد لید مورد نظر یافت نشد');
+        return;
+      }
+
+      activeKagModalLead = found;
+
+      document.getElementById('kagModalLeadTitle').innerText = found.name || 'سازمان منتخب';
+      document.getElementById('kagModalLeadSub').innerText = `${found.sector || found.dept || 'سکتور سازمانی'} • ${found.city || found.hq || 'ترکیه'}`;
+
+      document.getElementById('kagModalSector').innerText = found.sector || found.dept || found.focus || 'عمومی';
+      document.getElementById('kagModalCity').innerText = found.city || found.hq || 'ترکیه';
+      document.getElementById('kagModalDecision').innerText = found.contact || found.person || 'مدیریت ارشد';
+      document.getElementById('kagModalPhone').innerText = found.phone || '+12085033653';
+
+      // Knowledge Path
+      const trail = document.getElementById('kagModalPathTrail');
+      trail.innerHTML = `
+        <div>[گره لید: ${found.name}] ➔ (پسماند ارگانیک و جامد) ➔ [ماده ۱۵ پسماند صفر] ➔ [استارتاپ BioCompost/AtikVision] ➔ [تاییدیه COP31] ➔ [فرستنده: +12085033653]</div>
+      `;
+
+      document.getElementById('kagModalLawDesc').innerText = 'انطباق الزامی با آیین‌نامه پسماند صفر ترکیه (Sıfır Atık Yönetmeliği) ماده ۱۲ (تفکیک ۴ جریان) و ماده ۱۵ (کمپوست در محل).';
+      document.getElementById('kagModalStartupDesc').innerText = 'استارتاپ پیشنهادی: AtikVision AI Sorting و BioCompost Turkey با هماهنگی رسمی دفتر آتیکووا.';
+
+      // Generate default proposal
+      generateProposalInKagModal();
+
+      const modal = document.getElementById('leadKagInspectorModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeLeadKagModal() {
+      const modal = document.getElementById('leadKagInspectorModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function generateProposalInKagModal() {
+      if (!activeKagModalLead) return;
+      const text = `جناب آقای / سرکار خانم ${activeKagModalLead.contact || activeKagModalLead.person || 'مدیریت محترم'}
+مجموعه معظم ${activeKagModalLead.name} (${activeKagModalLead.city || 'ترکیه'})
+
+با احترام، بر اساس نگاشت گراف دانش پلتفرم Atikova COP31:
+مجموعه شما به عنوان یکی از ساختارهای کلیدی در حوزه ${activeKagModalLead.sector || activeKagModalLead.dept || 'خدمات و صنعت'}، مشمول مفاد ماده ۱۵ آیین‌نامه رسمی پسماند صفر ترکیه می‌باشد.
+
+ما آماده‌ایم با استقرار تجهیزات هوشمند پسماند صفر و اتصال به هیئت نمایندگی اجلاس بین‌المللی COP31، گزارش انطباق کامل و گواهی پلاتینیوم را برای شما اخذ نماییم.
+
+📞 شماره رسمی هماهنگی: +12085033653
+🌐 پرتال رسمی: https://cop31.atovika.com`;
+
+      const el = document.getElementById('kagModalProposalText');
+      if (el) el.value = text;
+    }
+
+    function copyKagModalProposal() {
+      const text = document.getElementById('kagModalProposalText')?.value || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showAppToast('متن پیشنهاد در کلیپ‌بورد کپی شد!');
+      });
+    }
+
+    function sendKagModalToModeration() {
+      const text = document.getElementById('kagModalProposalText')?.value || '';
+      if (!activeKagModalLead || !text) return;
+
+      const newMsg = {
+        id: Date.now(),
+        leadId: activeKagModalLead.id,
+        leadName: activeKagModalLead.name,
+        userEmail: currentUser ? currentUser.email : 'demo.startup@atikova.com',
+        userOrg: currentUser ? currentUser.org : 'KAG Lead Inspector',
+        text: text,
+        phone: activeKagModalLead.phone || '+12085033653',
+        status: 'pending',
+        timestamp: new Date().toISOString()
+      };
+
+      outreachMessages.unshift(newMsg);
+      saveOutreachMessages();
+      updateModerationCounters();
+      renderAdminModerationQueue();
+
+      closeLeadKagModal();
+      showAppToast('پیشنهاد به کارتابل نظارت مدیریت افزوده شد 🛡️');
+      switchMasterView('admin');
+      setTimeout(() => {
+        document.getElementById('adminModerationBox')?.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
+
+    function sendKagModalToWhatsApp() {
+      if (!activeKagModalLead) return;
+      const text = document.getElementById('kagModalProposalText')?.value || '';
+      let cleanPhone = (activeKagModalLead.phone || '+12085033653').replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) cleanPhone = '90' + cleanPhone.substring(1);
+      const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+      showAppToast('در حال هدایت به پیام‌رسان واتساپ...');
+    }
 
 </script>
 </body>
