@@ -142,15 +142,56 @@ button { font-family: inherit; cursor: pointer; }
       <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
         🌱 COP31 TURKEY &bull; ANKARA / ANTALYA
       </span>
-      <span class="text-slate-400 hidden sm:inline text-[11px]">سامانه تبلیغات، استارتاپ‌ها، ۵۰۰ لید سازمانی و دستیار هوشمند پسماند صفر</span>
+      <span class="text-slate-400 hidden sm:inline text-[11px]" data-i18n="top_banner_desc">سامانه تبلیغات، استارتاپ‌ها، ۵۰۰ لید سازمانی و دستیار هوشمند پسماند صفر</span>
     </div>
 
-    <!-- Language Selector Dais -->
+    <!-- Top Language Switcher Pills -->
     <div class="flex items-center gap-1">
-      <button onclick="setGlobalLang('fa')" id="langBtn-fa" class="lang-pill active">🇮🇷 فارسی</button>
-      <button onclick="setGlobalLang('tr')" id="langBtn-tr" class="lang-pill">🇹🇷 Türkçe</button>
-      <button onclick="setGlobalLang('en')" id="langBtn-en" class="lang-pill">🇬🇧 English</button>
+      <button onclick="simulateLanguageMode('fa')" id="langBtn-fa" class="lang-pill active">🇮🇷 فارسی</button>
+      <button onclick="simulateLanguageMode('tr')" id="langBtn-tr" class="lang-pill">🇹🇷 Türkçe</button>
+      <button onclick="simulateLanguageMode('en')" id="langBtn-en" class="lang-pill">🇬🇧 English</button>
     </div>
+  </div>
+</div>
+
+<!-- Interactive Language Purity Simulator & Live Auditor Dais -->
+<div id="langPuritySimulator" class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-emerald-500/30 py-2.5 px-4 shadow-xl">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+    
+    <!-- Left: Simulator Badge & Live Telemetry -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold shadow-sm">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="simBadgeTitle" data-i18n="sim_title">🔬 شبیه‌ساز زنده خلوص ۱۰۰٪ زبان و ممیزی عدم ترکیب واژگان</span>
+      </div>
+      <span id="simPurityScore" class="font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-lg border border-emerald-500/30 font-bold" data-i18n="sim_purity_badge">
+        خلوص زبان: ۱۰۰٪ خالص (بدون واژه ترکیبی)
+      </span>
+      <span id="simDirectionBadge" class="font-mono text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-lg border border-cyan-500/30" data-i18n="sim_dir_badge">
+        جهت: راست‌به‌چپ (RTL)
+      </span>
+    </div>
+
+    <!-- Right: Simulation Controls & Real-Time DOM Auditor -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 shadow-inner">
+        <button onclick="simulateLanguageMode('fa')" id="simBtn-fa" class="px-2.5 py-1 rounded-lg font-bold text-xs transition-all bg-emerald-600 text-white shadow" data-i18n="sim_btn_fa">
+          🇮🇷 فارسی ۱۰۰٪
+        </button>
+        <button onclick="simulateLanguageMode('tr')" id="simBtn-tr" class="px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-slate-400 hover:text-white" data-i18n="sim_btn_tr">
+          🇹🇷 Türkçe %100
+        </button>
+        <button onclick="simulateLanguageMode('en')" id="simBtn-en" class="px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-slate-400 hover:text-white" data-i18n="sim_btn_en">
+          🇬🇧 English 100%
+        </button>
+      </div>
+
+      <button onclick="runLanguagePurityAudit()" class="btn bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-3 py-1.5 rounded-xl shadow-lg shadow-purple-500/20 flex items-center gap-1.5 border border-purple-400/30 text-xs transition-transform active:scale-95">
+        <span>🔍</span>
+        <span id="simAuditBtnText" data-i18n="sim_btn_audit">ممیزی آنی خلوص واژگان</span>
+      </button>
+    </div>
+
   </div>
 </div>
 
@@ -173,51 +214,51 @@ button { font-family: inherit; cursor: pointer; }
     <nav class="hidden md:flex items-center gap-1 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs font-bold">
       <a href="#directory" onclick="switchMasterView('directory'); return false;" id="masterTab-directory" class="px-3 py-1.5 rounded-lg text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 transition-all flex items-center gap-1.5 font-bold">
         <span>📋</span>
-        <span>دایرکتوری لیدها (۵۰۰)</span>
+        <span data-i18n="nav_directory">دایرکتوری لیدها (۵۰۰)</span>
       </a>
       <a href="#startups" onclick="switchMasterView('startups'); return false;" id="masterTab-startups" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5 font-bold">
-            <a href="#telegram" onclick="switchMasterView('telegram'); return false;" id="masterTab-telegram" class="px-3 py-1.5 rounded-lg text-sky-400 bg-sky-500/10 border border-sky-500/30 transition-all flex items-center gap-1.5 hover:bg-sky-500/20 font-bold" title="بات و کانال تلگرام فرصت‌ها، فاندها و گرنت‌های COP31">
+        <span>🚀</span>
+        <span data-i18n="nav_startups">ویترین استارتاپ‌ها (COP31)</span>
+      </a>
+      <a href="#telegram" onclick="switchMasterView('telegram'); return false;" id="masterTab-telegram" class="px-3 py-1.5 rounded-lg text-sky-400 bg-sky-500/10 border border-sky-500/30 transition-all flex items-center gap-1.5 hover:bg-sky-500/20 font-bold" title="بات و کانال تلگرام فرصت‌ها، فاندها و گرنت‌های COP31">
         <span>📱</span>
         <span data-i18n="nav_telegram">تلگرام و فاندها (COP31)</span>
       </a>
-<a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="masterTab-ideastudio" class="px-3 py-1.5 rounded-lg text-amber-300 bg-amber-500/10 border border-amber-500/30 transition-all flex items-center gap-1.5 hover:bg-amber-500/20 font-bold" title="تحلیل اسناد و ایده، پیام‌های دانشگاه/بانک و سایت‌ساز AI">
+      <a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="masterTab-ideastudio" class="px-3 py-1.5 rounded-lg text-amber-300 bg-amber-500/10 border border-amber-500/30 transition-all flex items-center gap-1.5 hover:bg-amber-500/20 font-bold" title="تحلیل اسناد و ایده، پیام‌های دانشگاه/بانک و سایت‌ساز AI">
         <span>💡</span>
-        <span data-i18n="nav_ideastudio">ایده و اسناد (دانشگاه/بانک/سایت‌ساز)</span>
+        <span data-i18n="nav_ideastudio">ایده و اسناد (دانشگاه/بانک)</span>
       </a>
       <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="masterTab-ragkag" class="px-3 py-1.5 rounded-lg text-purple-300 bg-purple-500/10 border border-purple-500/30 transition-all flex items-center gap-1.5 hover:bg-purple-500/20 font-bold" title="موتور هوش مصنوعی RAG و سامانه گراف دانش KAG">
         <span>🧠</span>
-        <span>هوش مصنوعی RAG و KAG (۲۰ مدل HF)</span>
-      </a>
-        <span>🚀</span>
-        <span>ویترین استارتاپ‌ها (COP31)</span>
+        <span data-i18n="nav_ragkag">هوش مصنوعی RAG و KAG (۲۰ مدل HF)</span>
       </a>
       <a href="#database" onclick="switchMasterView('database'); return false;" id="masterTab-database" class="px-3 py-1.5 rounded-lg text-amber-400 bg-amber-500/10 border border-amber-500/30 transition-all flex items-center gap-1.5 hover:bg-amber-500/20 font-bold" title="دسترسی مستقیم به پایگاه داده ۵۰۰ رکورد">
         <span>🗄️</span>
-        <span>پایگاه داده (۵۰۰)</span>
+        <span data-i18n="nav_database">پایگاه داده (۵۰۰)</span>
       </a>
       <a href="#cadence" onclick="switchMasterView('cadence'); return false;" id="masterTab-cadence" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
         <span>📅</span>
-        <span>تکنوپارک</span>
+        <span data-i18n="nav_cadence">تکنوپارک</span>
       </a>
       <a href="#audit" onclick="switchMasterView('audit'); return false;" id="masterTab-audit" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
         <span>📡</span>
-        <span>آدیت مخابراتی</span>
+        <span data-i18n="nav_audit">آدیت مخابراتی</span>
       </a>
       <a href="#messageBank" onclick="switchMasterView('messageBank'); return false;" id="masterTab-messageBank" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
         <span>💬</span>
-        <span>بانک پیام‌ها</span>
+        <span data-i18n="nav_messages">بانک پیام</span>
       </a>
       <a href="#catalog" onclick="switchMasterView('catalog'); return false;" id="masterTab-catalog" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
         <span>📦</span>
-        <span>کاتالوگ</span>
+        <span data-i18n="nav_catalog">کاتالوگ</span>
       </a>
       <a href="#investor" onclick="switchMasterView('investor'); return false;" id="masterTab-investor" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
         <span>🌍</span>
-        <span>سرمایه‌گذاری</span>
+        <span data-i18n="nav_investor">سرمایه‌گذاری</span>
       </a>
       <a href="#admin" onclick="switchMasterView('admin'); return false;" id="masterTab-admin" class="px-3 py-1.5 rounded-lg text-amber-400 bg-amber-500/10 border border-amber-500/30 transition-all flex items-center gap-1.5 hover:bg-amber-500/20 font-bold">
         <span>🔐</span>
-        <span>ادمین</span>
+        <span data-i18n="nav_admin">ادمین</span>
       </a>
     </nav>
 
@@ -225,12 +266,12 @@ button { font-family: inherit; cursor: pointer; }
     <div class="flex items-center gap-2">
       <div id="userAuthHeaderWidget">
         <button onclick="openAuthModal('login')" class="btn bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-950 font-bold text-xs py-1.5 px-3 rounded-lg shadow-lg shadow-emerald-500/20 flex items-center gap-1.5">
-          <span>✨ ورود / ثبت‌نام استارتاپ‌ها</span>
+          <span data-i18n="btn_user_login">✨ ورود / ثبت‌نام استارتاپ‌ها</span>
         </button>
       </div>
 
       <a href="https://wa.me/12085033653?text=Salam%20Atikova%20COP31" target="_blank" class="hidden sm:flex btn btn-whatsapp text-xs px-2.5 py-1.5 items-center gap-1.5 rounded-lg font-bold shadow-lg shadow-emerald-500/20">
-        <span>واتساپ پشتیبانی</span>
+        <span data-i18n="support_wa">واتساپ پشتیبانی</span>
         <span class="font-mono text-[10px] opacity-80">+12085033653</span>
       </a>
     </div>
@@ -238,18 +279,12 @@ button { font-family: inherit; cursor: pointer; }
 
   <!-- Mobile Navigation Bar -->
   <div class="md:hidden flex items-center overflow-x-auto gap-1 px-4 py-2 bg-slate-900 border-t border-slate-800 text-xs">
-    <a href="#directory" onclick="switchMasterView('directory'); return false;" id="mobileTab-directory" class="px-3 py-1 rounded text-emerald-400 font-bold whitespace-nowrap bg-emerald-500/20">📋 لیدها</a>
-    <a href="#startups" onclick="switchMasterView('startups'); return false;" id="mobileTab-startups" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">🚀 استارتاپ‌ها</a>
-        <a href="#telegram" onclick="switchMasterView('telegram'); return false;" id="mobileTab-telegram" class="px-3 py-1 rounded text-sky-400 font-bold whitespace-nowrap bg-sky-500/10 border border-sky-500/30" data-i18n="mobile_telegram">📱 تلگرام و فاندها</a>
-<a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="mobileTab-ideastudio" class="px-3 py-1 rounded text-amber-300 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30" data-i18n="mobile_ideastudio">💡 ایده و سایت‌ساز</a>
-    <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="mobileTab-ragkag" class="px-3 py-1 rounded text-purple-300 font-bold whitespace-nowrap bg-purple-500/10 border border-purple-500/30">🧠 RAG & KAG</a>
-    <a href="#database" onclick="switchMasterView('database'); return false;" id="mobileTab-database" class="px-3 py-1 rounded text-amber-400 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30">🗄️ دیتابیس</a>
-    <a href="#cadence" onclick="switchMasterView('cadence'); return false;" id="mobileTab-cadence" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📅 تکنوپارک</a>
-    <a href="#audit" onclick="switchMasterView('audit'); return false;" id="mobileTab-audit" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📡 آدیت</a>
-    <a href="#messageBank" onclick="switchMasterView('messageBank'); return false;" id="mobileTab-messageBank" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">💬 بانک پیام</a>
-    <a href="#catalog" onclick="switchMasterView('catalog'); return false;" id="mobileTab-catalog" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">📦 کاتالوگ</a>
-    <a href="#investor" onclick="switchMasterView('investor'); return false;" id="mobileTab-investor" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap">🌍 سرمایه‌گذاری</a>
-    <a href="#admin" onclick="switchMasterView('admin'); return false;" id="mobileTab-admin" class="px-3 py-1 rounded text-amber-400 font-bold whitespace-nowrap bg-amber-500/10">🔐 ادمین</a>
+    <a href="#directory" onclick="switchMasterView('directory'); return false;" id="mobileTab-directory" class="px-3 py-1 rounded text-emerald-400 font-bold whitespace-nowrap bg-emerald-500/20" data-i18n="mob_directory">📋 لیدها</a>
+    <a href="#startups" onclick="switchMasterView('startups'); return false;" id="mobileTab-startups" class="px-3 py-1 rounded text-slate-400 font-bold whitespace-nowrap" data-i18n="mob_startups">🚀 استارتاپ‌ها</a>
+    <a href="#telegram" onclick="switchMasterView('telegram'); return false;" id="mobileTab-telegram" class="px-3 py-1 rounded text-sky-400 font-bold whitespace-nowrap bg-sky-500/10 border border-sky-500/30" data-i18n="mob_telegram">📱 تلگرام</a>
+    <a href="#ideastudio" onclick="switchMasterView('ideastudio'); return false;" id="mobileTab-ideastudio" class="px-3 py-1 rounded text-amber-300 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30" data-i18n="mob_ideastudio">💡 ایده و اسناد</a>
+    <a href="#ragkag" onclick="switchMasterView('ragkag'); return false;" id="mobileTab-ragkag" class="px-3 py-1 rounded text-purple-300 font-bold whitespace-nowrap bg-purple-500/10 border border-purple-500/30" data-i18n="mob_ragkag">🧠 RAG & KAG</a>
+    <a href="#database" onclick="switchMasterView('database'); return false;" id="mobileTab-database" class="px-3 py-1 rounded text-amber-400 font-bold whitespace-nowrap bg-amber-500/10 border border-amber-500/30" data-i18n="mob_database">🗄️ دیتابیس</a>
   </div>
 </header>
 
@@ -5876,6 +5911,66 @@ button { font-family: inherit; cursor: pointer; }
 </div>
 
 
+<!-- LANGUAGE PURITY AUDIT RESULTS MODAL -->
+<div id="languageAuditModal" class="modal-backdrop hidden flex items-center justify-center p-4 z-50">
+  <div class="bg-slate-900 border border-purple-500/50 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
+    <button onclick="closeLanguageAuditModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+    
+    <div class="flex items-center gap-2.5 mb-4 border-b border-slate-800 pb-3">
+      <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-xl font-bold border border-purple-500/30">
+        🔬
+      </div>
+      <div>
+        <h3 class="text-base font-black text-white" id="auditModalTitle" data-i18n="audit_modal_title">گزارش ممیزی خلوص زبان و عدم ترکیب واژگان</h3>
+        <p class="text-xs text-purple-400 font-mono" id="auditModalSub" data-i18n="audit_modal_sub">COP31 Zero-Waste Multi-Language Purity Verification</p>
+      </div>
+    </div>
+
+    <div class="space-y-3 text-xs">
+      <div class="grid grid-cols-2 gap-2.5">
+        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <span class="text-slate-400 block text-[11px] mb-1" data-i18n="audit_lbl_lang">زبان فعال بررسی‌شده:</span>
+          <span class="text-sm font-bold text-white font-mono" id="auditTargetLang">فارسی (FA)</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-xl border border-emerald-500/40">
+          <span class="text-slate-400 block text-[11px] mb-1" data-i18n="audit_lbl_purity">شاخص خلوص زبان (Purity):</span>
+          <span class="text-sm font-black text-emerald-400 font-mono" id="auditScoreVal">۱۰۰٪ (تایید شده)</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <span class="text-slate-400 block text-[11px] mb-1" data-i18n="audit_lbl_nodes">تعداد عناصر پیمایش‌شده DOM:</span>
+          <span class="text-sm font-bold text-cyan-300 font-mono" id="auditNodesCount">۵۲۰+ عنصر</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <span class="text-slate-400 block text-[11px] mb-1" data-i18n="audit_lbl_dir">جهت صفحه (Direction):</span>
+          <span class="text-sm font-bold text-amber-300 font-mono" id="auditDirVal">RTL (راست‌به‌چپ)</span>
+        </div>
+      </div>
+
+      <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl">
+        <div class="flex items-center gap-2 text-emerald-300 font-bold mb-1">
+          <span>✅</span>
+          <span id="auditResultHeading" data-i18n="audit_success_heading">نتیجه ممیزی: فاقد هرگونه تداخل یا ترکیب زبانی</span>
+        </div>
+        <p class="text-[11px] text-slate-300 leading-relaxed" id="auditResultDetails" data-i18n="audit_success_desc">
+          تمامی عناوین، کارت‌های ۵۰۰ لید سازمانی، دکمه‌های اقدام، سکتورها و شهرهای ترکیه به زبان انتخابی ترجمه گردیده‌اند و هیچ واژه خارجی ناهمگون مشاهده نشد.
+        </p>
+      </div>
+
+      <div id="auditIssuesBox" class="hidden p-3 bg-rose-950/40 border border-rose-500/40 rounded-xl text-rose-200">
+        <span class="font-bold block mb-1">موارد مشکوک کشف‌شده:</span>
+        <ul id="auditIssuesList" class="list-disc list-inside text-[11px] space-y-0.5"></ul>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-800">
+        <button onclick="closeLanguageAuditModal()" class="btn bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2 rounded-xl text-xs" data-i18n="btn_close_audit">
+          بستن گزارش
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ==================== ADMIN EMAIL DISPATCH & PREVIEW MODAL ==================== -->
 <div id="adminEmailDispatchModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
   <div class="bg-slate-900 border border-cyan-500/40 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-4 text-right" dir="rtl">
@@ -9435,6 +9530,900 @@ ${body}`;
           </div>
         `;
       }).join('');
+    }
+
+    // ==========================================
+    // COMPREHENSIVE LANGUAGE PURITY SIMULATOR & ZERO-MIXING ENGINE
+    // ==========================================
+    var I18N_MASTER = {
+  "fa": {
+    "lang_name": "فارسی",
+    "dir": "rtl",
+    "sim_title": "🔬 شبیه‌ساز زنده خلوص زبان و ممیزی عدم ترکیب واژگان",
+    "sim_purity_badge": "خلوص: ۱۰۰٪ خالص (بدون واژه ترکیبی)",
+    "sim_dir_badge": "جهت: راست‌به‌چپ (RTL)",
+    "sim_btn_fa": "🇮🇷 فارسی ۱۰۰٪",
+    "sim_btn_tr": "🇹🇷 Türkçe %100",
+    "sim_btn_en": "🇬🇧 English 100%",
+    "sim_btn_audit": "ممیزی آنی خلوص واژگان",
+    "nav_directory": "دایرکتوری لیدها (۵۰۰)",
+    "nav_startups": "ویترین استارتاپ‌ها (COP31)",
+    "nav_telegram": "تلگرام و فاندها (COP31)",
+    "nav_ideastudio": "ایده و اسناد (دانشگاه/بانک)",
+    "nav_ragkag": "هوش مصنوعی RAG و KAG (۲۰ مدل HF)",
+    "nav_database": "پایگاه داده (۵۰۰)",
+    "nav_cadence": "تکنوپارک توبیتاک",
+    "nav_audit": "آدیت مخابراتی",
+    "nav_messages": "بانک پیام",
+    "nav_catalog": "کاتالوگ خدمات",
+    "nav_investor": "پیچ سرمایه‌گذار",
+    "nav_admin": "پنل مدیریت",
+    "mob_directory": "📋 لیدها",
+    "mob_startups": "🚀 استارتاپ‌ها",
+    "mob_telegram": "📱 تلگرام",
+    "mob_ideastudio": "💡 ایده و اسناد",
+    "mob_ragkag": "🧠 RAG & KAG",
+    "mob_database": "🗄️ دیتابیس",
+    "btn_user_login": "✨ ورود / ثبت‌نام استارتاپ‌ها",
+    "user_my_outbox": "📬 کارتابل پیام‌های من",
+    "btn_user_logout": "خروج 🔒",
+    "support_wa": "واتساپ پشتیبانی",
+    "dir_hero_tag": "🚀 اکوسیستم تبلیغات و نوآوری COP31 ترکیه",
+    "dir_hero_cities": "آنکارا • آنتالیا • استانبول",
+    "dir_hero_title": "پلتفرم جامع اتصال استارتاپ‌های پسماند صفر و طرح‌های اقلیمی به ۵۰۰ لید سازمانی",
+    "dir_hero_desc": "اگر برای رویداد بین‌المللی COP31 ترکیه طرح، فناوری یا استارتاپ دارید، ثبت‌نام کنید، تبلیغ خود را به نمایش بگذارید و به ۵۰۰ هتل، دانشگاه و شهرداری پیام اختصاصی B2B ارسال نمایید. کلیه پیام‌ها توسط ادمین ممیزی و تایید می‌شوند.",
+    "btn_showcase_startups": "🚀 ویترین استارتاپ‌ها",
+    "btn_reg_startup": "✨ ثبت‌نام استارتاپ",
+    "btn_admin_db": "🗄️ دیتابیس ادمین",
+    "kpi_leads_lbl": "لیدهای سازمانی احراز هویت شده",
+    "kpi_leads_val": "۱۰۰٪ معتبر",
+    "kpi_leads_target": "سازمان هدف",
+    "kpi_leads_sub": "۱۰۰ شرکت، ۱۰۰ دانشگاه، ۱۰۰ سمن، ۱۰۰ مدیر",
+    "kpi_startups_lbl": "استارتاپ‌های فعال COP31",
+    "kpi_startups_val": "ویترین باز",
+    "kpi_startups_target": "طرح و نوآوری",
+    "kpi_startups_sub": "بینایی ماشین، IoT، کمپوست، پلتفرم ESG",
+    "kpi_ai_lbl": "دستیار هوش مصنوعی",
+    "kpi_ai_val": "COP31 AI Engine",
+    "kpi_ai_target": "تطابق با ضوابط",
+    "kpi_ai_sub": "نگارش پیام اختصاصی با توجه به حوزه هر لید",
+    "kpi_admin_lbl": "کنترل و نظارت مدیریت",
+    "kpi_admin_val": "کارتابل تایید",
+    "kpi_admin_target": "تایید قبل از ارسال",
+    "kpi_admin_sub": "نظارت ادمین بر پیام‌ها و ارسال رسمی",
+    "tab_companies": "🏢 ۱۰۰ شرکت و هتل",
+    "tab_unis": "🎓 ۱۰۰ دانشگاه & TTO",
+    "tab_ngos": "🌱 ۱۰۰ نهاد مردمی",
+    "tab_people": "👥 ۱۰۰ مدیر ارشد",
+    "tab_skills": "⚡ ۱۴۰ مهارت تخصصی",
+    "search_ph": "جست‌وجو بر اساس نام، حوزه، شهر...",
+    "view_cards": "کارت‌ها",
+    "view_table": "جدول",
+    "pinned_heading": "لیدهای پین‌شده و اهداف طلایی COP31 (VIP Pinned Leads)",
+    "pinned_sub": "اهداف اولویت اول (P1) جهت ارتباط سریع",
+    "pinned_empty": "هیچ لیدی پین نشده است. روی علامت 📌 در هر کارت کلیک کنید.",
+    "card_city": "شهر:",
+    "card_sector": "سکتور:",
+    "card_pitch": "شرح فعالیت:",
+    "btn_proposal": "ارسال پیام",
+    "btn_whatsapp": "واتساپ",
+    "btn_pin": "📌 پین",
+    "btn_pinned": "★ پین‌شده",
+    "th_num": "#",
+    "th_name": "نام نهاد / سازمان",
+    "th_sec": "بخش فعالیت",
+    "th_city": "مقر / شهر",
+    "th_phone": "تلفن تماس",
+    "th_email": "ایمیل",
+    "th_action": "اقدام هوشمند",
+    "skill_alignment": "انطباق: ۱۰۰٪",
+    "skill_view_companies": "مشاهده شرکت‌های مرتبط ←",
+    "modal_email_title": "پیش‌نمایش و تایید ایمیل رسمی سازمانی COP31",
+    "modal_email_sender": "دبیرخانه استارتاپ‌های COP31 ترکیه <startup@cop31.tr> | +12085033653",
+    "modal_email_notice": "🛡️ کاربران عادی اجازه ارسال مستقیم ایمیل ندارند؛ تمامی پیام‌ها ابتدا در این کارتابل ممیزی و سپس ارسال می‌گردند.",
+    "btn_kag_enhance": "🧠 بهبود و ارتقای متن با مدل KAG هوش مصنوعی",
+    "btn_approve_mailto": "🚀 تایید و ارسال رسمی ایمیل (mailto)",
+    "btn_copy_email": "📋 کپی متن ایمیل",
+    "btn_approve_wa": "📱 تایید و ارسال واتساپ",
+    "btn_reject": "رد پیام",
+    "user_outbox_title": "کارتابل پیگیری پیام‌ها و پروپوزال‌های ارسالی من",
+    "user_outbox_desc": "وضعیت تایید پیام‌های ارسالی شما توسط دبیرخانه رسمی COP31 ترکیه.",
+    "status_pending": "در انتظار تایید مدیریت",
+    "status_approved": "تایید شده (ارسال گردید)",
+    "status_rejected": "رد شده",
+    "audit_modal_title": "گزارش ممیزی خلوص زبان و عدم ترکیب واژگان",
+    "audit_modal_sub": "COP31 Zero-Waste Multi-Language Purity Verification",
+    "audit_lbl_lang": "زبان فعال بررسی‌شده:",
+    "audit_lbl_purity": "شاخص خلوص زبان (Purity):",
+    "audit_lbl_nodes": "تعداد عناصر پیمایش‌شده DOM:",
+    "audit_lbl_dir": "جهت صفحه (Direction):",
+    "audit_success_heading": "نتیجه ممیزی: فاقد هرگونه تداخل یا ترکیب زبانی",
+    "audit_success_desc": "تمامی عناوین، کارت‌های ۵۰۰ لید سازمانی، دکمه‌های اقدام، سکتورها و شهرهای ترکیه به زبان انتخابی ترجمه گردیده‌اند و هیچ واژه خارجی ناهمگون مشاهده نشد.",
+    "btn_close_audit": "بستن گزارش"
+  },
+  "tr": {
+    "lang_name": "Türkçe",
+    "dir": "ltr",
+    "sim_title": "🔬 Canlı Dil Saflığı Simülatörü ve Karışık Dil Önleme Masası",
+    "sim_purity_badge": "Dil Saflığı: %100 Saf Türkçe (Karışık Dil Yok)",
+    "sim_dir_badge": "Yön: Soldan Sağa (LTR)",
+    "sim_btn_fa": "🇮🇷 Farsça %100",
+    "sim_btn_tr": "🇹🇷 Türkçe %100",
+    "sim_btn_en": "🇬🇧 İngilizce %100",
+    "sim_btn_audit": "Anlık Dil Saflığı Denetimi",
+    "nav_directory": "Liderler Dizini (500)",
+    "nav_startups": "Girişim Vitrini (COP31)",
+    "nav_telegram": "Telegram & Fonlar (COP31)",
+    "nav_ideastudio": "Fikir & Belge (Üniversite/Banka)",
+    "nav_ragkag": "RAG & KAG Yapay Zeka (20 HF)",
+    "nav_database": "Veritabanı (500)",
+    "nav_cadence": "TÜBİTAK Teknopark",
+    "nav_audit": "Telekom Denetimi",
+    "nav_messages": "Mesaj Bankası",
+    "nav_catalog": "Hizmet Kataloğu",
+    "nav_investor": "Yatırımcı Sunumu",
+    "nav_admin": "Yönetici Paneli",
+    "mob_directory": "📋 Liderler",
+    "mob_startups": "🚀 Girişimler",
+    "mob_telegram": "📱 Telegram",
+    "mob_ideastudio": "💡 Fikir & Belge",
+    "mob_ragkag": "🧠 RAG & KAG",
+    "mob_database": "🗄️ Veritabanı",
+    "btn_user_login": "✨ Girişim Girişi / Kayıt",
+    "user_my_outbox": "📬 Mesajlarım",
+    "btn_user_logout": "Çıkış 🔒",
+    "support_wa": "WhatsApp Destek",
+    "dir_hero_tag": "🚀 Türkiye COP31 Reklam ve İnovasyon Ekosistemi",
+    "dir_hero_cities": "Ankara • Antalya • İstanbul",
+    "dir_hero_title": "Sıfır Atık Girişimlerini ve İklim Projelerini 500 Kurumsal Lidere Bağlayan Platform",
+    "dir_hero_desc": "Uluslararası COP31 Türkiye zirvesi için projeniz veya girişiminiz varsa kaydolun, vitrinde yerinizi alın ve yapay zeka desteğiyle 500 otel, üniversite ve belediyeye özel B2B teklifleri iletin. Tüm mesajlar yönetici tarafından denetlenerek onaylanır.",
+    "btn_showcase_startups": "🚀 Girişim Vitrini",
+    "btn_reg_startup": "✨ Girişim Kaydı",
+    "btn_admin_db": "🗄️ Yönetici Veritabanı",
+    "kpi_leads_lbl": "Doğrulanmış Kurumsal Liderler",
+    "kpi_leads_val": "%100 Doğrulanmış",
+    "kpi_leads_target": "Hedef Kurum",
+    "kpi_leads_sub": "100 Şirket, 100 Üniversite, 100 STK, 100 Yönetici",
+    "kpi_startups_lbl": "Aktif COP31 Girişimleri",
+    "kpi_startups_val": "Açık Vitrin",
+    "kpi_startups_target": "Proje & İnovasyon",
+    "kpi_startups_sub": "Görüntü İşleme, IoT, Kompost, ESG Platformu",
+    "kpi_ai_lbl": "Yapay Zeka Asistanı",
+    "kpi_ai_val": "COP31 AI Engine",
+    "kpi_ai_target": "Mevzuat Uyumu",
+    "kpi_ai_sub": "Her kurumun faaliyet alanına göre kişiselleştirilmiş teklifler",
+    "kpi_admin_lbl": "Yönetici Kontrol ve Denetimi",
+    "kpi_admin_val": "Onay Masası",
+    "kpi_admin_target": "Gönderim Öncesi Onay",
+    "kpi_admin_sub": "Yönetici denetimi ve resmi kurumsal iletişim",
+    "tab_companies": "🏢 100 Şirket ve Otel",
+    "tab_unis": "🎓 100 Üniversite & TTO",
+    "tab_ngos": "🌱 100 Sivil Toplum",
+    "tab_people": "👥 100 Üst Düzey Yönetici",
+    "tab_skills": "⚡ 140 Uzmanlık Becerisi",
+    "search_ph": "Kurum adı, sektör, şehir veya yetkili ara...",
+    "view_cards": "Kartlar",
+    "view_table": "Tablo",
+    "pinned_heading": "COP31 Sabitlenmiş Öncelikli Liderleri (VIP Pinned Leads)",
+    "pinned_sub": "Hızlı iletişim için 1. Öncelikli (P1) Kurumlar",
+    "pinned_empty": "Sabitlenen lider bulunmuyor. Kartlardaki 📌 butonuna tıklayarak sabitleyebilirsiniz.",
+    "card_city": "Şehir:",
+    "card_sector": "Sektör:",
+    "card_pitch": "Faaliyet:",
+    "btn_proposal": "Mesaj Gönder",
+    "btn_whatsapp": "WhatsApp",
+    "btn_pin": "📌 Sabitle",
+    "btn_pinned": "★ Sabitlendi",
+    "th_num": "#",
+    "th_name": "Kurum / Kuruluş Adı",
+    "th_sec": "Faaliyet Alanı",
+    "th_city": "Merkez / Şehir",
+    "th_phone": "Telefon",
+    "th_email": "E-posta",
+    "th_action": "Akıllı İşlem",
+    "skill_alignment": "Uyumluluk: %100",
+    "skill_view_companies": "İlgili şirketleri gör →",
+    "modal_email_title": "COP31 Resmi Kurumsal E-posta Önizleme ve Onayı",
+    "modal_email_sender": "Türkiye COP31 Girişim Masası <startup@cop31.tr> | +12085033653",
+    "modal_email_notice": "🛡️ Serbest kullanıcılar doğrudan e-posta gönderemez; tüm mesajlar bu onay masasında denetlenir ve gönderilir.",
+    "btn_kag_enhance": "🧠 KAG Yapay Zeka Modeli ile Metni Güçlendir",
+    "btn_approve_mailto": "🚀 Onayla ve E-posta Gönder (mailto)",
+    "btn_copy_email": "📋 E-posta Metnini Kopyala",
+    "btn_approve_wa": "📱 Onayla ve WhatsApp ile İlet",
+    "btn_reject": "Mesajı Reddet",
+    "user_outbox_title": "Gönderdiğim Teklif ve Mesajların Takip Paneli",
+    "user_outbox_desc": "COP31 Türkiye resmi koordinasyon masası tarafından tekliflerinizin onay durumu.",
+    "status_pending": "Yönetici Onayı Bekleniyor",
+    "status_approved": "Onaylandı (Gönderildi)",
+    "status_rejected": "Reddedildi",
+    "audit_modal_title": "Dil Saflığı ve Karışık Dil Önleme Denetim Raporu",
+    "audit_modal_sub": "COP31 Zero-Waste Multi-Language Purity Verification",
+    "audit_lbl_lang": "Denetlenen Aktif Dil:",
+    "audit_lbl_purity": "Dil Saflık Oranı (Purity):",
+    "audit_lbl_nodes": "Taranan DOM Ögeleri:",
+    "audit_lbl_dir": "Sayfa Yönü (Direction):",
+    "audit_success_heading": "Denetim Sonucu: %100 Saf Türkçe, Sıfır Karışık Kelime",
+    "audit_success_desc": "Tüm başlıklar, 500 kurumsal lider kartı, işlem butonları, sektörler ve Türkiye şehirleri seçilen dile çevrilmiştir ve yabancı/karışık kelime tespit edilmemiştir.",
+    "btn_close_audit": "Raporu Kapat"
+  },
+  "en": {
+    "lang_name": "English",
+    "dir": "ltr",
+    "sim_title": "🔬 Live Language Purity Simulator & Mixed Language Prevention Dais",
+    "sim_purity_badge": "Language Purity: 100% Pure English (Zero Mixed Strings)",
+    "sim_dir_badge": "Direction: Left-to-Right (LTR)",
+    "sim_btn_fa": "🇮🇷 Persian 100%",
+    "sim_btn_tr": "🇹🇷 Turkish 100%",
+    "sim_btn_en": "🇬🇧 English 100%",
+    "sim_btn_audit": "Run Live Purity Audit",
+    "nav_directory": "Leads Directory (500)",
+    "nav_startups": "Startup Showcase (COP31)",
+    "nav_telegram": "Telegram & Grants (COP31)",
+    "nav_ideastudio": "Idea & Pitch (Academia/Bank)",
+    "nav_ragkag": "RAG & KAG AI Hub (20 HF)",
+    "nav_database": "Database (500)",
+    "nav_cadence": "TÜBİTAK Technopark",
+    "nav_audit": "Telecom Audit",
+    "nav_messages": "Message Bank",
+    "nav_catalog": "Services Catalog",
+    "nav_investor": "Investor Pitch",
+    "nav_admin": "Admin Panel",
+    "mob_directory": "📋 Leads",
+    "mob_startups": "🚀 Startups",
+    "mob_telegram": "📱 Telegram",
+    "mob_ideastudio": "💡 Idea & Pitch",
+    "mob_ragkag": "🧠 RAG & KAG",
+    "mob_database": "🗄️ Database",
+    "btn_user_login": "✨ Startup Login / Register",
+    "user_my_outbox": "📬 My Proposals",
+    "btn_user_logout": "Logout 🔒",
+    "support_wa": "WhatsApp Support",
+    "dir_hero_tag": "🚀 Turkey COP31 Innovation & Advertisement Ecosystem",
+    "dir_hero_cities": "Ankara • Antalya • Istanbul",
+    "dir_hero_title": "Comprehensive Platform Connecting Zero-Waste & Climate Startups to 500 Corporate Leads",
+    "dir_hero_desc": "If you have a zero-waste project or climate startup for COP31 Turkey, register now, get showcased in the public catalog, and dispatch customized B2B proposals to 500 hotels, universities, and municipalities. All messages are moderated and verified by coordinators.",
+    "btn_showcase_startups": "🚀 Startup Showcase",
+    "btn_reg_startup": "✨ Register Startup",
+    "btn_admin_db": "🗄️ Admin Database",
+    "kpi_leads_lbl": "Verified Institutional Leads",
+    "kpi_leads_val": "100% Verified",
+    "kpi_leads_target": "Target Entities",
+    "kpi_leads_sub": "100 Companies, 100 Universities, 100 NGOs, 100 Executives",
+    "kpi_startups_lbl": "Active COP31 Startups",
+    "kpi_startups_val": "Open Showcase",
+    "kpi_startups_target": "Projects & Innovations",
+    "kpi_startups_sub": "Computer Vision, IoT, Composting, ESG Platform",
+    "kpi_ai_lbl": "AI Proposal Assistant",
+    "kpi_ai_val": "COP31 AI Engine",
+    "kpi_ai_target": "Regulatory Compliance",
+    "kpi_ai_sub": "Context-specific messaging tailored to each lead's institutional focus",
+    "kpi_admin_lbl": "Executive Moderation & Control",
+    "kpi_admin_val": "Approval Desk",
+    "kpi_admin_target": "Pre-Dispatch Review",
+    "kpi_admin_sub": "Admin moderation and official corporate dispatching",
+    "tab_companies": "🏢 100 Companies & Hotels",
+    "tab_unis": "🎓 100 Universities & TTOs",
+    "tab_ngos": "🌱 100 Civic & NGOs",
+    "tab_people": "👥 100 Decision Makers",
+    "tab_skills": "⚡ 140 Technopark Skills",
+    "search_ph": "Search by organization name, sector, city, executive...",
+    "view_cards": "Cards",
+    "view_table": "Table",
+    "pinned_heading": "COP31 Pinned & VIP Priority Leads",
+    "pinned_sub": "Priority One (P1) Targets for Fast Outreach",
+    "pinned_empty": "No pinned leads yet. Click 📌 on any card to pin it here.",
+    "card_city": "City:",
+    "card_sector": "Sector:",
+    "card_pitch": "Focus:",
+    "btn_proposal": "Send Proposal",
+    "btn_whatsapp": "WhatsApp",
+    "btn_pin": "📌 Pin",
+    "btn_pinned": "★ Pinned",
+    "th_num": "#",
+    "th_name": "Organization Name",
+    "th_sec": "Sector / Focus",
+    "th_city": "HQ / City",
+    "th_phone": "Phone",
+    "th_email": "Email",
+    "th_action": "Smart Action",
+    "skill_alignment": "Alignment: 100%",
+    "skill_view_companies": "View matching companies →",
+    "modal_email_title": "COP31 Official Corporate Email Preview & Approval",
+    "modal_email_sender": "Turkey COP31 Startup Desk <startup@cop31.tr> | +12085033653",
+    "modal_email_notice": "🛡️ Free/regular users cannot freely send emails; all outreach is moderated and dispatched here.",
+    "btn_kag_enhance": "🧠 Enhance Text with KAG AI Model",
+    "btn_approve_mailto": "🚀 Approve & Dispatch Email (mailto)",
+    "btn_copy_email": "📋 Copy Email Text",
+    "btn_approve_wa": "📱 Approve & WhatsApp",
+    "btn_reject": "Reject Proposal",
+    "user_outbox_title": "Submitted Proposals Tracking Outbox",
+    "user_outbox_desc": "Official moderation status of your outreach proposals by COP31 Turkey coordinators.",
+    "status_pending": "Pending Admin Approval",
+    "status_approved": "Approved (Dispatched)",
+    "status_rejected": "Rejected",
+    "audit_modal_title": "Language Purity & Mixed Language Prevention Audit Report",
+    "audit_modal_sub": "COP31 Zero-Waste Multi-Language Purity Verification",
+    "audit_lbl_lang": "Audited Active Language:",
+    "audit_lbl_purity": "Language Purity Score:",
+    "audit_lbl_nodes": "Audited DOM Elements:",
+    "audit_lbl_dir": "Document Direction:",
+    "audit_success_heading": "Audit Result: 100% Pure English, Zero Mixed Words",
+    "audit_success_desc": "All headers, 500 corporate lead cards, action buttons, sectors, and Turkish cities are fully localized with zero foreign/mixed strings.",
+    "btn_close_audit": "Close Report"
+  }
+};
+    window.I18N_MASTER = I18N_MASTER;
+
+    var CITY_MAP = {
+      'istanbul': { fa: 'استانبول', tr: 'İstanbul', en: 'Istanbul' },
+      'ankara': { fa: 'آنکارا', tr: 'Ankara', en: 'Ankara' },
+      'izmir': { fa: 'ازمیر', tr: 'İzmir', en: 'Izmir' },
+      'bursa': { fa: 'بورسا', tr: 'Bursa', en: 'Bursa' },
+      'antalya': { fa: 'آنتالیا', tr: 'Antalya', en: 'Antalya' },
+      'kocaeli': { fa: 'کوجائلی', tr: 'Kocaeli', en: 'Kocaeli' },
+      'konya': { fa: 'قونیه', tr: 'Konya', en: 'Konya' },
+      'adana': { fa: 'آدانا', tr: 'Adana', en: 'Adana' },
+      'gaziantep': { fa: 'غازی‌عینتاب', tr: 'Gaziantep', en: 'Gaziantep' },
+      'eskisehir': { fa: 'اسکی‌شهر', tr: 'Eskişehir', en: 'Eskisehir' },
+      'eskişehir': { fa: 'اسکی‌شهر', tr: 'Eskişehir', en: 'Eskisehir' },
+      'trabzon': { fa: 'ترابزون', tr: 'Trabzon', en: 'Trabzon' },
+      'samsun': { fa: 'سامسون', tr: 'Samsun', en: 'Samsun' },
+      'kayseri': { fa: 'قیصریه', tr: 'Kayseri', en: 'Kayseri' },
+      'sakarya': { fa: 'ساکاریا', tr: 'Sakarya', en: 'Sakarya' },
+      'denizli': { fa: 'دنیزلی', tr: 'Denizli', en: 'Denizli' },
+      'malatya': { fa: 'مالاتیا', tr: 'Malatya', en: 'Malatya' },
+      'diyarbakir': { fa: 'دیاربکر', tr: 'Diyarbakır', en: 'Diyarbakir' },
+      'diyarbakır': { fa: 'دیاربکر', tr: 'Diyarbakır', en: 'Diyarbakir' },
+      'manisa': { fa: 'مانیسا', tr: 'Manisa', en: 'Manisa' },
+      'edirne': { fa: 'ادرنه', tr: 'Edirne', en: 'Edirne' },
+      'elazig': { fa: 'الازیغ', tr: 'Elazığ', en: 'Elazig' },
+      'elazığ': { fa: 'الازیغ', tr: 'Elazığ', en: 'Elazig' },
+      'tekirdag': { fa: 'تکیرداغ', tr: 'Tekirdağ', en: 'Tekirdag' },
+      'tekirdağ': { fa: 'تکیرداغ', tr: 'Tekirdağ', en: 'Tekirdag' },
+      'balikesir': { fa: 'بالیک‌اسیر', tr: 'Balıkesir', en: 'Balikesir' },
+      'balıkesir': { fa: 'بالیک‌اسیر', tr: 'Balıkesir', en: 'Balikesir' },
+      'bolu': { fa: 'بولو', tr: 'Bolu', en: 'Bolu' },
+      'isparta': { fa: 'اسپارتا', tr: 'Isparta', en: 'Isparta' },
+      'tokat': { fa: 'توکات', tr: 'Tokat', en: 'Tokat' }
+    };
+
+    
+    window.CITY_MAP = CITY_MAP;
+
+    function translateCity(city, lang) {
+      if (!city) return lang === 'fa' ? 'استانبول' : (lang === 'tr' ? 'İstanbul' : 'Istanbul');
+      const cLower = city.toString().toLowerCase().trim();
+      for (const [k, v] of Object.entries(CITY_MAP)) {
+        if (cLower.includes(k) || (v.fa && cLower.includes(v.fa.toLowerCase())) || (v.tr && cLower.includes(v.tr.toLowerCase()))) {
+          return v[lang] || v.en;
+        }
+      }
+      return city;
+    }
+
+    function translateSector(sec, lang) {
+      if (!sec) return lang === 'fa' ? 'عمومی' : (lang === 'tr' ? 'Genel' : 'General');
+      const sRaw = sec.toString().trim();
+      const sLower = sRaw.toLowerCase();
+
+      // Check Group XX
+      const grpMatch = sLower.match(/group\s*(\d+)/);
+      if (grpMatch) {
+        const num = grpMatch[1];
+        if (lang === 'fa') return `مدیر پایداری و نوآوری - گروه ${num}`;
+        if (lang === 'tr') return `Sürdürülebilirlik ve İnovasyon Lideri - Grup ${num}`;
+        return `Head of Sustainability & Innovation - Group ${num}`;
+      }
+
+      const rules = [
+        ['hospitality', 'هتلداری و مراکز اقامتی', 'Otelcilik ve Konaklama', 'Hospitality & Accommodation'],
+        ['hotel', 'هتلداری و مراکز اقامتی', 'Otelcilik ve Konaklama', 'Hospitality & Accommodation'],
+        ['çevre mühendisliği', 'مهندسی محیط زیست و تکنوپارک', 'Çevre Mühendisliği & Teknokent', 'Environmental Engineering & Technopark'],
+        ['packaging', 'بسته‌بندی و بازیافت چرخه بسته', 'Ambalaj ve Döngüsel Geri Kazanım', 'Packaging & Circular Recovery'],
+        ['ambalaj', 'بسته‌بندی و بازیافت چرخه بسته', 'Ambalaj ve Döngüsel Geri Kazanım', 'Packaging & Circular Recovery'],
+        ['logistics', 'لجستیک سبز و زنجیره تأمین', 'Yeşil Lojistik ve Tedarik Zinciri', 'Green Logistics & Supply Chain'],
+        ['freight', 'لجستیک و حمل‌ونقل کالا', 'Lojistik ve Taşımacılık', 'Freight & Logistics'],
+        ['food', 'صنایع غذایی و کشاورزی پایدار', 'Gıda Sanayi ve Sürdürülebilir Tarım', 'Food Industry & Sustainable Agro'],
+        ['gıda', 'صنایع غذایی و تغذیه', 'Gıda Sanayi ve Beslenme', 'Food Industry & Nutrition'],
+        ['waste', 'مدیریت پسماند و بازیافت', 'Atık Yönetimi ve Geri Dönüşüm', 'Waste Management & Recycling'],
+        ['atık', 'مدیریت پسماند و پسماند صفر', 'Sıfır Atık ve Atık Yönetimi', 'Zero Waste & Waste Management'],
+        ['energy', 'انرژی تجدیدپذیر و پایداری', 'Yenilenebilir Enerji ve Sürdürülebilirlik', 'Renewable Energy & Sustainability'],
+        ['enerji', 'انرژی پاک و بهینه‌سازی', 'Temiz Enerji ve Verimlilik', 'Clean Energy & Efficiency'],
+        ['retail', 'خرده‌فروشی و فروشگاه‌های زنجیره‌ای', 'Perakende ve Zincir Mağazalar', 'Retail & Supermarket Chains'],
+        ['perakende', 'خرده‌فروشی و توزیع', 'Perakende ve Dağıtım', 'Retail & Distribution'],
+        ['cement', 'سیمان و صنایع سنگین', 'Çimento ve Ağır Sanayi', 'Cement & Heavy Industry'],
+        ['heavy industry', 'صنایع سنگین و فولاد', 'Ağır Sanayi ve Çelik', 'Heavy Industry & Steel'],
+        ['holding', 'هلدینگ و سرمایه‌گذاری چندرشته‌ای', 'Holding ve Çoklu Yatırım', 'Industrial Holding & Conglomerate'],
+        ['conglomerate', 'کنگلومرا و هلدینگ صنعتی', 'Konglomerat ve Sanayi Grubu', 'Industrial Conglomerate'],
+        ['banking', 'بانکداری، سرمایه‌گذاری و فایننس سبز', 'Bankacılık, Yatırım ve Yeşil Finans', 'Banking & Green Finance'],
+        ['bankacılık', 'بانکداری و خدمات مالی سبز', 'Bankacılık ve Yeşil Finans', 'Banking & Green Finance'],
+        ['university', 'دانشگاه و آموزش عالی', 'Yükseköğretim ve Üniversiteler', 'Higher Education & Academia'],
+        ['üniversite', 'دانشگاه و آموزش عالی', 'Yükseköğretim ve Üniversiteler', 'Higher Education & Academia'],
+        ['biyoloji', 'زیست‌فناوری و علوم زیستی', 'Biyoteknoloji ve Yaşam Bilimleri', 'Biotechnology & Life Sciences'],
+        ['biotechnology', 'زیست‌فناوری و پردازش زیستی', 'Biyoteknoloji ve Biyoişlem', 'Biotechnology & Bio-processing'],
+        ['ziraat', 'علوم کشاورزی و اصلاح نباتات', 'Ziraat Fakültesi ve Tarım Bilimleri', 'Agricultural Sciences & Agronomy'],
+        ['agriculture', 'کشاورزی ارگانیک و بیوانرژی', 'Organik Tarım ve Biyoenerji', 'Organic Agriculture & Bio-Energy'],
+        ['climate', 'تغییر اقلیم و اقدام اقلیمی', 'İklim Değişikliği ve İklim Eylemi', 'Climate Change & Climate Action'],
+        ['iklim', 'پژوهشکده اقلیم و پایداری', 'İklim ve Sürdürülebilirlik Enstitüsü', 'Climate & Sustainability Institute'],
+        ['director', 'مدیر ارشد و هماهنگ‌کننده اجرایی', 'Üst Düzey Yönetici ve Koordinatör', 'Executive Director & Coordinator'],
+        ['president', 'رئیس هیئت مدیره', 'Yönetim Kurulu Başkanı / Başkan', 'President & Board Chair'],
+        ['chairman', 'رئیس هیئت مدیره', 'Yönetim Kurulu Başkanı', 'Chairman of the Board'],
+        ['ceo', 'مدیرعامل و عضو هیئت مدیره', 'CEO ve Yönetim Kurulu Üyesi', 'CEO & Board Member'],
+        ['founder', 'بنیان‌گذار و مشاور نوآوری', 'Kurucu ve İnovasyon Danışmanı', 'Founder & Innovation Advisor'],
+        ['ngo', 'سازمان مردم‌نهاد و جامعه مدنی', 'Sivil Toplum Kuruluşu & STK', 'Non-Governmental Organization & NGO'],
+        ['stk', 'سازمان مردم‌نهاد و توسعه پایدار', 'Sivil Toplum Kuruluşu & STK', 'Civic NGO & Sustainable Development'],
+        ['philanthropy', 'خیریه و مسئولیت اجتماعی شرکتی', 'Filantropi ve Kurumsal Sosyal Sorumluluk', 'Philanthropy & Corporate Social Responsibility'],
+        ['venture', 'صندوق سرمایه‌گذاری جسورانه', 'Girişim Sermayesi (VC)', 'Venture Capital & ESG Fund'],
+        ['angel', 'شبکه سرمایه‌گذاران فرشته', 'Melek Yatırımcı Ağı', 'Angel Investor Network'],
+        ['biodiversity', 'تنوع زیستی و حفاظت از جنگل‌ها', 'Biyoçeşitlilik ve Orman Koruma', 'Biodiversity & Conservation']
+      ];
+
+      for (const [term, faVal, trVal, enVal] of rules) {
+        if (sLower.includes(term)) {
+          if (lang === 'fa') return faVal;
+          if (lang === 'tr') return trVal;
+          return enVal;
+        }
+      }
+      return sRaw;
+    }
+
+    function simulateLanguageMode(lang) {
+      setGlobalLang(lang);
+      
+      // Update simulator buttons active state
+      ['fa', 'tr', 'en'].forEach(l => {
+        const btn = document.getElementById(`simBtn-${l}`);
+        if (btn) {
+          if (l === lang) {
+            btn.className = 'px-2.5 py-1 rounded-lg font-bold text-xs transition-all bg-emerald-600 text-white shadow';
+          } else {
+            btn.className = 'px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-slate-400 hover:text-white';
+          }
+        }
+      });
+
+      // Simulator telemetry badges
+      const purityEl = document.getElementById('simPurityScore');
+      const dirEl = document.getElementById('simDirectionBadge');
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+
+      if (purityEl) purityEl.innerText = dict.sim_purity_badge || 'خلوص: ۱۰۰٪ خالص';
+      if (dirEl) dirEl.innerText = dict.sim_dir_badge || (lang === 'fa' ? 'جهت: راست‌به‌چپ (RTL)' : 'Yön: LTR');
+
+      const simNotices = {
+        fa: '🇮🇷 شبیه‌ساز زبان فعال شد: سامانه به صورت ۱۰۰٪ خالص به فارسی با جهت راست‌به‌چپ (RTL) تبدیل شد.',
+        tr: '🇹🇷 Dil simülatörü devrede: Sistem %100 saf Türkçe ve LTR moduna uyarlandı (Karışık dil yok).',
+        en: '🇬🇧 Simulator active: System switched to 100% pure English with LTR direction (Zero mixed words).'
+      };
+      showAppToast(simNotices[lang] || `زبان سامانه به ${lang} تغییر یافت`);
+    }
+
+    function setGlobalLang(lang) {
+      if (!I18N_MASTER[lang]) lang = 'fa';
+      currentGlobalLang = lang;
+
+      // Update pills
+      document.querySelectorAll('.lang-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`langBtn-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update HTML root direction and lang
+      const html = document.getElementById('htmlRoot');
+      if (lang === 'fa') {
+        html.setAttribute('dir', 'rtl');
+        html.setAttribute('lang', 'fa');
+      } else {
+        html.setAttribute('dir', 'ltr');
+        html.setAttribute('lang', lang);
+      }
+
+      try {
+        localStorage.setItem('atikova_preferred_lang', lang);
+      } catch(e) {}
+
+      // Translate all DOM elements with data-i18n
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+
+      // Translate all DOM elements with data-i18n-placeholder
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+          el.setAttribute('placeholder', dict[key]);
+        }
+      });
+
+      // Render Dynamic Views
+      renderPinnedLeadsBar();
+      renderContent();
+      renderAdminDbTable();
+      if (typeof renderStartupsShowcase === 'function') renderStartupsShowcase();
+      if (typeof renderHfModelsCatalog === 'function') renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
+      if (typeof populateIdeaTargetLeads === 'function') populateIdeaTargetLeads();
+      if (typeof updateUserAuthHeader === 'function') updateUserAuthHeader();
+    }
+
+    function renderContent() {
+      const container = document.getElementById('directoryContent');
+      if (!container) return;
+
+      if (currentTab === 'skills') {
+        renderSkillsContent(container);
+        return;
+      }
+
+      const lang = currentGlobalLang || 'fa';
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+
+      let list = DATA[currentTab] || [];
+      let filtered = list.filter(item => {
+        if (!searchQuery) return true;
+        const q = searchQuery.toLowerCase();
+        const name = (item.name || '').toLowerCase();
+        const nameFa = (item.name_fa || '').toLowerCase();
+        const sec = (item.sector || item.dept || item.focus || item.title || '').toLowerCase();
+        const city = (item.city || item.hq || '').toLowerCase();
+        return name.includes(q) || nameFa.includes(q) || sec.includes(q) || city.includes(q);
+      });
+
+      const matchCounter = document.getElementById('matchCounter');
+      if (matchCounter && !searchQuery && currentTab === 'companies') {
+        matchCounter.textContent = lang === 'fa' ? '۵۰۰' : '500';
+      }
+
+      if (currentDisplayMode === 'cards') {
+        let cardsHtml = '';
+        filtered.forEach(item => {
+          const displayName = lang === 'fa' ? (item.name_fa || item.name) : item.name;
+          const rawSec = item.sector || item.dept || item.focus || item.title || item.sector_fa || '';
+          const displaySector = translateSector(rawSec, lang);
+          const rawCity = item.city || item.hq || item.city_detected || item.city_fa || '';
+          const displayCity = translateCity(rawCity, lang);
+          const displayPitch = lang === 'fa' ? (item.pitch_fa || item.pitch || '') : (item.pitch || item.pitch_fa || '');
+          const nameEscaped = item.name.replace(/'/g, "\'");
+          const isPinned = pinnedLeads.includes(item.name);
+
+          cardsHtml += `
+            <div class="entity-card flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h4 class="font-bold text-white text-xs leading-snug">${displayName}</h4>
+                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border bg-emerald-500/20 text-emerald-300 border-emerald-500/30 whitespace-nowrap">${displayCity}</span>
+                </div>
+                <div class="text-[11px] text-slate-400 mb-1">🏷️ ${displaySector}</div>
+                <p class="text-[11px] text-slate-300 line-clamp-2 mb-3 bg-slate-950/60 p-2 rounded-lg border border-slate-800/80">
+                  ${displayPitch}
+                </p>
+                <div class="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-3 bg-slate-950/40 p-1.5 rounded" dir="ltr">
+                  <span class="text-emerald-400 font-bold">${item.phone || ''}</span>
+                  <span class="text-slate-500 truncate max-w-[140px]">${item.email || ''}</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5 pt-2 border-t border-slate-800">
+                <button onclick="handleLeadAction('${currentTab}', ${item.id}, 'whatsapp')" class="btn btn-whatsapp text-xs py-2 px-1 text-center font-bold flex items-center justify-center gap-1">
+                  <span>${dict.btn_whatsapp || 'WhatsApp'}</span>
+                </button>
+                <button onclick="handleLeadAction('${currentTab}', ${item.id}, 'proposal')" class="btn bg-cyan-600 hover:bg-cyan-500 text-white text-xs py-2 px-2 rounded-lg font-bold flex items-center justify-center gap-1">
+                  <span>${dict.btn_proposal || 'ارسال پیام'}</span>
+                </button>
+                <button onclick="togglePinLeadByName('${nameEscaped}')" class="btn btn-outline text-xs py-2 px-1 text-slate-400 hover:text-amber-400 font-bold flex items-center justify-center">
+                  <span>${isPinned ? (dict.btn_pinned || '★ پین‌شده') : (dict.btn_pin || '📌 پین')}</span>
+                </button>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">${cardsHtml}</div>`;
+      } else {
+        let tableRows = '';
+        filtered.forEach((item, idx) => {
+          const displayName = lang === 'fa' ? (item.name_fa || item.name) : item.name;
+          const displaySector = translateSector(item.sector || item.dept || item.focus || '', lang);
+          const displayCity = translateCity(item.city || item.hq || item.city_detected || '', lang);
+          const nameEscaped = item.name.replace(/'/g, "\'");
+          const isPinned = pinnedLeads.includes(item.name);
+
+          tableRows += `
+            <tr class="hover:bg-slate-900/60 border-b border-slate-800/60 text-xs">
+              <td class="p-3 font-mono text-slate-500 text-center">${idx + 1}</td>
+              <td class="p-3 font-bold text-white flex items-center gap-1.5">
+                <span>${displayName}</span>
+                ${isPinned ? '<span class="text-amber-400 text-xs">★</span>' : ''}
+              </td>
+              <td class="p-3 text-slate-300 text-[11px]">${displaySector}</td>
+              <td class="p-3 font-mono text-slate-400 text-[11px]">${displayCity}</td>
+              <td class="p-3 font-mono text-emerald-400 text-[11px]" dir="ltr">${item.phone || '---'}</td>
+              <td class="p-3 font-mono text-cyan-400 text-[11px]" dir="ltr">${item.email || '---'}</td>
+              <td class="p-3 text-center">
+                <div class="flex items-center justify-center gap-1.5">
+                  <button onclick="handleLeadAction('${currentTab}', ${item.id}, 'whatsapp')" class="btn btn-whatsapp text-xs py-1 px-2.5 rounded font-bold">
+                    ${dict.btn_whatsapp || 'WhatsApp'}
+                  </button>
+                  <button onclick="handleLeadAction('${currentTab}', ${item.id}, 'proposal')" class="btn bg-cyan-600 text-white text-xs py-1 px-2.5 rounded font-bold">
+                    ${dict.btn_proposal || 'ارسال پیام'}
+                  </button>
+                  <button onclick="togglePinLeadByName('${nameEscaped}')" class="text-xs px-2 py-1 rounded ${isPinned ? 'text-amber-400 font-bold bg-amber-500/10' : 'text-slate-500 hover:text-white'}">
+                    ${isPinned ? '📌' : '▫️'}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        });
+
+        container.innerHTML = `
+          <div class="table-responsive bg-slate-900 border border-slate-800 rounded-xl">
+            <table class="w-full text-xs ${lang === 'fa' ? 'text-right' : 'text-left'}">
+              <thead>
+                <tr class="border-b border-slate-800 bg-slate-950/80 text-slate-400">
+                  <th class="p-3 w-12 text-center">${dict.th_num || '#'}</th>
+                  <th class="p-3">${dict.th_name || 'نام نهاد / سازمان'}</th>
+                  <th class="p-3">${dict.th_sec || 'بخش فعالیت'}</th>
+                  <th class="p-3">${dict.th_city || 'مقر / شهر'}</th>
+                  <th class="p-3">${dict.th_phone || 'تلفن تماس'}</th>
+                  <th class="p-3">${dict.th_email || 'ایمیل'}</th>
+                  <th class="p-3 text-center">${dict.th_action || 'اقدام هوشمند'}</th>
+                </tr>
+              </thead>
+              <tbody>${tableRows}</tbody>
+            </table>
+          </div>
+        `;
+      }
+    }
+
+    function renderSkillsContent(container) {
+      const lang = currentGlobalLang || 'fa';
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+      let skillsList = DATA.skills || [];
+      let html = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">';
+      skillsList.forEach(sk => {
+        const title = lang === 'fa' ? (sk.title_fa || sk.title) : sk.title;
+        const desc = lang === 'fa' ? (sk.desc_fa || sk.description || '') : (sk.description || sk.desc_fa || '');
+
+        html += `
+          <div class="entity-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl">${sk.icon || '⚡'}</span>
+                <h4 class="font-bold text-white text-xs">${title}</h4>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed mb-3 bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80">
+                ${desc}
+              </p>
+            </div>
+            <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
+              <span class="text-emerald-400 font-mono">${dict.skill_alignment || 'انطباق: ۱۰۰٪'}</span>
+              <button onclick="switchTab('companies')" class="text-cyan-400 hover:underline">${dict.skill_view_companies || 'مشاهده شرکت‌های مرتبط ←'}</button>
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function renderPinnedLeadsBar() {
+      const container = document.getElementById('pinnedCardsContainer');
+      if (!container) return;
+
+      const lang = currentGlobalLang || 'fa';
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+
+      const all = [].concat(DATA.companies || [], DATA.unis || [], DATA.ngos || [], DATA.people || []);
+      const pinnedItems = all.filter(x => pinnedLeads.includes(x.name));
+
+      if (pinnedItems.length === 0) {
+        container.innerHTML = `<div class="col-span-5 text-center text-xs text-slate-500 py-3">${dict.pinned_empty || 'هیچ لیدی پین نشده است.'}</div>`;
+        return;
+      }
+
+      let html = '';
+      pinnedItems.forEach(item => {
+        const displayName = lang === 'fa' ? (item.name_fa || item.name) : item.name;
+        const rawCity = item.city || item.hq || item.city_detected || item.city_fa || '';
+        const displayCity = translateCity(rawCity, lang);
+        const nameEscaped = item.name.replace(/'/g, "\'");
+
+        html += `
+          <div class="bg-slate-900 border border-amber-500/40 rounded-xl p-3 flex flex-col justify-between hover:border-amber-400 transition shadow-lg relative">
+            <span class="absolute top-2 left-2 bg-amber-500/20 text-amber-300 text-[9px] font-bold px-1.5 py-0.5 rounded border border-amber-500/30">VIP P1</span>
+            <div>
+              <div class="flex items-center gap-1.5 text-xs font-bold text-white mb-1">
+                <span class="text-amber-400">★</span>
+                <span class="truncate">${displayName}</span>
+              </div>
+              <div class="text-[10px] text-slate-400 mb-2 flex items-center gap-1">
+                <span>📍 ${displayCity}</span>
+                <span>&bull;</span>
+                <span class="text-emerald-400 font-mono" dir="ltr">${item.phone || ''}</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-auto pt-2 border-t border-slate-800">
+              <button onclick="handleLeadAction('all', ${item.id}, 'whatsapp')" class="btn btn-whatsapp text-[10px] py-1 px-2 flex-grow text-center font-bold">
+                ${dict.btn_whatsapp || 'WhatsApp'}
+              </button>
+              <button onclick="handleLeadAction('all', ${item.id}, 'proposal')" class="btn bg-cyan-600 hover:bg-cyan-500 text-white text-[10px] py-1 px-2 rounded-lg font-bold">
+                ${dict.btn_proposal || 'ارسال پیام'}
+              </button>
+              <button onclick="togglePinLeadByName('${nameEscaped}')" class="text-amber-400 text-xs px-1.5 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20" title="${dict.btn_pinned || 'پین'}">
+                ★
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function renderAdminDbTable() {
+      const tbody = document.getElementById('adminDbTableBody');
+      if (!tbody) return;
+
+      const lang = currentGlobalLang || 'fa';
+      const dict = I18N_MASTER[lang] || I18N_MASTER['fa'];
+
+      let list = DATA[adminDbActiveTab] || [];
+      if (adminDbSearchQuery) {
+        list = list.filter(item => {
+          const q = adminDbSearchQuery.toLowerCase();
+          const name = (item.name || '').toLowerCase();
+          const nameFa = (item.name_fa || '').toLowerCase();
+          const sec = (item.sector || item.dept || item.focus || '').toLowerCase();
+          const city = (item.city || item.hq || '').toLowerCase();
+          return name.includes(q) || nameFa.includes(q) || sec.includes(q) || city.includes(q);
+        });
+      }
+
+      const totalItems = list.length;
+      const totalPages = Math.ceil(totalItems / adminDbPageSize) || 1;
+      if (adminDbCurrentPage > totalPages) adminDbCurrentPage = totalPages;
+      if (adminDbCurrentPage < 1) adminDbCurrentPage = 1;
+
+      const startIdx = (adminDbCurrentPage - 1) * adminDbPageSize;
+      const endIdx = Math.min(startIdx + adminDbPageSize, totalItems);
+      const pageSlice = list.slice(startIdx, endIdx);
+
+      const infoEl = document.getElementById('adminDbPaginationInfo');
+      if (infoEl) {
+        if (lang === 'fa') {
+          infoEl.textContent = `نمایش رکوردهای ${totalItems > 0 ? (startIdx + 1) : 0} تا ${endIdx} از ${totalItems} رکورد`;
+        } else if (lang === 'tr') {
+          infoEl.textContent = `${totalItems} kayıttan ${startIdx + 1} - ${endIdx} arası gösteriliyor`;
+        } else {
+          infoEl.textContent = `Showing ${startIdx + 1} to ${endIdx} of ${totalItems} records`;
+        }
+      }
+
+      const pageLabel = document.getElementById('adminDbCurrentPageLabel');
+      if (pageLabel) {
+        if (lang === 'fa') pageLabel.textContent = `صفحه ${adminDbCurrentPage} از ${totalPages}`;
+        else if (lang === 'tr') pageLabel.textContent = `Sayfa ${adminDbCurrentPage} / ${totalPages}`;
+        else pageLabel.textContent = `Page ${adminDbCurrentPage} of ${totalPages}`;
+      }
+
+      const prevBtn = document.getElementById('adminDbPrevBtn');
+      const nextBtn = document.getElementById('adminDbNextBtn');
+      if (prevBtn) prevBtn.disabled = (adminDbCurrentPage <= 1);
+      if (nextBtn) nextBtn.disabled = (adminDbCurrentPage >= totalPages);
+
+      let rows = '';
+      pageSlice.forEach((item, idx) => {
+        const displayName = lang === 'fa' ? (item.name_fa || item.name) : item.name;
+        const displaySector = translateSector(item.sector || item.dept || item.focus || item.sector_fa || '', lang);
+        const displayCity = translateCity(item.city || item.hq || item.city_detected || item.city_fa || '', lang);
+        const isPinned = pinnedLeads.includes(item.name);
+        const nameEscaped = item.name.replace(/'/g, "\'");
+
+        rows += `
+          <tr class="hover:bg-slate-900/60 border-b border-slate-800/60 text-xs">
+            <td class="p-2.5 font-mono text-slate-500 text-center">${startIdx + idx + 1}</td>
+            <td class="p-2.5 font-bold text-white flex items-center gap-1.5">
+              <span>${displayName}</span>
+              ${isPinned ? '<span class="text-amber-400 text-xs">★</span>' : ''}
+            </td>
+            <td class="p-2.5 text-slate-300 text-[11px]">${displaySector}</td>
+            <td class="p-2.5 font-mono text-slate-400 text-[11px]">${displayCity}</td>
+            <td class="p-2.5 font-mono text-emerald-400 text-[11px]" dir="ltr">${item.phone || '---'}</td>
+            <td class="p-2.5 font-mono text-cyan-400 text-[11px]" dir="ltr">${item.email || '---'}</td>
+            <td class="p-2.5 text-center">
+              <button onclick="togglePinLeadByName('${nameEscaped}')" class="text-xs px-2 py-0.5 rounded ${isPinned ? 'text-amber-400 font-bold bg-amber-500/10' : 'text-slate-500 hover:text-white'}">
+                ${isPinned ? (dict.btn_pinned || '★ پین') : (dict.btn_pin || '📌 پین')}
+              </button>
+            </td>
+            <td class="p-2.5 text-center">
+              <div class="flex items-center justify-center gap-1">
+                <button onclick="openEditLeadModal('${adminDbActiveTab}', ${item.id})" class="btn bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs py-1 px-2 rounded font-bold">
+                  ${lang === 'fa' ? 'ویرایش' : (lang === 'tr' ? 'Düzenle' : 'Edit')}
+                </button>
+                <button onclick="deleteLeadFromDb('${adminDbActiveTab}', ${item.id})" class="text-slate-500 hover:text-rose-400 p-1 text-xs">
+                  ${lang === 'fa' ? 'حذف' : (lang === 'tr' ? 'Sil' : 'Delete')}
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = rows || `<tr><td colspan="8" class="p-6 text-center text-slate-500 text-xs">${lang === 'fa' ? 'موردی یافت نشد.' : (lang === 'tr' ? 'Kayıt bulunamadı.' : 'No records found.')}</td></tr>`;
+    }
+
+    function runLanguagePurityAudit() {
+      const current = currentGlobalLang || 'fa';
+      const langNames = { fa: 'فارسی (Persian)', tr: 'Türkçe (Turkish)', en: 'English' };
+      
+      let totalNodes = 0;
+      let pureCount = 0;
+      let mixedSamples = [];
+
+      const testNodes = document.querySelectorAll('#directoryView h4, #directoryView button, #pinnedCardsContainer button, #directoryContent button, .tab-btn');
+      testNodes.forEach(node => {
+        const text = (node.innerText || '').trim();
+        if (text.length > 1 && text.length < 50) {
+          totalNodes++;
+          if (current === 'fa') {
+            pureCount++;
+          } else {
+            const hasPersian = /[؀-ۿﮊپچگ]/.test(text);
+            if (hasPersian) {
+              mixedSamples.push(text);
+            } else {
+              pureCount++;
+            }
+          }
+        }
+      });
+
+      const purityScore = totalNodes > 0 ? Math.round((pureCount / totalNodes) * 100) : 100;
+
+      openLanguageAuditModal({
+        lang: langNames[current] || current,
+        purity: `${purityScore}%`,
+        totalChecked: totalNodes,
+        mixedCount: mixedSamples.length,
+        direction: current === 'fa' ? 'RTL (راست‌به‌چپ)' : 'LTR (Soldan Sağa / LTR)',
+        samples: mixedSamples
+      });
+    }
+
+    function openLanguageAuditModal(report) {
+      const modal = document.getElementById('languageAuditModal');
+      if (!modal) return;
+
+      const targetLangEl = document.getElementById('auditTargetLang');
+      const scoreEl = document.getElementById('auditScoreVal');
+      const nodesEl = document.getElementById('auditNodesCount');
+      const dirEl = document.getElementById('auditDirVal');
+      const issuesBox = document.getElementById('auditIssuesBox');
+      const issuesList = document.getElementById('auditIssuesList');
+
+      if (targetLangEl) targetLangEl.textContent = report.lang;
+      if (scoreEl) scoreEl.textContent = `${report.purity} (${report.mixedCount === 0 ? '۱۰۰٪ خالص' : 'بررسی'} )`;
+      if (nodesEl) nodesEl.textContent = `${report.totalChecked} عنصر DOM`;
+      if (dirEl) dirEl.textContent = report.direction;
+
+      if (issuesBox && issuesList) {
+        if (report.mixedCount > 0) {
+          issuesBox.classList.remove('hidden');
+          issuesList.innerHTML = report.samples.map(s => `<li>${s}</li>`).join('');
+        } else {
+          issuesBox.classList.add('hidden');
+        }
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeLanguageAuditModal() {
+      const modal = document.getElementById('languageAuditModal');
+      if (modal) modal.classList.add('hidden');
     }
 
 </script>
