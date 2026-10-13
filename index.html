@@ -5050,6 +5050,30 @@ button { font-family: inherit; cursor: pointer; }
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="space-y-3">
+            <!-- AI Template Presets for Channel Broadcast -->
+            <div class="bg-slate-950 p-3 rounded-xl border border-sky-500/30 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-sky-400 flex items-center gap-1.5">
+                  <span>✨</span>
+                  <span>تولید پیش‌نویس اطلاعیه با هوش مصنوعی KAG:</span>
+                </span>
+                <span class="text-[10px] bg-sky-500/20 text-sky-300 px-1.5 py-0.5 rounded font-mono">AI Generator</span>
+              </div>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button type="button" onclick="generateAITelegramPost('grants')" class="btn bg-slate-900 hover:bg-slate-800 text-emerald-400 hover:text-emerald-300 text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 font-bold text-right flex items-center gap-1">
+                  <span>💰 گرنت‌های قبل از کاپ</span>
+                </button>
+                <button type="button" onclick="generateAITelegramPost('halil_hasar')" class="btn bg-slate-900 hover:bg-slate-800 text-sky-400 hover:text-sky-300 text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 font-bold text-right flex items-center gap-1">
+                  <span>🏛️ پروفسور هاسار (اقلیم)</span>
+                </button>
+                <button type="button" onclick="generateAITelegramPost('sanayi')" class="btn bg-slate-900 hover:bg-slate-800 text-purple-400 hover:text-purple-300 text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 font-bold text-right flex items-center gap-1">
+                  <span>⚙️ طرح ملی فناوری (صنعت)</span>
+                </button>
+                <button type="button" onclick="generateAITelegramPost('taksim')" class="btn bg-slate-900 hover:bg-slate-800 text-amber-400 hover:text-amber-300 text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 font-bold text-right flex items-center gap-1">
+                  <span>☕ قهوه در تکسیم (گپ دوستانه)</span>
+                </button>
+              </div>
+            </div>
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1">عنوان فرصت / فاند / استارتاپ:</label>
               <input type="text" id="teleBroadcastTitle" class="search-input text-xs py-2 px-3" placeholder="مثال: فراخوان جذب استارتاپ‌های بیوکمپوست پسماند غذایی هتل‌های COP31">
@@ -5076,9 +5100,14 @@ button { font-family: inherit; cursor: pointer; }
               <textarea id="teleBroadcastBody" rows="4" class="search-input text-xs p-3 leading-relaxed font-sans" placeholder="توضیحات فرصت، شرایط پذیرش، مهلت اقدام و هشتگ‌های #COP31 #ZeroWaste #Grant..."></textarea>
             </div>
 
-            <button onclick="broadcastToTelegramChannel()" class="btn bg-gradient-to-r from-sky-600 to-emerald-600 hover:from-sky-500 hover:to-emerald-500 text-white font-black w-full py-2.5 text-xs rounded-xl shadow-lg flex items-center justify-center gap-2">
-              <span>🚀 انتشار در کانال تلگرام و کارتابل تایید</span>
-            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <button type="button" onclick="broadcastToTelegramChannel()" class="btn bg-slate-800 hover:bg-slate-700 text-sky-300 font-bold py-2.5 text-xs rounded-xl border border-sky-500/40 flex items-center justify-center gap-1.5">
+                <span>📋 ثبت در کارتابل تایید ادمین</span>
+              </button>
+              <button type="button" onclick="testBroadcastLiveToTelegram()" class="btn bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-slate-950 font-black py-2.5 text-xs rounded-xl shadow-lg flex items-center justify-center gap-1.5">
+                <span>📡 تست ارسال آنی هوش مصنوعی به کانال</span>
+              </button>
+            </div>
           </div>
 
           <!-- Telegram Channel Post Preview -->
@@ -9977,6 +10006,169 @@ if (cmd === '/grants') {
       input.value = '';
       simulateTelegramCommand(val);
     }
+
+    
+    // ==========================================
+    // AI TELEGRAM CHANNEL BROADCASTER & LIVE DISPATCH
+    // ==========================================
+    const TG_AI_TEMPLATES = {
+      grants: {
+        title: 'فراخوان جامع جذب استارتاپ‌های هوش مصنوعی و پسماند صفر جهت بهره‌مندی از گرنت‌های COP31',
+        category: 'grant',
+        body: `پلتفرم بین‌المللی Atikova COP31 برنامه شتاب‌دهی اختصاصی خود را در ترکیه و هاب دبی فعال کرد.
+
+💰 بسته‌های تامین مالی فعال:
+1️⃣ TÜBİTAK 1831: پروژه ۴۵۰M$ صنعت سبز با حمایت بانک جهانی (تا ۲۰M لیر حمایت بلاعوض و تسهیلات)
+2️⃣ TÜBİTAK 1512 BİGG: گرنت سرمایه اولیه تا ۹۰۰,۰۰۰ لیر بلاعوض
+3️⃣ KOSGEB Yeşil Sanayi: تسهیلات تا ۱۴,۰۰۰,۰۰۰ لیر با کارمزد صفر
+4️⃣ Horizon Europe & İSTKA: گرنت‌های اقتصاد چرخشی و شهرهای هوشمند
+
+📌 مزایای حضور در برنامه:
+• ورود به کاتالوگ ۵ زبانه رسمی پاویون ملی ترکیه در COP31
+• استقرار پایلوت در ۱۰۰ کارخانه و هتل ۵ ستاره پس از رویداد
+• انطباق با مالیات کربن مرزی اتحادیه اروپا (EU CBAM)`
+      },
+
+      halil_hasar: {
+        title: 'هم‌افزایی راهبردی با ریاست تغییر اقلیم ترکیه (جناب پروفسور دکتر خلیل هاسار)',
+        category: 'grant',
+        body: `پیرو پیشگامی ملی ترکیه در میزبانی اجلاس جهانی تغییرات اقلیمی (COP31)، پلتفرم Atikova آمادگی دارد:
+
+🏛️ محورهای همکاری با ریاست تغییر اقلیم:
+• تجهیز خط لوله نوآوری پاویون ملی ترکیه با برترین استارتاپ‌های پسماند صفر و AI
+• پایش دیجیتال اجرای ماده ۱۲ (تفکیک ۴گانه) و ماده ۱۵ (کمپوست الزامی هتل‌ها) آیین‌نامه پسماند صفر
+• فعال‌سازی پل سرمایه‌گذاری سبز هاب دبی به سمت پروژه‌های ملی ترکیه
+• چرخه کامل شتاب‌دهی استارتاپ‌ها پیش از اجلاس و استقرار پایلوت صنعتی پس از رویداد`
+      },
+
+      sanayi: {
+        title: 'طرح ملی فناوری: پیوند استارتاپ‌های تکنوپارک با پروژه ۴۵۰ میلیون دلاری صنعت سبز',
+        category: 'investment',
+        body: `در راستای «حرکت ملی فناوری» (Milli Teknoloji Hamlesi) و راهبرد وزارت صنعت و فناوری ترکیه:
+
+⚙️ دستاوردهای پلتفرم:
+• اتصال ۱۴ خوشه مهارتی تکنوپارک‌های کشور (İTÜ, ODTÜ, Bilişim Vadisi) در ۳۳ استان به ۱۰۰ هلدینگ صنعتی
+• تشکیل کنسرسیوم‌های مشترک جهت دریافت تسهیلات پروژه صنعت سبز TÜBİTAK 1831
+• ایجاد سپر دفاعی هوش مصنوعی در برابر مالیات کربن مرزی اروپا (EU CBAM) برای صادرکنندگان ترک
+• تضمین قراردادهای خرید بلندمدت (Off-take) پس از پایان اجلاس`
+      },
+
+      taksim: {
+        title: 'دعوت به یک قهوه کوتاه در میدان تکسیم استانبول جهت هم‌افزایی در رویداد COP31',
+        category: 'partnership',
+        body: `سلام به تمامی کارآفرینان، پژوهشگران و فعالان حوزه فناوری‌های سبز و پسماند صفر!
+
+☕ در صورتی که در استانبول حضور دارید، بسیار خوشحال می‌شویم در یک گپ کوتاه، خودمانی و غیررسمی سر فنجان قهوه در یکی از کافه‌های میدان تکسیم (Taksim) دیدار داشته باشیم تا فرصت‌های هم‌افزایی و همکاری مشترک در رویداد بین‌المللی COP31 ترکیه را بررسی کنیم.
+
+📲 واتساپ من برای هماهنگی و گفتگوی مستقیم کاملاً در دسترس است: +12085033653
+🤖 ربات تلگرام دبیرخانه جهت ثبت مشخصات و دریافت گرنت‌ها: @COP31ZeroWasteBot`
+      }
+    };
+
+    function generateAITelegramPost(presetType) {
+      const template = TG_AI_TEMPLATES[presetType] || TG_AI_TEMPLATES.grants;
+      const titleEl = document.getElementById('teleBroadcastTitle');
+      const bodyEl = document.getElementById('teleBroadcastBody');
+      const catEl = document.getElementById('teleBroadcastCategory');
+
+      if (titleEl) titleEl.value = template.title;
+      if (bodyEl) bodyEl.value = template.body;
+      if (catEl) catEl.value = template.category;
+
+      // Update preview immediately
+      const previewBox = document.getElementById('telePostPreviewBox');
+      if (previewBox) {
+        previewBox.innerHTML = `
+          <div class="font-bold text-emerald-400 text-sm">📢 ${template.title}</div>
+          <p class="text-slate-300 text-[11px] leading-relaxed whitespace-pre-line">${template.body}</p>
+          <div class="text-[10px] text-slate-400 font-mono space-y-0.5 pt-2 border-t border-slate-800">
+            <div>🤖 ثبت‌نام در ربات: <span class="text-sky-400 font-bold">@COP31ZeroWasteBot</span></div>
+            <div>📞 تماس و واتساپ: <span class="text-emerald-400 font-bold">+12085033653</span></div>
+            <div>🌐 پرتال رسمی: <span class="text-cyan-400">https://cop31.atovika.com</span></div>
+            <div class="text-sky-400 font-bold">#COP31 #ZeroWaste #Grant #ClimateTech #AI</div>
+          </div>
+        `;
+      }
+
+      showAppToast('پیش‌نویس پست با هوش مصنوعی در فرم درج شد! ✨');
+    }
+
+    function testBroadcastLiveToTelegram() {
+      const title = document.getElementById('teleBroadcastTitle')?.value.trim() || 'فراخوان نوآوری‌های اقلیمی COP31';
+      const body = document.getElementById('teleBroadcastBody')?.value.trim() || 'پلتفرم آتیکووا استارتاپ‌های پسماند صفر را به ۵۰۰ لید سازمانی و گرنت‌های فعال متصل می‌نماید.';
+
+      const fullText = `📢 *${title}*
+━━━━━━━━━━━━━━━━━━━━━
+${body}
+
+🤖 *ثبت‌نام سریع در ربات:* @COP31ZeroWasteBot
+💬 *واتساپ مستقیم:* +12085033653
+🌐 *پرتال رسمی:* https://cop31.atovika.com
+📧 *ایمیل:* startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #ZeroWaste #Grant #ClimateTech #AI`;
+
+      const payload = {
+        chat_id: '@COP31ZeroWaste',
+        text: fullText,
+        parse_mode: 'Markdown',
+        reply_markup: {
+          inline_keyboard: [
+            [
+              { text: '🤖 ورود به ربات (@COP31ZeroWasteBot)', url: 'https://t.me/COP31ZeroWasteBot' },
+              { text: '💬 واتساپ مستقیم', url: 'https://wa.me/12085033653' }
+            ],
+            [
+              { text: '🌐 پرتال نوآوری اقلیمی (cop31.atovika.com)', url: 'https://cop31.atovika.com' },
+              { text: '🏛️ پرونده‌های همکاری نهادی', url: 'https://cop31.atovika.com/#startups' }
+            ]
+          ]
+        }
+      };
+
+      showAppToast('⏳ در حال ارسال مستقیم با ربات هوشمند به کانال @COP31ZeroWaste...');
+
+      fetch('https://api.telegram.org/bot8009621149:AAHjWQCbr0SQlwP2fgQquRprU_Mhpt4Hi80/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.ok) {
+          const msgId = data.result.message_id;
+          const previewBox = document.getElementById('telePostPreviewBox');
+          if (previewBox) {
+            previewBox.innerHTML = `
+              <div class="p-2.5 bg-emerald-500/20 border border-emerald-500/40 rounded-xl mb-3 flex items-center justify-between text-xs">
+                <span class="text-emerald-300 font-bold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>✅ پیام با موفقیت در کانال منتشر شد! (شناسه پیام: ${msgId})</span>
+                </span>
+                <a href="https://t.me/COP31ZeroWaste/${msgId}" target="_blank" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-[11px] flex items-center gap-1">
+                  <span>مشاهده در کانال</span>
+                  <span>↗</span>
+                </a>
+              </div>
+              <div class="font-bold text-emerald-400 text-sm">📢 ${title}</div>
+              <p class="text-slate-300 text-[11px] leading-relaxed whitespace-pre-line">${body}</p>
+              <div class="text-[10px] text-slate-400 font-mono space-y-0.5 pt-2 border-t border-slate-800">
+                <div>🤖 ربات: <span class="text-sky-400 font-bold">@COP31ZeroWasteBot</span></div>
+                <div>📞 واتساپ: <span class="text-emerald-400 font-bold">+12085033653</span></div>
+                <div>🌐 پرتال: <span class="text-cyan-400">https://cop31.atovika.com</span></div>
+              </div>
+            `;
+          }
+          showAppToast(`🚀 پیام به صورت زنده در کانال @COP31ZeroWaste منتشر شد! (شناسه: ${msgId})`);
+        } else {
+          showAppToast('خطا در انتشار تلگرام: ' + (data.description || 'نامشخص'));
+        }
+      })
+      .catch(err => {
+        showAppToast('خطا در اتصال به API تلگرام');
+      });
+    }
+
 
     function broadcastToTelegramChannel() {
       const title = document.getElementById('teleBroadcastTitle')?.value.trim();
