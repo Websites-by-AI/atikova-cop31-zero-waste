@@ -4808,6 +4808,63 @@ button { font-family: inherit; cursor: pointer; }
             </p>
           </div>
 
+          
+      <!-- ==================== 10-PILLAR BILINGUAL BROADCAST DASHBOARD ==================== -->
+      <div class="bg-gradient-to-br from-slate-900 via-sky-950/40 to-slate-900 border-2 border-sky-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-5 border-b border-sky-500/30">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-black bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30 flex items-center gap-1">
+                <span>⏱️</span>
+                <span>سیستم انتشار خودکار دوزبانه (هر ۳ ساعت یک پست)</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                🇹🇷 Türkçe + 🇬🇧 English
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                کانال: @COP31ZeroWaste
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white pt-1">
+              داشبورد مدیریت ۱۰ حوزه راهبردی و سودمند پسماند صفر و گرنت‌های اقلیمی COP31
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-4xl">
+              این سیستم به صورت شبانه‌روزی هر ۳ ساعت یک پست تخصصی، مستند و دوزبانه را در کانال رسمی تلگرام منتشر می‌کند تا فرصت‌های تامین مالی، الزامات قانونی، اسپانسرها و ظرفیت‌های تکنوپارک‌ها به مخاطبان بین‌المللی و داخلی معرفی شوند.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <a href="https://t.me/COP31ZeroWaste" target="_blank" class="btn bg-sky-600 hover:bg-sky-500 text-white text-xs px-4 py-2.5 rounded-xl font-bold flex items-center gap-1.5 shadow-lg shadow-sky-500/20">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>مشاهده کانال زنده (@COP31ZeroWaste)</span>
+            </a>
+            <button type="button" onclick="loadPillarToForm(1)" class="btn bg-slate-800 hover:bg-slate-700 text-sky-300 text-xs px-3.5 py-2.5 rounded-xl font-bold border border-slate-700">
+              <span>🔄 بارگذاری حوزه ۱</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 10 Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5" id="tenPillarsContainer">
+          <!-- Rendered dynamically via renderPillarsDashboard() -->
+        </div>
+
+        <!-- Live Broadcast Stats Bar -->
+        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-bold">وضعیت انتشار خودکار:</span>
+            <span class="text-emerald-400 font-mono">DAEMON_ACTIVE (هر ۳ ساعت)</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-slate-400 font-mono">
+            <span>دوزبانه: <b>TR / EN</b></span>
+            <span>تعداد حوزه‌ها: <b>۱۰ حوزه سودمند</b></span>
+            <span>ربات فرستنده: <b>@COP31ZeroWasteBot</b></span>
+          </div>
+        </div>
+      </div>
+
+
           <!-- Quick Metrics Grid -->
           <div class="grid grid-cols-2 gap-2 sm:gap-3 w-full lg:w-auto shrink-0 text-center">
             <div class="bg-slate-900/90 border border-sky-500/30 rounded-2xl p-3">
@@ -6708,6 +6765,7 @@ button { font-family: inherit; cursor: pointer; }
 
       if (viewId === 'startups') {
         renderStartupsShowcase();
+    renderPillarsDashboard();
       } else if (viewId === 'admin') {
         if (isAdminLoggedIn) {
           renderAdminModerationQueue();
@@ -7299,6 +7357,7 @@ Direct WhatsApp: ${senderPhone}`;
       const btn = document.getElementById(`stFilterBtn-${category}`);
       if (btn) btn.classList.add('active', 'bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
       renderStartupsShowcase();
+    renderPillarsDashboard();
     }
 
     function renderStartupsShowcase() {
@@ -7423,6 +7482,7 @@ Direct WhatsApp: ${senderPhone}`;
 
       closeAddStartupModal();
       renderStartupsShowcase();
+    renderPillarsDashboard();
       showAppToast(`طرح استارتاپ «${name}» با موفقیت در ویترین COP31 منتشر شد!`);
     }
 
@@ -9104,6 +9164,7 @@ ${msg.body}
       renderPinnedLeadsBar();
       renderContent();
       if (typeof renderStartupsShowcase === 'function') renderStartupsShowcase();
+    renderPillarsDashboard();
       if (typeof renderHfModelsCatalog === 'function') renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
       if (typeof populateIdeaTargetLeads === 'function') populateIdeaTargetLeads();
       
@@ -10167,6 +10228,544 @@ ${body}
       .catch(err => {
         showAppToast('خطا در اتصال به API تلگرام');
       });
+    }
+
+
+    
+    /**
+ * 10 High-Yield Thematic Pillars for COP31 Zero Waste
+ * Fully Bilingual: Turkish (Türkçe) & English
+ */
+
+const PILLARS_10 = [
+  {
+    id: 1,
+    category: 'grant',
+    badge: 'TÜBİTAK 1831 & DÜNYA BANKASI',
+    title_tr: 'TÜBİTAK 1831 Yeşil Sanayi Destek Projesi ($450M Fon)',
+    title_en: 'TÜBİTAK 1831 Green Industry Project ($450M World Bank Fund)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **1. HEDEF ALAN: TÜBİTAK 1831 YEŞİL SANAYİ PROJESİ ($450M DÜNYA BANKASI FONU)**
+
+Türkiye'nin ev sahipliğinde gerçekleşecek COP31 Zirvesi öncesinde, Türk sanayisinin karbonsuzlaşması ve döngüsel ekonomiye geçişi için tarihi fırsat!
+
+💰 **Hibe ve Destek Koşulları:**
+• Sanayi-KOBİ ve Girişim ortak Ar-Ge konsorsiyumlarına %50 - %70 hibe desteği.
+• Proje başına 20.000.000 TL'ye kadar faizsiz geri ödemeli ve geri ödemesiz hibeler.
+• Öncelikli Alanlar: Yapay zeka ile atık ayrıştırma, endüstriyel simbiyoz, biyo-çözünür ambalajlar ve atık ısı geri kazanımı.
+
+🏛️ **Atikova Hızlandırma Desteği:**
+Girişiminizin teknolojik doğrulamasını KAG AI motorumuzla yaparak 500 doğrulanmış sanayi lideriyle konsorsiyum kurmanızı sağlıyor, resmi COP31 Türkiye Pavilyonu inovasyon listesine kaydediyoruz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 1: TÜBİTAK 1831 GREEN INDUSTRY PROJECT ($450M WORLD BANK FUND)**
+
+Ahead of the COP31 Summit hosted in Türkiye, a landmark funding opportunity is now open for climate-tech startups accelerating industrial decarbonization!
+
+💰 **Funding Highlights:**
+• 50% to 70% grant ratio for joint Industry-SME-Startup innovation consortiums.
+• Up to 20,000,000 TRY in non-dilutive grants and soft financing per project.
+• Focus Sectors: AI-driven waste sorting, industrial symbiosis, biodegradable biomaterials, and waste heat valorization.
+
+🏛️ **Atikova Acceleration Support:**
+Our KAG AI engine audits your regulatory compliance and pairs your startup with 500 validated corporate manufacturers, securing priority inclusion in the official COP31 Türkiye Pavilion.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #ZeroWaste #TUBITAK #WorldBank #ClimateTech #GreenIndustry #Sustainability`
+  },
+
+  {
+    id: 2,
+    category: 'grant',
+    badge: 'KOSGEB YEŞİL SANAYİ',
+    title_tr: 'KOSGEB Yeşil Sanayi Destek Paketi (14.000.000 TL Destek)',
+    title_en: 'KOSGEB Green Industry Support Package (14M TRY Financing)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **2. HEDEF ALAN: KOSGEB YEŞİL SANAYİ DESTEK PAKETİ (14.000.000 TL FİNANSMAN)**
+
+KOBİ'lerin ve temiz teknoloji girişimlerinin COP31 standartlarına uyumu ve enerji verimliliği yatırımları için kapsamlı finansman programı devrede!
+
+💰 **Destek Kapsamı ve Avantajlar:**
+• Küçük ve orta ölçekli işletmeler için 14.000.000 TL'ye kadar sıfır faizli, 36 ay vadeli geri ödemeli destek.
+• Güneş enerjisi kurulumu, organik atık geri kazanım üniteleri ve su verimliliği yatırımlarına doğrudan bütçe.
+• Çevre yönetim sertifikasyonu ve karbon ayak izi yazılım giderlerine %100'e varan danışmanlık hibesi.
+
+🚀 **Atikova Girişimci Köprüsü:**
+KOSGEB başvuru şartnamelerine uygun fizibilite raporunuzu ve teknik şartname dosyanızı AI Proposal Studio üzerinden 10 dakikada hazırlayın.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 2: KOSGEB GREEN INDUSTRY SUPPORT PACKAGE (14M TRY FINANCING)**
+
+Comprehensive green financing is officially operational for Turkish SMEs and circular startups preparing for the COP31 Climate Summit!
+
+💰 **Support Scope & Financial Benefits:**
+• Up to 14,000,000 TRY in zero-interest, 36-month soft financing for industrial green transition.
+• Capital allocation for on-site solar installations, bio-waste recovery units, and industrial water recycling.
+• Up to 100% grant coverage for carbon auditing software and zero-waste accreditation consultancy.
+
+🚀 **Atikova Founder Pipeline:**
+Generate your compliant feasibility study and technical application files in under 10 minutes via our KAG AI Proposal Studio.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #KOSGEB #ZeroWaste #CleanTech #CircularEconomy #GreenFinancing`
+  },
+
+  {
+    id: 3,
+    category: 'grant',
+    badge: 'TÜBİTAK 1512 BİGG',
+    title_tr: 'TÜBİTAK 1512 BİGG Yeşil Büyüme (900.000 TL Karşılıksız Hibe)',
+    title_en: 'TÜBİTAK 1512 BİGG Green Growth (900K TRY Equity-Free Grant)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **3. HEDEF ALAN: TÜBİTAK 1512 BİGG YEŞİL BÜYÜME (900.000 TL KARŞILIKSIZ HİBE)**
+
+Üniversite öğrencileri, akademisyenler ve genç girişimciler için sıfırdan şirketleşme ve ilk tohum sermayesi desteği!
+
+🎓 **Çağrı Detayları:**
+• Erken aşama temiz teknoloji ve sıfır atık projelerine 900.000 TL tamamen geri ödemesiz çekirdek sermaye.
+• İTÜ Çekirdek, ODTÜ Teknokent, Yıldız Teknopark ve Bilişim Vadisi kuluçka merkezlerinde ücretsiz ofis ve mentorluk.
+• COP31 Türkiye Pavilyonu Genç İnovatörler sahnesinde doğrudan sunum hakkı.
+
+💡 **Atikova ile Doğrudan Eşleşme:**
+Fikrinizi web sitemizdeki Idea Studio'ya yükleyin; yapay zekamız iş modelinizi TÜBİTAK değerlendirme kriterlerine göre optimize etsin.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 3: TÜBİTAK 1512 BİGG GREEN GROWTH (900K TRY EQUITY-FREE GRANT)**
+
+Pre-seed capital and company formation support for young innovators, university researchers, and academic founders!
+
+🎓 **Grant Call Breakdown:**
+• 900,000 TRY 100% equity-free pre-seed capital for early-stage waste and climate technologies.
+• Incubation access, co-working desks, and lab infrastructure at top technoparks (İTÜ, ODTÜ, Yıldız).
+• Direct exhibition opportunity at the COP31 Türkiye Pavilion Young Innovators Stage.
+
+💡 **Instant Matching via Atikova:**
+Submit your project to our AI Idea Studio to automatically calibrate your business model against TÜBİTAK evaluation scorecards.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #TUBITAK #BIGG #DeepTech #Startups #PreSeed #UniversityHub`
+  },
+
+  {
+    id: 4,
+    category: 'sponsorship',
+    badge: 'BANKA & YEŞİL FİNANSMAN',
+    title_tr: 'Bankalar & Finans Kurumları Yeşil Sponsorluk Havuzu ($5M+ Bütçe)',
+    title_en: 'Banking & Financial Institutions Green Sponsorship ($5M+ Pool)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **4. HEDEF ALAN: BANKALAR & FİNANS DEVLERİ YEŞİL SPONSORLUK HAVUZU ($5M+ BÜTÇE)**
+
+Türkiye İş Bankası, Garanti BBVA, Akbank ve Yapı Kredi'nin COP31 sürdürülebilirlik vizyonu kapsamındaki fonları açıldı!
+
+🏦 **Sponsorluk ve Yatırım Fırsatları:**
+• Banka logolu IoT akıllı atık kutuları ve depozito iade ünitelerinin kent meydanlarına yerleştirilmesi için doğrudan hibe.
+• Kurumsal ESG portföyü için 5.000.000 Dolar hacminde iklim tahvili ve yeşil finansman tahsisi.
+• Sıfır atık donanımı satın alacak otel ve tesislere 12-24 ay vadeli sübvansiyonlu yeşil kredi hatları.
+
+🤝 **Nasıl Ortak Olunur?**
+Atikova Bankacılık Konsorsiyumu üzerinden projenizi bankaların sürdürülebilirlik komitelerine doğrudan ulaştırıyoruz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 4: BANKING & FINANCIAL INSTITUTIONS GREEN SPONSORSHIP ($5M+ POOL)**
+
+Major financial institutions (İş Bankası, Garanti BBVA, Akbank) are unlocking multi-million dollar green sponsorship allocations for COP31!
+
+🏦 **Sponsorship & Investment Highlights:**
+• Direct capital deployment for co-branded IoT smart sorting bins and smart deposit return units across public hubs.
+• Over $5,000,000 in green bond issuance and Scope 3 supply chain decarbonization funds.
+• Subsidized green credit lines with 12-24 month payback for commercial facilities adopting composting machines.
+
+🤝 **Direct Institutional Channel:**
+Submit your technology through Atikova to interface directly with executive ESG investment committees.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #GreenBanking #ESG #SustainableFinance #Sponsorship #IsBankasi #BBVA`
+  },
+
+  {
+    id: 5,
+    category: 'compliance',
+    badge: '5 YILDIZLI OTELLER & MADDE 15',
+    title_tr: '5 Yıldızlı Otellerde Sıfır Atık Yönetmeliği Madde 15 (Yerinde Kompost)',
+    title_en: '5-Star Hospitality Mandatory On-Site Composting (Art. 15 Zero Waste)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **5. HEDEF ALAN: 5 YILDIZLI OTELLER VE TURİZMDE MADDE 15 YASAL ZORUNLULUĞU**
+
+Türkiye Sıfır Atık Yönetmeliği 2019/30829 gereğince büyük ticari binalar ve oteller için yerinde kompost zorunlu hale geldi!
+
+🏨 **Oteller İçin Somut Çözümler:**
+• Swissôtel, Hilton, Divan, Marriott ve Rixos gibi 100 lüks otelde gıda atıklarının 24 saatte kokusuz organik gübreye dönüştürülmesi.
+• Atık taşıma ve bertaraf maliyetlerinde %80 net tasarruf.
+• COP31 Platin Sürdürülebilir Otel Akreditasyonu ile resmi diplomatik heyetleri ağırlama önceliği.
+
+🌿 **Girişimler İçin Fırsat:**
+Yerinde biyokompost, enzim ve atık izleme teknolojisi üreten girişimleri doğrudan 100 otelin satın alma direktörleriyle buluşturuyoruz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 5: 5-STAR HOSPITALITY MANDATORY ON-SITE COMPOSTING (REGULATION ART. 15)**
+
+Compliance deadline under Turkish Zero Waste Regulation: Mandatory on-site organic waste treatment for hospitality leaders!
+
+🏨 **Actionable Turnkey Solutions:**
+• Rapid 24-hour odorless aerobic bio-digesters converting food waste into organic soil amendment across luxury hotel chains.
+• Immediate 80% reduction in municipal haulage and landfill disposal tariffs.
+• COP31 Platinum Eco-Hospitality certification, granting preferred vendor status for official international delegations.
+
+🌿 **Startup B2B Advantage:**
+We connect proprietary compost machine manufacturers and biotech startups directly to procurement VPs across 100 hotel groups.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #Hospitality #ZeroWaste #Composting #Hotels #LuxuryTravel #EcoTourism`
+  },
+
+  {
+    id: 6,
+    category: 'compliance',
+    badge: 'AB CBAM KARBON KALKANI',
+    title_tr: 'AB Sınırda Karbon Düzenleme Mekanizması (CBAM Savunma Kalkanı)',
+    title_en: 'EU Carbon Border Adjustment Mechanism (CBAM Industrial Shield)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **6. HEDEF ALAN: AB SINIRDA KARBON VERGİSİ (CBAM) SAVUNMA KALKANI**
+
+Türk sanayisinin 100 milyar Euro'luk Avrupa ihracatını koruyacak yerli yapay zeka karbon izleme ekosistemi!
+
+🏭 **İhracatçı Sektörlerin İhtiyacı:**
+• Demir-çelik, çimento, alüminyum, gübre ve tekstil sektörlerinde Scope 1, 2 ve 3 emisyonlarının otomatik doğrulanması.
+• Avrupa gümrüklerinde ton başına 80-100€ ceza ödememek için döngüsel hammadde ve geri kazanım oranlarının belgelenmesi.
+• Yapay zeka ile tedarik zinciri şeffaflığı ve dijital ürün pasaportu (DPP) entegrasyonu.
+
+🛡️ **Atikova Çözümü:**
+Geliştirdiğiniz yazılımları ve sensörleri Türkiye'nin ihracat şampiyonu sanayi holdinglerine doğrudan entegre ediyoruz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 6: EU CARBON BORDER ADJUSTMENT MECHANISM (CBAM INDUSTRIAL SHIELD)**
+
+Protecting Türkiye's €100 Billion export volume to Europe through indigenous climate AI carbon verification!
+
+🏭 **Critical Industrial Imperatives:**
+• Automated Scope 1, 2, and 3 accounting across steel, cement, aluminum, fertilizer, and textile manufacturers.
+• Verifying recycled scrap ratios to eliminate prospective €80-€100 per ton border carbon tariffs at EU entry points.
+• Automated Digital Product Passports (DPP) and blockchain-backed lifecycle transparency.
+
+🛡️ **Atikova Industrial Shield:**
+We embed deep-tech carbon SaaS and IoT verification systems directly into supply chains of Türkiye's leading industrial conglomerates.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #CBAM #CarbonTax #EuropeanGreenDeal #Industry #Exports #SupplyChain`
+  },
+
+  {
+    id: 7,
+    category: 'ministry',
+    badge: 'İKLİM DEĞİŞİKLİĞİ BAŞKANLIĞI',
+    title_tr: 'İklim Değişikliği Başkanlığı & COP31 Türkiye Pavilyonu (Prof. Dr. Halil Hasar)',
+    title_en: 'Climate Change Presidency & COP31 Pavilion (Prof. Dr. Halil Hasar)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **7. HEDEF ALAN: İKLİM DEĞİŞİKLİĞİ BAŞKANLIĞI & COP31 TÜRKİYE PAVİLYONU**
+
+T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı İklim Değişikliği Başkanı Sayın Prof. Dr. Halil Hasar koordinasyonunda zirveye hazırlık!
+
+🏛️ **Milli Vizyon ve Pavilyon İnovasyon Vitrini:**
+• 198 ülke delegasyonunun ziyaret edeceği Türkiye Pavilyonu'nda ulusal sıfır atık ve döngüsel teknoloji liderliği.
+• Türkiye'nin Güncellenmiş NDC 3.0 hedefleri doğrultusunda doğrulanmış 500 kurumsal liderin dijital entegrasyonu.
+• Atikova KAG AI motoru ile mevzuat uyumluluğu tescillenen yerli girişimlerin uluslararası basına ve delegasyonlara sunumu.
+
+🚀 **Nasıl Yer Alırsınız?**
+Teknolojinizi hemen @COP31ZeroWasteBot üzerinden kaydedin, resmi değerlendirme sürecine dahil olun.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 7: CLIMATE CHANGE PRESIDENCY & COP31 TÜRKİYE PAVILION**
+
+Mobilizing national climate innovation under the leadership of Prof. Dr. Halil Hasar, Head of Climate Change Presidency!
+
+🏛️ **National Pavilion Innovation Showcase:**
+• Showcasing indigenous zero-waste and circular deep-tech solutions to visiting delegations from 198 member states.
+• Aligning 500 validated corporate enterprises with Türkiye's Updated NDC 3.0 Decarbonization Roadmap.
+• Highlighting KAG AI-verified climate startups before international ministers, COP secretariats, and global media.
+
+🚀 **Secure Your Representation:**
+Register your climate tech solution via @COP31ZeroWasteBot for priority review and pavilion cataloging.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #HalilHasar #ClimatePresidency #TurkeyPavilion #UNFCCC #NationalPride`
+  },
+
+  {
+    id: 8,
+    category: 'ministry',
+    badge: 'MİLLİ TEKNOLOJİ HAMLESİ',
+    title_tr: 'Sanayi ve Teknoloji Bakanlığı & 14 Teknopark İklim Kümelenmesi',
+    title_en: 'Ministry of Industry & 14 Technopark Climate Clusters',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **8. HEDEF ALAN: SANAYİ BAKANLIĞI & 14 TEKNOPARK İKLİM KÜMELENMESİ**
+
+Milli Teknoloji Hamlesi doğrultusunda Sn. Hanefi Alper ve Sn. Alper Güzel koordinasyonundaki Ar-Ge ekosistemi sanayiyle buluşuyor!
+
+⚙️ **Teknopark Gücü ve Sanayi Entegrasyonu:**
+• 33 ilimizdeki 14 Teknopark İklim Kümelenmesinde (İTÜ Çekirdek, ODTÜ Teknokent, Yıldız, Bilişim Vadisi) üretilen patentlerin ticarileşmesi.
+• 100 büyük holdingin (Koç, Sabancı, Eczacıbaşı, Şişecam) atık ve enerji problemlerine yerli derin teknoloji çözümleri.
+• Erken aşama prototiplerin fabrika sahalarında pilot test ve uzun vadeli ticari alım sözleşmelerine (Off-take) dönüştürülmesi.
+
+📑 **Resmi İşbirliği Dosyası:**
+Bakanlık ve Teknopark yetkililerine yönelik hazırlanan özel işbirliği protokolünü web sitemizden inceleyebilirsiniz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 8: MINISTRY OF INDUSTRY & 14 TECHNOPARK CLIMATE CLUSTERS**
+
+Accelerating the "National Technology Initiative" (Milli Teknoloji Hamlesi) by bridging deep-tech labs directly to heavy industries!
+
+⚙️ **Technopark Power & Industrial Deployment:**
+• Commercializing indigenous patents developed across 14 technoparks (İTÜ Çekirdek, ODTÜ Teknokent, Informatics Valley).
+• Direct corporate matching with procurement chiefs across 100 manufacturing holdings (Koç, Sabancı, Eczacıbaşı).
+• Transitioning laboratory prototypes into real-world factory pilots backed by long-term off-take commercial contracts.
+
+📑 **Executive Dossier Access:**
+Review our dedicated institutional ministry protocol on our online web platform.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #MilliTeknolojiHamlesi #SanayiBakanligi #Teknopark #ITU #ODTU #DeepTech`
+  },
+
+  {
+    id: 9,
+    category: 'investment',
+    badge: 'DUBAİ & MENA YEŞİL FONLARI',
+    title_tr: 'Atikova Dubai (BAE) Yeşil Risk Sermayesi Köprüsü (MENA Sermayesi)',
+    title_en: 'Atikova Dubai (UAE) Green VC Bridge (MENA Climate Capital)',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **9. HEDEF ALAN: ATİKOVA DUBAİ (BAE) YEŞİL RİSK SERMAYESİ KÖPRÜSÜ**
+
+COP28 mirasını COP31 Türkiye ile birleştiren uluslararası yeşil finansman koridoru!
+
+🌍 **Körfez Yatırımcıları ve Yeşil Fonlar:**
+• Dubai (BAE), Abu Dabi ve Suudi Arabistan merkezli yeşil risk sermayesi fonlarının (VC) Türk girişimlerine erişimi.
+• Tohum (Seed) ve Seri A/B turlarında 1M$ ile 15M$ arası uluslararası büyüme yatırımları.
+• Dubai Uluslararası Finans Merkezi (DIFC) ve Abu Dabi Küresel Pazarı (ADGM) üzerinden yeşil tahvil ve sukuk ihracı desteği.
+
+💎 **Küresel Ölçeklenme:**
+Atikova Dubai Hub, girişiminizin Pitch Deck'ini ve finansal modelini uluslararası yatırım standartlarına uygun olarak hazırlar.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 9: ATIKOVA DUBAI (UAE) GREEN VC BRIDGE (MENA CLIMATE CAPITAL)**
+
+Connecting the legacy of COP28 UAE with COP31 Türkiye through a dedicated cross-border climate finance corridor!
+
+🌍 **Gulf Green Capital & Sovereign Access:**
+• Direct matchmaking with sovereign wealth funds and climate VCs based in Dubai (UAE), Abu Dhabi, and Riyadh.
+• Seed, Series A, and Series B funding tickets ranging from $1M to $15M for scalable zero-waste technologies.
+• Structuring green bond and sustainability-linked financing through DIFC and ADGM frameworks.
+
+💎 **Global Scale-Up:**
+Atikova's Dubai Hub optimizes your pitch deck and investment memorandums for international institutional allocators.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #DubaiHub #UAE #VentureCapital #ClimateFinance #MENA #GreenFunds #COP28`
+  },
+
+  {
+    id: 10,
+    category: 'municipal',
+    badge: 'AKILLI ŞEHİR & BELEDİYELER',
+    title_tr: 'Akıllı Şehirler, Belediyeler & IoT Atık Toplama Filoları',
+    title_en: 'Smart Cities, Municipalities & IoT Waste Fleet Optimization',
+    text: `🇹🇷 **TÜRKÇE | COP31 SIFIR ATIK & İKLİM TEKNOLOJİLERİ DUYURUSU**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **10. HEDEF ALAN: AKILLI ŞEHİRLER, BELEDİYELER & IOT ATIK TOPLAMA FİLOLARI**
+
+Kentlerin sıfır atık hedeflerine ulaşması ve yakıt maliyetlerini düşürmesi için ileri teknoloji filo çözümleri!
+
+🏙️ **Belediyeler İçin Yüksek Verimlilik:**
+• Konteynerlere takılan ultrasonik doluluk sensörleri ve yapay zeka rota optimizasyonu ile çöp toplama yakıtında %38 net tasarruf.
+• Sokak bazlı atık haritalama ve Türkiye Çevre Ajansı (TÜÇA) Depozito İade Sistemi (DİS) entegrasyonu.
+• Karbon emisyonlarında yıllık binlerce ton azalma ve temiz kent raporlaması.
+
+🚛 **Teknoloji Geliştiricileri İçin Çağrı:**
+IoT donanımı, telematik ve mobil yazılım geliştiren ekipleri büyükşehir ve ilçe belediyeleriyle pilot anlaşmalar için bir araya getiriyoruz.
+
+─────────────────────
+🇬🇧 **ENGLISH | COP31 ZERO WASTE & CLIMATE TECH ANNOUNCEMENT**
+━━━━━━━━━━━━━━━━━━━━━
+📢 **PILLAR 10: SMART CITIES, MUNICIPALITIES & IOT WASTE FLEET OPTIMIZATION**
+
+Next-generation fleet telematics and ultrasonic IoT routing empowering metropolitan cities toward true zero waste!
+
+🏙️ **Municipal ROI & Citywide Impact:**
+• Ultrasonic bin fill-level sensors coupled with AI dynamic routing, slashing municipal diesel consumption by 38%.
+• Street-by-street waste density heatmapping and integration with the National Deposit Return System (DİS / TÜÇA).
+• Verified municipal Scope 1 reduction metrics suitable for international city climate reporting (C40, ICLEI).
+
+🚛 **Call for Telematics Innovators:**
+We connect IoT hardware providers and smart waste SaaS founders directly with municipal public utility directors.
+
+━━━━━━━━━━━━━━━━━━━━━
+🤖 **Hızlı Başvuru / Instant Application:** @COP31ZeroWasteBot
+📲 **WhatsApp Direkt / Direct WhatsApp:** +12085033653
+🌐 **Resmi Portal / Official Portal:** https://cop31.atovika.com
+📧 **E-posta / Official Email:** startup@cop31.tr
+━━━━━━━━━━━━━━━━━━━━━
+#COP31 #SmartCities #IoT #MunicipalWaste #FleetOptimization #Sustainability #TUCA`
+  }
+];
+
+if (typeof module !== 'undefined') {
+  module.exports = { PILLARS_10 };
+}
+
+    
+    // ==========================================
+    // 10 BILINGUAL PILLARS & AUTOMATED SCHEDULER
+    // ==========================================
+    window.PILLARS_10 = PILLARS_10;
+    const TEN_PILLARS_DATA = [
+      { id: 1, cat: 'grant', badge: 'TÜBİTAK 1831', title_fa: 'پروژه ۴۵۰M$ صنعت سبز و بانک جهانی', title_tr: 'TÜBİTAK 1831 Yeşil Sanayi Destek Projesi ($450M Fon)' },
+      { id: 2, cat: 'grant', badge: 'KOSGEB', title_fa: 'پکیج ۱۴M لیر تسهیلات تحول سبز KOSGEB', title_tr: 'KOSGEB Yeşil Sanayi Destek Paketi (14M TL Destek)' },
+      { id: 3, cat: 'grant', badge: 'TÜBİTAK BİGG', title_fa: 'گرنت ۹۰۰K لیر بلاعوض رشد سبز', title_tr: 'TÜBİTAK 1512 BİGG Yeşil Büyüme (900K TL Hibe)' },
+      { id: 4, cat: 'sponsorship', badge: 'اسپانسری بانک', title_fa: 'صندوق‌های اسپانسری سبز بانک‌ها ($5M+)', title_tr: 'Bankalar Yeşil Sponsorluk Havuzu ($5M+ Bütçe)' },
+      { id: 5, cat: 'compliance', badge: 'هتل ۵ ستاره', title_fa: 'ماده ۱۵ قانون پسماند صفر (کمپوست الزامی)', title_tr: '5 Yıldızlı Otellerde Madde 15 (Yerinde Kompost)' },
+      { id: 6, cat: 'compliance', badge: 'CBAM اروپا', title_fa: 'سپر دفاعی مالیات کربن مرزی اروپا (EU CBAM)', title_tr: 'AB CBAM Karbon Vergisi Savunma Kalkanı' },
+      { id: 7, cat: 'ministry', badge: 'ریاست اقلیم', title_fa: 'پاویون ملی COP31 (پروفسور خلیل هاسار)', title_tr: 'İklim Değişikliği Başkanlığı (Prof. Dr. Halil Hasar)' },
+      { id: 8, cat: 'ministry', badge: 'وزارت صنعت', title_fa: 'طرح ملی فناوری و ۱۴ خوشه تکنوپارک', title_tr: 'Sanayi Bakanlığı & 14 Teknopark İklim Kümelenmesi' },
+      { id: 9, cat: 'investment', badge: 'هاب دبی', title_fa: 'پل سرمایه‌گذاری خطرپذیر سبز دبی و خاورمیانه', title_tr: 'Atikova Dubai (BAE) Yeşil Risk Sermayesi Köprüsü' },
+      { id: 10, cat: 'municipal', badge: 'شهرداری IoT', title_fa: 'شهرهای هوشمند و ناوگان بهینه‌سازی IoT', title_tr: 'Akıllı Şehirler, Belediyeler & IoT Filoları' }
+    ];
+
+    function renderPillarsDashboard() {
+      const container = document.getElementById('tenPillarsContainer');
+      if (!container) return;
+
+      container.innerHTML = TEN_PILLARS_DATA.map(p => `
+        <div class="bg-slate-950/80 border border-slate-800 hover:border-sky-500/60 p-3.5 rounded-2xl flex flex-col justify-between space-y-2.5 transition group">
+          <div>
+            <div class="flex items-center justify-between text-[10px] mb-1.5">
+              <span class="px-2 py-0.5 rounded font-mono font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">حوزه #${p.id}</span>
+              <span class="text-slate-500 font-mono text-[9px]">${p.badge}</span>
+            </div>
+            <h4 class="text-xs font-black text-white group-hover:text-sky-300 transition line-clamp-2 leading-snug">
+              ${p.title_fa}
+            </h4>
+            <div class="text-[10px] text-slate-400 font-mono mt-1 line-clamp-1" dir="ltr">
+              ${p.title_tr}
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-1.5 pt-2 border-t border-slate-800/80 text-[10px]">
+            <button type="button" onclick="loadPillarToForm(${p.id})" class="btn bg-slate-900 hover:bg-slate-800 text-sky-400 py-1.5 px-1 rounded-lg font-bold text-center border border-slate-800">
+              👁️ پیش‌نمایش
+            </button>
+            <button type="button" onclick="dispatchPillarLive(${p.id})" class="btn bg-emerald-600 hover:bg-emerald-500 text-slate-950 py-1.5 px-1 rounded-lg font-black text-center shadow">
+              🚀 ارسال به کانال
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadPillarToForm(pillarId) {
+      if (typeof PILLARS_10 === 'undefined' && typeof window.PILLARS_10 === 'undefined') {
+        // Fallback to internal generator
+        generateAITelegramPost(pillarId <= 3 ? 'grants' : (pillarId === 7 ? 'halil_hasar' : (pillarId === 8 ? 'sanayi' : 'grants')));
+        return;
+      }
+      const pillars = (typeof PILLARS_10 !== 'undefined') ? PILLARS_10 : window.PILLARS_10;
+      const pillar = pillars.find(p => p.id === pillarId) || pillars[0];
+
+      const titleEl = document.getElementById('teleBroadcastTitle');
+      const bodyEl = document.getElementById('teleBroadcastBody');
+      const catEl = document.getElementById('teleBroadcastCategory');
+
+      if (titleEl) titleEl.value = pillar.title_tr;
+      if (bodyEl) bodyEl.value = pillar.text;
+      if (catEl) catEl.value = pillar.category;
+
+      const previewBox = document.getElementById('telePostPreviewBox');
+      if (previewBox) {
+        previewBox.innerHTML = `
+          <div class="p-2 bg-sky-500/20 border border-sky-500/30 rounded-xl mb-2 text-xs text-sky-300 font-bold flex items-center justify-between">
+            <span>🇹🇷 + 🇬🇧 پیش‌نمایش دوزبانه حوزه #${pillar.id}: ${pillar.title_tr}</span>
+            <span class="text-[10px] font-mono">Bilingual (TR/EN)</span>
+          </div>
+          <div class="font-mono text-xs text-slate-200 whitespace-pre-line leading-relaxed max-h-80 overflow-y-auto p-2 bg-slate-900 rounded-xl" dir="ltr">
+            ${pillar.text}
+          </div>
+        `;
+      }
+      showAppToast(`پیش‌نمایش دوزبانه حوزه #${pillar.id} با موفقیت بارگذاری شد! ✨`);
+    }
+
+    function dispatchPillarLive(pillarId) {
+      loadPillarToForm(pillarId);
+      testBroadcastLiveToTelegram();
     }
 
 
@@ -11923,6 +12522,7 @@ ${body}`;
       renderContent();
       renderAdminDbTable();
       renderStartupsShowcase();
+    renderPillarsDashboard();
       if (typeof renderHfModelsCatalog === 'function') renderHfModelsCatalog(currentHfModelCategory, currentHfModelSearch);
       if (typeof populateIdeaTargetLeads === 'function') populateIdeaTargetLeads();
       if (typeof updateUserAuthHeader === 'function') updateUserAuthHeader();
